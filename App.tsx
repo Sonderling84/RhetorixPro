@@ -420,27 +420,27 @@ const HomeMenu: React.FC = () => {
       {/* EINSPRECHEN — Hauptfeature */}
       <div
         onClick={() => navigate('/einsprechen')}
-        className="w-full max-w-2xl bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 p-6 rounded-[2.5rem] flex flex-col sm:flex-row items-center justify-between gap-5 cursor-pointer hover:scale-[1.02] transition-all group shadow-xl text-white"
+        className="w-full max-w-2xl bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-500 p-6 rounded-[2.5rem] flex flex-col sm:flex-row items-center justify-between gap-5 cursor-pointer hover:scale-[1.02] transition-all group shadow-xl text-black"
       >
         <div className="flex items-center gap-5">
-          <div className="w-14 h-14 bg-white/20 backdrop-filter backdrop-blur-md text-white rounded-[1.25rem] flex items-center justify-center shrink-0 shadow-lg group-hover:rotate-12 transition-transform">
+          <div className="w-14 h-14 bg-black/20 backdrop-filter backdrop-blur-md text-black rounded-[1.25rem] flex items-center justify-center shrink-0 shadow-lg group-hover:rotate-12 transition-transform">
             <i className="fas fa-microphone-lines text-2xl"></i>
           </div>
           <div>
             <div className="flex items-center gap-2 mb-1">
-              <span className="bg-white/35 text-white text-[8px] font-black uppercase px-2 py-0.5 rounded-full tracking-widest">DIKTAT</span>
-              <p className="text-[10px] font-bold text-cyan-100 uppercase tracking-widest">Sprache → Text</p>
+              <span className="bg-black/25 text-black text-[8px] font-black uppercase px-2 py-0.5 rounded-full tracking-widest">DIKTAT</span>
+              <p className="text-[10px] font-bold text-black/70 uppercase tracking-widest">Sprache → Text</p>
             </div>
             <h3 className="text-xl font-black uppercase italic tracking-tight">Einsprechen</h3>
-            <p className="text-xs text-cyan-50 font-medium">Text per Stimme diktieren — sofort transkribiert.</p>
+            <p className="text-xs text-black/70 font-medium">Text per Stimme diktieren — sofort transkribiert.</p>
           </div>
         </div>
-        <div className="flex items-center gap-3 bg-white/10 px-4 py-2.5 rounded-2xl border border-white/10 shrink-0">
+        <div className="flex items-center gap-3 bg-black/10 px-4 py-2.5 rounded-2xl border border-black/10 shrink-0">
           <div className="text-right">
-            <p className="text-[9px] font-extrabold uppercase text-cyan-100 tracking-wider">Ctrl+Space</p>
+            <p className="text-[9px] font-extrabold uppercase text-black/70 tracking-wider">Ctrl+Space</p>
             <p className="text-[11px] font-black italic tracking-tighter">Global</p>
           </div>
-          <i className="fas fa-chevron-right text-white/50 group-hover:translate-x-1 transition-transform"></i>
+          <i className="fas fa-chevron-right text-black/50 group-hover:translate-x-1 transition-transform"></i>
         </div>
       </div>
 
