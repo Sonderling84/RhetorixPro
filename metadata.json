@@ -1,0 +1,8 @@
+{
+  "name": "Rhetorix Pro",
+  "description": "A professional AI rhetoric trainer and brainstorming companion powered by Gemini Live. Practice your speech, receive detailed analysis, and export your insights.",
+  "requestFramePermissions": [
+    "microphone",
+    "camera"
+  ]
+}

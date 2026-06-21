@@ -1,0 +1,7 @@
+Icons needed:
+- icon.png (512x512 for app)
+- icon.icns (macOS)
+- icon.ico (Windows)
+- tray-icon.png (22x22 or Template@2x for macOS tray)
+
+Generate with: electron-icon-builder or sips (macOS)

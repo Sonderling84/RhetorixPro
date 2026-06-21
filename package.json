@@ -1,0 +1,89 @@
+{
+  "name": "rhetorix-pro",
+  "private": true,
+  "version": "1.0.0",
+  "description": "KI-Rhetorik-Trainerin mit Diktat-Funktion — VIBELINK",
+  "main": "main.js",
+  "scripts": {
+    "dev": "tsx server.ts",
+    "build": "vite build && npm run compile-server",
+    "compile-server": "node build-server.js",
+    "start": "electron .",
+    "pack": "npm run build && electron-builder --dir",
+    "dist": "npm run build && electron-builder",
+    "lint": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@google/genai": "^1.35.0",
+    "cookie-parser": "^1.4.7",
+    "express": "^5.2.1",
+    "googleapis": "^171.4.0",
+    "jspdf": "^4.2.1",
+    "motion": "^12.38.0",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "react-markdown": "^10.1.0",
+    "react-router-dom": "^7.12.0",
+    "recharts": "^3.8.1"
+  },
+  "devDependencies": {
+    "@fortawesome/fontawesome-free": "^6.7.2",
+    "@tailwindcss/typography": "^0.5.20",
+    "@types/node": "^22.14.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "autoprefixer": "^10.5.0",
+    "electron": "^33.4.11",
+    "electron-builder": "^25.1.8",
+    "esbuild": "^0.24.0",
+    "postcss": "^8.5.15",
+    "tailwindcss": "^3.4.19",
+    "tsx": "^4.21.0",
+    "typescript": "~5.8.2",
+    "vite": "^6.2.0"
+  },
+  "build": {
+    "appId": "com.vibelink.rhetorix-pro",
+    "productName": "Rhetorix Pro",
+    "directories": {
+      "output": "dist_electron"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "hermes-bootstrap.js",
+      "license-manager.js",
+      "server-compiled.js",
+      "dist/**",
+      "assets/**",
+      "package.json"
+    ],
+    "mac": {
+      "target": [
+        "dir"
+      ],
+      "category": "public.app-category.education",
+      "icon": "assets/icon.icns"
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "assets/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    },
+    "asar": true,
+    "extraResources": []
+  },
+  "allowScripts": {
+    "core-js@3.49.0": true,
+    "electron@33.4.11": true,
+    "esbuild@0.24.2": true,
+    "esbuild@0.27.4": true,
+    "esbuild@0.25.12": true,
+    "fsevents@2.3.3": true,
+    "protobufjs@7.5.4": true
+  }
+}

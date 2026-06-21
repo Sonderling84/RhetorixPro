@@ -1,0 +1,10 @@
+node_modules/
+dist/
+dist_electron/
+server-compiled.js
+*.log
+.env
+.DS_Store
+/tmp/
+migrated_prompt_history/
+package-lock.json

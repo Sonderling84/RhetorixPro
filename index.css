@@ -1,0 +1,173 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import '@fortawesome/fontawesome-free/css/all.min.css';
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior-y: contain;
+  background-color: #f8fafc;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.pokker-gradient {
+  background: linear-gradient(135deg, #3b82f6 0%, #10b981 100%);
+}
+
+.pokker-shadow {
+  box-shadow: 0 20px 50px -12px rgba(59, 130, 246, 0.3);
+}
+
+.pokker-glow {
+  filter: drop-shadow(0 0 15px rgba(245, 158, 11, 0.5));
+}
+
+@keyframes floating {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(2deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+.animate-float {
+  animation: floating 4s ease-in-out infinite;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.1);
+  border-radius: 10px;
+}
+
+/* Dark Mode */
+html.dark body {
+  background-color: #020617 !important;
+  color: #f1f5f9 !important;
+}
+
+html.dark .bg-white,
+html.dark .bg-slate-50,
+html.dark .bg-gray-50,
+html.dark .bg-blue-50,
+html.dark .bg-orange-50,
+html.dark .bg-emerald-50,
+html.dark .bg-purple-50 {
+  background-color: #0f172a !important;
+  border-color: #1e293b !important;
+}
+
+html.dark .text-gray-900,
+html.dark .text-gray-800,
+html.dark .text-gray-600,
+html.dark .text-gray-400,
+html.dark .text-gray-500,
+html.dark .text-gray-300 {
+  color: #94a3b8 !important;
+}
+
+html.dark .text-white {
+  color: #f8fafc !important;
+}
+
+html.dark .border-gray-100,
+html.dark .border-gray-200 {
+  border-color: #1e293b !important;
+}
+
+html.dark .glass {
+  background: rgba(15, 23, 42, 0.9) !important;
+  border-color: #1e293b !important;
+}
+
+html.dark input,
+html.dark textarea {
+  background-color: #020617 !important;
+  color: #f1f5f9 !important;
+  border: 1px solid #1e293b !important;
+}
+
+html.dark .pokker-gradient {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%) !important;
+  color: #3b82f6 !important;
+  border: 1px solid #334155 !important;
+}
+
+html.dark button {
+  background-color: #1e293b !important;
+  color: #f1f5f9 !important;
+  border: 1px solid #334155 !important;
+}
+
+html.dark button i,
+html.dark button span {
+  color: #f1f5f9 !important;
+}
+
+html.dark button.bg-blue-600,
+html.dark .bg-blue-600 {
+  background-color: #3b82f6 !important;
+  color: #ffffff !important;
+}
+
+html.dark button.bg-blue-600 i,
+html.dark button.bg-blue-600 span {
+  color: #ffffff !important;
+}
+
+html.dark .text-blue-600 {
+  color: #3b82f6 !important;
+}
+
+html.dark .bg-red-500 {
+  background-color: #ff0000 !important;
+  color: #ffffff !important;
+}
+
+html.dark .text-black {
+  color: #000000 !important;
+}
+
+/* Pixel-Font Utilities */
+@layer utilities {
+  .font-pixel {
+    font-family: 'Press Start 2P', cursive;
+  }
+
+  .text-pixel {
+    font-family: 'Press Start 2P', cursive;
+    text-shadow: 2px 2px 0px #000;
+  }
+
+  .pixel-button {
+    box-shadow: 4px 4px 0px #000;
+    border: 2px solid #000;
+  }
+
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+  }
+
+  .animate-shake {
+    animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+  }
+}
+
+/* Electron Titlebar Offset (macOS hiddenInset) */
+.electron-drag {
+  -webkit-app-region: drag;
+}
+
+.electron-no-drag {
+  -webkit-app-region: no-drag;
+}
