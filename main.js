@@ -1,4 +1,5 @@
-const { app, BrowserWindow, Tray, Menu, ipcMain, dialog } = require('electron');
+const { app, BrowserWindow, Tray, Menu, ipcMain, dialog, session, systemPreferences, globalShortcut, clipboard } = require('electron');
+const { exec } = require('child_process');
 const path = require('path');
 const fs = require('fs');
 
@@ -16,6 +17,10 @@ const { bootstrap } = require('./hermes-bootstrap');
 const { getLicenseStatus, activateLicense, deactivateLicense, getFeatures, initTrial } = require('./license-manager');
 log('Modules loaded');
 
+// Chromium Web Speech API aktivieren (Electron hat keinen eingebauten Google API-Key)
+app.commandLine.appendSwitch('enable-speech-dispatcher');
+app.commandLine.appendSwitch('enable-features', 'WebSpeechAPI');
+
 // Single Instance Lock
 const gotTheLock = app.requestSingleInstanceLock();
 if (!gotTheLock) {
@@ -23,13 +28,22 @@ if (!gotTheLock) {
   process.exit(0);
 }
 
-const APP_VERSION = '1.0.0';
+const APP_VERSION = '1.0.1';
+
+// Autostart beim Login aktivieren
+app.setLoginItemSettings({
+  openAtLogin: true,
+  openAsHidden: true,
+  path: app.getPath('exe'),
+});
 const SERVER_PORT = 3847;
 const isDev = !app.isPackaged;
 
 let mainWindow = null;
+let dictationWindow = null;
 let tray = null;
 let expressServer = null;
+let previousFrontApp = null; // Ziel-App für paste merken
 
 function createWindow() {
   const isMac = process.platform === 'darwin';
@@ -54,8 +68,20 @@ function createWindow() {
 
   mainWindow.loadURL(`http://localhost:${SERVER_PORT}`);
 
+  // Frontend console.log/error/warn → Debug-Log-File umleiten
+  mainWindow.webContents.on('console-message', (_event, level, message, line, sourceId) => {
+    const prefix = ['LOG', 'WARN', 'ERR'][level] || 'LOG';
+    log(`[Renderer/${prefix}] ${message}`);
+  });
+
   mainWindow.once('ready-to-show', () => {
-    mainWindow.show();
+    // Wenn mit --hidden gestartet (Autostart), im Tray bleiben
+    const startHidden = process.argv.includes('--hidden') || app.getLoginItemSettings().wasOpenedAsHidden;
+    if (!startHidden) {
+      mainWindow.show();
+    } else {
+      log('Gestartet im Hintergrund (Tray-Modus)');
+    }
     if (isDev) mainWindow.webContents.openDevTools();
   });
 
@@ -66,16 +92,84 @@ function createWindow() {
   });
 }
 
+function createDictationWindow() {
+  const isMac = process.platform === 'darwin';
+  const { screen } = require('electron');
+  const primaryDisplay = screen.getPrimaryDisplay();
+  const { width: screenW, height: screenH } = primaryDisplay.workAreaSize;
+  const overlayW = 520;
+  const overlayH = 280;
+
+  dictationWindow = new BrowserWindow({
+    width: overlayW,
+    height: overlayH,
+    x: Math.round((screenW - overlayW) / 2),
+    y: screenH - overlayH - 40, // 40px vom unteren Rand
+    transparent: true,
+    frame: false,
+    hasShadow: false,
+    alwaysOnTop: true,
+    skipTaskbar: true,
+    webPreferences: {
+      preload: path.join(__dirname, 'preload.js'),
+      contextIsolation: true,
+      nodeIntegration: false,
+      sandbox: false,
+      backgroundThrottling: false,
+    },
+    show: false,
+    resizable: false,
+  });
+
+  dictationWindow.setVisibleOnAllWorkspaces(true, { visibleOnFullScreen: true });
+  dictationWindow.setAlwaysOnTop(true, 'screen-saver', 1); // Höchste Ebene
+
+  // macOS: Panel-Level damit es über allen Apps schwebt
+  if (process.platform === 'darwin') {
+    dictationWindow.setWindowButtonVisibility(false);
+  }
+
+  // Lade eine spezielle Route für das Overlay
+  dictationWindow.loadURL(`http://localhost:${SERVER_PORT}/#/dictation-overlay`);
+
+  dictationWindow.on('blur', () => {
+    // Optional: dictationWindow.hide() wenn der Nutzer woanders hinklickt.
+    // Machen wir vorerst nicht, damit das Fenster beim Nachdenken offen bleibt.
+  });
+  
+  dictationWindow.on('close', (e) => {
+    if (app.isQuitting) return;
+    e.preventDefault();
+    dictationWindow.hide();
+  });
+}
+
 function createTray() {
-  const iconPath = path.join(__dirname, 'assets', 'tray-icon.png');
+  // macOS Template Image: wird automatisch für Light/Dark Mode eingefärbt
+  const iconPath = path.join(__dirname, 'assets', 'tray-iconTemplate.png');
   try {
-    tray = new Tray(iconPath);
-  } catch {
+    const { nativeImage } = require('electron');
+    const img = nativeImage.createFromPath(iconPath);
+    img.setTemplateImage(true);
+    tray = new Tray(img);
+  } catch (err) {
+    log('[Tray] Icon nicht gefunden oder Fehler: ' + err.message);
     return;
   }
 
   const contextMenu = Menu.buildFromTemplate([
     { label: `Rhetorix Pro v${APP_VERSION}`, enabled: false },
+    { type: 'separator' },
+    {
+      label: 'Diktat starten',
+      accelerator: 'Shift+Space',
+      click: () => {
+        if (dictationWindow) {
+          dictationWindow.showInactive();
+          dictationWindow.webContents.send('global-dictation-toggle');
+        }
+      },
+    },
     { type: 'separator' },
     { label: 'Fenster zeigen', click: () => mainWindow?.show() },
     { type: 'separator' },
@@ -88,9 +182,61 @@ function createTray() {
     },
   ]);
 
-  tray.setToolTip('Rhetorix Pro');
+  tray.setToolTip('Rhetorix Pro — Shift+Space für Diktat');
   tray.setContextMenu(contextMenu);
   tray.on('click', () => mainWindow?.show());
+}
+
+// Lazy Gemini Key: Holt den Key aus Hermes falls nicht im process.env
+async function ensureGeminiKey() {
+  if (process.env.GEMINI_API_KEY) return process.env.GEMINI_API_KEY;
+  try {
+    log('[Hermes] Key nicht im Speicher, hole on-demand...');
+    const { getHermesToken, getCredential } = require('./hermes-bootstrap');
+    const token = await getHermesToken();
+    const key = await getCredential(token, 'Google_AI', 'api_key');
+    process.env.GEMINI_API_KEY = key;
+    log('[Hermes] Gemini Key nachgeladen!');
+    return key;
+  } catch (err) {
+    log('[Hermes] Key nachladen fehlgeschlagen: ' + err.message);
+    return null;
+  }
+}
+
+// Lazy ElevenLabs Key: Holt den Key aus Hermes falls nicht im process.env
+async function ensureElevenLabsKey() {
+  if (process.env.ELEVENLABS_API_KEY) return process.env.ELEVENLABS_API_KEY;
+  try {
+    log('[Hermes] ElevenLabs Key nicht im Speicher, hole on-demand...');
+    const { getHermesToken, getCredential } = require('./hermes-bootstrap');
+    const token = await getHermesToken();
+    const key = await getCredential(token, 'ElevenLabs', 'api_key');
+    process.env.ELEVENLABS_API_KEY = key;
+    log('[Hermes] ElevenLabs Key nachgeladen!');
+    return key;
+  } catch (err) {
+    log('[Hermes] ElevenLabs Key nachladen fehlgeschlagen: ' + err.message);
+    return null;
+  }
+}
+
+// Retry-Helper für Gemini API (503/429)
+async function geminiRequestWithRetry(url, options, maxRetries = 3) {
+  for (let attempt = 0; attempt <= maxRetries; attempt++) {
+    const response = await fetch(url, options);
+    const data = await response.json();
+
+    if (data.error && (data.error.code === 503 || data.error.code === 429)) {
+      if (attempt < maxRetries) {
+        const waitMs = Math.min(2000 * Math.pow(2, attempt), 10000); // 2s, 4s, 8s
+        log(`[Gemini] ${data.error.code} — Retry ${attempt + 1}/${maxRetries} in ${waitMs}ms`);
+        await new Promise(r => setTimeout(r, waitMs));
+        continue;
+      }
+    }
+    return data;
+  }
 }
 
 function startServer() {
@@ -100,20 +246,229 @@ function startServer() {
       const cookieParser = require('cookie-parser');
 
       const server = express();
-      server.use(express.json());
+      server.use(express.json({ limit: '50mb' }));
       server.use(cookieParser());
 
       // Gemini API Key Endpoint
-      server.get('/api/gemini-key', (req, res) => {
-        const key = process.env.GEMINI_API_KEY;
-        if (!key) return res.status(500).json({ error: 'GEMINI_API_KEY not configured' });
+      server.get('/api/gemini-key', async (req, res) => {
+        const key = await ensureGeminiKey();
+        if (!key) return res.status(500).json({ error: 'GEMINI_API_KEY not configured — Hermes nicht erreichbar' });
         res.json({ key });
+      });
+
+      // ElevenLabs Key Endpoint
+      server.get('/api/elevenlabs-key', async (req, res) => {
+        const key = await ensureElevenLabsKey();
+        if (!key) return res.status(500).json({ error: 'ELEVENLABS_API_KEY nicht konfiguriert' });
+        res.json({ key });
+      });
+
+      // ElevenLabs Text-to-Speech Proxy
+      server.post('/api/tts', async (req, res) => {
+        try {
+          const { text, voiceId } = req.body;
+          if (!text) return res.status(400).json({ error: 'Kein Text angegeben' });
+
+          const key = await ensureElevenLabsKey();
+          if (!key) return res.status(500).json({ error: 'ElevenLabs Key nicht verfügbar' });
+
+          // Default Voice: Nicole (deutsch, weiblich, natürlich)
+          const voice = voiceId || 'piTKgcLEGmPE4e6mEKli';
+          const model = 'eleven_flash_v2_5';
+
+          log(`[TTS] ElevenLabs Request: ${text.substring(0, 60)}... (Voice: ${voice})`);
+
+          const response = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${voice}`, {
+            method: 'POST',
+            headers: {
+              'xi-api-key': key,
+              'Content-Type': 'application/json',
+              'Accept': 'audio/mpeg',
+            },
+            body: JSON.stringify({
+              text,
+              model_id: model,
+              voice_settings: { stability: 0.5, similarity_boost: 0.75, style: 0.0 }
+            }),
+          });
+
+          if (!response.ok) {
+            const errText = await response.text();
+            log(`[TTS] ElevenLabs Fehler ${response.status}: ${errText.substring(0, 200)}`);
+            return res.status(response.status).json({ error: `ElevenLabs ${response.status}: ${errText.substring(0, 100)}` });
+          }
+
+          const audioBuffer = await response.arrayBuffer();
+          const base64 = Buffer.from(audioBuffer).toString('base64');
+          log(`[TTS] ElevenLabs OK: ${Math.round(audioBuffer.byteLength / 1024)} KB Audio`);
+          res.json({ audio: base64, mimeType: 'audio/mpeg' });
+        } catch (err) {
+          log('[TTS] Fehler: ' + err.message);
+          res.status(500).json({ error: err.message });
+        }
+      });
+
+      // ElevenLabs Voices auflisten
+      server.get('/api/tts/voices', async (req, res) => {
+        try {
+          const key = await ensureElevenLabsKey();
+          if (!key) return res.status(500).json({ error: 'ElevenLabs Key nicht verfügbar' });
+
+          const response = await fetch('https://api.elevenlabs.io/v1/voices', {
+            headers: { 'xi-api-key': key },
+          });
+          const data = await response.json();
+          // Nur relevante Felder zurückgeben
+          const voices = (data.voices || []).map(v => ({
+            voice_id: v.voice_id,
+            name: v.name,
+            labels: v.labels,
+            preview_url: v.preview_url,
+          }));
+          res.json({ voices });
+        } catch (err) {
+          res.status(500).json({ error: err.message });
+        }
+      });
+
+      // Text-Optimierung via Gemini
+      server.post('/api/optimize-text', async (req, res) => {
+        try {
+          const { text } = req.body;
+          if (!text) return res.status(400).json({ error: 'Kein Text angegeben' });
+
+          const apiKey = await ensureGeminiKey();
+          if (!apiKey) return res.status(500).json({ error: 'Gemini Key nicht verfügbar' });
+
+          const { GoogleGenAI } = require('@google/genai');
+          const ai = new GoogleGenAI({ apiKey });
+          const result = await ai.models.generateContent({
+            model: 'gemini-2.0-flash',
+            contents: `Du bist ein professioneller Textoptimierer. Verbessere den folgenden diktierten Text:
+- Korrigiere Grammatik und Rechtschreibung
+- Verbessere Ausdruck und Stil
+- Mache den Text flüssiger und professioneller
+- Behalte die Ich-Perspektive und den Inhalt 1:1 bei
+- Antworte NUR mit dem optimierten Text, ohne Erklärung
+
+Text: ${text}`,
+          });
+
+          res.json({ text: result.text || text });
+        } catch (err) {
+          log('[Optimize] Fehler: ' + err.message);
+          res.status(500).json({ error: err.message });
+        }
       });
 
       // Lizenz Endpoint
       server.post('/api/license/validate', async (req, res) => {
         const status = getLicenseStatus();
         res.json({ valid: !status.expired, plan: status.plan, daysLeft: status.daysLeft });
+      });
+
+      // Lokale Whisper-Transkription via whisper-server
+      const os = require('os');
+      const crypto = require('crypto');
+      const { execFile, spawn } = require('child_process');
+
+      // Ein Whisper-Server mit ggml-base (schnell genug für Live + Finale)
+      const WHISPER_SERVER_PORT = 8178;
+      const WHISPER_MODEL = '/opt/homebrew/share/whisper-cpp/models/ggml-base.bin';
+
+      async function ensureWhisperServer() {
+        try {
+          const res = await fetch(`http://127.0.0.1:${WHISPER_SERVER_PORT}/health`);
+          if (res.ok) return true;
+        } catch {}
+        log('[Whisper] Server nicht erreichbar, starte...');
+        const child = spawn('/opt/homebrew/bin/whisper-server', [
+          '-m', WHISPER_MODEL, '-l', 'de', '--port', String(WHISPER_SERVER_PORT)
+        ], { detached: true, stdio: 'ignore' });
+        child.unref();
+        for (let i = 0; i < 20; i++) {
+          await new Promise(r => setTimeout(r, 500));
+          try {
+            const res = await fetch(`http://127.0.0.1:${WHISPER_SERVER_PORT}/health`);
+            if (res.ok) { log('[Whisper] Server gestartet (ggml-base)!'); return true; }
+          } catch {}
+        }
+        log('[Whisper] Server konnte nicht gestartet werden');
+        return false;
+      }
+
+      async function whisperTranscribe(audioBuffer) {
+        const ok = await ensureWhisperServer();
+        if (!ok) throw new Error('Whisper-Server nicht verfügbar');
+
+        const tmpIn = path.join(os.tmpdir(), `rh_${crypto.randomBytes(4).toString('hex')}.webm`);
+        const tmpWav = tmpIn.replace('.webm', '.wav');
+        fs.writeFileSync(tmpIn, audioBuffer);
+
+        await new Promise((resolve, reject) => {
+          execFile('/opt/homebrew/bin/ffmpeg', [
+            '-i', tmpIn, '-ar', '16000', '-ac', '1', '-f', 'wav', tmpWav, '-y'
+          ], { timeout: 10000 }, (err) => {
+            if (err) reject(err); else resolve();
+          });
+        });
+
+        const fileBuffer = fs.readFileSync(tmpWav);
+        const boundary = '----WhisperBoundary' + crypto.randomBytes(8).toString('hex');
+        const body = Buffer.concat([
+          Buffer.from(`--${boundary}\r\nContent-Disposition: form-data; name="file"; filename="audio.wav"\r\nContent-Type: audio/wav\r\n\r\n`),
+          fileBuffer,
+          Buffer.from(`\r\n--${boundary}\r\nContent-Disposition: form-data; name="response_format"\r\n\r\njson\r\n`),
+          Buffer.from(`--${boundary}\r\nContent-Disposition: form-data; name="language"\r\n\r\nde\r\n`),
+          Buffer.from(`--${boundary}--\r\n`)
+        ]);
+
+        const res = await fetch(`http://127.0.0.1:${WHISPER_SERVER_PORT}/inference`, {
+          method: 'POST',
+          headers: { 'Content-Type': `multipart/form-data; boundary=${boundary}` },
+          body
+        });
+        const data = await res.json();
+
+        try { fs.unlinkSync(tmpIn); } catch {}
+        try { fs.unlinkSync(tmpWav); } catch {}
+
+        return (data.text || '').trim();
+      }
+
+      // Live-Transkription via schnelles Whisper-base
+      server.post('/api/transcribe-live', async (req, res) => {
+        try {
+          const { audio } = req.body;
+          if (!audio) return res.json({ text: '' });
+          const text = await whisperTranscribe(Buffer.from(audio, 'base64'));
+          res.json({ text });
+        } catch (err) {
+          log('[TranscribeLive] FEHLER: ' + err.message);
+          res.json({ text: '', error: err.message });
+        }
+      });
+
+      // Finale Transkription via lokales Whisper
+      server.post('/api/transcribe', async (req, res) => {
+        try {
+          const { audio } = req.body;
+          if (!audio) return res.status(400).json({ error: 'Kein Audio-Daten erhalten' });
+
+          log('[Transcribe] Anfrage erhalten, Audio-Größe: ' + Math.round(audio.length / 1024) + ' KB');
+
+          const text = await whisperTranscribe(Buffer.from(audio, 'base64'));
+          log('[Transcribe] Whisper Text: ' + text.substring(0, 200));
+
+          if (!text || text.length < 2) {
+            return res.json({ text: '', feedback: 'Nichts erkannt — bitte lauter/deutlicher sprechen', quality: 'poor' });
+          }
+
+          res.json({ text, feedback: 'Lokal transkribiert (Whisper)', quality: 'good' });
+        } catch (err) {
+          log('[Transcribe] FEHLER: ' + err.message);
+          res.status(500).json({ error: err.message });
+        }
       });
 
       // Statische Dateien aus dist/ servieren
@@ -166,6 +521,49 @@ ipcMain.on('window-maximize', () => {
 });
 ipcMain.on('window-close', () => mainWindow?.hide());
 
+ipcMain.handle('insert-global-text', async (_event, text) => {
+  // Overlay verstecken
+  if (dictationWindow) dictationWindow.hide();
+
+  // Text in Zwischenablage
+  clipboard.writeText(text);
+
+  if (process.platform === 'darwin') {
+    // Ziel-App aktivieren (falls Overlay den Fokus hatte) → dann Cmd+V
+    const targetApp = previousFrontApp;
+    const script = targetApp
+      ? `tell application "${targetApp}" to activate\ndelay 0.25\ntell application "System Events" to keystroke "v" using command down`
+      : `delay 0.3\ntell application "System Events" to keystroke "v" using command down`;
+
+    log(`[InsertText] Paste in: ${targetApp || '(aktuelles Fenster)'}`);
+    exec(`osascript -e '${script}'`, (err) => {
+      if (err) log('[InsertText] AppleScript Fehler: ' + err.message);
+    });
+  } else {
+    log('[InsertText] Plattform wird derzeit nicht für auto-paste unterstützt.');
+  }
+
+  return { success: true };
+});
+
+ipcMain.on('hide-dictation-overlay', () => {
+  if (dictationWindow) dictationWindow.hide();
+});
+
+// Space global registrieren während Aufnahme läuft
+ipcMain.on('dictation-recording-started', () => {
+  const ok = globalShortcut.register('Space', () => {
+    log('[Dictation] Globale Leertaste → Aufnahme stoppen');
+    if (dictationWindow) dictationWindow.webContents.send('global-dictation-stop');
+  });
+  log(`[Dictation] Globaler Space-Shortcut: ${ok ? 'aktiv' : 'fehlgeschlagen'}`);
+});
+
+ipcMain.on('dictation-recording-stopped', () => {
+  globalShortcut.unregister('Space');
+  log('[Dictation] Globaler Space-Shortcut deregistriert');
+});
+
 // App Lifecycle
 app.on('second-instance', () => {
   if (mainWindow) {
@@ -177,6 +575,52 @@ app.on('second-instance', () => {
 
 app.whenReady().then(async () => {
   log(`[RhetorixPro] v${APP_VERSION} startet...`);
+
+  // Mikrofon-Permission für Electron erlauben (Web Speech API / getUserMedia)
+  session.defaultSession.setPermissionRequestHandler((webContents, permission, callback) => {
+    const allowed = ['media', 'microphone', 'audioCapture', 'audio', 'speech'];
+    log(`Permission-Request: ${permission}`);
+    if (allowed.includes(permission)) {
+      log(`Permission erlaubt: ${permission}`);
+      callback(true);
+    } else {
+      log(`Permission abgelehnt: ${permission}`);
+      callback(false);
+    }
+  });
+
+  // Permission-Check-Handler: Gibt true zurück für alle Media-Permissions
+  session.defaultSession.setPermissionCheckHandler((webContents, permission) => {
+    const allowed = ['media', 'microphone', 'audioCapture', 'audio', 'speech'];
+    log(`Permission-Check: ${permission} → ${allowed.includes(permission) ? 'OK' : 'NEIN'}`);
+    return allowed.includes(permission);
+  });
+
+  // macOS: System-Mikrofon-Zugriff anfordern
+  if (process.platform === 'darwin' && systemPreferences.askForMediaAccess) {
+    const micAccess = await systemPreferences.askForMediaAccess('microphone');
+    log(`macOS Mikrofon-Zugriff: ${micAccess ? 'erlaubt' : 'verweigert'}`);
+  }
+
+  // macOS: Accessibility-Permission prüfen (für globales Paste via AppleScript)
+  if (process.platform === 'darwin') {
+    const isTrusted = systemPreferences.isTrustedAccessibilityClient(false);
+    log(`macOS Accessibility: ${isTrusted ? 'erlaubt' : 'NICHT erlaubt'}`);
+    if (!isTrusted) {
+      dialog.showMessageBox({
+        type: 'info',
+        title: 'Bedienungshilfen benötigt',
+        message: 'Rhetorix Pro braucht die Berechtigung "Bedienungshilfen", um Text in andere Apps einzufügen.',
+        detail: 'Bitte erlaube Rhetorix Pro unter:\nSystemeinstellungen → Datenschutz & Sicherheit → Bedienungshilfen',
+        buttons: ['Einstellungen öffnen', 'Später'],
+      }).then(({ response }) => {
+        if (response === 0) {
+          // Öffne direkt die Accessibility-Einstellungen
+          exec('open "x-apple.systempreferences:com.apple.preference.security?Privacy_Accessibility"');
+        }
+      });
+    }
+  }
 
   // Lizenz prüfen / Trial initialisieren
   const license = initTrial();
@@ -198,7 +642,55 @@ app.whenReady().then(async () => {
   }
 
   createWindow();
+  createDictationWindow();
   createTray();
+
+  // Globalen Shortcut registrieren: Shift+Space
+  // 3-Schritt-Flow: 1) Start Aufnahme → 2) Stop/Review → 3) Einfügen
+  // Funktioniert systemweit in jeder App
+  const SHORTCUT_PRIMARY = 'Shift+Space';
+  const SHORTCUT_FALLBACK = 'CommandOrControl+Shift+Space';
+
+  function triggerDictation(label) {
+    log(`Globaler Shortcut ${label} gedrückt!`);
+    if (dictationWindow) {
+      if (!dictationWindow.isVisible()) {
+        // Aktive App vor Overlay-Öffnen merken (für späteren Paste)
+        exec(`osascript -e 'tell application "System Events" to get name of first process where it is frontmost'`, (err, stdout) => {
+          if (!err && stdout.trim()) {
+            const appName = stdout.trim();
+            // Rhetorix selbst nicht speichern
+            if (appName !== 'Rhetorix Pro' && appName !== 'Electron') {
+              previousFrontApp = appName;
+              log(`[Dictation] Ziel-App gespeichert: ${previousFrontApp}`);
+            }
+          }
+        });
+        // showInactive() zeigt Overlay OHNE die App zu aktivieren
+        // → Hauptfenster bleibt versteckt, Ziel-App behält Fokus
+        dictationWindow.showInactive();
+      }
+      dictationWindow.webContents.send('global-dictation-toggle');
+    }
+  }
+
+  const ret = globalShortcut.register(SHORTCUT_PRIMARY, () => triggerDictation(SHORTCUT_PRIMARY));
+
+  if (!ret) {
+    log(`Shortcut ${SHORTCUT_PRIMARY} Registrierung fehlgeschlagen — versuche Fallback...`);
+    const retFallback = globalShortcut.register(SHORTCUT_FALLBACK, () => triggerDictation(SHORTCUT_FALLBACK));
+    if (retFallback) {
+      log(`Fallback-Shortcut ${SHORTCUT_FALLBACK} erfolgreich registriert.`);
+    } else {
+      log('Auch Fallback-Shortcut fehlgeschlagen.');
+    }
+  } else {
+    log(`Globaler Shortcut ${SHORTCUT_PRIMARY} erfolgreich registriert.`);
+  }
+});
+
+app.on('will-quit', () => {
+  globalShortcut.unregisterAll();
 });
 
 app.on('activate', () => {

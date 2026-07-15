@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { HashRouter as Router, Routes, Route, useNavigate, Link, useLocation } from 'react-router-dom';
 import { AppMode, SessionResult, LogEntry } from './types';
@@ -54,6 +54,10 @@ const App: React.FC = () => {
   const [globalTranscript, setGlobalTranscript] = useState('');
   const [isGlobalDictating, setIsGlobalDictating] = useState(false);
   const [isBgHovered, setIsBgHovered] = useState(false);
+  const [isMicOpen, setIsMicOpen] = useState(false);
+  const [micDevices, setMicDevices] = useState<MediaDeviceInfo[]>([]);
+  const [selectedMicId, setSelectedMicId] = useState(() => localStorage.getItem('rhetorix_selected_mic_id') || '');
+  const micDropdownRef = useRef<HTMLDivElement>(null);
   const [bgOpacity, setBgOpacity] = useState<number>(() => {
     const saved = localStorage.getItem('rhetorix_bg_opacity');
     return saved ? Math.min(100, Math.max(20, parseInt(saved, 10))) : 100;
@@ -68,6 +72,35 @@ const App: React.FC = () => {
     window.addEventListener('rhetorix-dictation', handleDictationEvent);
     return () => window.removeEventListener('rhetorix-dictation', handleDictationEvent);
   }, []);
+
+  // Mic-Geräte laden
+  const loadMicDevices = async () => {
+    try {
+      // Permission sicherstellen
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      stream.getTracks().forEach(t => t.stop());
+      const all = await navigator.mediaDevices.enumerateDevices();
+      setMicDevices(all.filter(d => d.kind === 'audioinput'));
+    } catch { /* */ }
+  };
+
+  const handleMicSelect = (deviceId: string) => {
+    setSelectedMicId(deviceId);
+    localStorage.setItem('rhetorix_selected_mic_id', deviceId);
+    setIsMicOpen(false);
+    addLog(`Mikrofon gewechselt: ${micDevices.find(d => d.deviceId === deviceId)?.label || 'Unbekannt'}`, 'success');
+  };
+
+  // Click-outside schließt Mic-Dropdown
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (micDropdownRef.current && !micDropdownRef.current.contains(e.target as Node)) {
+        setIsMicOpen(false);
+      }
+    };
+    if (isMicOpen) document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isMicOpen]);
 
   useEffect(() => {
     localStorage.setItem('rhetorix_sessions', JSON.stringify(sessions));
@@ -147,6 +180,62 @@ const App: React.FC = () => {
 
   return (
     <Router>
+      <AppContent 
+        sessions={sessions} 
+        logs={logs} 
+        isDarkMode={isDarkMode} 
+        setIsDarkMode={setIsDarkMode} 
+        bgAsset={bgAsset} 
+        bgAssetType={bgAssetType} 
+        bgOpacity={bgOpacity} 
+        handleAssetUpload={handleAssetUpload} 
+        removeBgAsset={removeBgAsset} 
+        isBgHovered={isBgHovered} 
+        setIsBgHovered={setIsBgHovered} 
+        isMicOpen={isMicOpen} 
+        setIsMicOpen={setIsMicOpen} 
+        loadMicDevices={loadMicDevices} 
+        micDevices={micDevices} 
+        handleMicSelect={handleMicSelect} 
+        selectedMicId={selectedMicId} 
+        micDropdownRef={micDropdownRef} 
+        setBgOpacity={setBgOpacity} 
+        globalTranscript={globalTranscript} 
+        isGlobalDictating={isGlobalDictating} 
+        addLog={addLog} 
+        saveSession={saveSession} 
+      />
+    </Router>
+  );
+};
+
+const AppContent: React.FC<any> = ({
+  sessions, logs, isDarkMode, setIsDarkMode, bgAsset, bgAssetType, bgOpacity, 
+  handleAssetUpload, removeBgAsset, isBgHovered, setIsBgHovered, 
+  isMicOpen, setIsMicOpen, loadMicDevices, micDevices, handleMicSelect, 
+  selectedMicId, micDropdownRef, setBgOpacity, globalTranscript, 
+  isGlobalDictating, addLog, saveSession
+}) => {
+  const location = useLocation();
+  const isOverlayMode = location.pathname === '/dictation-overlay';
+
+  // Transparenter Hintergrund für das Overlay-Fenster (überschreibt body CSS)
+  useEffect(() => {
+    if (isOverlayMode) {
+      document.body.style.backgroundColor = 'transparent';
+      document.documentElement.style.backgroundColor = 'transparent';
+    }
+  }, [isOverlayMode]);
+
+  if (isOverlayMode) {
+    return (
+      <div style={{ background: 'transparent' }} className="w-screen h-screen overflow-hidden flex items-end justify-center p-2">
+        <GlobalDictationOverlay isStandalone={true} />
+      </div>
+    );
+  }
+
+  return (
       <div className="min-h-screen bg-slate-50 dark:bg-gray-950 flex flex-col pb-20 transition-colors duration-500 relative overflow-hidden">
         {bgAsset && bgAssetType === 'video' && (
           <video 
@@ -260,33 +349,90 @@ const App: React.FC = () => {
                 <i className="fas fa-trash-can"></i>
               </button>
             )}
-            <button 
+            {/* Mikrofon-Auswahl Dropdown */}
+            <div className="relative" ref={micDropdownRef}>
+              <button
+                title="Soundeingang wählen"
+                onClick={() => { setIsMicOpen(!isMicOpen); if (!isMicOpen) loadMicDevices(); }}
+                className={`p-2 rounded-xl transition-all ${isMicOpen ? 'bg-blue-600 text-white shadow-[0_0_15px_rgba(37,99,235,0.4)]' : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:text-blue-600'}`}
+              >
+                <i className="fas fa-microphone"></i>
+              </button>
+              <AnimatePresence>
+                {isMicOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                    transition={{ duration: 0.2, ease: "easeOut" }}
+                    className="absolute top-full mt-2 right-0 w-72 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border border-gray-100 dark:border-gray-800 rounded-2xl shadow-2xl p-3 z-[60]"
+                  >
+                    <p className="text-[9px] font-black uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-2 flex items-center gap-1.5">
+                      <i className="fas fa-microphone"></i> Soundeingang
+                    </p>
+                    <div className="space-y-1 max-h-60 overflow-y-auto">
+                      {micDevices.length === 0 ? (
+                        <p className="text-xs text-gray-400 py-2 text-center">Lade Geräte...</p>
+                      ) : (
+                        micDevices.map(d => {
+                          const label = d.label || `Mikrofon (${d.deviceId.slice(0, 5)}...)`;
+                          const isVirtual = /virtual|ndi|loopback|blackhole/i.test(label);
+                          const isSelected = d.deviceId === selectedMicId;
+                          return (
+                            <button
+                              key={d.deviceId}
+                              onClick={() => handleMicSelect(d.deviceId)}
+                              className={`w-full text-left px-3 py-2.5 rounded-xl text-xs font-semibold transition-all flex items-center gap-2 ${
+                                isSelected
+                                  ? 'bg-blue-600 text-white shadow-md'
+                                  : isVirtual
+                                    ? 'text-gray-400 dark:text-gray-500 hover:bg-gray-50 dark:hover:bg-gray-800'
+                                    : 'text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-blue-950/30'
+                              }`}
+                            >
+                              <i className={`fas ${isSelected ? 'fa-check-circle' : isVirtual ? 'fa-ghost' : 'fa-microphone'} text-[10px] shrink-0`}></i>
+                              <span className="truncate">{isVirtual ? `${label} (virtuell)` : label}</span>
+                            </button>
+                          );
+                        })
+                      )}
+                    </div>
+                    <div className="mt-2 pt-2 border-t border-gray-100 dark:border-gray-800">
+                      <p className="text-[9px] text-gray-400 dark:text-gray-500 text-center">
+                        <i className="fas fa-info-circle mr-1"></i>Virtuelle Geräte liefern kein echtes Audio
+                      </p>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+            <button
               title={isDarkMode ? "Licht an" : "Licht aus"}
               onClick={() => setIsDarkMode(!isDarkMode)}
               className={`p-2 rounded-xl transition-all ${isDarkMode ? 'bg-yellow-400 text-black shadow-[0_0_15px_rgba(250,204,21,0.4)]' : 'bg-gray-100 text-gray-600'}`}
             >
               <i className={`fas ${isDarkMode ? 'fa-sun' : 'fa-moon'}`}></i>
             </button>
-            <Link 
-              to="/settings" 
+            <Link
+              to="/settings"
               title="Einstellungen & Sprachkonfiguration"
-              className="p-2 text-gray-400 hover:text-blue-600 transition-colors"
+              className="p-2 text-yellow-500 hover:text-yellow-300 transition-colors"
             >
-              <i className="fas fa-cog"></i>
+              <i className="fas fa-cog text-lg"></i>
             </Link>
-            <Link 
-              to="/help" 
+            <Link
+              to="/help"
               title="Hilfe & Anleitung"
-              className="p-2 text-gray-400 hover:text-blue-600 transition-colors"
+              className="p-2 text-yellow-500 hover:text-yellow-300 transition-colors"
             >
-              <i className="fas fa-circle-question"></i>
+              <i className="fas fa-circle-question text-lg"></i>
             </Link>
-            <Link 
-              to="/logs" 
+            <Link
+              to="/logs"
               title="System Terminal (Aktivitäts-Log)"
-              className="p-2 text-gray-400 hover:text-blue-600 transition-colors"
+              className="p-2 text-yellow-500 hover:text-yellow-300 transition-colors"
             >
-              <i className="fas fa-microchip"></i>
+              <i className="fas fa-microchip text-lg"></i>
             </Link>
           </div>
         </header>
@@ -328,11 +474,11 @@ const App: React.FC = () => {
 
         <nav className="glass fixed bottom-0 left-0 right-0 h-16 border-t border-gray-100 dark:border-gray-800 flex items-center justify-around safe-bottom z-50">
           <NavLink to="/" icon="fa-house" label="Start" />
+          <NavLink to="/einsprechen" icon="fa-microphone-lines" label="Diktat" />
           <NavLink to="/text-hub" icon="fa-pen-nib" label="Studio" />
           <NavLink to="/tasks" icon="fa-list-check" label="Aufgaben" />
           <NavLink to="/challenge" icon="fa-gamepad" label="Spiel" />
-          <NavLink to="/analytics" icon="fa-chart-pie" label="Analytik" />
-          <NavLink to="/history" icon="fa-layer-group" label="Archiv" />
+          <NavLink to="/settings" icon="fa-cog" label="Settings" />
         </nav>
 
         {isGlobalDictating && (
@@ -351,7 +497,6 @@ const App: React.FC = () => {
           </div>
         )}
       </div>
-    </Router>
   );
 };
 
@@ -540,6 +685,20 @@ const HomeMenu: React.FC = () => {
           <div className="relative z-10">
             <h2 className="text-2xl font-black text-indigo-600 uppercase tracking-tight italic">Entwicklungs-Doku</h2>
             <p className="text-indigo-400 dark:text-indigo-500/70 text-sm font-medium mt-2">Diktieren, sauber/ordentlich korrigieren &amp; im Archiv speichern.</p>
+          </div>
+        </button>
+
+        <button
+          onClick={() => navigate('/settings')}
+          className="group relative overflow-hidden bg-white dark:bg-gray-900 p-10 rounded-[3rem] border border-gray-100 dark:border-gray-800 shadow-xl hover:shadow-2xl hover:border-yellow-200 dark:hover:border-yellow-900 transition-all active:scale-95 text-left flex flex-col gap-6"
+        >
+          <div className="absolute top-0 right-0 w-32 h-32 bg-yellow-50 dark:bg-yellow-950/30 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-700 opacity-50"></div>
+          <div className="w-16 h-16 bg-yellow-50 dark:bg-yellow-900/20 rounded-3xl flex items-center justify-center text-yellow-500 shadow-inner relative z-10">
+            <i className="fas fa-cog text-3xl"></i>
+          </div>
+          <div className="relative z-10">
+            <h2 className="text-2xl font-black text-yellow-500 uppercase tracking-tight italic">Einstellungen</h2>
+            <p className="text-yellow-400 dark:text-yellow-500/70 text-sm font-medium mt-2">Sprache, Mikrofon, API-Keys &amp; App konfigurieren.</p>
           </div>
         </button>
       </div>
