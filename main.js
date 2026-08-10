@@ -13,6 +13,22 @@ function log(msg) {
 fs.writeFileSync(LOG_FILE, ''); // Clear
 log('=== RhetorixPro Main Process Start ===');
 
+// Plattform-Helfer. macOS ist vollständig umgesetzt; Windows-Zweige sind additiv
+// hinzugefügt (noch nicht auf echter Windows-Hardware getestet — siehe WINDOWS.md).
+const IS_MAC = process.platform === 'darwin';
+const IS_WIN = process.platform === 'win32';
+
+// Markierten Text der Vordergrund-App in die Zwischenablage kopieren (Cmd/Strg+C), dann cb().
+function copySelection(cb) {
+  if (IS_MAC) {
+    exec(`osascript -e 'tell application "System Events" to keystroke "c" using command down'`, () => cb());
+  } else if (IS_WIN) {
+    exec(`powershell -NoProfile -Command "Add-Type -AssemblyName System.Windows.Forms; [System.Windows.Forms.SendKeys]::SendWait('^c')"`, () => cb());
+  } else {
+    cb();
+  }
+}
+
 const { bootstrap } = require('./hermes-bootstrap');
 const { getLicenseStatus, activateLicense, deactivateLicense, getFeatures, initTrial } = require('./license-manager');
 log('Modules loaded');
@@ -390,7 +406,10 @@ Text: ${text}`,
 
       // Ein Whisper-Server mit ggml-base (schnell genug für Live + Finale)
       const WHISPER_SERVER_PORT = 8178;
-      const WHISPER_MODEL = '/opt/homebrew/share/whisper-cpp/models/ggml-base.bin';
+      // Pfade per ENV überschreibbar; Default macOS (Homebrew), Windows sucht gebündelte Binaries.
+      const WHISPER_SERVER_BIN = process.env.WHISPER_SERVER_BIN || (IS_WIN ? 'whisper-server.exe' : '/opt/homebrew/bin/whisper-server');
+      const WHISPER_MODEL = process.env.WHISPER_MODEL || (IS_WIN ? path.join(process.resourcesPath || __dirname, 'whisper', 'ggml-base.bin') : '/opt/homebrew/share/whisper-cpp/models/ggml-base.bin');
+      const FFMPEG_BIN = process.env.FFMPEG_BIN || (IS_WIN ? 'ffmpeg.exe' : '/opt/homebrew/bin/ffmpeg');
 
       async function ensureWhisperServer() {
         try {
@@ -398,7 +417,7 @@ Text: ${text}`,
           if (res.ok) return true;
         } catch {}
         log('[Whisper] Server nicht erreichbar, starte...');
-        const child = spawn('/opt/homebrew/bin/whisper-server', [
+        const child = spawn(WHISPER_SERVER_BIN, [
           '-m', WHISPER_MODEL, '-l', 'de', '--port', String(WHISPER_SERVER_PORT)
         ], { detached: true, stdio: 'ignore' });
         child.unref();
@@ -422,7 +441,7 @@ Text: ${text}`,
         fs.writeFileSync(tmpIn, audioBuffer);
 
         await new Promise((resolve, reject) => {
-          execFile('/opt/homebrew/bin/ffmpeg', [
+          execFile(FFMPEG_BIN, [
             '-i', tmpIn, '-ar', '16000', '-ac', '1', '-f', 'wav', tmpWav, '-y'
           ], { timeout: 10000 }, (err) => {
             if (err) reject(err); else resolve();
@@ -613,6 +632,11 @@ ipcMain.handle('insert-global-text', async (_event, text) => {
     exec(`osascript -e '${script}'`, (err) => {
       if (err) log('[InsertText] AppleScript Fehler: ' + err.message);
     });
+  } else if (IS_WIN) {
+    // Windows: Strg+V in die Vordergrund-App senden
+    exec(`powershell -NoProfile -Command "Add-Type -AssemblyName System.Windows.Forms; Start-Sleep -Milliseconds 250; [System.Windows.Forms.SendKeys]::SendWait('^v')"`, (err) => {
+      if (err) log('[InsertText] Windows-Paste Fehler: ' + err.message);
+    });
   } else {
     log('[InsertText] Plattform wird derzeit nicht für auto-paste unterstützt.');
   }
@@ -651,10 +675,19 @@ function playElevenLabsTTS(text) {
     res.on('end', () => {
       const tmpFile = '/tmp/rhetorix_tts.mp3';
       fs.writeFileSync(tmpFile, Buffer.concat(chunks));
-      exec(`afplay "${tmpFile}"`, (err) => {
-        if (err) log('[TTS] afplay Fehler: ' + err.message);
-        else log('[TTS] Vorlesen abgeschlossen');
-      });
+      if (IS_WIN) {
+        // Windows: MP3 über den Windows Media Player (PowerShell) abspielen
+        const ps = `Add-Type -AssemblyName presentationCore; $p=New-Object System.Windows.Media.MediaPlayer; $p.Open([uri]'${tmpFile.replace(/\\/g, '/')}'); $p.Play(); Start-Sleep -Milliseconds 300; while($p.NaturalDuration.HasTimeSpan -eq $false){Start-Sleep -Milliseconds 100}; Start-Sleep -Seconds ([int][math]::Ceiling($p.NaturalDuration.TimeSpan.TotalSeconds)+1)`;
+        exec(`powershell -NoProfile -Command "${ps.replace(/"/g, '\\"')}"`, (err) => {
+          if (err) log('[TTS] Windows-Playback Fehler: ' + err.message);
+          else log('[TTS] Vorlesen abgeschlossen');
+        });
+      } else {
+        exec(`afplay "${tmpFile}"`, (err) => {
+          if (err) log('[TTS] afplay Fehler: ' + err.message);
+          else log('[TTS] Vorlesen abgeschlossen');
+        });
+      }
     });
   });
   req.on('error', (err) => log('[TTS] HTTP Fehler: ' + err.message));
@@ -683,8 +716,8 @@ ipcMain.on('set-tts-voice', (_e, voiceId) => {
 // → als Popup im Overlay anzeigen UND vorlesen. Kein Live-Mitlesen fremder Apps,
 //   sondern gezielt der markierte Text (Cmd+C wie bei F3).
 function translateSelectionToGerman() {
-  // 1) Markierten Text kopieren (Cmd+C simulieren)
-  exec(`osascript -e 'tell application "System Events" to keystroke "c" using command down'`, () => {
+  // 1) Markierten Text kopieren (Cmd/Strg+C simulieren)
+  copySelection(() => {
     setTimeout(async () => {
       const src = clipboard.readText();
       if (!src || !src.trim()) { log('[Übersetzen] Kein Text markiert/kopiert'); return; }
@@ -874,8 +907,8 @@ app.whenReady().then(async () => {
   // F3 → Markierten Text aus beliebiger App vorlesen
   const retF3 = globalShortcut.register('F3', () => {
     log('[TTS] F3 → Markierten Text vorlesen');
-    // Kopiere markierten Text über Cmd+C
-    exec(`osascript -e 'tell application "System Events" to keystroke "c" using command down'`, () => {
+    // Kopiere markierten Text (Cmd/Strg+C)
+    copySelection(() => {
       setTimeout(() => {
         const text = clipboard.readText();
         if (text?.trim()) playElevenLabsTTS(text);

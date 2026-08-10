@@ -30,16 +30,16 @@ interface QuickLink {
   icon: string;
 }
 
+// Standard-Quick-Links sind bewusst leer/generisch (kein persönlicher Inhalt im Repo).
+// Nutzer konfigurieren ihre eigenen Links in der App (gespeichert in localStorage).
 const DEFAULT_QUICK_LINKS: QuickLink[] = [
-  { label: 'Homepage', url: 'https://www.tobiasganster.de', icon: 'fa-globe' },
-  { label: 'Landing', url: 'https://ganster.tech', icon: 'fa-rocket' },
-  { label: 'E-Mail', url: 't.ganster.dev@gmail.com', icon: 'fa-envelope' },
-  { label: 'Twitch', url: 'https://twitch.tv/ganstertobias', icon: 'fa-twitch' },
-  { label: 'Kick', url: 'https://kick.com/ganstertobias', icon: 'fa-k' },
-  { label: 'TikTok', url: 'https://tiktok.com/@ganstertobias', icon: 'fa-tiktok' },
-  { label: 'Facebook', url: 'https://facebook.com/', icon: 'fa-facebook' },
-  { label: 'FB Gruppe', url: 'https://facebook.com/groups/', icon: 'fa-users' },
-  { label: 'Pinterest', url: 'https://pinterest.com/', icon: 'fa-pinterest' },
+  { label: 'Homepage', url: '', icon: 'fa-globe' },
+  { label: 'Landing', url: '', icon: 'fa-rocket' },
+  { label: 'E-Mail', url: '', icon: 'fa-envelope' },
+  { label: 'Twitch', url: '', icon: 'fa-twitch' },
+  { label: 'Kick', url: '', icon: 'fa-k' },
+  { label: 'TikTok', url: '', icon: 'fa-tiktok' },
+  { label: 'Facebook', url: '', icon: 'fa-facebook' },
   { label: 'Link 1', url: '', icon: 'fa-link' },
   { label: 'Link 2', url: '', icon: 'fa-link' },
   { label: 'Link 3', url: '', icon: 'fa-link' },

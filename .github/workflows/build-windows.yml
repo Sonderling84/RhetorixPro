@@ -1,0 +1,40 @@
+name: Build Windows
+
+# Baut den Windows-Installer (.exe) automatisch auf einem Windows-Runner.
+# Manuell auslösbar (Actions-Tab → "Run workflow") oder bei einem Version-Tag (v*).
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Node einrichten
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # package-lock.json ist gitignored → npm install statt npm ci
+      - name: Abhängigkeiten installieren
+        run: npm install
+
+      - name: Frontend + Server bauen
+        run: npm run build
+
+      - name: Windows-Installer packen (NSIS)
+        run: npx electron-builder --win nsis --publish never
+
+      - name: Installer als Artefakt hochladen
+        uses: actions/upload-artifact@v4
+        with:
+          name: rhetorix-pro-windows-installer
+          path: |
+            dist_electron/*.exe
+            dist_electron/*.blockmap
+          if-no-files-found: warn
