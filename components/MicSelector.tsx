@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { getUserMicrophoneStream } from '../utils/speechHelper';
 
 interface MicSelectorProps {
   addLog?: (msg: string, type: 'success' | 'error' | 'info' | 'warn') => void;
@@ -60,11 +61,20 @@ export const MicSelector: React.FC<MicSelectorProps> = ({ addLog }) => {
       }
       
       const saved = localStorage.getItem('rhetorix_selected_mic_id') || '';
-      if (saved && audioInputs.some(d => d.deviceId === saved)) {
+      // Prüfen ob gespeichertes Mic existiert UND nicht virtuell ist
+      const savedDevice = saved ? audioInputs.find(d => d.deviceId === saved) : null;
+      const savedIsVirtual = savedDevice && savedDevice.label.toLowerCase().match(/virtual|ndi|loopback|blackhole/);
+      if (saved && savedDevice && !savedIsVirtual && saved !== 'default') {
         setSelectedId(saved);
       } else if (audioInputs.length > 0) {
-        setSelectedId(audioInputs[0].deviceId);
-        localStorage.setItem('rhetorix_selected_mic_id', audioInputs[0].deviceId);
+        // Echtes Mikrofon bevorzugen (nicht virtuell/NDI/Loopback)
+        const realMic = audioInputs.find(d => {
+          const label = d.label.toLowerCase();
+          return !label.includes('virtual') && !label.includes('ndi') && !label.includes('loopback') && !label.includes('blackhole');
+        });
+        const bestMic = realMic || audioInputs[0];
+        setSelectedId(bestMic.deviceId);
+        localStorage.setItem('rhetorix_selected_mic_id', bestMic.deviceId);
       }
     } catch (err: any) {
       console.error("Error loading microphones:", err);
@@ -81,34 +91,40 @@ export const MicSelector: React.FC<MicSelectorProps> = ({ addLog }) => {
     }
   };
 
-  const startTest = async (idToUse = selectedId) => {
+  const startTest = async (_idToUse?: string) => {
     stopTest();
-    if (!idToUse && devices.length > 0) {
-      idToUse = devices[0].deviceId;
-    }
     try {
       setIsTestingLevel(true);
-      const constraints: MediaStreamConstraints = {
-        audio: idToUse ? { deviceId: { ideal: idToUse } } : true
-      };
-      
-      const stream = await navigator.mediaDevices.getUserMedia(constraints);
+      // Gleiche Mic-Logik wie beim Diktat: getUserMicrophoneStream()
+      // filtert virtuelle Mics und nutzt denselben Fallback
+      const stream = await getUserMicrophoneStream();
       streamRef.current = stream;
-      
+
+      // Dropdown synchronisieren falls getUserMicrophoneStream ein anderes Mic gewählt hat
+      const track = stream.getAudioTracks()[0];
+      if (track) {
+        const settings = track.getSettings();
+        if (settings.deviceId && settings.deviceId !== selectedId) {
+          setSelectedId(settings.deviceId);
+          localStorage.setItem('rhetorix_selected_mic_id', settings.deviceId);
+          console.log('[MicSelector] Pegel synchronisiert auf Diktat-Mic:', track.label);
+        }
+      }
+
       const AudioCtx = window.AudioContext || (window as any).webkitAudioContext;
       const ctx = new AudioCtx();
       audioContextRef.current = ctx;
-      
+
       const analyser = ctx.createAnalyser();
       analyser.fftSize = 256;
       analyserRef.current = analyser;
-      
+
       const source = ctx.createMediaStreamSource(stream);
       source.connect(analyser);
-      
+
       const bufferLength = analyser.frequencyBinCount;
       const dataArray = new Uint8Array(bufferLength);
-      
+
       const checkLevel = () => {
         if (!analyserRef.current) return;
         analyserRef.current.getByteFrequencyData(dataArray);
@@ -121,45 +137,11 @@ export const MicSelector: React.FC<MicSelectorProps> = ({ addLog }) => {
         setAudioLevel(percentage);
         animationRef.current = requestAnimationFrame(checkLevel);
       };
-      
+
       animationRef.current = requestAnimationFrame(checkLevel);
     } catch (err: any) {
-      // Quietly fall back, might be blocked initially due to lack of permission interaction
-      console.warn("Auto mic test failed (waiting for interaction):", err);
-      // Try with generic audio constraints if specific device fails
-      if (idToUse) {
-        try {
-          const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-          streamRef.current = stream;
-          const AudioCtx = window.AudioContext || (window as any).webkitAudioContext;
-          const ctx = new AudioCtx();
-          audioContextRef.current = ctx;
-          const analyser = ctx.createAnalyser();
-          analyser.fftSize = 256;
-          analyserRef.current = analyser;
-          const source = ctx.createMediaStreamSource(stream);
-          source.connect(analyser);
-          const bufferLength = analyser.frequencyBinCount;
-          const dataArray = new Uint8Array(bufferLength);
-          const checkLevel = () => {
-            if (!analyserRef.current) return;
-            analyserRef.current.getByteFrequencyData(dataArray);
-            let sum = 0;
-            for (let i = 0; i < bufferLength; i++) {
-              sum += dataArray[i];
-            }
-            const average = sum / bufferLength;
-            const percentage = Math.min(100, Math.round((average / 120) * 100));
-            setAudioLevel(percentage);
-            animationRef.current = requestAnimationFrame(checkLevel);
-          };
-          animationRef.current = requestAnimationFrame(checkLevel);
-        } catch (e2) {
-          setIsTestingLevel(false);
-        }
-      } else {
-        setIsTestingLevel(false);
-      }
+      console.warn("[MicSelector] Pegel-Test fehlgeschlagen:", err.message);
+      setIsTestingLevel(false);
     }
   };
 
@@ -212,11 +194,15 @@ export const MicSelector: React.FC<MicSelectorProps> = ({ addLog }) => {
           {devices.length === 0 ? (
             <option value="">Standard-Eingabegerät (System-Default)</option>
           ) : (
-            devices.map(d => (
-              <option key={d.deviceId} value={d.deviceId}>
-                {d.label || `System-Mikrofon (ID: ${d.deviceId.slice(0, 5) || 'Standard'}...)`}
-              </option>
-            ))
+            devices.map(d => {
+              const label = d.label || `System-Mikrofon (ID: ${d.deviceId.slice(0, 5) || 'Standard'}...)`;
+              const isVirtual = label.toLowerCase().match(/virtual|ndi|loopback|blackhole/);
+              return (
+                <option key={d.deviceId} value={d.deviceId}>
+                  {isVirtual ? `⚠️ ${label} (VIRTUELL)` : label}
+                </option>
+              );
+            })
           )}
         </select>
         <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none text-gray-400">

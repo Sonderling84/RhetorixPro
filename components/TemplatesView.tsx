@@ -61,7 +61,7 @@ const TemplatesView: React.FC<TemplatesViewProps> = ({ onSave, addLog }) => {
       Fokussiere dich auf hohe Engagement-Raten und klaren Mehrwert.`;
       
       const response = await ai.models.generateContent({
-        model: 'gemini-3-flash-preview',
+        model: 'gemini-2.0-flash',
         contents: prompt
       });
 

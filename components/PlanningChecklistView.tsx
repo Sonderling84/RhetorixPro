@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { GoogleGenAI } from "@google/genai";
 import { LogEntry, AppMode } from '../types';
 import { dispatchDictation } from '../utils/dictation-events';
-import { applyVoiceStyleToUtterance } from '../utils/speechHelper';
+import { speakElevenLabs, stopSpeaking } from '../utils/elevenLabsTTS';
 import { motion, AnimatePresence } from 'motion/react';
 
 interface PlanningChecklistViewProps {
@@ -57,7 +57,7 @@ export const PlanningChecklistView: React.FC<PlanningChecklistViewProps> = ({ on
   useEffect(() => {
     return () => {
       stopDictation();
-      window.speechSynthesis.cancel();
+      stopSpeaking();
     };
   }, []);
 
@@ -141,11 +141,8 @@ export const PlanningChecklistView: React.FC<PlanningChecklistViewProps> = ({ on
 
   // Co-Pilot TTS Engine
   const speakChecklistItem = (text: string) => {
-    window.speechSynthesis.cancel();
-    const utter = new SpeechSynthesisUtterance(text);
-    utter.lang = 'de-DE';
-    applyVoiceStyleToUtterance(utter);
-    window.speechSynthesis.speak(utter);
+    stopSpeaking();
+    speakElevenLabs(text);
   };
 
   const speakActiveChecklistItem = (pIdx: number, iIdx: number, checklistData: Checklist) => {
@@ -419,7 +416,7 @@ export const PlanningChecklistView: React.FC<PlanningChecklistViewProps> = ({ on
       }`;
 
       const response = await ai.models.generateContent({
-        model: "gemini-3.5-flash",
+        model: "gemini-2.0-flash",
         contents: promptText,
         config: { responseMimeType: "application/json" }
       });
@@ -517,7 +514,7 @@ export const PlanningChecklistView: React.FC<PlanningChecklistViewProps> = ({ on
         }
       }
     } else {
-      window.speechSynthesis.cancel();
+      stopSpeaking();
       setActiveItemIndex(null);
       addLog("Co-Pilot Voice Readout deaktiviert.", "info");
     }

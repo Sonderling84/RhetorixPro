@@ -106,7 +106,7 @@ const AboutMeView: React.FC<AboutMeViewProps> = ({ onSave, addLog, sessions }) =
     try {
       const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
       const response = await ai.models.generateContent({
-        model: "gemini-3-flash-preview",
+        model: "gemini-2.0-flash",
         contents: `Ich habe folgende Selbstreflexion diktiert: "${transcript}". Gib mir ein kurzes, wertschätzendes und tiefgründiges Feedback dazu (max 3 Sätze). Antworte auf Deutsch.`,
       });
       setAnalysis(response.text || "Kein Feedback möglich.");
@@ -133,7 +133,7 @@ const AboutMeView: React.FC<AboutMeViewProps> = ({ onSave, addLog, sessions }) =
       const allContent = reflections.map(r => r.transcription).join("\n---\n");
       
       const response = await ai.models.generateContent({
-        model: "gemini-3.1-pro-preview",
+        model: "gemini-2.0-flash",
         contents: `Hier sind meine bisherigen Selbstreflexionen:\n\n${allContent}\n\nAnalysiere mein "Ich", meinen Charakter und meine Denkweisen basierend auf diesen Texten. Erstelle ein psychologisches Profil, erkenne Muster und gib mir wertvolle Impulse für meine Weiterentwicklung. Antworte strukturiert und empathisch auf Deutsch.`,
       });
       

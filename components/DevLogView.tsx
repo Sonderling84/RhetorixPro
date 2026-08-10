@@ -3,7 +3,8 @@ import { GoogleGenAI, LiveServerMessage, Modality } from '@google/genai';
 import ReactMarkdown from 'react-markdown';
 import { AppMode, SessionResult } from '../types';
 import { motion, AnimatePresence } from 'motion/react';
-import { createBlob, decode, decodeAudioData } from '../utils/audio-helpers';
+import { createBlob } from '../utils/audio-helpers';
+import { speakElevenLabs, stopSpeaking } from '../utils/elevenLabsTTS';
 import { dispatchDictation } from '../utils/dictation-events';
 
 interface DevLogViewProps {
@@ -56,7 +57,7 @@ const DevLogView: React.FC<DevLogViewProps> = ({ onSave, addLog }) => {
       streamRef.current = await navigator.mediaDevices.getUserMedia({ audio: true });
 
       const sessionPromise = ai.live.connect({
-        model: 'gemini-2.5-flash-native-audio-preview-12-2025',
+        model: 'gemini-2.0-flash-exp',
         config: {
           responseModalities: [Modality.AUDIO],
           systemInstruction: "Du bist ein technischer Assistent. Transkribiere die gesprochenen Notizen des Nutzers, der gerade ein Softwareprogramm entwickelt, präzise und exakt auf DEUTSCH. Korrigiere keine Struktur, schreibe einfach genau das auf, was gesagt wird.",
@@ -139,7 +140,7 @@ const DevLogView: React.FC<DevLogViewProps> = ({ onSave, addLog }) => {
     try {
       const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
       const response = await ai.models.generateContent({
-        model: 'gemini-3-flash-preview',
+        model: 'gemini-2.0-flash',
         contents: `Du bist ein erstklassiger technischer Dokumentar und erfahrener Software-Architekt. Deine Aufgabe ist es, die unstrukturierten Notizen, Gedanken, die Diktier-Rohdaten oder den Tagesbericht des Nutzers über seine Entwicklungsfortschritte zu korrigieren, sauber und professionell zu formulieren und logisch zu strukturieren.
 
 Projekt-Kontext:
@@ -181,41 +182,16 @@ Antworte ausschließlich mit dem fertig formulierten Markdown-Dokument. Schreibe
     addLog("Generiere professionelles Voice-Over...", "info");
 
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-      // Clear markdown formatting slightly for a more fluent reading experience
       const cleanText = correctedLog
         .replace(/[*#`_\-]/g, ' ')
         .replace(/\n+/g, ' \n ')
-        .substring(0, 1500); // safety length
+        .substring(0, 5000);
 
-      const response = await ai.models.generateContent({
-        model: "gemini-2.5-flash-preview-tts",
-        contents: [{ parts: [{ text: `Lies diesen Entwicklungsbericht professionell vor: ${cleanText}` }] }],
-        config: {
-          responseModalities: [Modality.AUDIO],
-          speechConfig: { voiceConfig: { prebuiltVoiceConfig: { voiceName: 'Kore' } } },
-        },
-      });
-
-      const base64Audio = response.candidates?.[0]?.content?.parts?.[0]?.inlineData?.data;
-      if (base64Audio) {
-        const ctx = new (window.AudioContext || (window as any).webkitAudioContext)({ sampleRate: 48000 });
-        const buffer = await decodeAudioData(decode(base64Audio), ctx, 24000, 1);
-        const source = ctx.createBufferSource();
-        source.buffer = buffer;
-        source.connect(ctx.destination);
-        source.onended = () => {
-          setIsPlaying(false);
-          if (ctx.state !== 'closed') ctx.close();
-        };
-        source.start();
-      } else {
-        setIsPlaying(false);
-        addLog("Keine Sprachdaten erhalten", "error");
-      }
+      await speakElevenLabs(cleanText);
     } catch (err: any) {
-      setIsPlaying(false);
       addLog("Audio-Generierung fehlgeschlagen: " + err.message, "error");
+    } finally {
+      setIsPlaying(false);
     }
   };
 

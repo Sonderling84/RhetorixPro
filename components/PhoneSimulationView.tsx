@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { GoogleGenAI } from "@google/genai";
-import { getGeminiVoiceName, applyVoiceStyleToUtterance } from '../utils/speechHelper';
+import { speakElevenLabs, stopSpeaking } from '../utils/elevenLabsTTS';
 import { SessionResult } from '../types';
 
 interface Scenario {
@@ -127,60 +127,22 @@ const PhoneSimulationView: React.FC<Props> = ({ addLog, onSave }) => {
     return audioContextRef.current;
   };
 
-  const playBase64Audio = async (base64Data: string) => {
-    const ctx = getAudioContext();
-    const binaryString = atob(base64Data);
-    const len = binaryString.length;
-    const bytes = new Uint8Array(len);
-    for (let i = 0; i < len; i++) {
-      bytes[i] = binaryString.charCodeAt(i);
-    }
-    
-    // Gemini TTS returns raw PCM 16-bit little-endian
-    const pcm16 = new Int16Array(bytes.buffer);
-    const float32 = new Float32Array(pcm16.length);
-    for (let i = 0; i < pcm16.length; i++) {
-      float32[i] = pcm16[i] / 32768; // Normalize to [-1, 1]
-    }
-
-    const audioBuffer = ctx.createBuffer(1, float32.length, 24000); // Gemini TTS is 24kHz
-    audioBuffer.getChannelData(0).set(float32);
-
-    const source = ctx.createBufferSource();
-    source.buffer = audioBuffer;
-
-    // TELEPHONE FILTER (Bandpass: 300Hz - 3400Hz)
-    const hp = ctx.createBiquadFilter();
-    hp.type = 'highpass';
-    hp.frequency.setValueAtTime(300, ctx.currentTime);
-
-    const lp = ctx.createBiquadFilter();
-    lp.type = 'lowpass';
-    lp.frequency.setValueAtTime(3400, ctx.currentTime);
-
-    // Subtle line hiss/gain
-    const gainNode = ctx.createGain();
-    gainNode.gain.value = 1.0;
-
-    source.connect(hp);
-    hp.connect(lp);
-    lp.connect(ctx.destination);
-
-    source.onended = () => {
-      isPlayingAudio.current = false;
-      setIsAiSpeaking(false);
-      processAudioQueue();
-    };
-
-    isPlayingAudio.current = true;
-    setIsAiSpeaking(true);
-    source.start();
-  };
-
   const processAudioQueue = () => {
     if (audioQueue.current.length > 0 && !isPlayingAudio.current) {
       const next = audioQueue.current.shift();
-      if (next) playBase64Audio(next);
+      if (next) {
+        isPlayingAudio.current = true;
+        setIsAiSpeaking(true);
+        speakElevenLabs(next).then(() => {
+          isPlayingAudio.current = false;
+          setIsAiSpeaking(false);
+          processAudioQueue();
+        }).catch(() => {
+          isPlayingAudio.current = false;
+          setIsAiSpeaking(false);
+          processAudioQueue();
+        });
+      }
     } else if (audioQueue.current.length === 0 && !isPlayingAudio.current) {
       if (state === CallState.ACTIVE) startListening();
     }
@@ -288,7 +250,7 @@ const PhoneSimulationView: React.FC<Props> = ({ addLog, onSave }) => {
       `;
 
       const result = await ai.models.generateContent({
-        model: "gemini-3-flash-preview",
+        model: "gemini-2.0-flash",
         contents: prompt
       });
       const response = result.text || "";
@@ -303,39 +265,9 @@ const PhoneSimulationView: React.FC<Props> = ({ addLog, onSave }) => {
   };
 
   const speak = async (text: string) => {
-    // Abbrechen von SpeechSynth falls aktiv
-    window.speechSynthesis.cancel();
-    
-    try {
-      const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || '' });
-      const response = await ai.models.generateContent({
-        model: "gemini-3.1-flash-tts-preview",
-        contents: [{ parts: [{ text: `Du bist am Telefon. Sprich kurz und authentisch: ${text}` }] }],
-        config: {
-          responseModalities: ["AUDIO" as any],
-          speechConfig: {
-            voiceConfig: {
-              prebuiltVoiceConfig: { voiceName: getGeminiVoiceName() } // Reiferer Klang
-            }
-          }
-        }
-      });
-
-      const base64Audio = response.candidates?.[0]?.content?.parts?.[0]?.inlineData?.data;
-      if (base64Audio) {
-        audioQueue.current.push(base64Audio);
-        processAudioQueue();
-      }
-    } catch (e) {
-      console.error("TTS Error, falling back to speech synth:", e);
-      // Fallback
-      const utter = new SpeechSynthesisUtterance(text);
-      utter.lang = 'de-DE';
-      applyVoiceStyleToUtterance(utter);
-
-      utter.onend = () => { if (state === CallState.ACTIVE) startListening(); };
-      window.speechSynthesis.speak(utter);
-    }
+    stopSpeaking();
+    audioQueue.current.push(text);
+    processAudioQueue();
   };
 
   const startListening = () => {
@@ -360,7 +292,7 @@ const PhoneSimulationView: React.FC<Props> = ({ addLog, onSave }) => {
   const endCall = () => {
     setState(CallState.ENDED);
     if (recognitionRef.current) recognitionRef.current.stop();
-    window.speechSynthesis.cancel();
+    stopSpeaking();
     addLog("Anruf beendet.", "info");
     analyzeCall();
   };
@@ -385,7 +317,7 @@ const PhoneSimulationView: React.FC<Props> = ({ addLog, onSave }) => {
       `;
 
       const result = await ai.models.generateContent({
-        model: "gemini-3.1-pro-preview",
+        model: "gemini-2.0-flash",
         contents: prompt
       });
       const analysisText = result.text || "";

@@ -148,7 +148,7 @@ const EmailStudioView: React.FC<EmailStudioProps> = ({ onSave, addLog }) => {
       streamRef.current = await navigator.mediaDevices.getUserMedia({ audio: true });
 
       const sessionPromise = ai.live.connect({
-        model: 'gemini-2.5-flash-live-preview',
+        model: 'gemini-2.0-flash',
         config: {
           responseModalities: [Modality.AUDIO],
           systemInstruction: "Du bist ein präziser Transkribierer. Schreibe jedes Wort auf Deutsch mit, das du hörst. Achte auf Satzzeichen.",
@@ -219,7 +219,7 @@ const EmailStudioView: React.FC<EmailStudioProps> = ({ onSave, addLog }) => {
     try {
       const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
       const response = await ai.models.generateContent({
-        model: 'gemini-3-flash-preview',
+        model: 'gemini-2.0-flash',
         contents: `Optimiere diese diktierte E-Mail. 
         Empfänger: ${recipient}
         Betreff: ${subject}

@@ -52,7 +52,7 @@ const AppDevelopmentView: React.FC<AppDevelopmentViewProps> = ({ onSave, addLog 
       streamRef.current = await navigator.mediaDevices.getUserMedia({ audio: true });
 
       const sessionPromise = ai.live.connect({
-        model: 'gemini-2.5-flash-native-audio-preview-12-2025',
+        model: 'gemini-2.0-flash-exp',
         config: {
           responseModalities: [Modality.AUDIO],
           systemInstruction: "Du bist ein erfahrener App-Entwickler. Transkribiere die Ideen des Nutzers exakt auf DEUTSCH. Hilf ihm, seine Vision zu artikulieren.",
@@ -91,7 +91,7 @@ const AppDevelopmentView: React.FC<AppDevelopmentViewProps> = ({ onSave, addLog 
     try {
       const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
       const response = await ai.models.generateContent({
-        model: 'gemini-3-flash-preview',
+        model: 'gemini-2.0-flash',
         contents: `Analysiere folgendes Brainstorming für eine App-Idee und erstelle eine umfassende Skizze. 
         
         Die Antwort MUSS folgende Abschnitte enthalten:
@@ -149,7 +149,7 @@ const AppDevelopmentView: React.FC<AppDevelopmentViewProps> = ({ onSave, addLog 
       }));
 
       const chat = ai.chats.create({
-        model: 'gemini-3-flash-preview',
+        model: 'gemini-2.0-flash',
         config: {
           systemInstruction: "Du bist ein erfahrener App-Consultant. Hilf dem Nutzer, seine App-Idee zu verfeinern. Beantworte Fragen, gib Anregungen und prüfe die Machbarkeit. Bleib konstruktiv und professionell auf DEUTSCH.",
         },
@@ -174,7 +174,7 @@ const AppDevelopmentView: React.FC<AppDevelopmentViewProps> = ({ onSave, addLog 
     try {
       const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
       const response = await ai.models.generateContent({
-        model: 'gemini-3-flash-preview',
+        model: 'gemini-2.0-flash',
         contents: `Basierend auf der folgenden App-Analyse und dem Beratungsgespräch, erstelle einen hochoptimierten "Master Prompt". 
         Dieser Prompt soll dazu dienen, eine andere KI (oder Google AI Studio) anzuweisen, diese App tatsächlich zu bauen oder einen funktionsfähigen Prototyp zu erstellen.
         

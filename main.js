@@ -44,6 +44,8 @@ let dictationWindow = null;
 let tray = null;
 let expressServer = null;
 let previousFrontApp = null; // Ziel-App für paste merken
+let lastOriginalText = '';   // F1: letzter Original-Diktat-Text
+let lastOptimizedText = '';  // F2: letzter optimierter Text
 
 function createWindow() {
   const isMac = process.platform === 'darwin';
@@ -67,6 +69,20 @@ function createWindow() {
   });
 
   mainWindow.loadURL(`http://localhost:${SERVER_PORT}`);
+
+  // Eco-Mode: Wenn das Hauptfenster minimiert/versteckt ist, dem Renderer sagen,
+  // dass er das Hintergrund-Video + Dauer-Animationen pausiert (spart GPU/CPU).
+  // Diktat läuft davon unberührt weiter (eigenes Overlay-Fenster + globale Shortcuts).
+  const sendEco = (on) => {
+    if (mainWindow && !mainWindow.isDestroyed()) {
+      try { mainWindow.webContents.send('eco-mode', on); } catch { /* */ }
+    }
+  };
+  mainWindow.on('minimize', () => { log('[Eco] Fenster minimiert → Eco AN'); sendEco(true); });
+  mainWindow.on('hide', () => { log('[Eco] Fenster versteckt → Eco AN'); sendEco(true); });
+  mainWindow.on('restore', () => sendEco(false));
+  mainWindow.on('show', () => sendEco(false));
+  mainWindow.on('focus', () => sendEco(false));
 
   // Frontend console.log/error/warn → Debug-Log-File umleiten
   mainWindow.webContents.on('console-message', (_event, level, message, line, sourceId) => {
@@ -436,6 +452,40 @@ Text: ${text}`,
         return (data.text || '').trim();
       }
 
+      // Übersetzung des transkribierten Textes via Gemini.
+      // targetLang ist die deutsche Adjektiv-Form aus der LANGUAGES-Liste (z.B. "Englische"),
+      // sodass "ins ${targetLang}" grammatikalisch passt ("ins Englische").
+      async function translateText(text, targetLang) {
+        const apiKey = await ensureGeminiKey();
+        if (!apiKey) throw new Error('Gemini Key nicht verfügbar');
+        const { GoogleGenAI } = require('@google/genai');
+        const ai = new GoogleGenAI({ apiKey });
+        const result = await ai.models.generateContent({
+          model: 'gemini-2.0-flash',
+          contents: `Du bist ein professioneller Übersetzer. Übersetze den folgenden Text ins ${targetLang}.
+- Übersetze sinngemäß und natürlich, nicht wörtlich
+- Behalte Tonfall und Ich-Perspektive bei
+- Gib NUR die Übersetzung zurück, ohne Anführungszeichen und ohne Erklärung
+
+Text: ${text}`,
+        });
+        return (result.text || '').trim();
+      }
+
+      // Reine Übersetzung (für Nachträgliches Umschalten der Zielsprache im Ergebnis)
+      server.post('/api/translate', async (req, res) => {
+        try {
+          const { text, translateTo } = req.body;
+          if (!text || !text.trim()) return res.status(400).json({ error: 'Kein Text angegeben' });
+          if (!translateTo || translateTo === 'none') return res.json({ text });
+          const translated = await translateText(text, translateTo);
+          res.json({ text: translated, original: text, translatedTo: translateTo });
+        } catch (err) {
+          log('[Translate] FEHLER: ' + err.message);
+          res.status(500).json({ error: err.message });
+        }
+      });
+
       // Live-Transkription via schnelles Whisper-base
       server.post('/api/transcribe-live', async (req, res) => {
         try {
@@ -449,10 +499,10 @@ Text: ${text}`,
         }
       });
 
-      // Finale Transkription via lokales Whisper
+      // Finale Transkription via lokales Whisper (+ optionale Übersetzung)
       server.post('/api/transcribe', async (req, res) => {
         try {
-          const { audio } = req.body;
+          const { audio, translateTo } = req.body;
           if (!audio) return res.status(400).json({ error: 'Kein Audio-Daten erhalten' });
 
           log('[Transcribe] Anfrage erhalten, Audio-Größe: ' + Math.round(audio.length / 1024) + ' KB');
@@ -462,6 +512,30 @@ Text: ${text}`,
 
           if (!text || text.length < 2) {
             return res.json({ text: '', feedback: 'Nichts erkannt — bitte lauter/deutlicher sprechen', quality: 'poor' });
+          }
+
+          // Optionale Übersetzung — Whisper liefert Deutsch, Gemini übersetzt in die Zielsprache
+          if (translateTo && translateTo !== 'none') {
+            try {
+              const translated = await translateText(text, translateTo);
+              log('[Transcribe] Übersetzt (' + translateTo + '): ' + translated.substring(0, 200));
+              return res.json({
+                text: translated,
+                original: text,
+                translatedTo: translateTo,
+                feedback: 'Übersetzt (' + translateTo + ')',
+                quality: 'good',
+              });
+            } catch (tErr) {
+              log('[Transcribe] Übersetzung fehlgeschlagen: ' + tErr.message);
+              // Fallback: deutschen Originaltext liefern statt hart zu scheitern
+              return res.json({
+                text,
+                original: text,
+                feedback: 'Übersetzung fehlgeschlagen — Original eingefügt',
+                quality: 'good',
+              });
+            }
           }
 
           res.json({ text, feedback: 'Lokal transkribiert (Whisper)', quality: 'good' });
@@ -549,6 +623,98 @@ ipcMain.handle('insert-global-text', async (_event, text) => {
 ipcMain.on('hide-dictation-overlay', () => {
   if (dictationWindow) dictationWindow.hide();
 });
+
+// Letzten Diktat-Text speichern (für F1/F2)
+ipcMain.on('dictation-result', (_e, { original, optimized }) => {
+  if (original) lastOriginalText = original;
+  if (optimized) lastOptimizedText = optimized;
+  log(`[TTS] Texte gespeichert — Original: ${original?.substring(0,40)}…`);
+});
+
+// ElevenLabs TTS: Text → MP3 → afplay
+function playElevenLabsTTS(text) {
+  if (!text?.trim()) { log('[TTS] Kein Text zum Vorlesen'); return; }
+  const http = require('http');
+  const fs = require('fs');
+  const postData = JSON.stringify({ text: text.trim(), voiceId: ttsVoiceId || undefined });
+  const options = {
+    hostname: '127.0.0.1',
+    port: SERVER_PORT,
+    path: '/api/elevenlabs-tts',
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Content-Length': Buffer.byteLength(postData) }
+  };
+  const req = http.request(options, (res) => {
+    if (res.statusCode !== 200) { log(`[TTS] Server Fehler: ${res.statusCode}`); return; }
+    const chunks = [];
+    res.on('data', chunk => chunks.push(chunk));
+    res.on('end', () => {
+      const tmpFile = '/tmp/rhetorix_tts.mp3';
+      fs.writeFileSync(tmpFile, Buffer.concat(chunks));
+      exec(`afplay "${tmpFile}"`, (err) => {
+        if (err) log('[TTS] afplay Fehler: ' + err.message);
+        else log('[TTS] Vorlesen abgeschlossen');
+      });
+    });
+  });
+  req.on('error', (err) => log('[TTS] HTTP Fehler: ' + err.message));
+  req.write(postData);
+  req.end();
+}
+
+// Auto-Hide-Timer für das Übersetzungs-Popup
+let translationHideTimer = null;
+
+// Master-Schalter: Übersetzer standardmäßig AUS. Wird vom Renderer (Toggle) gesetzt.
+let translatorActive = false;
+ipcMain.on('set-translator-active', (_e, active) => {
+  translatorActive = !!active;
+  log('[Übersetzen] Master-Schalter: ' + (translatorActive ? 'AN' : 'AUS'));
+});
+
+// Gewählte Vorlese-Stimme (ElevenLabs voiceId). null = Server-Default.
+let ttsVoiceId = null;
+ipcMain.on('set-tts-voice', (_e, voiceId) => {
+  ttsVoiceId = voiceId || null;
+  log('[TTS] Vorlese-Stimme gesetzt: ' + (ttsVoiceId || '(Default)'));
+});
+
+// F2: markierten Fremdtext aus beliebiger App ins Deutsche übersetzen
+// → als Popup im Overlay anzeigen UND vorlesen. Kein Live-Mitlesen fremder Apps,
+//   sondern gezielt der markierte Text (Cmd+C wie bei F3).
+function translateSelectionToGerman() {
+  // 1) Markierten Text kopieren (Cmd+C simulieren)
+  exec(`osascript -e 'tell application "System Events" to keystroke "c" using command down'`, () => {
+    setTimeout(async () => {
+      const src = clipboard.readText();
+      if (!src || !src.trim()) { log('[Übersetzen] Kein Text markiert/kopiert'); return; }
+      log('[Übersetzen] Quelle: ' + src.substring(0, 80));
+      try {
+        // 2) Übersetzen via lokalem Server (Gemini) → Deutsch
+        const res = await fetch(`http://127.0.0.1:${SERVER_PORT}/api/translate`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ text: src, translateTo: 'Deutsche' }),
+        });
+        const data = await res.json();
+        const german = (data && data.text) ? data.text : src;
+        log('[Übersetzen] Deutsch: ' + german.substring(0, 80));
+
+        // 3a) Popup im Overlay anzeigen
+        if (dictationWindow) {
+          if (!dictationWindow.isVisible()) dictationWindow.showInactive();
+          dictationWindow.webContents.send('show-translation', { text: german, original: src });
+          if (translationHideTimer) clearTimeout(translationHideTimer);
+          translationHideTimer = setTimeout(() => { if (dictationWindow) dictationWindow.hide(); }, 30000);
+        }
+        // 3b) Vorlesen (ElevenLabs, multilingual)
+        playElevenLabsTTS(german);
+      } catch (err) {
+        log('[Übersetzen] Fehler: ' + err.message);
+      }
+    }, 250);
+  });
+}
 
 // Space global registrieren während Aufnahme läuft
 ipcMain.on('dictation-recording-started', () => {
@@ -650,6 +816,7 @@ app.whenReady().then(async () => {
   // Funktioniert systemweit in jeder App
   const SHORTCUT_PRIMARY = 'Shift+Space';
   const SHORTCUT_FALLBACK = 'CommandOrControl+Shift+Space';
+  const SHORTCUT_F5 = 'F5';
 
   function triggerDictation(label) {
     log(`Globaler Shortcut ${label} gedrückt!`);
@@ -675,18 +842,48 @@ app.whenReady().then(async () => {
   }
 
   const ret = globalShortcut.register(SHORTCUT_PRIMARY, () => triggerDictation(SHORTCUT_PRIMARY));
-
-  if (!ret) {
-    log(`Shortcut ${SHORTCUT_PRIMARY} Registrierung fehlgeschlagen — versuche Fallback...`);
-    const retFallback = globalShortcut.register(SHORTCUT_FALLBACK, () => triggerDictation(SHORTCUT_FALLBACK));
-    if (retFallback) {
-      log(`Fallback-Shortcut ${SHORTCUT_FALLBACK} erfolgreich registriert.`);
-    } else {
-      log('Auch Fallback-Shortcut fehlgeschlagen.');
-    }
-  } else {
+  if (ret) {
     log(`Globaler Shortcut ${SHORTCUT_PRIMARY} erfolgreich registriert.`);
+  } else {
+    log(`Shortcut ${SHORTCUT_PRIMARY} fehlgeschlagen — versuche Fallback...`);
+    const retFallback = globalShortcut.register(SHORTCUT_FALLBACK, () => triggerDictation(SHORTCUT_FALLBACK));
+    log(retFallback ? `Fallback ${SHORTCUT_FALLBACK} aktiv.` : 'Auch Fallback fehlgeschlagen.');
   }
+
+  // F5 zusätzlich registrieren (MacBook Mikrofon-Taste)
+  const retF5 = globalShortcut.register(SHORTCUT_F5, () => triggerDictation(SHORTCUT_F5));
+  log(retF5 ? `F5-Shortcut aktiv.` : `F5-Shortcut fehlgeschlagen (evtl. von macOS belegt).`);
+
+  // F1 → Original-Text vorlesen
+  const retF1 = globalShortcut.register('F1', () => {
+    log('[TTS] F1 → Original vorlesen');
+    if (lastOriginalText) playElevenLabsTTS(lastOriginalText);
+    else log('[TTS] Noch kein Diktat-Text vorhanden');
+  });
+  log(retF1 ? 'F1 (Original TTS) aktiv.' : 'F1 fehlgeschlagen.');
+
+  // F2 → Markierten Fremdtext ins Deutsche übersetzen (Popup + vorlesen)
+  // Nur aktiv, wenn der Übersetzer-Master-Schalter an ist.
+  const retF2 = globalShortcut.register('F2', () => {
+    if (!translatorActive) { log('[Übersetzen] F2 ignoriert — Übersetzer ist AUS'); return; }
+    log('[Übersetzen] F2 → markierten Text ins Deutsche übersetzen');
+    translateSelectionToGerman();
+  });
+  log(retF2 ? 'F2 (Übersetzen → Deutsch) aktiv.' : 'F2 fehlgeschlagen.');
+
+  // F3 → Markierten Text aus beliebiger App vorlesen
+  const retF3 = globalShortcut.register('F3', () => {
+    log('[TTS] F3 → Markierten Text vorlesen');
+    // Kopiere markierten Text über Cmd+C
+    exec(`osascript -e 'tell application "System Events" to keystroke "c" using command down'`, () => {
+      setTimeout(() => {
+        const text = clipboard.readText();
+        if (text?.trim()) playElevenLabsTTS(text);
+        else log('[TTS] Kein Text markiert/kopiert');
+      }, 250);
+    });
+  });
+  log(retF3 ? 'F3 (Markierter Text TTS) aktiv.' : 'F3 fehlgeschlagen.');
 });
 
 app.on('will-quit', () => {

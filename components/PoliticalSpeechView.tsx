@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { dispatchDictation } from '../utils/dictation-events';
 import { createBlob } from '../utils/audio-helpers';
 import { getUserMicrophoneStream } from '../utils/speechHelper';
+import { speakElevenLabs, stopSpeaking } from '../utils/elevenLabsTTS';
 
 enum Step {
   INPUT = 'input',
@@ -117,7 +118,7 @@ const PoliticalSpeechView: React.FC<{
       streamRef.current = await getUserMicrophoneStream();
 
       const sessionPromise = ai.live.connect({
-        model: 'gemini-2.5-flash-live-preview',
+        model: 'gemini-2.0-flash',
         config: {
           responseModalities: [Modality.AUDIO],
           systemInstruction: "Transkribiere den Nutzer präzise auf Deutsch.",
@@ -195,7 +196,7 @@ const PoliticalSpeechView: React.FC<{
     try {
       const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || '' });
       const response = await ai.models.generateContent({
-        model: 'gemini-3.1-pro-preview',
+        model: 'gemini-2.0-flash',
         contents: `Du bist ein Weltklasse-Redenschreiber für Spitzenpolitiker. 
         Wandle diesen rohen Text in ein professionelles, rhetorisch brillantes politisches Rede-Skript um. 
         
@@ -230,7 +231,7 @@ const PoliticalSpeechView: React.FC<{
     try {
       const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || '' });
       const response = await ai.models.generateContent({
-        model: 'gemini-3.1-pro-preview',
+        model: 'gemini-2.0-flash',
         contents: `Du bist ein hochkritischer Rhetorik-Professor und Performance-Coach. 
         Analysiere diesen politischen Vortrag basierend auf dem Skript und dem tatsächlichen Transkript der Performance. 
         
@@ -294,33 +295,8 @@ const PoliticalSpeechView: React.FC<{
     addLog("Generiere Audio-Vorschau...", "info");
 
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || '' });
-      const response = await ai.models.generateContent({
-        model: "gemini-2.5-flash-preview-tts",
-        contents: [{ parts: [{ text: `Trage diesen Text mit Leidenschaft, Überzeugung und staatsmännischer Autorität vor: ${textToRead}` }] }],
-        config: {
-          responseModalities: [Modality.AUDIO],
-          speechConfig: {
-            voiceConfig: {
-              prebuiltVoiceConfig: { voiceName: 'Zephyr' },
-            },
-          },
-        },
-      });
-
-      const base64Audio = response.candidates?.[0]?.content?.parts?.[0]?.inlineData?.data;
-      if (base64Audio) {
-        const binary = atob(base64Audio);
-        const bytes = new Uint8Array(binary.length);
-        for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
-        const blob = new Blob([bytes], { type: 'audio/wav' });
-        const url = URL.createObjectURL(blob);
-        setAudioUrl(url);
-        addLog("Audio bereit!", "success");
-        
-        const audio = new Audio(url);
-        audio.play();
-      }
+      await speakElevenLabs(textToRead);
+      addLog("Audio bereit!", "success");
     } catch (err: any) {
       addLog("Fehler bei Audio-Generierung: " + err.message, "error");
     } finally {

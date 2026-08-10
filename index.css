@@ -1,8 +1,20 @@
+@import '@fortawesome/fontawesome-free/css/all.min.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import '@fortawesome/fontawesome-free/css/all.min.css';
+/* Eco-Mode: Fenster minimiert/versteckt → Dauer-Animationen anhalten + Hintergrund-Video
+   ausblenden. Spart GPU/CPU, während nur das Einsprechen weiterläuft. */
+:root[data-eco="true"] *,
+:root[data-eco="true"] *::before,
+:root[data-eco="true"] *::after {
+  animation-play-state: paused !important;
+  transition: none !important;
+}
+:root[data-eco="true"] video[data-bg-video] {
+  visibility: hidden;
+}
 
 body {
   font-family: 'Inter', system-ui, sans-serif;

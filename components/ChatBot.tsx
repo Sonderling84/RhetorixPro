@@ -1,7 +1,7 @@
 
 import React, { useState, useRef, useEffect } from 'react';
-import { GoogleGenAI, Modality } from '@google/genai';
-import { decode, decodeAudioData } from '../utils/audio-helpers';
+import { GoogleGenAI } from '@google/genai';
+import { speakElevenLabs, stopSpeaking } from '../utils/elevenLabsTTS';
 
 const ChatBot: React.FC<{ addLog: (m: string, l?: any) => void }> = ({ addLog }) => {
   const [messages, setMessages] = useState<{ role: 'user' | 'bot', text: string }[]>([
@@ -19,29 +19,10 @@ const ChatBot: React.FC<{ addLog: (m: string, l?: any) => void }> = ({ addLog })
   const speak = async (text: string) => {
     setIsPlaying(true);
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-      const response = await ai.models.generateContent({
-        model: "gemini-2.5-flash-preview-tts",
-        contents: [{ parts: [{ text }] }],
-        config: {
-          responseModalities: [Modality.AUDIO],
-          speechConfig: { voiceConfig: { prebuiltVoiceConfig: { voiceName: 'Kore' } } },
-        },
-      });
-      const base64Audio = response.candidates?.[0]?.content?.parts?.[0]?.inlineData?.data;
-      if (base64Audio) {
-        const ctx = new (window.AudioContext || (window as any).webkitAudioContext)({ sampleRate: 48000 });
-        const buffer = await decodeAudioData(decode(base64Audio), ctx, 24000, 1);
-        const source = ctx.createBufferSource();
-        source.buffer = buffer;
-        source.connect(ctx.destination);
-        source.onended = () => { 
-          setIsPlaying(false); 
-          if (ctx.state !== 'closed') ctx.close(); 
-        };
-        source.start();
-      }
+      await speakElevenLabs(text);
     } catch (err) {
+      // handled by elevenLabsTTS fallback
+    } finally {
       setIsPlaying(false);
     }
   };
@@ -56,7 +37,7 @@ const ChatBot: React.FC<{ addLog: (m: string, l?: any) => void }> = ({ addLog })
     try {
       const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
       const response = await ai.models.generateContent({
-        model: 'gemini-3-pro-preview',
+        model: 'gemini-2.0-flash',
         contents: userText,
         config: {
           systemInstruction: "Du bist ein erfahrener Rhetorik-Mentor. Gib präzise, motivierende und professionelle Antworten. Nutze Beispiele."

@@ -2,8 +2,9 @@
 import React, { useState, useRef, useEffect, useMemo } from 'react';
 import { GoogleGenAI, LiveServerMessage, Modality } from '@google/genai';
 import { AppMode, SessionResult, AnalysisData } from '../types';
-import { createBlob, decode, decodeAudioData } from '../utils/audio-helpers';
-import { getGeminiVoiceName, getUserMicrophoneStream } from '../utils/speechHelper';
+import { createBlob } from '../utils/audio-helpers';
+import { getUserMicrophoneStream } from '../utils/speechHelper';
+import { speakElevenLabs, stopSpeaking } from '../utils/elevenLabsTTS';
 import { ExplanationModal } from './AnalysisDetails';
 
 const SKILLS = [
@@ -120,7 +121,7 @@ const TrainerSession: React.FC<TrainerSessionProps> = ({ mode, onSave, addLog })
       streamRef.current = await getUserMicrophoneStream();
 
       const sessionPromise = ai.live.connect({
-        model: 'gemini-2.5-flash-native-audio-preview-12-2025',
+        model: 'gemini-2.0-flash-exp',
         config: {
           responseModalities: [Modality.AUDIO],
           systemInstruction: `Du bist ein Echtzeit-Rhetorik-Protokollant. Transkribiere EXAKT was du hörst auf Deutsch. Behalte Füllwörter wie "äh", "ähm", "quasi" unbedingt im Text bei.`,
@@ -190,7 +191,7 @@ const TrainerSession: React.FC<TrainerSessionProps> = ({ mode, onSave, addLog })
       }
 
       const response = await ai.models.generateContent({
-        model: 'gemini-3-pro-preview', // Pro Modell für maximale Tiefe
+        model: 'gemini-2.0-flash', // Pro Modell für maximale Tiefe
         contents: `Du bist ein Weltklasse-Rhetorik-Experte. Analysiere dieses Transkript mit maximaler wissenschaftlicher Tiefe. 
         Thema: "${topic}". Fokus: "${skillName || 'Allgemein'}".
         Transkript: "${transcription}"
@@ -265,26 +266,12 @@ const TrainerSession: React.FC<TrainerSessionProps> = ({ mode, onSave, addLog })
     if (!text || isPlaying) return;
     setIsPlaying(true);
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-      const response = await ai.models.generateContent({
-        model: "gemini-2.5-flash-preview-tts",
-        contents: [{ parts: [{ text }] }],
-        config: {
-          responseModalities: [Modality.AUDIO],
-          speechConfig: { voiceConfig: { prebuiltVoiceConfig: { voiceName: getGeminiVoiceName() } } },
-        },
-      });
-      const base64Audio = response.candidates?.[0]?.content?.parts?.[0]?.inlineData?.data;
-      if (base64Audio) {
-        const ctx = new (window.AudioContext || (window as any).webkitAudioContext)({ sampleRate: 48000 });
-        const buffer = await decodeAudioData(decode(base64Audio), ctx, 24000, 1);
-        const source = ctx.createBufferSource();
-        source.buffer = buffer;
-        source.connect(ctx.destination);
-        source.onended = () => { setIsPlaying(false); if (ctx.state !== 'closed') ctx.close(); };
-        source.start();
-      }
-    } catch (err) { setIsPlaying(false); }
+      await speakElevenLabs(text);
+    } catch (err) {
+      // handled by elevenLabsTTS fallback
+    } finally {
+      setIsPlaying(false);
+    }
   };
 
   return (

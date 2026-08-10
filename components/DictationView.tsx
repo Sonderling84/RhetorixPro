@@ -21,7 +21,7 @@ const DictationView: React.FC<{ onSave: (session: any) => void; addLog: (m: stri
       
       // 1. Generate text
       const textRes = await ai.models.generateContent({
-        model: 'gemini-3-flash-preview',
+        model: 'gemini-2.0-flash',
         contents: `Generiere ein kurzes deutsches Diktat (ca. 25 Wörter) für das Sprachniveau ${level}. Das Thema soll alltagsnah sein.`
       });
       const text = textRes.text?.trim() || '';
@@ -29,7 +29,7 @@ const DictationView: React.FC<{ onSave: (session: any) => void; addLog: (m: stri
 
       // 2. Play audio
       const audioRes = await ai.models.generateContent({
-        model: "gemini-2.5-flash-preview-tts",
+        model: "gemini-2.0-flash",
         contents: [{ parts: [{ text: `Lies dieses Diktat langsam und deutlich vor, mache kurze Pausen zwischen den Sätzen: ${text}` }] }],
         config: {
           responseModalities: [Modality.AUDIO],
@@ -59,7 +59,7 @@ const DictationView: React.FC<{ onSave: (session: any) => void; addLog: (m: stri
   const checkResult = () => {
     const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
     ai.models.generateContent({
-      model: 'gemini-3-flash-preview',
+      model: 'gemini-2.0-flash',
       contents: `Vergleiche das Original-Diktat: "${currentText}" mit der Eingabe des Nutzers: "${userInput}". 
       Markiere Fehler fett und gib eine Note (1-6) sowie eine kurze Korrektur.`
     }).then(res => setFeedback(res.text || ''))

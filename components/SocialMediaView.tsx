@@ -58,7 +58,7 @@ const SocialMediaView: React.FC<{
     try {
       const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
       const response = await ai.models.generateContent({
-        model: 'gemini-3-flash-preview',
+        model: 'gemini-2.0-flash',
         contents: `Erstelle viralen Social Media Content für ${platform} basierend auf dieser Idee: "${input}".
         
         Erstelle:

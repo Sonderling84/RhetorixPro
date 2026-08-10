@@ -201,6 +201,20 @@ const VoiceInputView: React.FC<VoiceInputViewProps> = ({ onSave, addLog }) => {
           <p className="text-xs text-gray-400">Verhindert Stumm-Probleme auf deinem Mac: Wähle hier dein aktives Mikrofon und starte einen schnellen Pegeltest.</p>
         </div>
         <MicSelector addLog={addLog} />
+
+        <div className="pt-4 border-t border-gray-100 dark:border-gray-800/40">
+          <button
+            onClick={() => {
+              window.dispatchEvent(new CustomEvent('rhetorix-start-mic-test'));
+              addLog('Mikrofon-Kalibrierung gestartet — sprich die angezeigten Sätze nach.', 'info');
+            }}
+            className="w-full sm:w-auto px-6 py-4 rounded-xl font-black text-[11px] uppercase tracking-wider transition-all shadow-md bg-cyan-600 hover:bg-cyan-500 text-white flex items-center justify-center gap-2"
+          >
+            <i className="fas fa-vial"></i>
+            Kalibrierung starten
+          </button>
+          <p className="text-[10px] text-gray-400 mt-2">Sprich 3 Test-Sätze nach, um zu prüfen ob Mikrofon + Spracherkennung funktionieren.</p>
+        </div>
       </div>
 
       {/* Interactive Testing Playground */}

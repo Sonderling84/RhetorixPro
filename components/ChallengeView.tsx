@@ -1,10 +1,9 @@
 
 import React, { useState, useEffect, useRef } from 'react';
-import { GoogleGenAI, Modality } from '@google/genai';
+import { GoogleGenAI } from '@google/genai';
 import { AppMode, SessionResult, AnalysisData } from '../types';
-import { decode, decodeAudioData } from '../utils/audio-helpers';
 import { motion, AnimatePresence } from 'motion/react';
-import { applyVoiceStyleToUtterance } from '../utils/speechHelper';
+import { speakElevenLabs, stopSpeaking } from '../utils/elevenLabsTTS';
 
 interface ChallengeViewProps {
   onSave: (session: SessionResult) => void;
@@ -459,9 +458,7 @@ const ChallengeView: React.FC<ChallengeViewProps> = ({ onSave, addLog, sessions 
       try { audioSourceRef.current.stop(); } catch (e) {}
       audioSourceRef.current = null;
     }
-    if (window.speechSynthesis) {
-      window.speechSynthesis.cancel();
-    }
+    stopSpeaking();
     setIsAudioLoading(false);
   };
 
@@ -617,45 +614,12 @@ const ChallengeView: React.FC<ChallengeViewProps> = ({ onSave, addLog, sessions 
     stopAudio();
     setIsAudioLoading(true);
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || '' });
-      const response = await ai.models.generateContent({
-        model: "gemini-3.1-flash-tts-preview",
-        contents: [{ parts: [{ text }] }],
-        config: {
-          responseModalities: ["AUDIO" as any],
-          speechConfig: {
-            voiceConfig: {
-              prebuiltVoiceConfig: { voiceName: LANGUAGES[language].voice } 
-            }
-          }
-        }
-      });
-
-      const base64Audio = response.candidates?.[0]?.content?.parts?.[0]?.inlineData?.data;
-      if (base64Audio) {
-        if (!audioContextRef.current) audioContextRef.current = new (window.AudioContext || (window as any).webkitAudioContext)();
-        if (audioContextRef.current.state === 'suspended') await audioContextRef.current.resume();
-        
-        const buffer = await decodeAudioData(atob(base64Audio).split('').map(c => c.charCodeAt(0)) as any, audioContextRef.current, 24000, 1);
-        const source = audioContextRef.current.createBufferSource();
-        source.buffer = buffer;
-        source.connect(audioContextRef.current.destination);
-        source.onended = () => {
-          setIsAudioLoading(false);
-          startQuestionTimer(sessionQuestions[currentQuestionIndex]?.isDeep);
-        };
-        audioSourceRef.current = source;
-        source.start();
-      } else {
-        throw new Error("No audio data");
-      }
+      await speakElevenLabs(text);
+      setIsAudioLoading(false);
+      startQuestionTimer(sessionQuestions[currentQuestionIndex]?.isDeep);
     } catch (e) {
       console.error("TTS Error:", e);
       setIsAudioLoading(false);
-      // Fallback
-      const utterArray = new SpeechSynthesisUtterance(text);
-      utterArray.lang = LANGUAGES[language].langTag;
-      window.speechSynthesis.speak(utterArray);
     }
   };
 
@@ -690,54 +654,11 @@ const ChallengeView: React.FC<ChallengeViewProps> = ({ onSave, addLog, sessions 
     stopAudio();
     setIsAudioLoading(true);
     try {
-       const synth = window.speechSynthesis;
-       const utterance = new SpeechSynthesisUtterance(text);
-       const langTag = LANGUAGES[language].langTag;
-       utterance.lang = langTag;
-       utterance.rate = 0.92; // Etwas ruhigeres und angenehmeres Tempo
-       utterance.pitch = 1.0;
-
-       const voices = synth.getVoices();
-       const matchedVoices = voices.filter(v => v.lang.toLowerCase().replace('_', '-').startsWith(langTag.toLowerCase().split('-')[0]));
-       if (matchedVoices.length > 0) {
-         const bestVoice = matchedVoices.sort((a, b) => {
-           const nameA = a.name.toLowerCase();
-           const nameB = b.name.toLowerCase();
-           
-           const naturalA = nameA.includes('natural') || nameA.includes('premium') || nameA.includes('online');
-           const naturalB = nameB.includes('natural') || nameB.includes('premium') || nameB.includes('online');
-           if (naturalA && !naturalB) return -1;
-           if (!naturalA && naturalB) return 1;
-
-           // Für Deutsch bekannte angenehme Stimmen bevorzugen
-           const preferred = ['katja', 'hedda', 'amelie', 'marlene', 'anna', 'steffi', 'lisa', 'siri', 'yannick', 'stefan', 'daniel', 'samantha', 'karen', 'moira', 'tessa'];
-           const indexA = preferred.findIndex(n => nameA.includes(n));
-           const indexB = preferred.findIndex(n => nameB.includes(n));
-           if (indexA !== -1 && indexB !== -1) return indexA - indexB;
-           if (indexA !== -1 && indexB === -1) return -1;
-           if (indexA === -1 && indexB !== -1) return 1;
-
-           const googleA = nameA.includes('google');
-           const googleB = nameB.includes('google');
-           if (googleA && !googleB) return -1;
-           if (!googleA && googleB) return 1;
-
-           return 0;
-         })[0];
-
-         if (bestVoice) {
-           utterance.voice = bestVoice;
-         }
-       }
-       
-       utterance.onstart = () => setIsAudioLoading(false);
-       utterance.onend = () => setIsAudioLoading(false);
-       utterance.onerror = () => setIsAudioLoading(false);
-       
-       synth.speak(utterance);
+      await speakElevenLabs(text);
     } catch (e) {
-      setIsAudioLoading(false);
       console.error("Speech error", e);
+    } finally {
+      setIsAudioLoading(false);
     }
   };
 

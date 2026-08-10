@@ -3,8 +3,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { GoogleGenAI } from "@google/genai";
 import { LogEntry, AppMode, AnalysisData } from '../types';
 import { dispatchDictation } from '../utils/dictation-events';
-import { decode, decodeAudioData } from '../utils/audio-helpers';
-import { applyVoiceStyleToUtterance } from '../utils/speechHelper';
+import { speakElevenLabs, stopSpeaking, isSpeaking } from '../utils/elevenLabsTTS';
 import { motion, AnimatePresence } from 'motion/react';
 import { GLOSSARY, ExplanationModal } from './AnalysisDetails';
 
@@ -137,10 +136,10 @@ const TextOptimizer: React.FC<TextOptimizerProps> = ({ onSave, addLog }) => {
     setIsSpeakingOriginal(false);
     setIsSpeakingOptimized(false);
     setIsLoadingAudio(false);
-    window.speechSynthesis.cancel();
+    stopSpeaking();
   };
 
-  const speak = (text: string, type: 'original' | 'optimized') => {
+  const speak = async (text: string, type: 'original' | 'optimized') => {
     // If already playing THIS specific type, just stop it
     if ((type === 'original' && isSpeakingOriginal) || (type === 'optimized' && isSpeakingOptimized)) {
       stopAudio();
@@ -154,30 +153,10 @@ const TextOptimizer: React.FC<TextOptimizerProps> = ({ onSave, addLog }) => {
     else setIsSpeakingOptimized(true);
 
     try {
-      window.speechSynthesis.cancel();
-      // Resume if browser's SpeechSynthesis engine got muted/suspended
-      if (window.speechSynthesis.paused) {
-        window.speechSynthesis.resume();
-      }
-
-      const utter = new SpeechSynthesisUtterance(text);
-      utter.lang = 'de-DE';
-      applyVoiceStyleToUtterance(utter);
-
-      utter.onend = () => {
-        setIsSpeakingOriginal(false);
-        setIsSpeakingOptimized(false);
-      };
-
-      utter.onerror = (err) => {
-        console.error("SpeechSynthesisUtterance error:", err);
-        setIsSpeakingOriginal(false);
-        setIsSpeakingOptimized(false);
-      };
-
-      window.speechSynthesis.speak(utter);
+      await speakElevenLabs(text);
     } catch (e) {
-      console.error("Native SpeechSynthesis error:", e);
+      console.error("ElevenLabs TTS error:", e);
+    } finally {
       setIsSpeakingOriginal(false);
       setIsSpeakingOptimized(false);
     }
@@ -423,7 +402,7 @@ const TextOptimizer: React.FC<TextOptimizerProps> = ({ onSave, addLog }) => {
 
       // Using Flash for speed as user complained about "taking forever"
       const response = await ai.models.generateContent({
-        model: "gemini-3-flash-preview",
+        model: "gemini-2.0-flash",
         contents: `${systemInstruction}\n\nText: ${inputText}`,
       });
 
@@ -452,7 +431,7 @@ const TextOptimizer: React.FC<TextOptimizerProps> = ({ onSave, addLog }) => {
       const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || process.env.API_KEY || '' });
       
       const response = await ai.models.generateContent({
-        model: "gemini-3.5-flash",
+        model: "gemini-2.0-flash",
         contents: `Analysiere diesen Text hinsichtlich Rhetorik, Füllwort-Dichte, Ausdrucksstärke und Satzbau: "${inputText}".
         
         Antworte AUSSCHLIESSLICH im folgenden JSON-Format (ohne Markdown, keine Backticks):

@@ -27,9 +27,25 @@ async function getCredential(token, service, key) {
 async function bootstrap() {
   try {
     const token = await getHermesToken();
-    const geminiKey = await getCredential(token, 'Google_AI', 'api_key');
-    process.env.GEMINI_API_KEY = geminiKey;
-    console.log('[Hermes] Gemini API Key geladen');
+
+    // Gemini Key
+    try {
+      const geminiKey = await getCredential(token, 'Google_AI', 'api_key');
+      process.env.GEMINI_API_KEY = geminiKey;
+      console.log('[Hermes] Gemini API Key geladen');
+    } catch (err) {
+      console.warn('[Hermes] Gemini Key nicht verfügbar:', err.message);
+    }
+
+    // ElevenLabs Key
+    try {
+      const elevenLabsKey = await getCredential(token, 'ElevenLabs', 'api_key');
+      process.env.ELEVENLABS_API_KEY = elevenLabsKey;
+      console.log('[Hermes] ElevenLabs API Key geladen');
+    } catch (err) {
+      console.warn('[Hermes] ElevenLabs Key nicht verfügbar:', err.message);
+    }
+
     return true;
   } catch (err) {
     console.warn(`[Hermes] Nicht erreichbar: ${err.message}`);

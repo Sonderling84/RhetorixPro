@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { getUserMicrophoneStream } from '../utils/speechHelper';
+import { TRANSLATOR_ACTIVE_KEY, isTranslatorActive } from './TranslatorToggle';
 
 type DictationPhase = 'idle' | 'recording' | 'processing' | 'result' | 'test';
 
@@ -85,6 +86,16 @@ async function transcribeAudio(audioBase64: string, translateTo: string, rawMode
   return res.json();
 }
 
+// Reine Übersetzung eines bereits transkribierten Textes (für Sprachwechsel im Ergebnis)
+async function translateTextApi(text: string, translateTo: string): Promise<{ text?: string; original?: string; error?: string }> {
+  const res = await fetch('/api/translate', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ text, translateTo }),
+  });
+  return res.json();
+}
+
 // Schnelle Live-Transkription (für Kalibrierung)
 async function transcribeLive(audioBase64: string): Promise<string> {
   const res = await fetch('/api/transcribe-live', {
@@ -109,6 +120,7 @@ const GlobalDictationOverlay: React.FC<GlobalDictationOverlayProps> = ({ isStand
   const [quality, setQuality] = useState<'good' | 'poor'>('good');
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [translateTo, setTranslateTo] = useState(() => localStorage.getItem('rhetorix_translate_to') || 'none');
+  const [translatorActive, setTranslatorActive] = useState<boolean>(() => isTranslatorActive());
   const [useGemini, setUseGemini] = useState(() => localStorage.getItem('rhetorix_use_gemini') !== 'false');
   const [optimizeMode, setOptimizeMode] = useState(() => localStorage.getItem('rhetorix_optimize_mode') === 'true');
   const [isOptimizing, setIsOptimizing] = useState(false);
@@ -116,6 +128,8 @@ const GlobalDictationOverlay: React.FC<GlobalDictationOverlayProps> = ({ isStand
   const [key1, setKey1] = useState('Shift');
   const [key2, setKey2] = useState(' ');
   const [testStep, setTestStep] = useState(0);
+  const [ttsEnabled, setTtsEnabled] = useState(() => localStorage.getItem('rhetorix_tts_enabled') !== 'false');
+  const [isSpeaking, setIsSpeaking] = useState(false);
   const [testResults, setTestResults] = useState<Array<{expected: string; got: string; passed: boolean; similarity: number}>>([]);
 
   const activeElementRef = useRef<HTMLInputElement | HTMLTextAreaElement | null>(null);
@@ -128,6 +142,7 @@ const GlobalDictationOverlay: React.FC<GlobalDictationOverlayProps> = ({ isStand
   const liveAbortRef = useRef<AbortController | null>(null);
   const keysPressedRef = useRef<{ [key: string]: boolean }>({});
   const phaseRef = useRef<DictationPhase>('idle');
+  const sourceTextRef = useRef(''); // deutscher Whisper-Text als Quelle für Nach-Übersetzung
   const testModeActiveRef = useRef(false);
   const testStepRef = useRef(0);
   const speechRecRef = useRef<any>(null);
@@ -146,6 +161,19 @@ const GlobalDictationOverlay: React.FC<GlobalDictationOverlayProps> = ({ isStand
   };
 
   useEffect(() => { loadShortcutKeys(); }, []);
+
+  // Übersetzer-Master-Schalter synchron halten (anderes Fenster ändert ihn per localStorage)
+  useEffect(() => {
+    const sync = () => setTranslatorActive(isTranslatorActive());
+    const onStorage = (e: StorageEvent) => { if (e.key === TRANSLATOR_ACTIVE_KEY) sync(); };
+    const onCustom = () => sync();
+    window.addEventListener('storage', onStorage);
+    window.addEventListener('rhetorix-translator-active', onCustom as EventListener);
+    return () => {
+      window.removeEventListener('storage', onStorage);
+      window.removeEventListener('rhetorix-translator-active', onCustom as EventListener);
+    };
+  }, []);
   useEffect(() => { localStorage.setItem('rhetorix_translate_to', translateTo); }, [translateTo]);
   useEffect(() => { localStorage.setItem('rhetorix_use_gemini', String(useGemini)); }, [useGemini]);
   useEffect(() => { localStorage.setItem('rhetorix_optimize_mode', String(optimizeMode)); }, [optimizeMode]);
@@ -170,6 +198,65 @@ const GlobalDictationOverlay: React.FC<GlobalDictationOverlayProps> = ({ isStand
     el.dispatchEvent(new Event('change', { bubbles: true }));
     window.dispatchEvent(new CustomEvent('rhetorix-dictation-text', { detail: { text: newValue } }));
   };
+
+  const speakText = useCallback((text: string) => {
+    if (!text.trim() || !window.speechSynthesis) return;
+    window.speechSynthesis.cancel();
+    const utter = new SpeechSynthesisUtterance(text);
+    utter.lang = 'de-DE';
+    utter.rate = 0.95;
+    // Deutsche Stimme bevorzugen
+    const voices = window.speechSynthesis.getVoices();
+    const deVoice = voices.find(v => v.lang.startsWith('de'));
+    if (deVoice) utter.voice = deVoice;
+    utter.onstart = () => setIsSpeaking(true);
+    utter.onend = () => setIsSpeaking(false);
+    utter.onerror = () => setIsSpeaking(false);
+    window.speechSynthesis.speak(utter);
+  }, []);
+
+  const stopSpeaking = useCallback(() => {
+    window.speechSynthesis?.cancel();
+    setIsSpeaking(false);
+  }, []);
+
+  // Zielsprache umschalten. Im Ergebnis-Zustand wird der bereits transkribierte
+  // deutsche Text sofort neu übersetzt — ohne erneut aufzunehmen.
+  const handleChangeTargetLang = useCallback(async (lang: string) => {
+    setTranslateTo(lang);
+    if (phaseRef.current !== 'result') return; // während Aufnahme greift die Wahl erst beim Stoppen
+    const source = sourceTextRef.current;
+    if (!source) return;
+    stopSpeaking();
+    if (lang === 'none') {
+      setResultText(source);
+      setFeedback('Original (Deutsch)');
+      return;
+    }
+    setIsOptimizing(true);
+    try {
+      const data = await translateTextApi(source, lang);
+      if (data.text) {
+        setResultText(data.text);
+        setOriginalText(source);
+        const label = LANGUAGES.find(l => l.code === lang)?.label || lang;
+        setFeedback('Übersetzt (' + label + ')');
+        if (isStandalone && (window as any).electronAPI?.notifyDictationResult) {
+          (window as any).electronAPI.notifyDictationResult(source, data.text);
+        }
+      } else if (data.error) {
+        setFeedback('Übersetzung fehlgeschlagen');
+      }
+    } catch (e) {
+      setFeedback('Übersetzung fehlgeschlagen');
+    } finally {
+      setIsOptimizing(false);
+    }
+  }, [isStandalone, stopSpeaking]);
+
+  useEffect(() => {
+    localStorage.setItem('rhetorix_tts_enabled', String(ttsEnabled));
+  }, [ttsEnabled]);
 
   const playBeep = (freq: number) => {
     try {
@@ -344,7 +431,9 @@ const GlobalDictationOverlay: React.FC<GlobalDictationOverlayProps> = ({ isStand
       }
 
       // useGemini=false bedeutet "rawMode=true" (1:1 Diktat ohne KI Korrektur)
-      const data = await transcribeAudio(base64, translateTo, !useGemini);
+      // Übersetzung nur, wenn der Master-Schalter an ist — sonst hart 'none'.
+      const effectiveTranslateTo = translatorActive ? translateTo : 'none';
+      const data = await transcribeAudio(base64, effectiveTranslateTo, !useGemini);
       console.log('[Dictation] Gemini Ergebnis:', JSON.stringify(data).substring(0, 300));
 
       if (data.error) {
@@ -354,6 +443,8 @@ const GlobalDictationOverlay: React.FC<GlobalDictationOverlayProps> = ({ isStand
       }
 
       const rawText = data.text || '';
+      // Quelle für spätere Sprachwechsel = deutscher Originaltext (bei Übersetzung data.original, sonst der Text selbst)
+      sourceTextRef.current = data.original || rawText;
       setOriginalText(data.original || rawText);
       setFeedback(data.feedback || '');
       setQuality(data.quality === 'poor' ? 'poor' : 'good');
@@ -374,6 +465,9 @@ const GlobalDictationOverlay: React.FC<GlobalDictationOverlayProps> = ({ isStand
             setResultText(optData.text);
             setOriginalText(rawText);
             setFeedback('KI-optimiert');
+            if (isStandalone && (window as any).electronAPI?.notifyDictationResult) {
+              (window as any).electronAPI.notifyDictationResult(rawText, optData.text);
+            }
           }
         } catch (e) {
           console.error('[Optimize] Fehler:', e);
@@ -383,6 +477,9 @@ const GlobalDictationOverlay: React.FC<GlobalDictationOverlayProps> = ({ isStand
       } else {
         setResultText(rawText);
         setPhase('result');
+        if (isStandalone && (window as any).electronAPI?.notifyDictationResult) {
+          (window as any).electronAPI.notifyDictationResult(rawText, rawText);
+        }
       }
       // Text wird NICHT auto-eingefügt — User reviewt erst und drückt nochmal Shortcut
     } catch (err: any) {
@@ -397,9 +494,10 @@ const GlobalDictationOverlay: React.FC<GlobalDictationOverlayProps> = ({ isStand
         setPhase('idle');
       }
     }
-  }, [translateTo, liveText, stopLiveTranscription, useGemini, isStandalone]);
+  }, [translateTo, translatorActive, liveText, stopLiveTranscription, useGemini, isStandalone]);
 
   const dismiss = useCallback(() => {
+    stopSpeaking();
     if (timerRef.current) { clearInterval(timerRef.current); timerRef.current = null; }
     stopLiveTranscription();
     if (streamRef.current) {
@@ -419,7 +517,7 @@ const GlobalDictationOverlay: React.FC<GlobalDictationOverlayProps> = ({ isStand
     if (isStandalone && (window as any).electronAPI?.hideDictationOverlay) {
       (window as any).electronAPI.hideDictationOverlay();
     }
-  }, [stopLiveTranscription, isStandalone]);
+  }, [stopLiveTranscription, stopSpeaking, isStandalone]);
 
   // Test-Modus starten
   const startTestMode = useCallback(() => {
@@ -483,6 +581,21 @@ const GlobalDictationOverlay: React.FC<GlobalDictationOverlayProps> = ({ isStand
       });
     }
 
+    // Übersetzungs-Popup (F2): eingehenden Fremdtext übersetzt anzeigen
+    let removeShowTranslation: (() => void) | null = null;
+    if (isStandalone && (window as any).electronAPI?.onShowTranslation) {
+      removeShowTranslation = (window as any).electronAPI.onShowTranslation((payload: { text?: string; original?: string }) => {
+        const src = payload?.original || '';
+        sourceTextRef.current = src;
+        setOriginalText(src);
+        setResultText(payload?.text || '');
+        setFeedback('Übersetzt → Deutsch');
+        setQuality('good');
+        setErrorMsg(null);
+        setPhase('result');
+      });
+    }
+
     return () => {
       window.removeEventListener('rhetorix-force-start-dictation', onStart);
       window.removeEventListener('rhetorix-force-stop-dictation', onStop);
@@ -490,6 +603,7 @@ const GlobalDictationOverlay: React.FC<GlobalDictationOverlayProps> = ({ isStand
       if (removeIpcListener) removeIpcListener();
       if (removeToggleListener) removeToggleListener();
       if (removeStopListener) removeStopListener();
+      if (removeShowTranslation) removeShowTranslation();
     };
   }, [startRecording, stopRecording, dismiss, startTestMode, isStandalone, toggleRecording]);
 
@@ -714,6 +828,23 @@ const GlobalDictationOverlay: React.FC<GlobalDictationOverlayProps> = ({ isStand
                 </div>
               </div>
 
+              {/* Übersetzungs-Auswahl — direkt beim Einsprechen wählbar (nur wenn Übersetzer aktiv) */}
+              {translatorActive && (
+                <div className={`flex items-center gap-2 px-2 py-1.5 rounded-lg ${translateTo !== 'none' ? 'bg-indigo-500/15 border border-indigo-500/30' : 'bg-white/5'}`}>
+                  <i className="fas fa-language text-indigo-400 text-xs" />
+                  <span className="text-[9px] font-bold text-gray-400 uppercase tracking-widest whitespace-nowrap">Übersetzen</span>
+                  <select
+                    value={translateTo}
+                    onChange={(e) => handleChangeTargetLang(e.target.value)}
+                    className="flex-1 text-[10px] font-bold text-gray-200 bg-transparent outline-none appearance-none cursor-pointer"
+                  >
+                    {LANGUAGES.map(l => (
+                      <option key={l.code} value={l.code} className="bg-gray-900">{l.label}</option>
+                    ))}
+                  </select>
+                </div>
+              )}
+
               {/* Waveform */}
               <div className="flex items-center justify-center gap-0.5 h-6">
                 {[1, 2, 3, 4, 5, 6, 7, 8, 7, 6, 5, 4, 3, 2, 1].map((val, idx) => (
@@ -781,9 +912,30 @@ const GlobalDictationOverlay: React.FC<GlobalDictationOverlayProps> = ({ isStand
                     </p>
                   </div>
                 </div>
-                <button onClick={dismiss} className="w-7 h-7 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center">
-                  <i className="fas fa-times text-xs" />
-                </button>
+                <div className="flex items-center gap-2">
+                  {/* TTS Vorschau-Button */}
+                  {resultText && (
+                    <button
+                      onClick={() => isSpeaking ? stopSpeaking() : speakText(resultText)}
+                      title={isSpeaking ? 'Vorlesen stoppen' : 'Text vorlesen'}
+                      className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[10px] font-bold transition-colors ${isSpeaking ? 'bg-emerald-500/30 text-emerald-300' : 'bg-white/10 hover:bg-white/20 text-gray-300'}`}
+                    >
+                      <i className={`fas ${isSpeaking ? 'fa-stop' : 'fa-volume-high'} text-xs`} />
+                      {isSpeaking ? 'Stopp' : 'Vorlesen'}
+                    </button>
+                  )}
+                  {/* TTS Auto-Toggle */}
+                  <button
+                    onClick={() => setTtsEnabled(!ttsEnabled)}
+                    title="Automatisches Vorlesen an/aus"
+                    className={`text-[9px] font-bold px-2 py-1 rounded-md transition-colors ${ttsEnabled ? 'bg-emerald-500/20 text-emerald-300' : 'bg-gray-500/20 text-gray-500'}`}
+                  >
+                    <i className="fas fa-ear-listen mr-1" />Auto
+                  </button>
+                  <button onClick={dismiss} className="w-7 h-7 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center">
+                    <i className="fas fa-times text-xs" />
+                  </button>
+                </div>
               </div>
 
               <div className="p-4 bg-white/5 rounded-xl space-y-3">
@@ -810,8 +962,9 @@ const GlobalDictationOverlay: React.FC<GlobalDictationOverlayProps> = ({ isStand
                   </div>
                 )}
 
-                {originalText && (
+                {originalText && originalText !== resultText && (
                   <p className="text-xs text-gray-400 italic border-t border-white/5 pt-2">
+                    <i className="fas fa-quote-left text-gray-500 text-[8px] mr-1" />
                     Original: „{originalText}"
                   </p>
                 )}
@@ -841,13 +994,13 @@ const GlobalDictationOverlay: React.FC<GlobalDictationOverlayProps> = ({ isStand
                 )}
               </div>
 
-              {/* Übersetzungs-Dropdown — nur in eingebetteter App */}
-              {!isStandalone && (
+              {/* Übersetzungs-Dropdown — schaltet die Zielsprache sofort um (nur wenn Übersetzer aktiv) */}
+              {translatorActive && (
                 <div className="flex items-center gap-2 px-1">
                   <i className="fas fa-language text-indigo-400 text-xs" />
                   <select
                     value={translateTo}
-                    onChange={(e) => setTranslateTo(e.target.value)}
+                    onChange={(e) => handleChangeTargetLang(e.target.value)}
                     className="flex-1 text-[10px] font-bold text-gray-300 bg-white/5 border border-white/10 rounded-lg px-2 py-1.5 outline-none appearance-none cursor-pointer"
                   >
                     {LANGUAGES.map(l => (

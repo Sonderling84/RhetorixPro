@@ -2,7 +2,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { GoogleGenAI, LiveServerMessage, Modality } from '@google/genai';
 import { AppMode, SessionResult, AnalysisData } from '../types';
-import { createBlob, decode, decodeAudioData } from '../utils/audio-helpers';
+import { createBlob } from '../utils/audio-helpers';
+import { speakElevenLabs, stopSpeaking } from '../utils/elevenLabsTTS';
 import { ExplanationModal } from './AnalysisDetails';
 import { dispatchDictation } from '../utils/dictation-events';
 import { getUserMicrophoneStream } from '../utils/speechHelper';
@@ -79,7 +80,7 @@ const DiaryView: React.FC<DiaryViewProps> = ({ onSave, addLog }) => {
       streamRef.current = await getUserMicrophoneStream();
 
       const sessionPromise = ai.live.connect({
-        model: 'gemini-2.5-flash-native-audio-preview-12-2025',
+        model: 'gemini-2.0-flash-exp',
         config: {
           responseModalities: [Modality.AUDIO],
           systemInstruction: "Transkribiere JEDES Wort exakt. Behalte Pausenmarker, Füllwörter und Selbstkorrekturen bei. Dies ist ein ehrlicher Gedankenfluss-Entwurf.",
@@ -138,7 +139,7 @@ const DiaryView: React.FC<DiaryViewProps> = ({ onSave, addLog }) => {
     try {
       const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
       const response = await ai.models.generateContent({
-        model: 'gemini-3-flash-preview',
+        model: 'gemini-2.0-flash',
         contents: `Analysiere diesen Gedankenfluss (Original-Transkript): "${transcription}".
         1. Untersuche die Authentizität und Sprechmuster.
         2. Erstelle eine tiefgreifende philosophische Reflexion.
@@ -173,7 +174,7 @@ const DiaryView: React.FC<DiaryViewProps> = ({ onSave, addLog }) => {
     try {
       const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
       const response = await ai.models.generateContent({
-        model: 'gemini-3-flash-preview',
+        model: 'gemini-2.0-flash',
         contents: `Überführe diesen Gedankenfluss in einen literarisch perfekten Tagebucheintrag. Korrigiere alle Sprechfehler, aber bewahre die Emotion: "${transcription}"`
       });
       setOptimizedText(response.text || '');
@@ -188,36 +189,15 @@ const DiaryView: React.FC<DiaryViewProps> = ({ onSave, addLog }) => {
   const readAloud = async () => {
     const textToRead = optimizedText || transcription;
     if (!textToRead || isPlaying) return;
-    
+
     setIsPlaying(true);
     addLog("Generiere Sprachausgabe...");
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-      const response = await ai.models.generateContent({
-        model: "gemini-2.5-flash-preview-tts",
-        contents: [{ parts: [{ text: `Lies diesen persönlichen Eintrag vor: ${textToRead}` }] }],
-        config: {
-          responseModalities: [Modality.AUDIO],
-          speechConfig: { voiceConfig: { prebuiltVoiceConfig: { voiceName: 'Kore' } } },
-        },
-      });
-
-      const base64Audio = response.candidates?.[0]?.content?.parts?.[0]?.inlineData?.data;
-      if (base64Audio) {
-        const ctx = new (window.AudioContext || (window as any).webkitAudioContext)({ sampleRate: 48000 });
-        const buffer = await decodeAudioData(decode(base64Audio), ctx, 24000, 1);
-        const source = ctx.createBufferSource();
-        source.buffer = buffer;
-        source.connect(ctx.destination);
-        source.onended = () => {
-          setIsPlaying(false);
-          if (ctx.state !== 'closed') ctx.close();
-        };
-        source.start();
-      }
+      await speakElevenLabs(textToRead);
     } catch (err) {
-      setIsPlaying(false);
       addLog("Vorlesen fehlgeschlagen", "error");
+    } finally {
+      setIsPlaying(false);
     }
   };
 

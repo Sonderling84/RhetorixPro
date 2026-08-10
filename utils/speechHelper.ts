@@ -99,18 +99,62 @@ export const getUserMicrophoneStream = async (): Promise<MediaStream> => {
   if (typeof window === 'undefined' || !navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
     throw new Error("Medien-Eingabegeräte werden von diesem Browser nicht unterstützt.");
   }
+
+  // Alle verfügbaren Mics loggen
+  try {
+    const allDevices = await navigator.mediaDevices.enumerateDevices();
+    const mics = allDevices.filter(d => d.kind === 'audioinput');
+    console.log('[Mic] Verfügbare Mikrofone:', mics.map(d => `${d.label} (${d.deviceId.slice(0, 8)})`).join(', '));
+  } catch { /* */ }
+
   const selectedMicId = localStorage.getItem('rhetorix_selected_mic_id');
-  if (selectedMicId) {
+  if (selectedMicId && selectedMicId !== 'default') {
     try {
-      // Try with the selected microphone ID (non-exact to prevent OverconstrainedError, but targets this device)
-      return await navigator.mediaDevices.getUserMedia({
-        audio: { deviceId: { ideal: selectedMicId } }
+      // EXACT: Erzwingt das ausgewählte Mikrofon (nicht nur "ideal")
+      const stream = await navigator.mediaDevices.getUserMedia({
+        audio: { deviceId: { exact: selectedMicId } }
       });
+      const track = stream.getAudioTracks()[0];
+      const trackLabel = (track?.label || '').toLowerCase();
+      // Virtuelles Mic? → stoppen und Fallback nutzen
+      if (trackLabel.includes('virtual') || trackLabel.includes('ndi') || trackLabel.includes('loopback') || trackLabel.includes('blackhole')) {
+        console.warn('[Mic] Gespeichertes Mikrofon ist virtuell, suche echtes...');
+        stream.getTracks().forEach(t => t.stop());
+        localStorage.removeItem('rhetorix_selected_mic_id');
+      } else {
+        console.log('[Mic] Verwende ausgewähltes Mikrofon:', track?.label || selectedMicId);
+        return stream;
+      }
     } catch (err) {
-      console.warn("Could not get ideal selected microphone stream, trying fallback to default:", err);
+      console.warn('[Mic] Ausgewähltes Mikrofon nicht verfügbar, versuche ohne Virtuelle...', err);
     }
+  } else if (selectedMicId === 'default') {
+    // "default" zeigt oft auf ein virtuelles Gerät → ignorieren, Fallback nutzen
+    console.warn('[Mic] System-Default übersprungen (oft virtuell), suche echtes Mic...');
+    localStorage.removeItem('rhetorix_selected_mic_id');
   }
-  // Fallback to default audio
+
+  // Fallback: Erstes echtes (nicht-virtuelles) Mikrofon finden
+  try {
+    const allDevices = await navigator.mediaDevices.enumerateDevices();
+    const mics = allDevices.filter(d => d.kind === 'audioinput');
+    const realMic = mics.find(d => {
+      const label = d.label.toLowerCase();
+      return !label.includes('virtual') && !label.includes('ndi') && !label.includes('loopback') && !label.includes('blackhole');
+    });
+    if (realMic) {
+      console.log('[Mic] Fallback: Echtes Mikrofon gefunden:', realMic.label);
+      const stream = await navigator.mediaDevices.getUserMedia({
+        audio: { deviceId: { exact: realMic.deviceId } }
+      });
+      // Merken für nächstes Mal
+      localStorage.setItem('rhetorix_selected_mic_id', realMic.deviceId);
+      return stream;
+    }
+  } catch { /* */ }
+
+  // Letzter Fallback: System-Default
+  console.log('[Mic] Fallback: System-Default');
   return await navigator.mediaDevices.getUserMedia({ audio: true });
 };
 

@@ -148,7 +148,7 @@ const YouTubeView: React.FC<YouTubeViewProps> = ({ onSave, addLog }) => {
       Schreibe das Skript auf DEUTSCH, formatiert in ansprechendem, klarem Markdown mit Überschriften, Aufzählungspunkten und fetten Texten zur besseren Lesbarkeit.`;
 
       const response = await ai.models.generateContent({
-        model: 'gemini-3.5-flash',
+        model: 'gemini-2.0-flash',
         contents: prompt
       });
 
@@ -184,7 +184,7 @@ const YouTubeView: React.FC<YouTubeViewProps> = ({ onSave, addLog }) => {
       Bitte passe das Skript entsprechend an. Behalte die hohe Qualität, Formatierung (Markdown) und Struktur bei. Gib das vollständig angepasste neue Skript zurück.`;
 
       const response = await ai.models.generateContent({
-        model: 'gemini-3.5-flash',
+        model: 'gemini-2.0-flash',
         contents: prompt
       });
 

@@ -17,6 +17,10 @@ import AppDevelopmentView from './components/AppDevelopmentView';
 import DevLogView from './components/DevLogView';
 import VoiceInputView from './components/VoiceInputView';
 import GlobalDictationOverlay from './components/GlobalDictationOverlay';
+import ShortcutsHelp from './components/ShortcutsHelp';
+import TranslatorToggle from './components/TranslatorToggle';
+import EcoModeController from './components/EcoModeController';
+import { syncVoiceToMain } from './utils/elevenLabsTTS';
 import SocialMediaView from './components/SocialMediaView';
 import BusinessPitchView from './components/BusinessPitchView';
 import PhoneSimulationView from './components/PhoneSimulationView';
@@ -227,6 +231,11 @@ const AppContent: React.FC<any> = ({
     }
   }, [isOverlayMode]);
 
+  // Gespeicherte Vorlese-Stimme beim Start an den Main-Prozess melden (für F1/F2/F3)
+  useEffect(() => {
+    if (!isOverlayMode) syncVoiceToMain();
+  }, [isOverlayMode]);
+
   if (isOverlayMode) {
     return (
       <div style={{ background: 'transparent' }} className="w-screen h-screen overflow-hidden flex items-end justify-center p-2">
@@ -238,12 +247,13 @@ const AppContent: React.FC<any> = ({
   return (
       <div className="min-h-screen bg-slate-50 dark:bg-gray-950 flex flex-col pb-20 transition-colors duration-500 relative overflow-hidden">
         {bgAsset && bgAssetType === 'video' && (
-          <video 
-            src={bgAsset} 
-            autoPlay 
-            loop 
-            muted 
-            playsInline 
+          <video
+            src={bgAsset}
+            autoPlay
+            loop
+            muted
+            playsInline
+            data-bg-video
             className="absolute inset-0 w-full h-full object-cover pointer-events-none z-0"
             style={{ opacity: bgOpacity / 100 }}
           />
@@ -471,6 +481,9 @@ const AppContent: React.FC<any> = ({
         </main>
 
         <GlobalDictationOverlay />
+        <EcoModeController />
+        <TranslatorToggle />
+        <ShortcutsHelp />
 
         <nav className="glass fixed bottom-0 left-0 right-0 h-16 border-t border-gray-100 dark:border-gray-800 flex items-center justify-around safe-bottom z-50">
           <NavLink to="/" icon="fa-house" label="Start" />

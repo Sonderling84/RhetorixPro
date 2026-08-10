@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
-import { GoogleGenAI, Modality } from "@google/genai";
+import { GoogleGenAI } from "@google/genai";
+import { speakElevenLabs } from '../utils/elevenLabsTTS';
 import { LogEntry } from '../types';
 
 interface AuthorViewProps {
@@ -142,7 +143,7 @@ const AuthorView: React.FC<AuthorViewProps> = ({ onSave, addLog }) => {
       let stylePrompt = authorStyle;
       if (!stylePrompt) {
         const styleRes = await ai.models.generateContent({
-          model: "gemini-3-flash-preview",
+          model: "gemini-2.0-flash",
           contents: `Analysiere diesen Rohtext und entwickle daraus einen konsistenten, professionellen literarischen Schreibstil für diesen Autor. Beschreibe den Stil kurz und prägnant.\n\nText: ${inputText}`,
         });
         stylePrompt = styleRes.text || 'Professioneller literarischer Stil';
@@ -150,7 +151,7 @@ const AuthorView: React.FC<AuthorViewProps> = ({ onSave, addLog }) => {
       }
 
       const model = ai.models.generateContent({
-        model: "gemini-3-flash-preview",
+        model: "gemini-2.0-flash",
         contents: `Du bist ein erfahrener Buchautor. Optimiere den folgenden Rohtext (Skizzen/Gedanken) in den festgelegten Autorenstil. Behalte die Kernbotschaft bei, aber mache daraus eine flüssige, erzählerische Prosa.
         
         Autorenstil: ${stylePrompt}
@@ -173,24 +174,8 @@ const AuthorView: React.FC<AuthorViewProps> = ({ onSave, addLog }) => {
   const generateSpeech = async (text: string, isOriginal: boolean) => {
     addLog(`Sprachausgabe wird generiert (${isOriginal ? 'Original' : 'Optimiert'})...`, 'info');
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || '' });
-      const response = await ai.models.generateContent({
-        model: "gemini-2.5-flash-preview-tts",
-        contents: [{ parts: [{ text: `Lies diesen Text vor: ${text}` }] }],
-        config: {
-          responseModalities: [Modality.AUDIO],
-          speechConfig: {
-            voiceConfig: { prebuiltVoiceConfig: { voiceName: 'Fenrir' } },
-          },
-        },
-      });
-
-      const base64Audio = response.candidates?.[0]?.content?.parts?.[0]?.inlineData?.data;
-      if (base64Audio) {
-        const url = `data:audio/mp3;base64,${base64Audio}`;
-        if (isOriginal) setOriginalAudioUrl(url);
-        else setAudioUrl(url);
-      }
+      await speakElevenLabs(text);
+      addLog('Sprachausgabe abgespielt!', 'success');
     } catch (e) {
       addLog('Fehler bei der Sprachgenerierung.', 'error');
     }
@@ -245,7 +230,7 @@ const AuthorView: React.FC<AuthorViewProps> = ({ onSave, addLog }) => {
 
       const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || '' });
       const compilationRes = await ai.models.generateContent({
-        model: "gemini-3-flash-preview",
+        model: "gemini-2.0-flash",
         contents: `Du hast hier eine Sammlung von Textfragmenten, Skizzen und Kapiteln eines Autors. Deine Aufgabe ist es, diese Fragmente zu analysieren, chronologisch oder logisch sinnvoll zu ordnen und daraus eine zusammenhängende, flüssige Erzählung (ein Buch) zu erstellen.
         Füge Kapitelmarkierungen ein, glätte Übergänge und achte auf einen konsistenten Erzählfluss.
         

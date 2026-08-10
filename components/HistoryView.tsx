@@ -1,9 +1,8 @@
 
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { GoogleGenAI, Modality } from '@google/genai';
 import { SessionResult, AppMode } from '../types';
-import { decode, decodeAudioData, createAudioChain } from '../utils/audio-helpers';
+import { speakElevenLabs, stopSpeaking } from '../utils/elevenLabsTTS';
 import { jsPDF } from 'jspdf';
 import {
   ComposedChart,
@@ -334,42 +333,14 @@ const HistoryView: React.FC<HistoryViewProps> = ({ sessions, addLog }) => {
     if (isPlaying) return;
     setIsPlaying(session.id);
     addLog(`Generiere Audio-Wiedergabe...`);
-    
-    try {
-      const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
-      const textToRead = session.correctedText || session.transcription;
-      
-      const response = await ai.models.generateContent({
-        model: "gemini-3.1-flash-tts-preview",
-        contents: [{ parts: [{ text: textToRead }] }],
-        config: {
-          responseModalities: ["AUDIO" as any],
-          speechConfig: { voiceConfig: { prebuiltVoiceConfig: { voiceName: 'Kore' } } },
-        },
-      });
 
-      const base64Audio = response.candidates?.[0]?.content?.parts?.[0]?.inlineData?.data;
-      if (base64Audio) {
-        const ctx = new (window.AudioContext || (window as any).webkitAudioContext)({ sampleRate: 48000 });
-        if (ctx.state === 'suspended') await ctx.resume();
-        
-        const chain = createAudioChain(ctx);
-        const buffer = await decodeAudioData(decode(base64Audio), ctx, 24000, 1);
-        const source = ctx.createBufferSource();
-        source.buffer = buffer;
-        source.connect(chain.input);
-        
-        source.start();
-        source.onended = () => {
-          setIsPlaying(null);
-          if (ctx.state !== 'closed') ctx.close();
-        };
-      } else {
-        setIsPlaying(null);
-      }
+    try {
+      const textToRead = session.correctedText || session.transcription;
+      await speakElevenLabs(textToRead);
     } catch (err) {
       console.error(err);
       addLog("TTS Fehler", "error");
+    } finally {
       setIsPlaying(null);
     }
   };

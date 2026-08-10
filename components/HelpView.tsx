@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { applyVoiceStyleToUtterance } from '../utils/speechHelper';
+import { speakElevenLabs, stopSpeaking } from '../utils/elevenLabsTTS';
 
 const HelpView: React.FC = () => {
   const navigate = useNavigate();
@@ -11,18 +11,11 @@ const HelpView: React.FC = () => {
   const utteranceRef = useRef<SpeechSynthesisUtterance | null>(null);
 
   useEffect(() => {
-    // Cleanup synthesis on navigate
-    return () => {
-      if (typeof window !== 'undefined' && window.speechSynthesis) {
-        window.speechSynthesis.cancel();
-      }
-    };
+    return () => { stopSpeaking(); };
   }, []);
 
   const stopSpeech = () => {
-    if (typeof window !== 'undefined' && window.speechSynthesis) {
-      window.speechSynthesis.cancel();
-    }
+    stopSpeaking();
     setActiveIndex(null);
     setIsPlayingAll(false);
   };
@@ -93,15 +86,13 @@ const HelpView: React.FC = () => {
     }
   ];
 
-  const speakIndex = (index: number, playAll = false) => {
-    if (typeof window === 'undefined' || !window.speechSynthesis) return;
-
+  const speakIndex = async (index: number, playAll = false) => {
     if (activeIndex === index && !playAll) {
       stopSpeech();
       return;
     }
 
-    window.speechSynthesis.cancel();
+    stopSpeaking();
 
     let titleText = "";
     let contentText = "";
@@ -121,17 +112,11 @@ const HelpView: React.FC = () => {
     }
 
     const fullText = `${titleText}. ${contentText}`;
-    const utter = new SpeechSynthesisUtterance(fullText);
-    utter.lang = 'de-DE';
-    applyVoiceStyleToUtterance(utter);
-    utteranceRef.current = utter;
+    setActiveIndex(index);
+    setIsPlayingAll(playAll);
 
-    utter.onstart = () => {
-      setActiveIndex(index);
-      setIsPlayingAll(playAll);
-    };
-
-    utter.onend = () => {
+    try {
+      await speakElevenLabs(fullText);
       if (playAll) {
         const next = index + 1;
         if (next <= 9) {
@@ -142,16 +127,9 @@ const HelpView: React.FC = () => {
       } else {
         stopSpeech();
       }
-    };
-
-    utter.onerror = (e) => {
-      if (e.error !== 'interrupted') {
-        console.error("Speech error", e);
-        stopSpeech();
-      }
-    };
-
-    window.speechSynthesis.speak(utter);
+    } catch {
+      stopSpeech();
+    }
   };
 
   return (
