@@ -8,3 +8,6 @@ server-compiled.js
 /tmp/
 migrated_prompt_history/
 package-lock.json
+
+# lokale Tracking-Rohdaten (nicht committen)
+analytics/

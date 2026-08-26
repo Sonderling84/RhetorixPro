@@ -14,6 +14,9 @@ export default defineConfig(({ mode }) => {
     define: {
       'process.env.API_KEY': JSON.stringify(env.GEMINI_API_KEY || ''),
       'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY || ''),
+      // Optionaler Tracking-Endpoint (z. B. n8n-Webhook). Leer = nur lokal
+      // puffern bzw. same-origin /api/track im Desktop-/Server-Modus.
+      'process.env.TRACK_ENDPOINT': JSON.stringify(env.TRACK_ENDPOINT || ''),
     },
     resolve: {
       alias: {
@@ -23,6 +26,15 @@ export default defineConfig(({ mode }) => {
     build: {
       outDir: 'dist',
       emptyOutDir: true,
+      chunkSizeWarningLimit: 900,
+      rollupOptions: {
+        output: {
+          // Stabile Vendor-Chunks → besseres Caching zwischen Deploys.
+          manualChunks: {
+            'react-vendor': ['react', 'react-dom', 'react-router-dom'],
+          },
+        },
+      },
     },
     css: {
       postcss: './postcss.config.js',

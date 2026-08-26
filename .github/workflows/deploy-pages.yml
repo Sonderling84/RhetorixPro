@@ -1,0 +1,76 @@
+name: Deploy to GitHub Pages
+
+# Baut den Web-Build (Vite) und veröffentlicht ihn auf GitHub Pages.
+# Läuft automatisch bei jedem Push auf main und ist manuell auslösbar
+# (Actions-Tab → "Run workflow").
+#
+# Voraussetzung 1: Settings → Pages → "Source" auf "GitHub Actions" stellen.
+# Voraussetzung 2: Settings → Secrets and variables → Actions → New secret
+#                  → Name GEMINI_API_KEY, Wert = dein Gemini-Key.
+#                  (Ohne Secret baut die Seite trotzdem — die KI-Funktionen
+#                   bleiben dann aber ohne Key. Details siehe HOSTING.md.)
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Rechte, die die offiziellen Pages-Actions brauchen.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Immer nur ein Deploy gleichzeitig; laufende nicht abbrechen.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      # Große Electron-/Puppeteer-Binaries werden für den Web-Build nicht
+      # gebraucht → Download überspringen (schneller, keine Netzwerk-Flakes).
+      ELECTRON_SKIP_BINARY_DOWNLOAD: '1'
+      PUPPETEER_SKIP_DOWNLOAD: 'true'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Node einrichten
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Abhängigkeiten installieren
+        # package-lock.json ist gitignored → npm install statt npm ci
+        run: npm install --no-audit --no-fund
+
+      - name: Web-Build (Vite)
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: npx vite build
+
+      - name: Pages konfigurieren
+        uses: actions/configure-pages@v5
+        with:
+          # Aktiviert GitHub Pages automatisch beim ersten Lauf (kein manueller
+          # Klick in den Settings nötig), sofern der Token das erlaubt.
+          enablement: true
+
+      - name: Build-Artefakt hochladen
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Auf GitHub Pages veröffentlichen
+        id: deployment
+        uses: actions/deploy-pages@v4

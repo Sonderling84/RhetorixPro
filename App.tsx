@@ -1,38 +1,44 @@
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, lazy, Suspense } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { HashRouter as Router, Routes, Route, useNavigate, Link, useLocation } from 'react-router-dom';
 import { AppMode, SessionResult, LogEntry } from './types';
-import TrainerSession from './components/TrainerSession';
-import HistoryView from './components/HistoryView';
-import LogView from './components/LogView';
-import TemplatesView from './components/TemplatesView';
-import DictationView from './components/DictationView';
-import ChallengeView from './components/ChallengeView';
-import DiaryView from './components/DiaryView';
-import TextOptimizer from './components/TextOptimizer';
-import AuthorView from './components/AuthorView';
-import PoliticalSpeechView from './components/PoliticalSpeechView';
-import AppDevelopmentView from './components/AppDevelopmentView';
-import DevLogView from './components/DevLogView';
-import VoiceInputView from './components/VoiceInputView';
+// Shell-Komponenten (immer sofort geladen)
+import PromptShowcase from './components/PromptShowcase';
 import GlobalDictationOverlay from './components/GlobalDictationOverlay';
 import ShortcutsHelp from './components/ShortcutsHelp';
 import TranslatorToggle from './components/TranslatorToggle';
 import EcoModeController from './components/EcoModeController';
 import { syncVoiceToMain } from './utils/elevenLabsTTS';
-import SocialMediaView from './components/SocialMediaView';
-import BusinessPitchView from './components/BusinessPitchView';
-import PhoneSimulationView from './components/PhoneSimulationView';
-import EmailStudioView from './components/EmailStudioView';
-import AboutMeView from './components/AboutMeView';
-import TasksView from './components/TasksView';
-import HelpView from './components/HelpView';
-import YouTubeView from './components/YouTubeView';
-import { PlanningChecklistView } from './components/PlanningChecklistView';
-import SettingsView from './components/SettingsView';
-import AnalyticsView from './components/AnalyticsView';
-import SkillTrainingView from './components/SkillTrainingView';
+
+// Views werden pro Route bei Bedarf nachgeladen (Code-Splitting → kleineres
+// Start-Bundle, deutlich schnelleres erstes Laden).
+const TrainerSession = lazy(() => import('./components/TrainerSession'));
+const LegalView = lazy(() => import('./components/LegalView'));
+const HistoryView = lazy(() => import('./components/HistoryView'));
+const LogView = lazy(() => import('./components/LogView'));
+const TemplatesView = lazy(() => import('./components/TemplatesView'));
+const DictationView = lazy(() => import('./components/DictationView'));
+const ChallengeView = lazy(() => import('./components/ChallengeView'));
+const DiaryView = lazy(() => import('./components/DiaryView'));
+const TextOptimizer = lazy(() => import('./components/TextOptimizer'));
+const AuthorView = lazy(() => import('./components/AuthorView'));
+const PoliticalSpeechView = lazy(() => import('./components/PoliticalSpeechView'));
+const AppDevelopmentView = lazy(() => import('./components/AppDevelopmentView'));
+const DevLogView = lazy(() => import('./components/DevLogView'));
+const VoiceInputView = lazy(() => import('./components/VoiceInputView'));
+const SocialMediaView = lazy(() => import('./components/SocialMediaView'));
+const BusinessPitchView = lazy(() => import('./components/BusinessPitchView'));
+const PhoneSimulationView = lazy(() => import('./components/PhoneSimulationView'));
+const EmailStudioView = lazy(() => import('./components/EmailStudioView'));
+const AboutMeView = lazy(() => import('./components/AboutMeView'));
+const TasksView = lazy(() => import('./components/TasksView'));
+const HelpView = lazy(() => import('./components/HelpView'));
+const YouTubeView = lazy(() => import('./components/YouTubeView'));
+const PlanningChecklistView = lazy(() => import('./components/PlanningChecklistView').then(m => ({ default: m.PlanningChecklistView })));
+const SettingsView = lazy(() => import('./components/SettingsView'));
+const AnalyticsView = lazy(() => import('./components/AnalyticsView'));
+const SkillTrainingView = lazy(() => import('./components/SkillTrainingView'));
 import { UserStats } from './types';
 
 const App: React.FC = () => {
@@ -259,11 +265,13 @@ const AppContent: React.FC<any> = ({
           />
         )}
         {bgAsset && bgAssetType === 'image' && (
-          <div 
+          <div
             className="absolute inset-0 w-full h-full object-cover pointer-events-none z-0"
             style={{ backgroundImage: `url(${bgAsset})`, backgroundPosition: 'center', backgroundSize: 'cover', opacity: bgOpacity / 100 }}
           />
         )}
+        {/* Dezenter Hintergrund-Effekt: zeigt selten Beispiel-Prompts (nur auf der Startseite) */}
+        <PromptShowcase active={location.pathname === '/'} />
         <header className="glass sticky top-0 z-50 border-b border-gray-100 dark:border-gray-800 px-4 py-3 flex justify-between items-center">
           <div className="flex items-center gap-2">
             <div className="w-10 h-10 text-blue-600 flex items-center justify-center">
@@ -448,6 +456,11 @@ const AppContent: React.FC<any> = ({
         </header>
 
         <main className="flex-1 overflow-y-auto px-4 py-6 relative z-10">
+          <Suspense fallback={
+            <div className="min-h-[60vh] flex items-center justify-center">
+              <div className="w-10 h-10 rounded-full border-2 border-blue-500/30 border-t-blue-600 animate-spin" aria-label="Lädt…" />
+            </div>
+          }>
           <Routes>
             <Route path="/" element={<HomeMenu />} />
             <Route path="/text-hub" element={<TextHub />} />
@@ -473,11 +486,14 @@ const AppContent: React.FC<any> = ({
             <Route path="/planning" element={<PlanningChecklistView onSave={saveSession} addLog={addLog} />} />
             <Route path="/tasks" element={<TasksView />} />
             <Route path="/help" element={<HelpView />} />
+            <Route path="/impressum" element={<LegalView focus="impressum" />} />
+            <Route path="/datenschutz" element={<LegalView focus="datenschutz" />} />
             <Route path="/settings" element={<SettingsView addLog={addLog} />} />
             <Route path="/analytics" element={<AnalyticsView sessions={sessions} />} />
             <Route path="/einsprechen" element={<VoiceInputView onSave={saveSession} addLog={addLog} />} />
             <Route path="/skill-training" element={<SkillTrainingView />} />
           </Routes>
+          </Suspense>
         </main>
 
         <GlobalDictationOverlay />
