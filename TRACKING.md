@@ -68,11 +68,15 @@ wird automatisch mit diesem Label erfasst.
 
 ## Datenschutz (DSGVO)
 
-- Opt-out jederzeit in den Einstellungen (`localStorage` `rx_track_off`).
+- **Opt-in:** Tracking ist standardmäßig AUS. Beim ersten Besuch erscheint ein
+  schlankes **Consent-Banner** („Einverstanden" / „Ablehnen"). Erst nach
+  „Einverstanden" wird erfasst und gesendet (`localStorage` `rx_consent = 'granted'`).
+  „Ablehnen" setzt `denied` → es passiert nichts.
+- **Widerruf jederzeit** in *Einstellungen → Statistik & Datenschutz* (Schalter)
+  oder per Konsole: `RhetorixTracker.setConsent(false)`.
 - Daten bleiben **first-party** und fließen nur an deine eigene Infrastruktur
   (Server/Drive/n8n) — nicht an Dritte.
-- **Hinweis:** Für die öffentliche Web-Seite in der EU ist trotz anonymer Daten
-  in der Regel ein **Consent-Banner** + Datenschutzerklärung nötig, sobald Daten
-  an einen Server gesendet werden. Das ist hier bewusst schlank gehalten; ein
-  Consent-Gate lässt sich vor `initWebAnalytics()` schalten. Rechtlich final bitte
-  prüfen (lassen).
+- Das Banner ist die **Einwilligung**, ersetzt aber **keine Datenschutzerklärung**.
+  Für eine öffentliche EU-Seite gehört zusätzlich eine Datenschutz-/Impressum-Seite
+  dazu. Der „Mehr"-Link im Banner zeigt aktuell auf die Hilfe (`#/help`) — dort oder
+  auf einer eigenen Seite die Erklärung hinterlegen. Rechtlich final bitte prüfen (lassen).

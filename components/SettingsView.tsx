@@ -206,7 +206,7 @@ const SettingsView: React.FC<SettingsViewProps> = ({ addLog }) => {
           </h3>
         </div>
         <p className="text-[10px] text-gray-400 dark:text-gray-500 font-bold uppercase tracking-wider">
-          Anonymes First-Party-Tracking (Seitenaufrufe, Klicks, Sessions) — keine Fremd-Cookies, kein Google Analytics
+          Anonymes First-Party-Tracking (Seitenaufrufe, Klicks, Sessions) — keine Fremd-Cookies, kein Google Analytics. Zustimmung per Banner, hier jederzeit widerrufbar.
         </p>
 
         {/* Live-Kennzahlen */}
@@ -237,7 +237,7 @@ const SettingsView: React.FC<SettingsViewProps> = ({ addLog }) => {
               Tracking {trackOn ? 'aktiv' : 'deaktiviert'}
             </div>
             <p className="text-[10px] text-gray-400 mt-1 font-semibold">
-              {trackOn ? 'Zähle Aufrufe & Klicks auf diesem Gerät.' : 'Es werden keine Daten erfasst (Opt-out).'}
+              {trackOn ? 'Zähle Aufrufe & Klicks auf diesem Gerät.' : 'Keine Zustimmung — es werden keine Daten erfasst.'}
             </p>
           </div>
           <span className={`w-11 h-6 rounded-full flex items-center px-0.5 transition-all ${trackOn ? 'bg-violet-600 justify-end' : 'bg-gray-300 dark:bg-gray-700 justify-start'}`}>
