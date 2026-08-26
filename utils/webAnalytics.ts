@@ -301,7 +301,7 @@ function showConsentBanner(): void {
     text.innerHTML =
       `<strong style="display:block;font-size:13px;font-weight:800;letter-spacing:.02em">Anonyme Statistik</strong>` +
       `<span style="color:${c.sub};font-weight:500">Wir zählen anonym Seitenaufrufe &amp; Klicks, um Rhetorix Pro zu verbessern — ohne Fremd-Cookies, ohne Google Analytics. ` +
-      `<a href="#/help" style="color:#3b82f6;text-decoration:underline;font-weight:600">Mehr</a></span>`;
+      `<a href="#/datenschutz" style="color:#3b82f6;text-decoration:underline;font-weight:600">Mehr</a></span>`;
 
     const btns = document.createElement('div');
     btns.style.cssText = 'display:flex;gap:8px;flex:0 0 auto;margin-left:auto';

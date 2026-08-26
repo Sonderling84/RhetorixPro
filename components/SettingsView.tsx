@@ -266,6 +266,15 @@ const SettingsView: React.FC<SettingsViewProps> = ({ addLog }) => {
           „In Drive sichern" nutzt die Google-Drive-Verbindung der Desktop-/Server-Version. Ohne Backend
           wird der Bericht stattdessen heruntergeladen. Details &amp; n8n-Anbindung: siehe TRACKING.md.
         </p>
+        <div className="flex items-center gap-4 pt-1">
+          <button onClick={() => navigate('/datenschutz')} className="text-[10px] font-black uppercase tracking-widest text-blue-600 dark:text-blue-400 hover:underline">
+            Datenschutz
+          </button>
+          <span className="text-gray-300 dark:text-gray-700">·</span>
+          <button onClick={() => navigate('/impressum')} className="text-[10px] font-black uppercase tracking-widest text-blue-600 dark:text-blue-400 hover:underline">
+            Impressum
+          </button>
+        </div>
       </div>
 
     </div>

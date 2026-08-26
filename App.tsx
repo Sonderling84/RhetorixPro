@@ -5,6 +5,7 @@ import { HashRouter as Router, Routes, Route, useNavigate, Link, useLocation } f
 import { AppMode, SessionResult, LogEntry } from './types';
 import TrainerSession from './components/TrainerSession';
 import PromptShowcase from './components/PromptShowcase';
+import LegalView from './components/LegalView';
 import HistoryView from './components/HistoryView';
 import LogView from './components/LogView';
 import TemplatesView from './components/TemplatesView';
@@ -476,6 +477,8 @@ const AppContent: React.FC<any> = ({
             <Route path="/planning" element={<PlanningChecklistView onSave={saveSession} addLog={addLog} />} />
             <Route path="/tasks" element={<TasksView />} />
             <Route path="/help" element={<HelpView />} />
+            <Route path="/impressum" element={<LegalView focus="impressum" />} />
+            <Route path="/datenschutz" element={<LegalView focus="datenschutz" />} />
             <Route path="/settings" element={<SettingsView addLog={addLog} />} />
             <Route path="/analytics" element={<AnalyticsView sessions={sessions} />} />
             <Route path="/einsprechen" element={<VoiceInputView onSave={saveSession} addLog={addLog} />} />
