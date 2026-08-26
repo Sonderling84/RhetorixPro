@@ -2,6 +2,7 @@ import express from 'express';
 import { google } from 'googleapis';
 import cookieParser from 'cookie-parser';
 import path from 'path';
+import fs from 'fs';
 
 const app = express();
 const PORT = parseInt(process.env.PORT || '3847', 10);
@@ -263,6 +264,131 @@ app.post('/api/elevenlabs-tts', async (req, res) => {
     res.send(Buffer.from(buffer));
   } catch (err: any) {
     res.status(500).json({ error: err.message });
+  }
+});
+
+// ===========================================================================
+// Web-Analytics: Events empfangen, Bericht bauen, in Google Drive sichern
+// ===========================================================================
+
+const DATA_DIR = process.env.RX_DATA_DIR || path.join(process.cwd(), 'analytics');
+const EVENTS_FILE = path.join(DATA_DIR, 'events.jsonl');
+
+function ensureDataDir() {
+  try { fs.mkdirSync(DATA_DIR, { recursive: true }); } catch { /* noop */ }
+}
+
+function appendEvents(events: any[]) {
+  if (!Array.isArray(events) || events.length === 0) return;
+  ensureDataDir();
+  const lines = events
+    .filter(e => e && typeof e === 'object')
+    .map(e => JSON.stringify({ ...e, _recv: Date.now() }))
+    .join('\n');
+  if (lines) { try { fs.appendFileSync(EVENTS_FILE, lines + '\n'); } catch { /* noop */ } }
+}
+
+function readAllEvents(): any[] {
+  try {
+    if (!fs.existsSync(EVENTS_FILE)) return [];
+    return fs.readFileSync(EVENTS_FILE, 'utf8')
+      .split('\n')
+      .filter(Boolean)
+      .map(l => { try { return JSON.parse(l); } catch { return null; } })
+      .filter(Boolean);
+  } catch { return []; }
+}
+
+function buildServerReport() {
+  const evts = readAllEvents();
+  const byType: Record<string, number> = {};
+  const byRoute: Record<string, number> = {};
+  const byClick: Record<string, number> = {};
+  const sessions = new Set<string>();
+  const visitors = new Set<string>();
+  let first = Infinity, last = 0;
+  for (const e of evts) {
+    byType[e.t] = (byType[e.t] || 0) + 1;
+    if (e.sid) sessions.add(e.sid);
+    if (e.vid) visitors.add(e.vid);
+    if (typeof e.ts === 'number') { if (e.ts < first) first = e.ts; if (e.ts > last) last = e.ts; }
+    if (e.t === 'pageview' && e.p) byRoute[e.p] = (byRoute[e.p] || 0) + 1;
+    if (e.t === 'click') { const l = String(e.props?.label || '?'); byClick[l] = (byClick[l] || 0) + 1; }
+  }
+  const top = (o: Record<string, number>, n = 20) =>
+    Object.entries(o).sort((a, b) => b[1] - a[1]).slice(0, n).map(([key, count]) => ({ key, count }));
+  return {
+    product: 'Rhetorix Pro',
+    generatedAt: new Date().toISOString(),
+    range: { from: first === Infinity ? null : new Date(first).toISOString(), to: last ? new Date(last).toISOString() : null },
+    totals: {
+      events: evts.length, sessions: sessions.size, visitors: visitors.size,
+      pageviews: byType['pageview'] || 0, clicks: byType['click'] || 0, logins: byType['login'] || 0,
+    },
+    eventsByType: byType, topRoutes: top(byRoute), topClicks: top(byClick),
+  };
+}
+
+// Leichtes CORS für die Analytics-Routen (falls eine gehostete Frontend-Seite
+// an einen selbst-gehosteten Server sendet).
+app.use('/api/track', (req, res, next) => {
+  res.set('Access-Control-Allow-Origin', req.headers.origin || '*');
+  res.set('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.set('Access-Control-Allow-Headers', 'Content-Type');
+  if (req.method === 'OPTIONS') return res.sendStatus(204);
+  next();
+});
+
+app.post('/api/track', (req, res) => {
+  const events = Array.isArray(req.body?.events) ? req.body.events
+    : (req.body && req.body.t ? [req.body] : []);
+  appendEvents(events);
+  res.sendStatus(204);
+});
+
+app.get('/api/analytics/report', (_req, res) => {
+  res.json(buildServerReport());
+});
+
+app.post('/api/analytics/save-drive', async (req, res) => {
+  const tokens = req.cookies.google_drive_tokens;
+  if (!tokens) return res.status(401).json({ error: 'Google Drive nicht verbunden' });
+
+  const report = req.body?.report && typeof req.body.report === 'object'
+    ? req.body.report
+    : buildServerReport();
+
+  try {
+    const client = getOAuthClient(req);
+    client.setCredentials(JSON.parse(tokens));
+    const drive = google.drive({ version: 'v3', auth: client });
+
+    // Ziel-Ordner finden oder anlegen
+    const folderName = 'Rhetorix Pro Analytics';
+    let folderId: string | undefined;
+    const found = await drive.files.list({
+      q: `mimeType='application/vnd.google-apps.folder' and name='${folderName}' and trashed=false`,
+      fields: 'files(id, name)',
+    });
+    folderId = found.data.files?.[0]?.id || undefined;
+    if (!folderId) {
+      const created = await drive.files.create({
+        requestBody: { name: folderName, mimeType: 'application/vnd.google-apps.folder' },
+        fields: 'id',
+      });
+      folderId = created.data.id || undefined;
+    }
+
+    const stamp = new Date().toISOString().slice(0, 19).replace(/[:T]/g, '-');
+    const fileName = `rhetorix-report-${stamp}.json`;
+    const uploaded = await drive.files.create({
+      requestBody: { name: fileName, parents: folderId ? [folderId] : [], mimeType: 'application/json' },
+      media: { mimeType: 'application/json', body: JSON.stringify(report, null, 2) },
+      fields: 'id, name, webViewLink',
+    });
+    res.json({ id: uploaded.data.id, name: uploaded.data.name, webViewLink: uploaded.data.webViewLink });
+  } catch (error: any) {
+    res.status(500).json({ error: error?.message || 'Upload fehlgeschlagen' });
   }
 });
 

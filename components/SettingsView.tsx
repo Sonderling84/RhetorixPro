@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { useNavigate } from 'react-router-dom';
 import { MicSelector } from './MicSelector';
 import { speakElevenLabs, stopSpeaking, getVoiceId, setVoiceId } from '../utils/elevenLabsTTS';
+import { buildReport, downloadReport, saveReport, setTrackingEnabled, trackingEnabled } from '../utils/webAnalytics';
 
 interface SettingsViewProps {
   addLog: (message: string, level: 'info' | 'success' | 'warn' | 'error') => void;
@@ -22,9 +23,44 @@ const SettingsView: React.FC<SettingsViewProps> = ({ addLog }) => {
   const [isPlayingTest, setIsPlayingTest] = useState(false);
   const [selectedVoice, setSelectedVoice] = useState(getVoiceId());
 
+  // Tracking / Statistik
+  const [trackOn, setTrackOn] = useState<boolean>(() => trackingEnabled());
+  const [stats, setStats] = useState<any>(() => buildReport());
+  const [savingReport, setSavingReport] = useState(false);
+  const refreshStats = () => setStats(buildReport());
+
   useEffect(() => {
     return () => { stopSpeaking(); };
   }, []);
+
+  useEffect(() => { refreshStats(); }, []);
+
+  const toggleTracking = () => {
+    const next = !trackOn;
+    setTrackingEnabled(next);
+    setTrackOn(next);
+    addLog(next ? 'Tracking aktiviert.' : 'Tracking deaktiviert (Opt-out).', next ? 'success' : 'info');
+  };
+
+  const handleDownloadReport = () => {
+    downloadReport();
+    addLog('Statistik-Bericht als JSON heruntergeladen.', 'success');
+  };
+
+  const handleSaveReport = async () => {
+    setSavingReport(true);
+    addLog('Speichere Statistik-Bericht...', 'info');
+    try {
+      const r = await saveReport();
+      if (r.ok && r.where === 'google-drive') addLog(`Bericht in Google Drive gespeichert${r.detail ? ` (${r.detail})` : ''}.`, 'success');
+      else if (r.ok) addLog('Bericht an den konfigurierten Endpoint gesendet.', 'success');
+      else addLog(r.detail || 'Kein Backend erreichbar — Bericht wurde heruntergeladen.', 'warn');
+    } catch (e: any) {
+      addLog(`Fehler beim Speichern: ${e?.message || 'unbekannt'}`, 'error');
+    } finally {
+      setSavingReport(false);
+    }
+  };
 
   const handleVoiceChange = (voiceId: string) => {
     setSelectedVoice(voiceId);
@@ -159,6 +195,77 @@ const SettingsView: React.FC<SettingsViewProps> = ({ addLog }) => {
           Bestimme dein bevorzugtes Mikrofon für Diktate und Sprach-Eingaben
         </p>
         <MicSelector addLog={addLog} />
+      </div>
+
+      {/* 3. Statistik & Datenschutz */}
+      <div className="bg-white dark:bg-gray-900 p-6 rounded-[2.5rem] border border-gray-100 dark:border-gray-800 shadow-md space-y-5">
+        <div className="flex items-center gap-2 mb-1">
+          <span className="w-2 h-2 rounded-full bg-violet-500 animate-pulse"></span>
+          <h3 className="text-sm font-black text-gray-900 dark:text-white uppercase tracking-wider">
+            Statistik &amp; Datenschutz
+          </h3>
+        </div>
+        <p className="text-[10px] text-gray-400 dark:text-gray-500 font-bold uppercase tracking-wider">
+          Anonymes First-Party-Tracking (Seitenaufrufe, Klicks, Sessions) — keine Fremd-Cookies, kein Google Analytics
+        </p>
+
+        {/* Live-Kennzahlen */}
+        <div className="grid grid-cols-3 gap-2">
+          {[
+            { label: 'Sessions', value: stats?.totals?.sessions ?? 0 },
+            { label: 'Seitenaufrufe', value: stats?.totals?.pageviews ?? 0 },
+            { label: 'Klicks', value: stats?.totals?.clicks ?? 0 },
+          ].map((s) => (
+            <div key={s.label} className="p-3 rounded-2xl bg-gray-50 dark:bg-gray-950 border border-gray-100 dark:border-gray-800 text-center">
+              <div className="text-lg font-black text-violet-600 dark:text-violet-400 tabular-nums">{s.value}</div>
+              <div className="text-[9px] font-black text-gray-400 uppercase tracking-widest mt-0.5">{s.label}</div>
+            </div>
+          ))}
+        </div>
+
+        {/* Tracking an/aus */}
+        <button
+          onClick={toggleTracking}
+          className={`w-full p-4 rounded-2xl border text-left flex items-center justify-between transition-all ${
+            trackOn
+              ? 'bg-violet-50 dark:bg-violet-950/20 border-violet-400 text-violet-950 dark:text-violet-300'
+              : 'bg-gray-50 dark:bg-gray-950 border-transparent text-gray-500'
+          }`}
+        >
+          <div>
+            <div className="text-[11px] font-black uppercase tracking-wider">
+              Tracking {trackOn ? 'aktiv' : 'deaktiviert'}
+            </div>
+            <p className="text-[10px] text-gray-400 mt-1 font-semibold">
+              {trackOn ? 'Zähle Aufrufe & Klicks auf diesem Gerät.' : 'Es werden keine Daten erfasst (Opt-out).'}
+            </p>
+          </div>
+          <span className={`w-11 h-6 rounded-full flex items-center px-0.5 transition-all ${trackOn ? 'bg-violet-600 justify-end' : 'bg-gray-300 dark:bg-gray-700 justify-start'}`}>
+            <span className="w-5 h-5 rounded-full bg-white shadow"></span>
+          </span>
+        </button>
+
+        {/* Aktionen */}
+        <div className="grid grid-cols-2 gap-2">
+          <button
+            onClick={handleDownloadReport}
+            className="py-4 rounded-2xl font-black text-[10px] uppercase tracking-widest flex items-center justify-center gap-2 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all"
+          >
+            <i className="fas fa-download"></i> JSON-Bericht
+          </button>
+          <button
+            onClick={handleSaveReport}
+            disabled={savingReport}
+            className="py-4 rounded-2xl font-black text-[10px] uppercase tracking-widest flex items-center justify-center gap-2 bg-violet-600 text-white hover:bg-violet-700 shadow-md disabled:opacity-60 transition-all"
+          >
+            <i className={`fas ${savingReport ? 'fa-spinner fa-spin' : 'fa-cloud-arrow-up'}`}></i>
+            {savingReport ? 'Speichere...' : 'In Drive sichern'}
+          </button>
+        </div>
+        <p className="text-[9px] text-gray-400 dark:text-gray-500 font-semibold leading-relaxed">
+          „In Drive sichern" nutzt die Google-Drive-Verbindung der Desktop-/Server-Version. Ohne Backend
+          wird der Bericht stattdessen heruntergeladen. Details &amp; n8n-Anbindung: siehe TRACKING.md.
+        </p>
       </div>
 
     </div>
