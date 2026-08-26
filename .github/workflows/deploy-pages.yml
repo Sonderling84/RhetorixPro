@@ -54,6 +54,10 @@ jobs:
 
       - name: Pages konfigurieren
         uses: actions/configure-pages@v5
+        with:
+          # Aktiviert GitHub Pages automatisch beim ersten Lauf (kein manueller
+          # Klick in den Settings nötig), sofern der Token das erlaubt.
+          enablement: true
 
       - name: Build-Artefakt hochladen
         uses: actions/upload-pages-artifact@v3
