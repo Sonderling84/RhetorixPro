@@ -1,0 +1,6 @@
+# Rhetorix Pro — VIBELINK
+# Suchmaschinen dürfen die gesamte Seite crawlen.
+User-agent: *
+Allow: /
+
+Sitemap: https://sonderling84.github.io/rhetorixpro/sitemap.xml
