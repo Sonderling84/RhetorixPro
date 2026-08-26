@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { HashRouter as Router, Routes, Route, useNavigate, Link, useLocation } from 'react-router-dom';
 import { AppMode, SessionResult, LogEntry } from './types';
 import TrainerSession from './components/TrainerSession';
+import PromptShowcase from './components/PromptShowcase';
 import HistoryView from './components/HistoryView';
 import LogView from './components/LogView';
 import TemplatesView from './components/TemplatesView';
@@ -259,11 +260,13 @@ const AppContent: React.FC<any> = ({
           />
         )}
         {bgAsset && bgAssetType === 'image' && (
-          <div 
+          <div
             className="absolute inset-0 w-full h-full object-cover pointer-events-none z-0"
             style={{ backgroundImage: `url(${bgAsset})`, backgroundPosition: 'center', backgroundSize: 'cover', opacity: bgOpacity / 100 }}
           />
         )}
+        {/* Dezenter Hintergrund-Effekt: zeigt selten Beispiel-Prompts (nur auf der Startseite) */}
+        <PromptShowcase active={location.pathname === '/'} />
         <header className="glass sticky top-0 z-50 border-b border-gray-100 dark:border-gray-800 px-4 py-3 flex justify-between items-center">
           <div className="flex items-center gap-2">
             <div className="w-10 h-10 text-blue-600 flex items-center justify-center">
