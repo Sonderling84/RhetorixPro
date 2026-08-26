@@ -1,0 +1,72 @@
+{
+  "name": "Rhetorix Pro — Tracking → Google Drive",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "rhetorix-track",
+        "responseMode": "onReceived",
+        "responseCode": 200,
+        "options": {
+          "allowedOrigins": "*"
+        }
+      },
+      "id": "webhook-rhetorix",
+      "name": "Webhook (Tracking-Empfang)",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [260, 300],
+      "webhookId": "rhetorix-track"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Nimmt das vom Browser gesendete Paket entgegen und bereitet eine\n// JSON-Datei für Google Drive vor.\n// Erwartet entweder { source, events: [...] } (Batches) oder\n// { source, type: 'report', report: {...} } (aggregierter Bericht).\nconst body = $input.first().json.body ?? $input.first().json;\nconst isReport = !!(body && body.type === 'report' && body.report);\nconst kind = isReport ? 'report' : 'events';\nconst data = isReport ? body.report : (body.events ?? body);\nconst now = new Date();\nconst stamp = now.toISOString().replace(/[:.]/g, '-');\nreturn [{\n  json: {\n    filename: `rhetorix-${kind}-${stamp}.json`,\n    content: JSON.stringify(data, null, 2),\n    kind,\n    count: Array.isArray(body && body.events) ? body.events.length : 1,\n    receivedAt: now.toISOString()\n  }\n}];"
+      },
+      "id": "code-prepare",
+      "name": "Datei vorbereiten",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [480, 300]
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "operation": "createFromText",
+        "name": "={{ $json.filename }}",
+        "content": "={{ $json.content }}",
+        "options": {}
+      },
+      "id": "drive-save",
+      "name": "In Google Drive speichern",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [720, 300],
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "REPLACE_MIT_DEINER_GOOGLE_DRIVE_CREDENTIAL",
+          "name": "Google Drive account"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Webhook (Tracking-Empfang)": {
+      "main": [
+        [
+          { "node": "Datei vorbereiten", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Datei vorbereiten": {
+      "main": [
+        [
+          { "node": "In Google Drive speichern", "type": "main", "index": 0 }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "active": false
+}

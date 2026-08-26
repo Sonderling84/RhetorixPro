@@ -50,6 +50,8 @@ jobs:
       - name: Web-Build (Vite)
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          # Optionaler n8n-Webhook fürs Tracking (Repo-Variable). Leer = nur lokal.
+          TRACK_ENDPOINT: ${{ vars.TRACK_ENDPOINT }}
         run: npx vite build
 
       - name: Pages konfigurieren
