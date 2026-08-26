@@ -26,6 +26,15 @@ export default defineConfig(({ mode }) => {
     build: {
       outDir: 'dist',
       emptyOutDir: true,
+      chunkSizeWarningLimit: 900,
+      rollupOptions: {
+        output: {
+          // Stabile Vendor-Chunks → besseres Caching zwischen Deploys.
+          manualChunks: {
+            'react-vendor': ['react', 'react-dom', 'react-router-dom'],
+          },
+        },
+      },
     },
     css: {
       postcss: './postcss.config.js',

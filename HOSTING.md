@@ -54,14 +54,31 @@ Frontend-Apps so. Empfehlungen:
   erreichbar).
 - Social-Vorschaubild `public/og-image.png` (1200×630), Favicon & App-Icon.
 
-### Nächste Schritte für die Google-Sichtbarkeit
-1. **Google Search Console** öffnen → Property `https://sonderling84.github.io/rhetorixpro/`
-   hinzufügen (Präfix-Property).
-2. Dort die **Sitemap** einreichen: `sitemap.xml`.
-3. Über „URL-Prüfung" die Startseite indexieren lassen.
+### Google Search Console einrichten (Schritt für Schritt)
+
+1. **Öffnen:** [search.google.com/search-console](https://search.google.com/search-console)
+   mit deinem Google-Konto.
+2. **Property hinzufügen** → Typ **„URL-Präfix"** → exakt eingeben:
+   `https://sonderling84.github.io/rhetorixpro/`
+3. **Verifizieren** → Methode **„HTML-Tag"** wählen. Google zeigt dir einen Tag wie
+   `<meta name="google-site-verification" content="abc123…">`.
+   - In **`index.html`** ist die passende Stelle schon vorbereitet (Kommentar direkt
+     unter dem `canonical`-Tag). Kommentar entfernen, `DEIN_TOKEN_HIER` durch dein
+     Token ersetzen, committen → der Pages-Workflow deployt automatisch.
+   - Danach in der Search Console auf **„Verifizieren"** klicken.
+4. **Sitemap einreichen:** links unter **„Sitemaps"** → `sitemap.xml` eintragen
+   (die volle URL ist `https://sonderling84.github.io/rhetorixpro/sitemap.xml`) →
+   „Senden".
+5. **Indexierung anstoßen:** oben in die **URL-Prüfung** die Startseite eingeben →
+   „Indexierung beantragen".
+
+Danach dauert es je nach Google ein paar Tage bis Wochen, bis die Seite im Index
+auftaucht. In der Search Console siehst du dann unter **„Leistung"** echte
+Suchanfragen, Impressionen und Klicks.
 
 > Hinweis: Bei einem **Projekt-Pages-Repo** liegt die Seite unter `…/rhetorixpro/`.
 > Crawler suchen `robots.txt` zusätzlich auf der Domain-Wurzel
-> (`sonderling84.github.io/robots.txt`) — die gehört zum Nutzer-Root, nicht zu diesem
-> Projekt. Für maximale SEO-Wirkung wäre eine **eigene Domain** (Custom Domain in den
-> Pages-Settings) ideal; dann liegen `robots.txt` und `sitemap.xml` auf der Wurzel.
+> (`sonderling84.github.io/robots.txt`) — die gehört zum Nutzer-Root, nicht zu
+> diesem Projekt. Für maximale SEO-Wirkung wäre eine **eigene Domain** (Custom
+> Domain in den Pages-Settings) ideal; dann liegen `robots.txt` und `sitemap.xml`
+> auf der Wurzel und die Verifizierung ist unkomplizierter.
