@@ -73,3 +73,37 @@ die im aktiven Workflow **nicht** existiert. Der Mail-Teil nutzt hier **Google G
 4. **Ollama VPS** neu starten (falls weiter genutzt) — betrifft mehrere Workflows.
 5. **Inaktiven Email-Workflow** aufräumen (Obsidian-Teil retten, dann entscheiden).
 6. Trigger-lose Workflows (NASCAR, Skool) mit Trigger versehen oder archivieren.
+
+---
+
+## Session-Fortschritt (2026-08-26)
+
+**Ollama:** läuft doch! Beweis: Blog-Autopilot (heute 12:00) + Research-Agent (heute 06:00)
+liefen erfolgreich gegen `http://172.18.0.1:11434` (Docker-intern, kein öffentlicher Port).
+Modell aktuell `llama3.2:3b`; Qwen-Pull war zum Zeitpunkt der Session noch offen.
+
+**Email Agend (aktiv):** `inputText` gefixt (Betreff/Von/Inhalt statt `$json.name`),
+Classifier von Ollama auf Gemini (`models/gemini-2.0-flash`) umgestellt. Erster Testlauf
+(#13723) triggerte korrekt, scheiterte aber am Gemini-Rate-Limit des leeren Default-Modells →
+explizites Flash-Modell gesetzt. 7 neue Kategorien + Label-Nodes ergänzt
+(LinkedIn/Reddit/Discord/Twitch/Kick/Community/Support → Gmail-Labels Label_1..7).
+
+**Gmail-Labels angelegt:** LinkedIn, Reddit, Discord, Twitch, Kick, Community, Support,
+iRacing Research (Label_8).
+
+**Research-Agent:** Ausgabe ergänzt — KI-Analyse geht jetzt an E-Mail (t.ganster.dev@gmail.com,
+Label „iRacing Research") UND Telegram (privater Chat 1263521518, VIBELINK Bot).
+
+**VibeLink App-Registrierungen:** gesund (12/12 success). Echte Registrierungen: 10 Events,
+8 eindeutige Mails, davon ~5 echte externe Nutzer (Zeitraum 07.07.–14.08.2026). Die häufigen
+5-Min-„success"-Runs sind Nutzungs-Pings (Tabelle „VibeLink Nutzung"), keine Registrierungen.
+
+**Offen:**
+- Telegram-Foto-Fix (App-Werbung/Twitch→Telegram): ungültige/veraltete `photoId`-File-IDs →
+  auf öffentliche Bild-URL umstellen oder File-IDs mit aktuellem Bot neu erzeugen.
+- Gmail-Credential ggf. neu autorisieren (Token-Fehler am 24.08. in Mail-Strecke).
+- Qwen-Tag in Ollama-Nodes eintragen, sobald Pull fertig.
+
+**Wichtiger Betriebs-Hinweis:** Per n8n-API *aktivierte* Webhooks werden auf dieser Instanz
+NICHT registriert (404) — Webhook-Workflows nach Änderungen in der UI einmal aus/ein schalten.
+Bereits laufende Polling-/Schedule-Trigger übernehmen API-Änderungen dagegen automatisch.
