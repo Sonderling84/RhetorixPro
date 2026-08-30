@@ -64,7 +64,8 @@ const VoiceInputView: React.FC<VoiceInputViewProps> = ({ onSave, addLog }) => {
     return () => {
       window.removeEventListener('keydown', handleKeyDown, true);
     };
-  }, [isRecordingCustomKeys, addLog]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isRecordingCustomKeys]);
 
   // Clean key representation
   const formatKeyName = (key: string) => {

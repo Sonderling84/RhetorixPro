@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { GoogleGenAI, LiveServerMessage, Modality } from "@google/genai";
+import { LiveServerMessage, Modality } from "@google/genai";
+import { getGeminiAI } from '../utils/gemini-client';
 import { AppMode, SessionResult } from '../types';
 import { dispatchDictation } from '../utils/dictation-events';
 
@@ -104,7 +105,7 @@ const AboutMeView: React.FC<AboutMeViewProps> = ({ onSave, addLog, sessions }) =
     setStep('ANALYSIS');
     
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+      const ai = await getGeminiAI();
       const response = await ai.models.generateContent({
         model: "gemini-2.0-flash",
         contents: `Ich habe folgende Selbstreflexion diktiert: "${transcript}". Gib mir ein kurzes, wertschätzendes und tiefgründiges Feedback dazu (max 3 Sätze). Antworte auf Deutsch.`,
@@ -129,7 +130,7 @@ const AboutMeView: React.FC<AboutMeViewProps> = ({ onSave, addLog, sessions }) =
     setStep('ANALYSIS');
     
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+      const ai = await getGeminiAI();
       const allContent = reflections.map(r => r.transcription).join("\n---\n");
       
       const response = await ai.models.generateContent({

@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { GoogleGenAI } from '@google/genai';
+import { getGeminiAI } from '../utils/gemini-client';
 import { AppMode, SessionResult } from '../types';
 
 interface TemplatesViewProps {
@@ -55,7 +55,7 @@ const TemplatesView: React.FC<TemplatesViewProps> = ({ onSave, addLog }) => {
     addLog(`Generiere ${type} Skript für: "${topic}"...`);
 
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+      const ai = await getGeminiAI();
       const prompt = `Erstelle ein professionelles ${type}-Skript/Beschreibung für das Thema: "${topic}". 
       Inklusive Struktur, Hooks, Call-to-Action und passenden Emojis. 
       Fokussiere dich auf hohe Engagement-Raten und klaren Mehrwert.`;

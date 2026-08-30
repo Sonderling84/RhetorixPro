@@ -1,6 +1,7 @@
 
 import React, { useState, useRef, useEffect } from 'react';
-import { GoogleGenAI, LiveServerMessage, Modality } from '@google/genai';
+import { LiveServerMessage, Modality } from '@google/genai';
+import { getGeminiAI } from '../utils/gemini-client';
 import ReactMarkdown from 'react-markdown';
 import { AppMode, SessionResult } from '../types';
 import { motion, AnimatePresence } from 'motion/react';
@@ -47,7 +48,7 @@ const AppDevelopmentView: React.FC<AppDevelopmentViewProps> = ({ onSave, addLog 
       setIsRecording(true);
       addLog("Brainstorming-Modus aktiv. Sprich frei über deine App-Idee...", "info");
       
-      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+      const ai = await getGeminiAI();
       audioContextRef.current = new (window.AudioContext || (window as any).webkitAudioContext)({ sampleRate: 16000 });
       streamRef.current = await navigator.mediaDevices.getUserMedia({ audio: true });
 
@@ -89,7 +90,7 @@ const AppDevelopmentView: React.FC<AppDevelopmentViewProps> = ({ onSave, addLog 
     addLog("Analysiere App-Idee und erstelle Skizze...", "info");
     
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+      const ai = await getGeminiAI();
       const response = await ai.models.generateContent({
         model: 'gemini-2.0-flash',
         contents: `Analysiere folgendes Brainstorming für eine App-Idee und erstelle eine umfassende Skizze. 
@@ -140,8 +141,8 @@ const AppDevelopmentView: React.FC<AppDevelopmentViewProps> = ({ onSave, addLog 
     setIsChatting(true);
 
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-      
+      const ai = await getGeminiAI();
+
       // We use a simple chat logic here, passing the history
       const history = chatHistory.map(msg => ({
         role: msg.role === 'user' ? 'user' : 'model',
@@ -172,7 +173,7 @@ const AppDevelopmentView: React.FC<AppDevelopmentViewProps> = ({ onSave, addLog 
     addLog(`Erstelle Master-Prompt für ${promptConfig.tool} (${promptConfig.platform})...`, "info");
     
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+      const ai = await getGeminiAI();
       const response = await ai.models.generateContent({
         model: 'gemini-2.0-flash',
         contents: `Basierend auf der folgenden App-Analyse und dem Beratungsgespräch, erstelle einen hochoptimierten "Master Prompt". 

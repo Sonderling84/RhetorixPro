@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
-import { GoogleGenAI, Modality } from '@google/genai';
+import { getGeminiAI } from '../utils/gemini-client';
+import { Modality } from '@google/genai';
 import { decode, decodeAudioData } from '../utils/audio-helpers';
 
 const DictationView: React.FC<{ onSave: (session: any) => void; addLog: (m: string, l?: any) => void }> = ({ onSave, addLog }) => {
@@ -17,8 +18,8 @@ const DictationView: React.FC<{ onSave: (session: any) => void; addLog: (m: stri
     addLog(`Generiere Diktat für Niveau ${level}...`);
 
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-      
+      const ai = await getGeminiAI();
+
       // 1. Generate text
       const textRes = await ai.models.generateContent({
         model: 'gemini-2.0-flash',
@@ -56,8 +57,8 @@ const DictationView: React.FC<{ onSave: (session: any) => void; addLog: (m: stri
     }
   };
 
-  const checkResult = () => {
-    const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+  const checkResult = async () => {
+    const ai = await getGeminiAI();
     ai.models.generateContent({
       model: 'gemini-2.0-flash',
       contents: `Vergleiche das Original-Diktat: "${currentText}" mit der Eingabe des Nutzers: "${userInput}". 

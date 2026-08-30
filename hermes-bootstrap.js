@@ -4,16 +4,23 @@
  */
 
 const HERMES_URL = 'http://127.0.0.1:7474';
+const HERMES_TIMEOUT = 5000; // 5s Timeout für Hermes-Requests
+
+function fetchWithTimeout(url, options = {}, timeoutMs = HERMES_TIMEOUT) {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), timeoutMs);
+  return fetch(url, { ...options, signal: controller.signal }).finally(() => clearTimeout(timeout));
+}
 
 async function getHermesToken() {
-  const res = await fetch(`${HERMES_URL}/api/token/ui`);
+  const res = await fetchWithTimeout(`${HERMES_URL}/api/token/ui`);
   if (!res.ok) throw new Error(`Hermes Token-Endpoint: ${res.status}`);
   const data = await res.json();
   return data.token;
 }
 
 async function getCredential(token, service, key) {
-  const res = await fetch(`${HERMES_URL}/api/credential/${service}/${key}`, {
+  const res = await fetchWithTimeout(`${HERMES_URL}/api/credential/${service}/${key}`, {
     headers: { 'Authorization': `Bearer ${token}` }
   });
   if (!res.ok) throw new Error(`Hermes Credential ${service}/${key}: ${res.status}`);

@@ -1,6 +1,6 @@
 
 import React, { useState, useRef, useEffect } from 'react';
-import { GoogleGenAI } from "@google/genai";
+import { getGeminiAI } from '../utils/gemini-client';
 import { LogEntry, AppMode, AnalysisData } from '../types';
 import { dispatchDictation } from '../utils/dictation-events';
 import { speakElevenLabs, stopSpeaking, isSpeaking } from '../utils/elevenLabsTTS';
@@ -382,8 +382,8 @@ const TextOptimizer: React.FC<TextOptimizerProps> = ({ onSave, addLog }) => {
     addLog('Text wird veredelt...', 'info');
 
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || '' });
-      
+      const ai = await getGeminiAI();
+
       let systemInstruction = `Du bist ein Rhetorik-Experte. Veredle und optimiere den folgenden Text. Der Tonfall soll ${tone} sein. Gib nur den optimierten Text zurück, absolut ohne Kommentare oder Einleitungen. Sei präzise und elegant.`;
       
       if (isSaved) setIsSaved(false); // Reset saved state on new optimization
@@ -428,7 +428,7 @@ const TextOptimizer: React.FC<TextOptimizerProps> = ({ onSave, addLog }) => {
     addLog('Rhetorik-Analyse wird erstellt...', 'info');
 
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || process.env.API_KEY || '' });
+      const ai = await getGeminiAI();
       
       const response = await ai.models.generateContent({
         model: "gemini-2.0-flash",

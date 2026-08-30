@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { GoogleGenAI } from "@google/genai";
+import { getGeminiAI } from '../utils/gemini-client';
 import { speakElevenLabs, stopSpeaking } from '../utils/elevenLabsTTS';
 import { SessionResult } from '../types';
 
@@ -235,8 +235,8 @@ const PhoneSimulationView: React.FC<Props> = ({ addLog, onSave }) => {
 
     setIsProcessing(true);
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || '' });
-      
+      const ai = await getGeminiAI();
+
       const prompt = `
         Szenario: ${selectedScenario?.title}
         Kontext: ${selectedScenario?.assistantPrompt}
@@ -300,8 +300,8 @@ const PhoneSimulationView: React.FC<Props> = ({ addLog, onSave }) => {
   const analyzeCall = async () => {
     setIsProcessing(true);
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || '' });
-      
+      const ai = await getGeminiAI();
+
       const prompt = `
         Analysiere dieses Telefonat akribisch und kritisch.
         Szenario: ${selectedScenario?.title}

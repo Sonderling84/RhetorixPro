@@ -60,10 +60,19 @@
     ],
     "mac": {
       "target": [
+        "dmg",
         "dir"
       ],
       "category": "public.app-category.education",
       "icon": "assets/icon.icns"
+    },
+    "dmg": {
+      "title": "Rhetorix Pro",
+      "icon": "assets/icon.icns",
+      "contents": [
+        { "x": 130, "y": 220 },
+        { "x": 410, "y": 220, "type": "link", "path": "/Applications" }
+      ]
     },
     "win": {
       "target": [
@@ -73,7 +82,9 @@
     },
     "nsis": {
       "oneClick": false,
-      "allowToChangeInstallationDirectory": true
+      "allowToChangeInstallationDirectory": true,
+      "installerIcon": "assets/icon.ico",
+      "uninstallerIcon": "assets/icon.ico"
     },
     "asar": true,
     "extraResources": []

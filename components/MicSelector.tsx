@@ -11,9 +11,10 @@ export const MicSelector: React.FC<MicSelectorProps> = ({ addLog }) => {
   const [permState, setPermState] = useState<'prompt' | 'granted' | 'denied'>('prompt');
   const [audioLevel, setAudioLevel] = useState<number>(0);
   const [isTestingLevel, setIsTestingLevel] = useState<boolean>(false);
-  
+
   const audioContextRef = useRef<AudioContext | null>(null);
   const analyserRef = useRef<AnalyserNode | null>(null);
+  const sourceNodeRef = useRef<MediaStreamAudioSourceNode | null>(null);
   const streamRef = useRef<MediaStream | null>(null);
   const animationRef = useRef<number | null>(null);
 
@@ -120,6 +121,7 @@ export const MicSelector: React.FC<MicSelectorProps> = ({ addLog }) => {
       analyserRef.current = analyser;
 
       const source = ctx.createMediaStreamSource(stream);
+      sourceNodeRef.current = source;
       source.connect(analyser);
 
       const bufferLength = analyser.frequencyBinCount;
@@ -150,13 +152,18 @@ export const MicSelector: React.FC<MicSelectorProps> = ({ addLog }) => {
       cancelAnimationFrame(animationRef.current);
       animationRef.current = null;
     }
+    // Audio-Nodes disconnecten bevor Context geschlossen wird
+    if (sourceNodeRef.current) {
+      try { sourceNodeRef.current.disconnect(); } catch { /* */ }
+      sourceNodeRef.current = null;
+    }
     if (streamRef.current) {
       streamRef.current.getTracks().forEach(t => t.stop());
       streamRef.current = null;
     }
     if (audioContextRef.current) {
       if (audioContextRef.current.state !== 'closed') {
-        audioContextRef.current.close();
+        try { audioContextRef.current.close(); } catch { /* */ }
       }
       audioContextRef.current = null;
     }

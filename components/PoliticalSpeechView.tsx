@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { GoogleGenAI, Modality, LiveServerMessage } from '@google/genai';
+import { Modality, LiveServerMessage } from '@google/genai';
+import { getGeminiAI } from '../utils/gemini-client';
 import { motion, AnimatePresence } from 'motion/react';
 import { dispatchDictation } from '../utils/dictation-events';
 import { createBlob } from '../utils/audio-helpers';
@@ -113,7 +114,7 @@ const PoliticalSpeechView: React.FC<{
       dispatchDictation('', true);
       addLog("Aufnahme gestartet...");
 
-      const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || '' });
+      const ai = await getGeminiAI();
       audioContextRef.current = new (window.AudioContext || (window as any).webkitAudioContext)({ sampleRate: 16000 });
       streamRef.current = await getUserMicrophoneStream();
 
@@ -194,7 +195,7 @@ const PoliticalSpeechView: React.FC<{
     addLog("Optimiere Rede-Entwurf...", "info");
 
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || '' });
+      const ai = await getGeminiAI();
       const response = await ai.models.generateContent({
         model: 'gemini-2.0-flash',
         contents: `Du bist ein Weltklasse-Redenschreiber für Spitzenpolitiker. 
@@ -229,7 +230,7 @@ const PoliticalSpeechView: React.FC<{
     addLog("Analysiere deinen Vortrag akribisch...", "info");
 
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || '' });
+      const ai = await getGeminiAI();
       const response = await ai.models.generateContent({
         model: 'gemini-2.0-flash',
         contents: `Du bist ein hochkritischer Rhetorik-Professor und Performance-Coach. 

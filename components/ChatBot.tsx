@@ -1,6 +1,6 @@
 
 import React, { useState, useRef, useEffect } from 'react';
-import { GoogleGenAI } from '@google/genai';
+import { getGeminiAI } from '../utils/gemini-client';
 import { speakElevenLabs, stopSpeaking } from '../utils/elevenLabsTTS';
 
 const ChatBot: React.FC<{ addLog: (m: string, l?: any) => void }> = ({ addLog }) => {
@@ -35,7 +35,7 @@ const ChatBot: React.FC<{ addLog: (m: string, l?: any) => void }> = ({ addLog })
     setIsTyping(true);
 
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+      const ai = await getGeminiAI();
       const response = await ai.models.generateContent({
         model: 'gemini-2.0-flash',
         contents: userText,

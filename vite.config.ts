@@ -11,13 +11,8 @@ export default defineConfig(({ mode }) => {
       host: '127.0.0.1',
     },
     plugins: [react()],
-    define: {
-      'process.env.API_KEY': JSON.stringify(env.GEMINI_API_KEY || ''),
-      'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY || ''),
-      // Optionaler Tracking-Endpoint (z. B. n8n-Webhook). Leer = nur lokal
-      // puffern bzw. same-origin /api/track im Desktop-/Server-Modus.
-      'process.env.TRACK_ENDPOINT': JSON.stringify(env.TRACK_ENDPOINT || ''),
-    },
+    // API-Keys werden zur Laufzeit vom Server geholt (nicht ins Bundle baken)
+    define: {},
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),

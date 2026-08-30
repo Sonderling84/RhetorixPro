@@ -1,6 +1,7 @@
 
 import React, { useState, useRef, useEffect } from 'react';
-import { GoogleGenAI, LiveServerMessage, Modality } from '@google/genai';
+import { getGeminiAI } from '../utils/gemini-client';
+import { LiveServerMessage, Modality } from '@google/genai';
 import { AppMode, SessionResult, AnalysisData } from '../types';
 import { createBlob } from '../utils/audio-helpers';
 import { speakElevenLabs, stopSpeaking } from '../utils/elevenLabsTTS';
@@ -75,7 +76,7 @@ const DiaryView: React.FC<DiaryViewProps> = ({ onSave, addLog }) => {
       dispatchDictation('', true);
       addLog("Authentischer Gedankenfluss aktiv...");
 
-      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+      const ai = await getGeminiAI();
       audioContextRef.current = new (window.AudioContext || (window as any).webkitAudioContext)({ sampleRate: 16000 });
       streamRef.current = await getUserMicrophoneStream();
 
@@ -137,7 +138,7 @@ const DiaryView: React.FC<DiaryViewProps> = ({ onSave, addLog }) => {
     addLog("Linguistische Tiefenanalyse der Gedanken...");
 
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+      const ai = await getGeminiAI();
       const response = await ai.models.generateContent({
         model: 'gemini-2.0-flash',
         contents: `Analysiere diesen Gedankenfluss (Original-Transkript): "${transcription}".
@@ -172,7 +173,7 @@ const DiaryView: React.FC<DiaryViewProps> = ({ onSave, addLog }) => {
     setIsOptimizing(true);
     addLog("Veredelung für das Archiv...");
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+      const ai = await getGeminiAI();
       const response = await ai.models.generateContent({
         model: 'gemini-2.0-flash',
         contents: `Überführe diesen Gedankenfluss in einen literarisch perfekten Tagebucheintrag. Korrigiere alle Sprechfehler, aber bewahre die Emotion: "${transcription}"`

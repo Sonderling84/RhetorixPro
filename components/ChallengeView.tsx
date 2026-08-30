@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect, useRef } from 'react';
-import { GoogleGenAI } from '@google/genai';
+import { getGeminiAI } from '../utils/gemini-client';
 import { AppMode, SessionResult, AnalysisData } from '../types';
 import { motion, AnimatePresence } from 'motion/react';
 import { speakElevenLabs, stopSpeaking } from '../utils/elevenLabsTTS';
@@ -628,7 +628,7 @@ const ChallengeView: React.FC<ChallengeViewProps> = ({ onSave, addLog, sessions 
     setIsPolishing(true);
     addLog(language === 'de' ? "KI verbessert den Text..." : "AI is improving the text...", "info");
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || '' });
+      const ai = await getGeminiAI();
       const prompt = language === 'de' 
         ? `Verbessere den folgenden diktierten Text. Korrigiere Grammatik, Rechtschreibung und mache ihn flüssiger und professioneller, aber behalte die Ich-Perspektive und den Inhalt bei. Antworte NUR mit dem verbesserten Text.\n\nText: ${currentTranscript}`
         : `Improve the following dictated text. Correct grammar, spelling, and make it more fluent and professional, but keep the first-person perspective and content. Respond ONLY with the improved text.\n\nText: ${currentTranscript}`;
@@ -670,7 +670,7 @@ const ChallengeView: React.FC<ChallengeViewProps> = ({ onSave, addLog, sessions 
     addLog(language === 'de' ? "Narrative Transformation & Zusammenfassung wird erstellt..." : "Generating narrative transformation & summary...", "info");
     
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || '' });
+      const ai = await getGeminiAI();
       
       const prompt = language === 'de' 
         ? `Du bist ein erfahrener Romanautor. Verarbeite diesen Diktat-Entwurf für das Werk "Das Dritte Testament".
@@ -733,7 +733,7 @@ const ChallengeView: React.FC<ChallengeViewProps> = ({ onSave, addLog, sessions 
     addLog(language === 'de' ? "Manuskript wird aus allen Fragmenten zusammengesetzt..." : "Assembling manuscript from all fragments...", "info");
     
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || '' });
+      const ai = await getGeminiAI();
       const fullText = bookContent.map((f, i) => `FRAGMENT #${i+1} (${f.date}):\n${f.improved || f.original}`).join("\n\n---\n\n");
       
       const prompt = `Du bist ein literarischer Architekt. Erstelle aus den folgenden Fragmenten für das Buch "Das Dritte Testament" ein zusammenhängendes Manuskript.
@@ -929,7 +929,7 @@ const ChallengeView: React.FC<ChallengeViewProps> = ({ onSave, addLog, sessions 
     const previousAnalyses = playerSessions.map(s => s.analysis?.psychologicalInsight || '').filter(Boolean).join('\n---\n');
 
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || '' });
+      const ai = await getGeminiAI();
       const provPrompt = language === 'de' 
         ? `Du bist ein Profiler und Rhetorik-Experte. Erstelle ein präzises, unter die Oberfläche gehendes Psychogramm und eine rhetorische Analyse basierend auf diesem Verhör-Protokoll in DEUTSCHER SPRACHE.`
         : `You are a profiler and rhetoric expert. Create a precise psychological profile and rhetorical analysis based on this interrogation transcript in ENGLISH LANGUAGE.`;

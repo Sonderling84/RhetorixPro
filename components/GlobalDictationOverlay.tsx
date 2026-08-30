@@ -266,11 +266,15 @@ const GlobalDictationOverlay: React.FC<GlobalDictationOverlayProps> = ({ isStand
       osc.connect(ctx.destination);
       osc.start();
       osc.stop(ctx.currentTime + 0.08);
+      // AudioContext nach Beep-Ende schließen
+      setTimeout(() => { if (ctx.state !== 'closed') try { ctx.close(); } catch { /* */ } }, 200);
     } catch { /* */ }
   };
 
   // Live-Transkription: Alle 1.5s kumulative Chunks an Whisper-base senden
   const startLiveTranscription = useCallback(() => {
+    // Vorherigen Timer aufräumen (verhindert Doppel-Timer bei schnellem Klick)
+    if (liveTimerRef.current) { clearInterval(liveTimerRef.current); liveTimerRef.current = null; }
     liveTimerRef.current = setInterval(async () => {
       if (phaseRef.current !== 'recording' || liveTranscribingRef.current) return;
       if (chunksRef.current.length < 2) return;
@@ -300,6 +304,9 @@ const GlobalDictationOverlay: React.FC<GlobalDictationOverlayProps> = ({ isStand
         }
       } catch (err: any) {
         if (err.name !== 'AbortError') console.warn('[LiveTranscribe]', err.message);
+      } finally {
+        // Controller freigeben wenn noch aktuell
+        if (liveAbortRef.current === controller) liveAbortRef.current = null;
       }
       liveTranscribingRef.current = false;
     }, 1500);
@@ -365,7 +372,8 @@ const GlobalDictationOverlay: React.FC<GlobalDictationOverlayProps> = ({ isStand
         (window as any).electronAPI.notifyRecordingStarted();
       }
 
-      // Timer: Aufnahmedauer
+      // Timer: Aufnahmedauer (alten Timer vorher aufräumen)
+      if (timerRef.current) { clearInterval(timerRef.current); timerRef.current = null; }
       const startTime = Date.now();
       timerRef.current = setInterval(() => {
         setRecordingDuration(Math.floor((Date.now() - startTime) / 1000));

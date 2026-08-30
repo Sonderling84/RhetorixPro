@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect, useRef } from 'react';
-import { GoogleGenAI } from "@google/genai";
+import { getGeminiAI } from '../utils/gemini-client';
 import { speakElevenLabs } from '../utils/elevenLabsTTS';
 import { LogEntry } from '../types';
 
@@ -138,8 +138,8 @@ const AuthorView: React.FC<AuthorViewProps> = ({ onSave, addLog }) => {
     addLog('Text wird im Autorenstil optimiert...', 'info');
 
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || '' });
-      
+      const ai = await getGeminiAI();
+
       let stylePrompt = authorStyle;
       if (!stylePrompt) {
         const styleRes = await ai.models.generateContent({
@@ -228,7 +228,7 @@ const AuthorView: React.FC<AuthorViewProps> = ({ onSave, addLog }) => {
         return await contentRes.text();
       }));
 
-      const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || '' });
+      const ai = await getGeminiAI();
       const compilationRes = await ai.models.generateContent({
         model: "gemini-2.0-flash",
         contents: `Du hast hier eine Sammlung von Textfragmenten, Skizzen und Kapiteln eines Autors. Deine Aufgabe ist es, diese Fragmente zu analysieren, chronologisch oder logisch sinnvoll zu ordnen und daraus eine zusammenhängende, flüssige Erzählung (ein Buch) zu erstellen.

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { GoogleGenAI } from '@google/genai';
+import { getGeminiAI } from '../utils/gemini-client';
 import ReactMarkdown from 'react-markdown';
 import { motion, AnimatePresence } from 'motion/react';
 import { AppMode, SessionResult } from '../types';
@@ -112,8 +112,8 @@ const YouTubeView: React.FC<YouTubeViewProps> = ({ onSave, addLog }) => {
     addLog(`Generiere YouTube-Inhalt (${format}) für das Thema "${topic}"...`, "info");
 
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || process.env.API_KEY });
-      
+      const ai = await getGeminiAI();
+
       let formatInst = '';
       if (format === 'FULL_SCRIPT') {
         formatInst = `Erstelle ein KOMPLETTES, detailliertes Videoskript. Strukturiere es in diese distinkten Bereiche:
@@ -171,7 +171,7 @@ const YouTubeView: React.FC<YouTubeViewProps> = ({ onSave, addLog }) => {
     addLog("Passe Skript basierend auf deinem Feedback an...", "info");
 
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || process.env.API_KEY });
+      const ai = await getGeminiAI();
       const prompt = `Du bist ein professioneller YouTube Script-Doktor. Hier ist das aktuelle Skript für ein Video:
 
       ---

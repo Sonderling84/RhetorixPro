@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { GoogleGenAI } from '@google/genai';
+import { getGeminiAI } from '../utils/gemini-client';
 import ReactMarkdown from 'react-markdown';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -56,7 +56,7 @@ const SocialMediaView: React.FC<{
     addLog(`Generiere Social Media Content für ${platform}...`, "info");
 
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+      const ai = await getGeminiAI();
       const response = await ai.models.generateContent({
         model: 'gemini-2.0-flash',
         contents: `Erstelle viralen Social Media Content für ${platform} basierend auf dieser Idee: "${input}".

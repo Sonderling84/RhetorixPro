@@ -1,6 +1,7 @@
 
 import React, { useState, useRef, useEffect } from 'react';
-import { GoogleGenAI, Modality, LiveServerMessage } from '@google/genai';
+import { getGeminiAI } from '../utils/gemini-client';
+import { Modality, LiveServerMessage } from '@google/genai';
 import { AppMode, SessionResult } from '../types';
 import { createBlob } from '../utils/audio-helpers';
 import { motion, AnimatePresence } from 'motion/react';
@@ -143,7 +144,7 @@ const EmailStudioView: React.FC<EmailStudioProps> = ({ onSave, addLog }) => {
     addLog("Diktat gestartet...");
 
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+      const ai = await getGeminiAI();
       audioContextRef.current = new (window.AudioContext || (window as any).webkitAudioContext)({ sampleRate: 16000 });
       streamRef.current = await navigator.mediaDevices.getUserMedia({ audio: true });
 
@@ -217,7 +218,7 @@ const EmailStudioView: React.FC<EmailStudioProps> = ({ onSave, addLog }) => {
     addLog("KI optimiert deine E-Mail...");
 
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+      const ai = await getGeminiAI();
       const response = await ai.models.generateContent({
         model: 'gemini-2.0-flash',
         contents: `Optimiere diese diktierte E-Mail. 

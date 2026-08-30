@@ -53,6 +53,7 @@ export async function speakElevenLabs(text: string, voiceId?: string): Promise<v
 
   // Text auf 5000 Zeichen limitieren (ElevenLabs Limit)
   const trimmedText = text.trim().substring(0, 5000);
+  let ctx: AudioContext | null = null;
 
   try {
     const response = await fetch('/api/tts', {
@@ -80,9 +81,18 @@ export async function speakElevenLabs(text: string, voiceId?: string): Promise<v
     }
 
     // AudioContext erstellen und MP3 dekodieren
-    const ctx = new (window.AudioContext || (window as any).webkitAudioContext)();
+    ctx = new (window.AudioContext || (window as any).webkitAudioContext)();
     currentCtx = ctx;
-    const buffer = await ctx.decodeAudioData(bytes.buffer.slice(0));
+
+    let buffer: AudioBuffer;
+    try {
+      buffer = await ctx.decodeAudioData(bytes.buffer.slice(0));
+    } catch (decodeErr) {
+      // Context schließen wenn decode fehlschlägt
+      if (ctx.state !== 'closed') try { ctx.close(); } catch { /* */ }
+      currentCtx = null;
+      throw decodeErr;
+    }
 
     // Abspielen
     const source = ctx.createBufferSource();
@@ -93,15 +103,19 @@ export async function speakElevenLabs(text: string, voiceId?: string): Promise<v
     return new Promise<void>((resolve) => {
       source.onended = () => {
         currentSource = null;
-        if (currentCtx === ctx) {
-          ctx.close();
-          currentCtx = null;
+        if (currentCtx === ctx && ctx.state !== 'closed') {
+          try { ctx.close(); } catch { /* */ }
         }
+        currentCtx = null;
         resolve();
       };
       source.start();
     });
   } catch (err: any) {
+    // Bei Fehler: Context sicher schließen
+    if (ctx && ctx.state !== 'closed') { try { ctx.close(); } catch { /* */ } }
+    currentCtx = null;
+    currentSource = null;
     console.error('[ElevenLabs TTS] Fehler:', err.message);
     throw err;
   }

@@ -13,6 +13,14 @@ function log(msg) {
 fs.writeFileSync(LOG_FILE, ''); // Clear
 log('=== RhetorixPro Main Process Start ===');
 
+// Globale Error Handler — verhindert stille Crashes
+process.on('unhandledRejection', (reason, promise) => {
+  log(`[CRASH] Unhandled Promise Rejection: ${reason?.message || reason}`);
+});
+process.on('uncaughtException', (err) => {
+  log(`[CRASH] Uncaught Exception: ${err.message}\n${err.stack}`);
+});
+
 // Plattform-Helfer. macOS ist vollständig umgesetzt; Windows-Zweige sind additiv
 // hinzugefügt (noch nicht auf echter Windows-Hardware getestet — siehe WINDOWS.md).
 const IS_MAC = process.platform === 'darwin';
@@ -44,7 +52,7 @@ if (!gotTheLock) {
   process.exit(0);
 }
 
-const APP_VERSION = '1.0.1';
+const APP_VERSION = '1.0.2';
 
 // Autostart beim Login aktivieren
 app.setLoginItemSettings({
@@ -77,7 +85,7 @@ function createWindow() {
       preload: path.join(__dirname, 'preload.js'),
       contextIsolation: true,
       nodeIntegration: false,
-      sandbox: false,
+      sandbox: true,
     },
     icon: path.join(__dirname, 'assets', 'icon.png'),
     show: false,
@@ -146,7 +154,7 @@ function createDictationWindow() {
       preload: path.join(__dirname, 'preload.js'),
       contextIsolation: true,
       nodeIntegration: false,
-      sandbox: false,
+      sandbox: true,
       backgroundThrottling: false,
     },
     show: false,
@@ -281,17 +289,35 @@ function startServer() {
       server.use(express.json({ limit: '50mb' }));
       server.use(cookieParser());
 
+      // CORS + Origin-Check: Nur Requests von der eigenen App erlauben
+      server.use('/api', (req, res, next) => {
+        const origin = req.headers.origin || '';
+        const referer = req.headers.referer || '';
+        const allowedOrigins = [`http://localhost:${SERVER_PORT}`, `http://127.0.0.1:${SERVER_PORT}`];
+        const isAllowed = !origin || allowedOrigins.some(o => origin === o || referer.startsWith(o));
+        if (!isAllowed) {
+          return res.status(403).json({ error: 'Forbidden' });
+        }
+        if (origin) {
+          res.setHeader('Access-Control-Allow-Origin', origin);
+          res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+          res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+        }
+        if (req.method === 'OPTIONS') return res.sendStatus(204);
+        next();
+      });
+
       // Gemini API Key Endpoint
       server.get('/api/gemini-key', async (req, res) => {
         const key = await ensureGeminiKey();
-        if (!key) return res.status(500).json({ error: 'GEMINI_API_KEY not configured — Hermes nicht erreichbar' });
+        if (!key) return res.status(500).json({ error: 'Service nicht verfügbar' });
         res.json({ key });
       });
 
       // ElevenLabs Key Endpoint
       server.get('/api/elevenlabs-key', async (req, res) => {
         const key = await ensureElevenLabsKey();
-        if (!key) return res.status(500).json({ error: 'ELEVENLABS_API_KEY nicht konfiguriert' });
+        if (!key) return res.status(500).json({ error: 'Service nicht verfügbar' });
         res.json({ key });
       });
 
@@ -302,7 +328,7 @@ function startServer() {
           if (!text) return res.status(400).json({ error: 'Kein Text angegeben' });
 
           const key = await ensureElevenLabsKey();
-          if (!key) return res.status(500).json({ error: 'ElevenLabs Key nicht verfügbar' });
+          if (!key) return res.status(500).json({ error: 'Service nicht verfügbar' });
 
           // Default Voice: Nicole (deutsch, weiblich, natürlich)
           const voice = voiceId || 'piTKgcLEGmPE4e6mEKli';
@@ -310,19 +336,27 @@ function startServer() {
 
           log(`[TTS] ElevenLabs Request: ${text.substring(0, 60)}... (Voice: ${voice})`);
 
-          const response = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${voice}`, {
-            method: 'POST',
-            headers: {
-              'xi-api-key': key,
-              'Content-Type': 'application/json',
-              'Accept': 'audio/mpeg',
-            },
-            body: JSON.stringify({
-              text,
-              model_id: model,
-              voice_settings: { stability: 0.5, similarity_boost: 0.75, style: 0.0 }
-            }),
-          });
+          const abortController = new AbortController();
+          const timeout = setTimeout(() => abortController.abort(), 15000); // 15s Timeout
+          let response;
+          try {
+            response = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${voice}`, {
+              method: 'POST',
+              headers: {
+                'xi-api-key': key,
+                'Content-Type': 'application/json',
+                'Accept': 'audio/mpeg',
+              },
+              body: JSON.stringify({
+                text,
+                model_id: model,
+                voice_settings: { stability: 0.5, similarity_boost: 0.75, style: 0.0 }
+              }),
+              signal: abortController.signal,
+            });
+          } finally {
+            clearTimeout(timeout);
+          }
 
           if (!response.ok) {
             const errText = await response.text();
@@ -344,7 +378,7 @@ function startServer() {
       server.get('/api/tts/voices', async (req, res) => {
         try {
           const key = await ensureElevenLabsKey();
-          if (!key) return res.status(500).json({ error: 'ElevenLabs Key nicht verfügbar' });
+          if (!key) return res.status(500).json({ error: 'Service nicht verfügbar' });
 
           const response = await fetch('https://api.elevenlabs.io/v1/voices', {
             headers: { 'xi-api-key': key },
@@ -363,18 +397,19 @@ function startServer() {
         }
       });
 
-      // Text-Optimierung via Gemini
+      // Text-Optimierung via Gemini (mit 20s Timeout)
       server.post('/api/optimize-text', async (req, res) => {
         try {
           const { text } = req.body;
           if (!text) return res.status(400).json({ error: 'Kein Text angegeben' });
 
           const apiKey = await ensureGeminiKey();
-          if (!apiKey) return res.status(500).json({ error: 'Gemini Key nicht verfügbar' });
+          if (!apiKey) return res.status(500).json({ error: 'Service nicht verfügbar' });
 
           const { GoogleGenAI } = require('@google/genai');
           const ai = new GoogleGenAI({ apiKey });
-          const result = await ai.models.generateContent({
+          const timeoutPromise = new Promise((_, reject) => setTimeout(() => reject(new Error('Gemini Timeout (20s)')), 20000));
+          const result = await Promise.race([ai.models.generateContent({
             model: 'gemini-2.0-flash',
             contents: `Du bist ein professioneller Textoptimierer. Verbessere den folgenden diktierten Text:
 - Korrigiere Grammatik und Rechtschreibung
@@ -384,7 +419,7 @@ function startServer() {
 - Antworte NUR mit dem optimierten Text, ohne Erklärung
 
 Text: ${text}`,
-          });
+          }), timeoutPromise]);
 
           res.json({ text: result.text || text });
         } catch (err) {
@@ -851,7 +886,14 @@ app.whenReady().then(async () => {
   const SHORTCUT_FALLBACK = 'CommandOrControl+Shift+Space';
   const SHORTCUT_F5 = 'F5';
 
+  // Rate-Limiting: Verhindert Spam-Auslösung bei schnellem Drücken
+  const SHORTCUT_COOLDOWN = 500; // ms
+  let lastShortcutTime = 0;
+
   function triggerDictation(label) {
+    const now = Date.now();
+    if (now - lastShortcutTime < SHORTCUT_COOLDOWN) return;
+    lastShortcutTime = now;
     log(`Globaler Shortcut ${label} gedrückt!`);
     if (dictationWindow) {
       if (!dictationWindow.isVisible()) {

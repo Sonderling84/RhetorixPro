@@ -1,6 +1,7 @@
 
 import React, { useState, useRef, useEffect, useMemo } from 'react';
-import { GoogleGenAI, LiveServerMessage, Modality } from '@google/genai';
+import { getGeminiAI } from '../utils/gemini-client';
+import { LiveServerMessage, Modality } from '@google/genai';
 import { AppMode, SessionResult, AnalysisData } from '../types';
 import { createBlob } from '../utils/audio-helpers';
 import { getUserMicrophoneStream } from '../utils/speechHelper';
@@ -40,9 +41,21 @@ const TrainerSession: React.FC<TrainerSessionProps> = ({ mode, onSave, addLog })
   
   const audioContextRef = useRef<AudioContext | null>(null);
   const streamRef = useRef<MediaStream | null>(null);
+  const scriptProcessorRef = useRef<ScriptProcessorNode | null>(null);
+  const sourceNodeRef = useRef<MediaStreamAudioSourceNode | null>(null);
   const transcriptEndRef = useRef<HTMLDivElement>(null);
   const lastProcessedWordCount = useRef(0);
   const lastWordRef = useRef<string>('');
+
+  // Cleanup Audio-Ressourcen bei Unmount
+  useEffect(() => {
+    return () => {
+      if (scriptProcessorRef.current) { try { scriptProcessorRef.current.disconnect(); } catch { /* */ } }
+      if (sourceNodeRef.current) { try { sourceNodeRef.current.disconnect(); } catch { /* */ } }
+      if (streamRef.current) { streamRef.current.getTracks().forEach(t => t.stop()); }
+      if (audioContextRef.current && audioContextRef.current.state !== 'closed') { try { audioContextRef.current.close(); } catch { /* */ } }
+    };
+  }, []);
 
   useEffect(() => {
     if (transcriptEndRef.current) {
@@ -97,8 +110,11 @@ const TrainerSession: React.FC<TrainerSessionProps> = ({ mode, onSave, addLog })
       gain.connect(ctx.destination);
       osc.start();
       osc.stop(ctx.currentTime + 0.15);
-      setTimeout(() => { if (ctx.state !== 'closed') ctx.close(); }, 300);
-    } catch (e) { console.error(e); }
+      // Sicher schließen nach Abspielen (inkl. Doppel-Blip Delay)
+      setTimeout(() => { if (ctx.state !== 'closed') try { ctx.close(); } catch { /* */ } }, 500);
+    } catch (e) {
+      console.error(e);
+    }
   };
 
   const startRecording = async () => {
@@ -116,7 +132,7 @@ const TrainerSession: React.FC<TrainerSessionProps> = ({ mode, onSave, addLog })
       const skillName = SKILLS.find(s => s.id === selectedSkill)?.name || 'Allgemein';
       addLog(`Training gestartet: "${topic}"`);
 
-      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+      const ai = await getGeminiAI();
       audioContextRef.current = new (window.AudioContext || (window as any).webkitAudioContext)({ sampleRate: 16000 });
       streamRef.current = await getUserMicrophoneStream();
 
@@ -130,7 +146,9 @@ const TrainerSession: React.FC<TrainerSessionProps> = ({ mode, onSave, addLog })
         callbacks: {
           onopen: () => {
             const source = audioContextRef.current!.createMediaStreamSource(streamRef.current!);
+            sourceNodeRef.current = source;
             const scriptProcessor = audioContextRef.current!.createScriptProcessor(4096, 1, 1);
+            scriptProcessorRef.current = scriptProcessor;
             scriptProcessor.onaudioprocess = (e) => {
               const inputData = e.inputBuffer.getChannelData(0);
               const pcmBlob = createBlob(inputData);
@@ -172,6 +190,15 @@ const TrainerSession: React.FC<TrainerSessionProps> = ({ mode, onSave, addLog })
 
   const stopRecording = () => {
     setIsActive(false);
+    // Audio-Nodes disconnecten bevor Context geschlossen wird
+    if (scriptProcessorRef.current) {
+      try { scriptProcessorRef.current.disconnect(); } catch { /* */ }
+      scriptProcessorRef.current = null;
+    }
+    if (sourceNodeRef.current) {
+      try { sourceNodeRef.current.disconnect(); } catch { /* */ }
+      sourceNodeRef.current = null;
+    }
     if (streamRef.current) { streamRef.current.getTracks().forEach(t => t.stop()); streamRef.current = null; }
     if (audioContextRef.current && audioContextRef.current.state !== 'closed') { audioContextRef.current.close(); audioContextRef.current = null; }
   };
@@ -182,7 +209,7 @@ const TrainerSession: React.FC<TrainerSessionProps> = ({ mode, onSave, addLog })
     addLog("KI-Mentor führt forensische Tiefenanalyse durch...");
 
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+      const ai = await getGeminiAI();
       const skillName = SKILLS.find(s => s.id === selectedSkill)?.name;
       
       let progressContext = "";

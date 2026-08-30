@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { GoogleGenAI } from '@google/genai';
+import { getGeminiAI } from '../utils/gemini-client';
 import ReactMarkdown from 'react-markdown';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -56,7 +56,7 @@ const BusinessPitchView: React.FC<{
     addLog(`Generiere ${mode} Analyse...`, "info");
 
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || '' });
+      const ai = await getGeminiAI();
       
       let systemPrompt = "";
       let tools: any[] = [];

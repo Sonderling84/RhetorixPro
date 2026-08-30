@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { GoogleGenAI } from "@google/genai";
+import { getGeminiAI } from '../utils/gemini-client';
 import { LogEntry, AppMode } from '../types';
 import { dispatchDictation } from '../utils/dictation-events';
 import { speakElevenLabs, stopSpeaking } from '../utils/elevenLabsTTS';
@@ -388,7 +388,7 @@ export const PlanningChecklistView: React.FC<PlanningChecklistViewProps> = ({ on
     stopDictation();
 
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || process.env.API_KEY || '' });
+      const ai = await getGeminiAI();
       
       const promptText = `Du bist der Copilot in einem Flugzeugcockpit. Der Pilot hat dir folgende Aufgabe oder Vorhaben beschrieben: "${inputText}".
       

@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { GoogleGenAI, LiveServerMessage, Modality } from '@google/genai';
+import { LiveServerMessage, Modality } from '@google/genai';
+import { getGeminiAI } from '../utils/gemini-client';
 import ReactMarkdown from 'react-markdown';
 import { AppMode, SessionResult } from '../types';
 import { motion, AnimatePresence } from 'motion/react';
@@ -52,7 +53,7 @@ const DevLogView: React.FC<DevLogViewProps> = ({ onSave, addLog }) => {
       addLog("Transkription für Entwicklungs-Logbücher aktiv. Sprich frei...", "info");
       dispatchDictation('', true);
 
-      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+      const ai = await getGeminiAI();
       audioContextRef.current = new (window.AudioContext || (window as any).webkitAudioContext)({ sampleRate: 16000 });
       streamRef.current = await navigator.mediaDevices.getUserMedia({ audio: true });
 
@@ -138,7 +139,7 @@ const DevLogView: React.FC<DevLogViewProps> = ({ onSave, addLog }) => {
     addLog("Veredele und strukturiere den Entwicklungsbericht...", "info");
 
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+      const ai = await getGeminiAI();
       const response = await ai.models.generateContent({
         model: 'gemini-2.0-flash',
         contents: `Du bist ein erstklassiger technischer Dokumentar und erfahrener Software-Architekt. Deine Aufgabe ist es, die unstrukturierten Notizen, Gedanken, die Diktier-Rohdaten oder den Tagesbericht des Nutzers über seine Entwicklungsfortschritte zu korrigieren, sauber und professionell zu formulieren und logisch zu strukturieren.
