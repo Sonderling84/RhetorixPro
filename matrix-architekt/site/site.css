@@ -4,15 +4,15 @@
 /* Blueprint: tiefes Planblau, weiße Linien, Maßketten. Bewusst ein einziges Erscheinungsbild,
    darum keine Hell/Dunkel-Umschaltung. Akzent (Bernstein) nur für Handlung und Korrektur. */
 :root {
-  --paper: #0e2b4d;        /* Blaupause */
-  --paper-2: #133b66;      /* Kästen, Karten */
-  --paper-3: #0a2140;      /* tiefer: Code, Eingaben */
-  --grid: rgba(190, 220, 255, 0.09);
-  --ink: #eaf3fd;          /* Linie, Text */
-  --ink-2: #9dbbdc;        /* Beschriftung */
-  --rule: #3e6a9c;         /* Maßlinie, Rahmen */
-  --line: #d7e8fb;         /* Zeichnungslinie */
-  --red: #ffb64a;          /* Akzent: CTA, Korrektur (Name aus Kompatibilität) */
+  --paper: #11367a;        /* Cyanotypie-Kobalt */
+  --paper-2: #17428f;      /* Kästen, Karten */
+  --paper-3: #0c2a62;      /* tiefer: Code, Eingaben */
+  --grid: rgba(200, 225, 255, 0.11);
+  --ink: #eef5ff;          /* Linie, Text */
+  --ink-2: #aac6ec;        /* Beschriftung */
+  --rule: #4a77b8;         /* Maßlinie, Rahmen */
+  --line: #dcebff;         /* Zeichnungslinie */
+  --red: #ffc15c;          /* Akzent: CTA, Korrektur (Name aus Kompatibilität) */
   --red-soft: rgba(255, 182, 74, 0.16);
   --ok: #7be3ad; --ok-soft: rgba(123, 227, 173, 0.16);
   --font-display: 'Barlow Condensed', 'Arial Narrow', Impact, sans-serif;
@@ -25,7 +25,20 @@ body {
   margin: 0; background: var(--paper);
   background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px);
   background-size: 24px 24px; color: var(--ink); font-family: var(--font-body); font-size: 17px; line-height: 1.6;
+  position: relative;
 }
+/* Cyanotypie: Lichtsaum oben wie belichtetes Papier, darüber feines Papierkorn */
+body::before {
+  content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background: radial-gradient(120% 60% at 50% -10%, rgba(200, 228, 255, 0.22), transparent 60%);
+}
+body::after {
+  content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: 0.16; mix-blend-mode: soft-light;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.9 0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+}
+.wrap { position: relative; z-index: 1; }
+#consent { z-index: 50; }
 .wrap { max-width: 1080px; margin: 0 auto; padding-inline: 20px; }
 .wrap.narrow { max-width: 760px; }
 a { color: inherit; }
