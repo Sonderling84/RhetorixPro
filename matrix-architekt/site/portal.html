@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Matrix Architekt Kundenbereich</title>
+<meta name="description" content="Kundenbereich: mit E-Mail anmelden, Objekt benennen, Baupläne hochladen.">
+<meta name="robots" content="noindex, follow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2316283f'/%3E%3Cpath d='M6 24V8h4l6 9 6-9h4v16h-4V15l-6 9-6-9v9z' fill='%23f6f8fa'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="fonts/fonts.css">
+<link rel="stylesheet" href="site.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.1/dist/umd/supabase.js"></script>
+<style>
+/* Schmale Arbeitsspalte, ein Schritt nach dem anderen, Fortschritt als Maßkette */
+.wrap { padding-block: 0 60px; }
+header.top { margin-bottom: 32px; }
+.whoami { display: flex; gap: 12px; align-items: center; font-size: 0.9rem; color: var(--ink-2); flex-wrap: wrap; }
+.progress { display: grid; grid-template-columns: repeat(4, 1fr); margin-bottom: 36px; }
+.progress div { position: relative; padding-top: 14px; font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); border-top: 2px solid var(--rule); }
+.progress div::before { content: ""; position: absolute; left: 0; top: -7px; width: 12px; height: 12px; border-radius: 50%; background: var(--paper); border: 2px solid var(--rule); }
+.progress div.done { border-color: var(--ok); color: var(--ok); }
+.progress div.done::before { background: var(--ok); border-color: var(--ok); }
+.progress div.now { border-color: var(--red); color: var(--red); }
+.progress div.now::before { background: var(--red); border-color: var(--red); }
+.card { background: var(--paper-2); border: 1px solid var(--rule); padding: 28px; display: grid; gap: 20px; }
+.card .head { display: grid; gap: 8px; }
+.card input[type="text"], .card input[type="email"], .card input[type="number"], .card textarea, .card select { background: var(--paper); }
+input.code { font-family: var(--font-mono); font-size: 1.6rem; letter-spacing: 0.4em; text-align: center; }
+.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.row3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+.row2 > *, .row3 > * { min-width: 0; }
+.more summary { cursor: pointer; font-family: var(--font-mono); font-size: 0.8rem; color: var(--ink-2); list-style: none; }
+.more summary::before { content: "+ "; color: var(--red); }
+.more[open] summary::before { content: "– "; }
+.more .inner { display: grid; gap: 16px; padding-top: 16px; }
+.need { display: grid; gap: 8px; padding: 16px 18px; border: 1px solid var(--rule); background: var(--paper); }
+.need ul { margin: 0; padding-left: 20px; display: grid; gap: 4px; font-size: 0.95rem; }
+.drop { border: 2px dashed var(--rule); padding: 26px; text-align: center; background: var(--paper); display: grid; gap: 6px; cursor: pointer; }
+.drop.over { border-color: var(--red); background: var(--red-soft); }
+.drop input { display: none; }
+.drop .big { font-family: var(--font-display); font-size: 1.3rem; font-weight: 600; }
+.drop .small { font-size: 0.85rem; color: var(--ink-2); }
+.files { display: grid; gap: 8px; }
+.frow { display: grid; grid-template-columns: 1fr auto auto; gap: 10px; align-items: center; padding: 10px 12px; background: var(--paper); border: 1px solid var(--rule); }
+.frow > * { min-width: 0; }
+.frow .fn { font-family: var(--font-mono); font-size: 0.82rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.frow .fs { font-family: var(--font-mono); font-size: 0.72rem; color: var(--ink-2); }
+.frow select { padding: 6px 8px; font-size: 0.85rem; width: auto; }
+.frow .x { font: inherit; background: none; border: 0; color: var(--ink-2); cursor: pointer; font-size: 1.1rem; padding: 0 4px; }
+.frow .bar { grid-column: 1 / -1; height: 4px; background: var(--rule); overflow: hidden; }
+.frow .bar i { display: block; height: 100%; width: 0; background: var(--ok); transition: width 0.3s; }
+.sub { display: grid; gap: 6px; padding: 16px 18px; background: var(--paper); border: 1px solid var(--rule); border-left: 4px solid var(--ok); }
+.sub .t { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.sub .st { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ok); }
+.sub .fl { font-family: var(--font-mono); font-size: 0.8rem; color: var(--ink-2); }
+.demo { margin-bottom: 20px; padding: 10px 14px; border: 1px dashed var(--red); color: var(--red); font-size: 0.85rem; font-family: var(--font-mono); }
+@media (max-width: 560px) { .frow { grid-template-columns: 1fr auto; } .frow .fs { display: none; } .row2, .row3 { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="wrap narrow">
+<header class="top">
+  <a class="brand" href="index.html">Matrix Architekt <small>KUNDENBEREICH</small></a>
+  <div class="whoami" id="who" hidden><span id="who-mail" class="mono"></span><button class="linkbtn" type="button" id="logout">Abmelden</button></div>
+</header>
+
+<div class="demo" id="demo" hidden>Demo-Modus: Kein Backend verbunden. Anmeldung und Upload laufen nur lokal im Browser, es wird nichts gespeichert. Einrichtung: README, Abschnitt Supabase.</div>
+
+<div class="progress" id="progress">
+  <div data-step="1">1 Anmelden</div><div data-step="2">2 Objekt</div><div data-step="3">3 Pläne</div><div data-step="4">4 Fertig</div>
+</div>
+
+<section class="card" id="s1" style="border-top:1px solid var(--rule);padding:28px">
+  <div class="head">
+    <span class="eyebrow">Schritt 1</span>
+    <h1 style="font-size:clamp(2rem,5vw,3rem)">Mit E-Mail anmelden</h1>
+    <p class="muted">Kein Passwort. Du bekommst einen 6-stelligen Code per Mail. Mit derselben Adresse kommst du später wieder an deine Einreichungen.</p>
+  </div>
+  <div id="s1a">
+    <div class="field"><label for="email">E-Mail-Adresse</label><input type="email" id="email" autocomplete="email" placeholder="du@beispiel.de"></div>
+    <div class="cta-row" style="margin-top:16px"><button class="btn primary" type="button" id="send-code">Code senden</button></div>
+  </div>
+  <div id="s1b" hidden>
+    <div class="field">
+      <label for="code">Code aus der Mail</label>
+      <input type="text" id="code" class="code" inputmode="numeric" maxlength="6" placeholder="······" autocomplete="one-time-code">
+      <span class="hint">Gesendet an <span id="sent-to" class="mono"></span>. Nichts angekommen? Spam-Ordner prüfen oder <button class="linkbtn" type="button" id="resend">neu senden</button></span>
+    </div>
+    <div class="cta-row" style="margin-top:16px"><button class="btn primary" type="button" id="verify">Anmelden</button><button class="linkbtn" type="button" id="change-mail">Andere Adresse</button></div>
+  </div>
+  <div class="msg err" id="s1-err" hidden></div>
+</section>
+
+<section class="card" id="s2" hidden style="padding:28px">
+  <div class="head">
+    <span class="eyebrow">Schritt 2</span>
+    <h2>Dein Objekt</h2>
+    <p class="muted">Drei Angaben reichen. Alles Weitere lese ich aus dem Plan oder frage nach.</p>
+  </div>
+  <div class="field"><label for="objekt">Objekt</label><input type="text" id="objekt" placeholder="z. B. Einfamilienhaus Musterweg, Baujahr 1998"></div>
+  <div class="row2">
+    <div class="field">
+      <label for="typ">Gebäudetyp</label>
+      <select id="typ"><option>Einfamilienhaus</option><option>Doppelhaushälfte / Reihenhaus</option><option>Wohnung</option><option>Mehrfamilienhaus</option><option>Anbau / Umbau</option><option>Typenhaus / Katalog</option><option>Etwas anderes</option></select>
+    </div>
+    <div class="field">
+      <label for="planstil">Zeichenstil der Pläne</label>
+      <select id="planstil">
+        <option value="einheitlich">Alle im selben Stil (gleiche Software, gleiche Vorlage)</option>
+        <option value="gemischt">Gemischt: verschiedene Büros oder Vorlagen</option>
+        <option value="unklar">Weiß ich nicht</option>
+      </select>
+      <span class="hint">Norm-Bauplan: ein Stil pro Kunde. Gemischte Stile lerne ich einzeln an, das dauert länger.</span>
+    </div>
+  </div>
+  <details class="more">
+    <summary>Mehr Angaben (optional, macht den Bau genauer)</summary>
+    <div class="inner">
+      <div class="row3">
+        <div class="field"><label for="geschosse">Geschosse inkl. Keller</label><input type="number" id="geschosse" min="1" max="12" placeholder="2"></div>
+        <div class="field"><label for="aw">Außenwand (cm)</label><input type="text" id="aw" placeholder="36,5"></div>
+        <div class="field"><label for="gh">Geschosshöhe (m)</label><input type="text" id="gh" placeholder="2,75"></div>
+      </div>
+      <div class="field"><label for="iw">Innenwände (cm)</label><input type="text" id="iw" placeholder="11,5 / 17,5"></div>
+      <div class="field"><label for="notizen">Was ich über den Plan wissen sollte</label><textarea id="notizen" placeholder="z. B. Maße in cm. Der Schnitt fehlt. Anbau von 2010 ist im Plan nicht drin."></textarea></div>
+    </div>
+  </details>
+  <label class="check"><input type="checkbox" id="ds"><span>Ich bin einverstanden, dass meine Pläne zum Nachbau in 3D verarbeitet werden. Sie werden vertraulich behandelt, nicht weitergegeben und auf Wunsch gelöscht. <a href="datenschutz.html" target="_blank" rel="noopener">Datenschutz</a></span></label>
+  <label class="check"><input type="checkbox" id="blog"><span>Erkenntnisse aus meinem Bau dürfen <b>anonymisiert</b> im Erkenntnis-Blog erscheinen (ohne Plan, Name oder Adresse).</span></label>
+  <div class="msg err" id="s2-err" hidden></div>
+  <div class="cta-row"><button class="btn primary" type="button" id="to-s3">Weiter zu den Plänen</button></div>
+</section>
+
+<section class="card" id="s3" hidden style="padding:28px">
+  <div class="head">
+    <span class="eyebrow">Schritt 3</span>
+    <h2>Pläne vom kompletten Objekt</h2>
+    <p class="muted">Das ganze Gebäude, nicht nur ein Zimmer. Je vollständiger, desto genauer wird der Rohbau.</p>
+  </div>
+  <div class="need">
+    <b>Was rein muss</b>
+    <ul>
+      <li><b>Pflicht:</b> mindestens 1 Grundriss, der alle Geschosse zeigt (oder je Geschoss ein Plan).</li>
+      <li><b>Empfohlen:</b> ein zweiter Plan, am besten ein Schnitt. Damit stimmen Geschosshöhen und Brüstungen.</li>
+      <li>Gern dazu: Ansichten, Lageplan, Fotos von Details.</li>
+      <li><b>Norm-Bauplan:</b> alle Pläne im selben Zeichenstil, am besten aus derselben Software und Vorlage.</li>
+    </ul>
+  </div>
+  <label class="drop" id="drop" for="files">
+    <span class="big">Pläne hier ablegen oder klicken</span>
+    <span class="small" id="drop-hint">PDF, JPG, PNG, DWG, DXF · gern mehrere Dateien</span>
+    <input type="file" id="files" multiple accept=".pdf,.jpg,.jpeg,.png,.dwg,.dxf,.webp">
+  </label>
+  <div class="files" id="filelist"></div>
+  <div class="msg warn" id="s3-warn" hidden></div>
+  <div class="msg err" id="s3-err" hidden></div>
+  <div class="cta-row"><button class="btn primary" type="button" id="upload">Pläne hochladen und einreichen</button><button class="linkbtn" type="button" id="back-s2">Zurück</button></div>
+</section>
+
+<section class="card" id="s4" hidden style="padding:28px">
+  <div class="head">
+    <span class="eyebrow">Schritt 4</span>
+    <h2>Angekommen. Danke!</h2>
+    <p class="muted">Ich sehe mir die Pläne an und melde mich innerhalb von zwei Werktagen per Mail. Dann sage ich dir, ob alles lesbar ist und wann der Rohbau fertig wird.</p>
+  </div>
+  <div id="subs" class="files"></div>
+  <div class="cta-row"><button class="btn" type="button" id="another">Weiteres Objekt einreichen</button><a class="linkbtn" href="index.html">Zur Startseite</a></div>
+</section>
+</div>
+
+<script src="config.js"></script>
+<script src="track.js"></script>
+<script>
+(function () {
+  var C = window.MA_CONFIG;
+  var demo = !(C.SUPABASE_URL && C.SUPABASE_ANON_KEY && window.supabase);
+  var sb = demo ? null : window.supabase.createClient(C.SUPABASE_URL, C.SUPABASE_ANON_KEY);
+  var $ = function (id) { return document.getElementById(id); };
+  var track = function (e, p) { if (window.MA) window.MA.track(e, p); };
+  var state = { user: null, objekt: null, files: [], step: 1 };
+  if (demo) $('demo').hidden = false;
+  $('drop-hint').textContent = 'PDF, JPG, PNG, DWG, DXF · gern mehrere Dateien · max. ' + C.MAX_MB + ' MB je Datei';
+
+  // E-Mail aus der Startseite übernehmen (?email= oder gemerkt)
+  (function prefill() {
+    var m = /[?&]email=([^&]+)/.exec(location.search), v = m ? decodeURIComponent(m[1]) : '';
+    if (!v) { try { v = localStorage.getItem('ma_email') || ''; } catch (e) {} }
+    if (v) $('email').value = v;
+  })();
+
+  function show(step) {
+    state.step = step;
+    [1, 2, 3, 4].forEach(function (n) { $('s' + n).hidden = n !== step; });
+    Array.prototype.forEach.call($('progress').children, function (el) { var n = +el.dataset.step; el.className = n < step ? 'done' : (n === step ? 'now' : ''); });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  function err(id, text) { var el = $(id); el.textContent = text || ''; el.hidden = !text; }
+  function fmtMB(b) { return (b / 1024 / 1024).toFixed(1) + ' MB'; }
+  function setUser(u) {
+    state.user = u; $('who').hidden = !u;
+    if (u) { $('who-mail').textContent = u.email || ''; show(2); } else { show(1); }
+  }
+
+  // ---------- Schritt 1 ----------
+  function sendCode() {
+    var email = $('email').value.trim(); err('s1-err', '');
+    if (!email || email.indexOf('@') < 0) { err('s1-err', 'Bitte eine gültige E-Mail-Adresse eintragen.'); return; }
+    $('send-code').disabled = true;
+    var done = function () { $('send-code').disabled = false; $('sent-to').textContent = email; $('s1a').hidden = true; $('s1b').hidden = false; $('code').focus(); track('portal_code_sent'); };
+    if (demo) { done(); return; }
+    sb.auth.signInWithOtp({ email: email, options: { shouldCreateUser: true } }).then(function (r) {
+      if (r.error) { $('send-code').disabled = false; err('s1-err', 'Code konnte nicht gesendet werden: ' + r.error.message); return; }
+      done();
+    });
+  }
+  $('send-code').addEventListener('click', sendCode);
+  $('resend').addEventListener('click', sendCode);
+  $('email').addEventListener('keydown', function (e) { if (e.key === 'Enter') sendCode(); });
+  $('change-mail').addEventListener('click', function () { $('s1b').hidden = true; $('s1a').hidden = false; });
+  function verify() {
+    var email = $('sent-to').textContent, code = $('code').value.trim(); err('s1-err', '');
+    if (demo) { if (!code) { err('s1-err', 'Im Demo-Modus reicht irgendein Code.'); return; } setUser({ email: email, id: 'demo' }); track('portal_login', { demo: true }); return; }
+    if (code.length !== 6) { err('s1-err', 'Der Code hat 6 Ziffern.'); return; }
+    $('verify').disabled = true;
+    sb.auth.verifyOtp({ email: email, token: code, type: 'email' }).then(function (r) {
+      $('verify').disabled = false;
+      if (r.error || !r.data.user) { err('s1-err', 'Code falsch oder abgelaufen. Bitte neu senden lassen.'); return; }
+      setUser(r.data.user); track('portal_login');
+    });
+  }
+  $('verify').addEventListener('click', verify);
+  $('code').addEventListener('keydown', function (e) { if (e.key === 'Enter') verify(); });
+  $('logout').addEventListener('click', function () { if (sb) sb.auth.signOut(); state.files = []; renderFiles(); $('s1a').hidden = false; $('s1b').hidden = true; setUser(null); });
+  if (sb) sb.auth.getSession().then(function (r) { if (r.data.session) setUser(r.data.session.user); });
+
+  // ---------- Schritt 2 ----------
+  $('to-s3').addEventListener('click', function () {
+    err('s2-err', '');
+    var objekt = $('objekt').value.trim();
+    if (!objekt) { err('s2-err', 'Bitte das Objekt kurz benennen.'); return; }
+    if (!$('ds').checked) { err('s2-err', 'Ohne dein Einverständnis zur Verarbeitung kann ich die Pläne nicht nachbauen.'); return; }
+    state.objekt = {
+      objekt: objekt, typ: $('typ').value, planstil: $('planstil').value,
+      geschosse: +$('geschosse').value || null,
+      wandstaerken: ($('aw').value || $('iw').value || $('gh').value) ? ('Außen ' + ($('aw').value || '?') + ' cm, Innen ' + ($('iw').value || '?') + ' cm, Geschosshöhe ' + ($('gh').value || '?') + ' m') : null,
+      notizen: $('notizen').value.trim(), blog_optin: $('blog').checked
+    };
+    track('objekt_saved', { typ: state.objekt.typ, planstil: state.objekt.planstil });
+    show(3);
+  });
+  $('back-s2').addEventListener('click', function () { show(2); });
+
+  // ---------- Schritt 3 ----------
+  var ARTEN = ['Grundriss (alle Geschosse)', 'Grundriss Keller', 'Grundriss EG', 'Grundriss OG', 'Grundriss DG', 'Schnitt', 'Ansicht', 'Lageplan', 'Foto / Detail', 'Sonstiges'];
+  function guessArt(name) {
+    var n = name.toLowerCase();
+    if (/schnitt/.test(n)) return 'Schnitt'; if (/ansicht/.test(n)) return 'Ansicht'; if (/lage/.test(n)) return 'Lageplan';
+    if (/kg|keller|\bug\b/.test(n)) return 'Grundriss Keller'; if (/\beg\b|erdgeschoss/.test(n)) return 'Grundriss EG';
+    if (/\bog\b|obergeschoss/.test(n)) return 'Grundriss OG'; if (/\bdg\b|dach/.test(n)) return 'Grundriss DG';
+    if (/\.(jpe?g|png|webp)$/.test(n) && /foto|img_|dsc/.test(n)) return 'Foto / Detail';
+    return 'Grundriss (alle Geschosse)';
+  }
+  function addFiles(list) {
+    Array.prototype.forEach.call(list, function (f) {
+      if (f.size > C.MAX_MB * 1024 * 1024) { err('s3-err', f.name + ' ist größer als ' + C.MAX_MB + ' MB. Bitte verkleinern oder aufteilen.'); return; }
+      if (state.files.some(function (x) { return x.file.name === f.name && x.file.size === f.size; })) return;
+      state.files.push({ file: f, art: guessArt(f.name), progress: 0 });
+    });
+    renderFiles();
+  }
+  function renderFiles() {
+    var box = $('filelist'); box.innerHTML = '';
+    state.files.forEach(function (it, i) {
+      var row = document.createElement('div'); row.className = 'frow';
+      var fn = document.createElement('span'); fn.className = 'fn'; fn.textContent = it.file.name; fn.title = it.file.name;
+      var fs = document.createElement('span'); fs.className = 'fs'; fs.textContent = fmtMB(it.file.size);
+      var sel = document.createElement('select'); sel.setAttribute('aria-label', 'Art des Plans');
+      ARTEN.forEach(function (a) { var o = document.createElement('option'); o.textContent = a; o.selected = a === it.art; sel.appendChild(o); });
+      sel.addEventListener('change', function () { it.art = sel.value; checkWarn(); });
+      var x = document.createElement('button'); x.type = 'button'; x.className = 'x'; x.textContent = '×'; x.setAttribute('aria-label', 'Entfernen');
+      x.addEventListener('click', function () { state.files.splice(i, 1); renderFiles(); });
+      var bar = document.createElement('div'); bar.className = 'bar'; var fill = document.createElement('i'); fill.style.width = it.progress + '%'; bar.appendChild(fill);
+      row.appendChild(fn); row.appendChild(fs); row.appendChild(sel); row.appendChild(x); row.appendChild(bar);
+      box.appendChild(row);
+    });
+    checkWarn();
+  }
+  function checkWarn() {
+    var n = state.files.length;
+    var hasGrundriss = state.files.some(function (f) { return /^Grundriss/.test(f.art); });
+    var hasSchnitt = state.files.some(function (f) { return f.art === 'Schnitt'; });
+    var w = '';
+    if (n > 0 && !hasGrundriss) w = 'Es fehlt noch ein Grundriss. Ohne Grundriss kann ich das Objekt nicht nachbauen.';
+    else if (n === 1) w = 'Ein Plan reicht zum Start. Ein zweiter, am besten ein Schnitt, macht Geschosshöhen und Brüstungen genau.';
+    else if (n >= 2 && !hasSchnitt) w = 'Kein Schnitt dabei. Geht auch, dann nehme ich die Geschosshöhe aus deinen Angaben.';
+    err('s3-warn', w);
+  }
+  $('files').addEventListener('change', function () { addFiles($('files').files); $('files').value = ''; });
+  ['dragenter', 'dragover'].forEach(function (ev) { $('drop').addEventListener(ev, function (e) { e.preventDefault(); $('drop').classList.add('over'); }); });
+  ['dragleave', 'drop'].forEach(function (ev) { $('drop').addEventListener(ev, function (e) { e.preventDefault(); $('drop').classList.remove('over'); }); });
+  $('drop').addEventListener('drop', function (e) { if (e.dataTransfer && e.dataTransfer.files) addFiles(e.dataTransfer.files); });
+
+  function safeName(n) { return n.replace(/[^A-Za-z0-9._-]+/g, '_'); }
+  $('upload').addEventListener('click', function () {
+    err('s3-err', '');
+    if (state.files.length === 0) { err('s3-err', 'Bitte mindestens einen Plan vom kompletten Objekt hochladen.'); return; }
+    if (!state.files.some(function (f) { return /^Grundriss/.test(f.art); })) { err('s3-err', 'Mindestens ein Plan muss ein Grundriss sein.'); return; }
+    var btn = $('upload'); btn.disabled = true; btn.textContent = 'Lädt hoch …';
+    var uid = state.user.id, stamp = new Date().toISOString().replace(/[:.]/g, '-');
+    var record = Object.assign({}, state.objekt, { email: state.user.email || '', dateien: [], status: 'neu' });
+    var chain = Promise.resolve();
+    state.files.forEach(function (it) {
+      chain = chain.then(function () {
+        var path = uid + '/' + stamp + '/' + safeName(it.file.name);
+        if (demo) return new Promise(function (res) { setTimeout(function () { it.progress = 100; renderFiles(); record.dateien.push({ name: it.file.name, art: it.art, bytes: it.file.size, pfad: '(demo) ' + path }); res(); }, 400); });
+        return sb.storage.from(C.BUCKET).upload(path, it.file, { upsert: false, contentType: it.file.type || undefined }).then(function (r) {
+          if (r.error) throw new Error(it.file.name + ': ' + r.error.message);
+          it.progress = 100; renderFiles();
+          record.dateien.push({ name: it.file.name, art: it.art, bytes: it.file.size, pfad: path });
+        });
+      });
+    });
+    chain.then(function () {
+      if (demo) return { data: [Object.assign({ id: 'demo-' + stamp, created_at: new Date().toISOString() }, record)] };
+      return sb.from(C.TABLE).insert(record).select();
+    }).then(function (r) {
+      if (r && r.error) throw new Error(r.error.message);
+      btn.disabled = false; btn.textContent = 'Pläne hochladen und einreichen';
+      track('upload_done', { files: record.dateien.length, arten: record.dateien.map(function (f) { return f.art; }).join('|'), demo: demo });
+      state.files = []; renderFiles();
+      loadSubs(r && r.data ? r.data : []);
+      show(4);
+    }).catch(function (e) {
+      btn.disabled = false; btn.textContent = 'Pläne hochladen und einreichen';
+      track('upload_error', { msg: String(e.message).slice(0, 80) });
+      err('s3-err', 'Upload fehlgeschlagen: ' + e.message + ' Bitte noch einmal versuchen oder die Pläne per Mail an ' + C.KONTAKT_EMAIL + ' schicken.');
+    });
+  });
+
+  // ---------- Schritt 4 ----------
+  var demoSubs = [];
+  function renderSubs(rows) {
+    var box = $('subs'); box.innerHTML = '';
+    rows.forEach(function (r) {
+      var d = document.createElement('div'); d.className = 'sub';
+      var t = document.createElement('div'); t.className = 't';
+      var h = document.createElement('b'); h.textContent = r.objekt + ' · ' + r.typ;
+      var s = document.createElement('span'); s.className = 'st'; s.textContent = (r.status || 'neu') + ' · ' + new Date(r.created_at).toLocaleDateString('de-DE');
+      t.appendChild(h); t.appendChild(s);
+      var fl = document.createElement('div'); fl.className = 'fl'; fl.textContent = (r.dateien || []).map(function (f) { return f.art + ': ' + f.name; }).join(' · ');
+      d.appendChild(t); d.appendChild(fl); box.appendChild(d);
+    });
+  }
+  function loadSubs(justAdded) {
+    if (demo) { demoSubs = justAdded.concat(demoSubs); renderSubs(demoSubs); return; }
+    sb.from(C.TABLE).select('*').order('created_at', { ascending: false }).then(function (r) { renderSubs(r.data || justAdded); });
+  }
+  $('another').addEventListener('click', function () { $('objekt').value = ''; $('notizen').value = ''; show(2); });
+})();
+</script>
+</body>
+</html>

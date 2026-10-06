@@ -1,0 +1,50 @@
+name: Deploy Matrix Architekt to ganster.tech
+
+# Lädt den Ordner matrix-architekt/site/ per FTP auf das Hostinger-Webhosting von
+# ganster.tech. Läuft bei jedem Push auf main, der diesen Ordner berührt, und manuell.
+#
+# Einmalig unter Settings → Secrets and variables → Actions anlegen:
+#   HOSTINGER_FTP_HOST      z. B. ftp.ganster.tech oder die IP aus dem hPanel (Dateien → FTP-Konten)
+#   HOSTINGER_FTP_USER      FTP-Benutzername aus dem hPanel
+#   HOSTINGER_FTP_PASSWORD  FTP-Passwort
+#   HOSTINGER_FTP_DIR       Zielordner, bei Hostinger meist /public_html/ (bei mehreren Domains
+#                           /domains/ganster.tech/public_html/)
+
+on:
+  push:
+    branches: [main, matrix-architekt-landing]
+    paths: ['matrix-architekt/site/**']
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-ganster-tech
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Prüfen, ob die FTP-Secrets gesetzt sind
+        env:
+          HOST: ${{ secrets.HOSTINGER_FTP_HOST }}
+        run: |
+          if [ -z "$HOST" ]; then
+            echo "::error::HOSTINGER_FTP_HOST fehlt. Secrets anlegen (siehe Kommentar oben in dieser Datei)."
+            exit 1
+          fi
+
+      - name: Per FTP auf Hostinger hochladen
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.HOSTINGER_FTP_HOST }}
+          username: ${{ secrets.HOSTINGER_FTP_USER }}
+          password: ${{ secrets.HOSTINGER_FTP_PASSWORD }}
+          protocol: ftps
+          local-dir: matrix-architekt/site/
+          server-dir: ${{ secrets.HOSTINGER_FTP_DIR }}
+          exclude: |
+            **/README.md
+            **/.gitkeep

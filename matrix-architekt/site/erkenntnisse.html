@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Matrix Architekt Erkenntnisse</title>
+<meta name="description" content="Erkenntnis-Blog: Wo die Realität vom Bauplan abweicht. Korrekturen nach Kategorie, maschinenlesbar als JSON-Feed für andere Planer und KI-Systeme.">
+<link rel="canonical" href="https://ganster.tech/erkenntnisse.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2316283f'/%3E%3Cpath d='M6 24V8h4l6 9 6-9h4v16h-4V15l-6 9-6-9v9z' fill='%23f6f8fa'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="fonts/fonts.css">
+<link rel="stylesheet" href="site.css">
+<style>
+.intro { padding-block: 40px 32px; border-top: 0; display: grid; gap: 12px; }
+.stat-row { display: flex; gap: 20px; flex-wrap: wrap; font-family: var(--font-mono); font-size: 0.8rem; color: var(--ink-2); }
+.stat-row b { color: var(--ink); font-weight: 500; font-size: 1rem; }
+.cats { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+.cat { font: inherit; font-size: 0.9rem; padding: 7px 14px; border: 1px solid var(--rule); border-radius: 999px; background: var(--paper-2); color: var(--ink); cursor: pointer; display: inline-flex; gap: 8px; align-items: center; }
+.cat .cnt { font-family: var(--font-mono); font-size: 0.72rem; color: var(--ink-2); }
+.cat[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.cat[aria-pressed="true"] .cnt { color: var(--paper); opacity: 0.8; }
+.cat-desc { font-size: 0.95rem; color: var(--ink-2); margin-bottom: 18px; min-height: 1.5em; }
+.blog-layout { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 28px; align-items: start; padding-block: 0 56px; border-top: 0; }
+.blog-layout > * { min-width: 0; }
+.entries { display: grid; gap: 14px; }
+.ek { background: var(--paper-2); border: 1px solid var(--rule); border-left: 4px solid var(--red); padding: 18px 20px; display: grid; gap: 10px; }
+.ek .top { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; align-items: center; }
+.ek .tag { display: inline-block; padding: 2px 8px; background: var(--red-soft); color: var(--red); font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; }
+.ek .st { font-family: var(--font-mono); font-size: 0.72rem; color: var(--ink-2); }
+.ek .st.ok { color: var(--ok); }
+.ek h3 { font-size: 1.3rem; }
+.ek dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 4px 14px; font-size: 0.95rem; }
+.ek dt { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); padding-top: 4px; }
+.ek dd { margin: 0; }
+.ek dd.regel { font-weight: 500; }
+.ek .foot { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; align-items: center; font-family: var(--font-mono); font-size: 0.75rem; color: var(--ink-2); }
+.ek .auto { color: var(--ok); }
+.ek .auto.no { color: var(--red); }
+.ek summary { cursor: pointer; color: var(--ink-2); font-family: var(--font-mono); font-size: 0.78rem; }
+.ek pre { margin: 8px 0 0; padding: 12px; overflow-x: auto; font-family: var(--font-mono); font-size: 0.76rem; line-height: 1.5; background: var(--paper); border: 1px dashed var(--rule); }
+.empty { padding: 24px; border: 1px dashed var(--rule); color: var(--ink-2); font-size: 0.95rem; }
+.devbox { display: grid; gap: 18px; position: sticky; top: calc(env(safe-area-inset-top, 0px) + 16px); }
+.devbox .box { padding: 20px 22px; background: var(--paper-2); border: 1px solid var(--rule); display: grid; gap: 10px; }
+.devbox .box p { font-size: 0.95rem; }
+.devbox .url { font-family: var(--font-mono); font-size: 0.85rem; word-break: break-all; padding: 10px 12px; background: var(--paper); border: 1px dashed var(--rule); }
+.devbox pre { margin: 0; padding: 12px; overflow-x: auto; font-family: var(--font-mono); font-size: 0.76rem; line-height: 1.5; background: var(--paper); border: 1px dashed var(--rule); }
+.devbox ol { margin: 0; padding-left: 20px; font-size: 0.95rem; display: grid; gap: 6px; }
+@media (max-width: 840px) { .blog-layout { grid-template-columns: 1fr; } .devbox { position: static; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <a class="brand" href="index.html">Matrix Architekt <small>ERKENNTNIS-BLOG</small></a>
+  <a class="btn primary small" href="portal.html" data-track="cta_click" data-pos="nav-blog">Kostenlos starten</a>
+</header>
+
+<section class="intro">
+  <span class="eyebrow">Erkenntnis-Blog</span>
+  <h1 style="font-size:clamp(2rem,5vw,3.4rem)">Wo die Realität vom Plan abweicht. Nach Kategorie, mit Fix.</h1>
+  <p class="lead">Beim Nachbau echter Gebäude tauchen immer wieder dieselben Problemklassen auf. Jede Korrektur landet hier als Regel: lesbar für dich, maschinenlesbar für andere Planer, Skills und KI-Systeme. Wer den Feed liest, muss den Fehler nicht noch einmal finden.</p>
+  <div class="stat-row" id="blog-stats"></div>
+</section>
+
+<div class="cats" id="cats" role="group" aria-label="Kategorien"></div>
+<p class="cat-desc" id="cat-desc"></p>
+
+<section class="blog-layout">
+  <div class="entries" id="entries"></div>
+  <aside class="devbox">
+    <div class="box">
+      <span class="eyebrow">Für andere Systeme</span>
+      <p>Alle Einträge liegen als JSON-Feed bereit. Eine App, ein Skill oder ein Planer holt den Feed, filtert nach Kategorie und Zielsystem und wendet Regeln mit <span class="mono">fix_automatisch: true</span> direkt an.</p>
+      <div class="url" id="feed-url">feed.json</div>
+      <button type="button" class="copybtn" id="copy-feed" data-track="feed_copied">Feed-Adresse kopieren</button>
+    </div>
+    <div class="box">
+      <span class="eyebrow">So übernimmt ein System die Regeln</span>
+      <ol>
+        <li>Feed laden und <span class="mono">aktualisiert</span> mit dem letzten Stand vergleichen.</li>
+        <li>Einträge nach <span class="mono">ziel_systeme</span> filtern, zum Beispiel nur <span class="mono">spec-parser</span>.</li>
+        <li>Regeln mit <span class="mono">fix_automatisch: true</span> und Status <span class="mono">bestaetigt</span> anwenden.</li>
+        <li>Vorläufige Regeln nur zur Prüfung markieren, nicht automatisch ausführen.</li>
+      </ol>
+      <pre>const feed = await (await fetch(FEED_URL)).json();
+const fixes = feed.eintraege.filter(e =>
+  e.ziel_systeme.includes("spec-parser") &&
+  e.fix_automatisch && e.status === "bestaetigt");</pre>
+    </div>
+    <div class="box">
+      <span class="eyebrow">Mitmachen</span>
+      <p>Jeder Beta-Bau kann neue Einträge liefern. Mit dem Häkchen im Kundenbereich erlaubst du die anonymisierte Veröffentlichung. Dein Plan selbst bleibt immer privat.</p>
+      <a class="btn" href="portal.html" style="justify-self:start" data-track="cta_click" data-pos="blog-side">Plan einreichen</a>
+    </div>
+  </aside>
+</section>
+
+<footer>
+  <div>© 2026 VIBELINK · Tobias Ganster · ganster.tech</div>
+  <nav><a href="index.html">Startseite</a><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></nav>
+</footer>
+</div>
+
+<script src="config.js"></script>
+<script src="track.js"></script>
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var feedUrl = new URL('feed.json', location.href).href;
+  $('feed-url').textContent = feedUrl;
+  function copy(text, btn) {
+    var old = btn.textContent;
+    function done(ok) { btn.textContent = ok ? 'Kopiert' : 'Bitte markieren und kopieren'; setTimeout(function () { btn.textContent = old; }, 1800); }
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(function () { done(true); }, function () { done(false); }); else done(false);
+  }
+  $('copy-feed').addEventListener('click', function () { copy(feedUrl, this); });
+
+  var state = { feed: null, cat: 'alle' };
+  try { var saved = localStorage.getItem('ma_blog_cat'); if (saved) state.cat = saved; } catch (e) {}
+  var hash = (location.hash || '').replace('#', ''); if (hash) state.cat = hash;
+
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function fmtDate(iso) { var d = new Date(iso + 'T00:00:00'); return isNaN(d) ? iso : d.toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit', year: 'numeric' }); }
+  function catName(id) { var c = state.feed.kategorien.find(function (k) { return k.id === id; }); return c ? c.name : id; }
+
+  function render() {
+    var f = state.feed, all = f.eintraege, counts = {};
+    all.forEach(function (e) { counts[e.kategorie] = (counts[e.kategorie] || 0) + 1; });
+    if (state.cat !== 'alle' && !counts[state.cat]) state.cat = 'alle';
+    var auto = all.filter(function (e) { return e.fix_automatisch; }).length;
+    $('blog-stats').innerHTML = '<span><b>' + all.length + '</b> Einträge</span><span><b>' + f.kategorien.length + '</b> Kategorien</span><span><b>' + auto + '</b> automatisch anwendbar</span><span>Stand <b>' + esc(fmtDate(f.aktualisiert)) + '</b></span>';
+    var catsEl = $('cats'); catsEl.innerHTML = '';
+    [{ id: 'alle', name: 'Alle', beschreibung: 'Alle Erkenntnisse aus allen Bereichen.' }].concat(f.kategorien).forEach(function (c) {
+      var n = c.id === 'alle' ? all.length : (counts[c.id] || 0);
+      var b = document.createElement('button'); b.type = 'button'; b.className = 'cat'; b.setAttribute('aria-pressed', String(state.cat === c.id));
+      b.innerHTML = esc(c.name) + ' <span class="cnt">' + n + '</span>';
+      b.addEventListener('click', function () { state.cat = c.id; try { localStorage.setItem('ma_blog_cat', c.id); } catch (e) {} if (window.MA) window.MA.track('blog_filter', { kategorie: c.id }); render(); });
+      catsEl.appendChild(b);
+      if (state.cat === c.id) $('cat-desc').textContent = c.beschreibung || '';
+    });
+    var shown = (state.cat === 'alle' ? all : all.filter(function (e) { return e.kategorie === state.cat; })).slice().sort(function (a, b) { return a.datum < b.datum ? 1 : -1; });
+    var list = $('entries'); list.innerHTML = '';
+    if (!shown.length) { list.innerHTML = '<div class="empty">In dieser Kategorie gibt es noch keinen Eintrag. Der nächste Beta-Bau kann der erste sein.</div>'; return; }
+    shown.forEach(function (e) {
+      var art = document.createElement('article'); art.className = 'ek'; art.id = e.id; var ok = e.status === 'bestaetigt';
+      art.innerHTML = '<div class="top"><span class="tag">' + esc(catName(e.kategorie)) + '</span><span class="st ' + (ok ? 'ok' : '') + '">' + (ok ? 'bestätigt' : 'vorläufig') + ' · ' + e.builds_geprueft + ' Builds</span></div>' +
+        '<h3>' + esc(e.titel) + '</h3><dl><dt>Problem</dt><dd>' + esc(e.problem) + '</dd><dt>Erkennung</dt><dd>' + esc(e.erkennung) + '</dd><dt>Regel</dt><dd class="regel">' + esc(e.regel) + '</dd></dl>' +
+        '<div class="foot"><span>Ziel: ' + esc(e.ziel_systeme.join(', ')) + ' · ' + esc(fmtDate(e.datum)) + '</span><span class="auto ' + (e.fix_automatisch ? '' : 'no') + '">' + (e.fix_automatisch ? 'Fix automatisch anwendbar' : 'Nur mit Prüfung anwenden') + '</span></div>' +
+        '<details><summary>JSON für andere Systeme</summary><pre></pre></details><div><button type="button" class="copybtn" data-track="rule_copied">Regel als JSON kopieren</button></div>';
+      var json = JSON.stringify(e, null, 2); art.querySelector('pre').textContent = json;
+      var btn = art.querySelector('.copybtn'); btn.addEventListener('click', function () { copy(json, btn); });
+      list.appendChild(art);
+    });
+  }
+  fetch('feed.json', { cache: 'no-store' }).then(function (r) { return r.json(); }).then(function (d) { state.feed = d; render(); })
+    .catch(function () { $('entries').innerHTML = '<div class="empty">Der Feed konnte nicht geladen werden. Bitte später noch einmal versuchen.</div>'; });
+})();
+</script>
+</body>
+</html>

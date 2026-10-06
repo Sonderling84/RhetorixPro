@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Matrix Architekt Beta</title>
+<meta name="description" content="Matrix Architekt lernt euren Zeichenstandard und baut aus Bauplänen maßhaltige 3D-Rohbauten in Fusion 360. Beta-Programm: kostenlos für die ersten Pilotkunden.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://ganster.tech/">
+<meta name="theme-color" content="#16283f">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_DE">
+<meta property="og:title" content="Matrix Architekt: Baupläne werden 3D-Rohbauten. Automatisch.">
+<meta property="og:description" content="Schick deine Baupläne, bekomme maßhaltige 3D-Rohbauten in Fusion 360. Beta: kostenlos für Pilotkunden.">
+<meta property="og:url" content="https://ganster.tech/">
+<meta property="og:image" content="https://ganster.tech/media/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2316283f'/%3E%3Cpath d='M6 24V8h4l6 9 6-9h4v16h-4V15l-6 9-6-9v9z' fill='%23f6f8fa'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="fonts/fonts.css">
+<link rel="stylesheet" href="site.css">
+<style>
+/* Seitenspezifisch: Hero mit Vorher/Nachher, Zielgruppen, Deal, Ablauf, Norm, Ergebnis, Einblicke, Blog-Auszug, Kundenbereich */
+.hero { display: grid; grid-template-columns: 1.05fr 1fr; gap: 40px; align-items: center; padding-block: 48px 40px; border-top: 0; }
+.hero > * { min-width: 0; }
+.hero-text { display: grid; gap: 20px; }
+.pain { font-family: var(--font-mono); font-size: 0.9rem; color: var(--red); }
+.start { display: grid; grid-template-columns: 1fr auto; gap: 10px; max-width: 520px; }
+.start input { padding: 14px 16px; font-size: 1.05rem; }
+.start .hint { grid-column: 1 / -1; font-size: 0.85rem; color: var(--ink-2); }
+.proof { display: flex; gap: 28px; flex-wrap: wrap; padding-top: 6px; }
+.proof div { display: grid; gap: 2px; }
+.proof b { font-family: var(--font-display); font-size: 2rem; font-weight: 700; line-height: 1; font-variant-numeric: tabular-nums; }
+.proof span { font-family: var(--font-mono); font-size: 0.75rem; color: var(--ink-2); letter-spacing: 0.06em; text-transform: uppercase; }
+.vn { position: relative; width: 100%; max-width: 100%; }
+.vn img { display: block; width: 100%; height: auto; border: 1px solid var(--rule); }
+.vn svg { width: 100%; height: auto; display: block; }
+.vn .lbl { font-family: var(--font-mono); font-size: 11px; fill: var(--ink-2); letter-spacing: 1px; }
+.vn .wall { fill: var(--ink); } .vn .cut { fill: var(--paper); } .vn .dim { stroke: var(--ink-2); stroke-width: 1; fill: none; }
+.vn .dim-t { font-family: var(--font-mono); font-size: 10px; fill: var(--ink-2); }
+.vn .slab { fill: var(--paper-2); stroke: var(--ink); stroke-width: 1.2; }
+.vn .w-top { fill: var(--paper); stroke: var(--ink); stroke-width: 1.2; }
+.vn .w-l { fill: var(--rule); stroke: var(--ink); stroke-width: 1.2; }
+.vn .w-r { fill: var(--paper-2); stroke: var(--ink); stroke-width: 1.2; }
+.vn .arrow { stroke: var(--red); stroke-width: 2.5; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.vn .ok-t { font-family: var(--font-mono); font-size: 10px; fill: var(--ok); }
+.vn .frame { fill: none; stroke: var(--rule); stroke-width: 1; }
+.vn.has-img svg { display: none; }
+
+.who { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.who div { min-width: 0; padding: 22px; background: var(--paper-2); border: 1px solid var(--rule); display: grid; gap: 8px; align-content: start; }
+.who div.main { border-color: var(--ink); border-width: 2px; }
+.who h3 { font-size: 1.3rem; }
+.who p { font-size: 0.95rem; color: var(--ink-2); }
+.who .tag { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--red); }
+
+.deal { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.deal > div { min-width: 0; padding: 26px; background: var(--paper-2); border: 1px solid var(--rule); }
+.deal ul { margin: 12px 0 0; padding-left: 20px; display: grid; gap: 6px; }
+.promise { margin-top: 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.promise div { min-width: 0; display: grid; grid-template-columns: 3px 1fr; gap: 14px; }
+.promise div::before { content: ""; background: var(--red); }
+.promise p { font-size: 1rem; }
+.promise b { display: block; font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; }
+
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; counter-reset: step; }
+.step { min-width: 0; display: grid; gap: 10px; padding-top: 16px; border-top: 3px solid var(--ink); }
+.step::before { counter-increment: step; content: "Schritt " counter(step, decimal-leading-zero); font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-2); }
+.step p { font-size: 1rem; color: var(--ink-2); }
+.norm { margin-top: 36px; padding: 24px 26px; border: 1px solid var(--rule); border-left: 4px solid var(--red); background: var(--paper-2); display: grid; gap: 10px; }
+.norm h3 { font-size: 1.5rem; }
+.norm p { font-size: 1rem; }
+
+.files { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+.file { min-width: 0; display: grid; grid-template-columns: auto 1fr; gap: 14px; align-items: start; padding: 16px 18px; background: var(--paper-2); border: 1px solid var(--rule); }
+.file code { font-family: var(--font-mono); font-size: 0.85rem; color: var(--red); white-space: nowrap; }
+.file p { font-size: 0.98rem; color: var(--ink-2); }
+.file strong { display: block; color: var(--ink); font-weight: 600; margin-bottom: 2px; }
+
+.gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.gallery figure { margin: 0; min-width: 0; background: var(--paper-2); border: 1px solid var(--rule); overflow: hidden; }
+.gallery figure.wide { grid-column: span 2; }
+.gallery .media { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; background: var(--paper-2); }
+.gallery figure.wide .media { aspect-ratio: 16 / 9; }
+.gallery figcaption { padding: 10px 14px; font-size: 0.85rem; color: var(--ink-2); border-top: 1px solid var(--rule); }
+.gallery figure.missing { display: none; }
+
+.blogx { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.ek { min-width: 0; background: var(--paper-2); border: 1px solid var(--rule); border-left: 4px solid var(--red); padding: 18px 20px; display: grid; gap: 8px; align-content: start; }
+.ek .tag { display: inline-block; justify-self: start; padding: 2px 8px; background: var(--red-soft); color: var(--red); font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; }
+.ek h3 { font-size: 1.25rem; }
+.ek p { font-size: 0.95rem; }
+.ek .regel { font-weight: 500; }
+.ek .meta { font-family: var(--font-mono); font-size: 0.72rem; color: var(--ink-2); }
+
+.portal { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 28px; align-items: start; }
+.portal > * { min-width: 0; }
+.portal .main { padding: 28px; background: var(--ink); color: var(--paper); border: 1px solid var(--ink); display: grid; gap: 18px; }
+.portal .main h3 { font-size: 1.8rem; }
+.portal .main p { color: var(--paper); opacity: 0.85; }
+.portal .main ol { margin: 0; padding-left: 22px; display: grid; gap: 8px; font-size: 1rem; }
+.portal .main .eyebrow { color: inherit; opacity: 0.7; }
+.portal .side { display: grid; gap: 18px; }
+.portal .box { padding: 20px 22px; background: var(--paper-2); border: 1px solid var(--rule); display: grid; gap: 8px; }
+.portal .box p { font-size: 0.95rem; }
+.portal .box .addr { font-family: var(--font-mono); font-size: 0.95rem; word-break: break-all; }
+
+@media (max-width: 840px) {
+  .hero, .deal, .files, .portal, .who, .promise { grid-template-columns: 1fr; }
+  .steps, .blogx { grid-template-columns: 1fr; gap: 24px; }
+  .gallery { grid-template-columns: 1fr 1fr; }
+  .hero { padding-block: 32px; }
+  section { padding-block: 44px; }
+}
+@media (max-width: 520px) { .gallery { grid-template-columns: 1fr; } .gallery figure.wide { grid-column: span 1; } .start { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <a class="brand" href="./">Matrix Architekt <small>VIBELINK</small></a>
+  <a class="btn primary small" href="portal.html" data-track="cta_click" data-pos="nav">Kostenlos starten</a>
+</header>
+
+<section class="hero">
+  <div class="hero-text">
+    <span class="pill" id="pill">Beta-Programm · Pilotplätze frei</span>
+    <h1>Eure Baupläne.<br>Als 3D-Rohbau.<br><span class="red">Automatisch.</span></h1>
+    <p class="pain">Ein Rohbau-Modell von Hand kostet einen halben Tag. Hier kostet es einen Upload.</p>
+    <p class="lead">Matrix Architekt lernt euren Zeichenstandard und baut aus jedem Grundriss ein maßhaltiges 3D-Modell in Fusion 360. Öffnet in jedem CAD-Programm, jede Achse nachgemessen. In der Beta kostenlos.</p>
+    <form class="start" id="start" novalidate>
+      <input type="email" id="start-email" placeholder="deine@firma.de" autocomplete="email" aria-label="E-Mail-Adresse">
+      <button class="btn primary" type="submit" data-track="cta_click" data-pos="hero">Jetzt Plan hochladen</button>
+      <span class="hint">3D-Modell in 7 Tagen. Kein Passwort, kein Vertrag, kein Haken.</span>
+    </form>
+    <div class="proof">
+      <div><b id="p-builds">–</b><span>Gebäude nachgebaut</span></div>
+      <div><b id="p-rules">–</b><span>Regeln im Erkenntnis-Feed</span></div>
+      <div><b>100 %</b><span>der Achsen nachgemessen</span></div>
+    </div>
+  </div>
+
+  <div class="vn" id="vn">
+    <img src="media/hero.jpg" alt="Links der Bauplan, rechts der fertige 3D-Rohbau in Fusion 360" hidden>
+    <svg viewBox="0 0 560 420" role="img" aria-label="Links ein Grundriss mit Bemaßung, rechts der daraus gebaute 3D-Rohbau">
+      <!-- Vorher: Plan -->
+      <rect class="frame" x="8" y="8" width="256" height="404"/>
+      <text class="lbl" x="20" y="30">VORHER · BAUPLAN.PDF</text>
+      <rect class="wall" x="40" y="60" width="192" height="150"/>
+      <rect class="cut" x="52" y="72" width="168" height="126"/>
+      <rect class="wall" x="130" y="72" width="8" height="70"/>
+      <rect class="wall" x="52" y="142" width="86" height="8"/>
+      <rect class="cut" x="80" y="60" width="34" height="12"/>
+      <rect class="cut" x="170" y="60" width="36" height="12"/>
+      <rect class="cut" x="220" y="150" width="12" height="34"/>
+      <rect class="cut" x="130" y="90" width="8" height="24"/>
+      <line class="dim" x1="40" y1="232" x2="232" y2="232"/><line class="dim" x1="40" y1="226" x2="40" y2="238"/><line class="dim" x1="232" y1="226" x2="232" y2="238"/>
+      <text class="dim-t" x="136" y="248" text-anchor="middle">9,365</text>
+      <line class="dim" x1="250" y1="60" x2="250" y2="210"/><line class="dim" x1="244" y1="60" x2="256" y2="60"/><line class="dim" x1="244" y1="210" x2="256" y2="210"/>
+      <text class="dim-t" x="136" y="300" text-anchor="middle">Grundriss EG · Maße in m · Außenwand 36,5</text>
+      <text class="dim-t" x="136" y="318" text-anchor="middle">Stil: Büro-Standard A (gelernt)</text>
+      <!-- Pfeil -->
+      <path class="arrow" d="M268 210 h22 m-8 -8 l8 8 l-8 8"/>
+      <!-- Nachher: Rohbau isometrisch -->
+      <rect class="frame" x="296" y="8" width="256" height="404"/>
+      <text class="lbl" x="308" y="30">NACHHER · ROHBAU.F3D</text>
+      <g transform="translate(424 250)">
+        <!-- Bodenplatte -->
+        <polygon class="slab" points="-110,0 0,-62 110,0 0,62"/>
+        <!-- Rückwände (hinten links / hinten rechts) -->
+        <polygon class="w-l" points="-104,-3 -104,-63 0,-123 0,-63"/>
+        <polygon class="w-r" points="0,-63 0,-123 104,-63 104,-3"/>
+        <polygon class="w-top" points="-104,-63 0,-123 6,-120 -98,-60"/>
+        <polygon class="w-top" points="0,-123 104,-63 98,-60 -6,-120"/>
+        <!-- Innenwand -->
+        <polygon class="w-r" points="-40,-24 -40,-84 10,-56 10,4"/>
+        <polygon class="w-top" points="-40,-84 10,-56 4,-53 -46,-81"/>
+        <!-- Vorderwände mit Öffnungen -->
+        <polygon class="w-l" points="-104,-3 -104,-63 -60,-38 -60,22"/>
+        <polygon class="w-l" points="-36,36 -36,-24 0,-3 0,57"/>
+        <polygon class="w-l" points="-60,-38 -60,-62 -36,-48 -36,-24"/>
+        <polygon class="w-r" points="0,57 0,-3 50,-32 50,28"/>
+        <polygon class="w-r" points="74,14 74,-46 104,-63 104,-3"/>
+        <polygon class="w-r" points="50,-32 50,-52 74,-66 74,-46"/>
+        <polygon class="w-top" points="-104,-63 -60,-38 -66,-35 -110,-60"/>
+        <polygon class="w-top" points="0,-3 104,-63 110,-60 6,0"/>
+      </g>
+      <text class="ok-t" x="424" y="352" text-anchor="middle">✓ 9,365 × 7,365 m · Diff 0,000</text>
+      <text class="dim-t" x="424" y="372" text-anchor="middle">Wände, Öffnungen, Decke · .f3d + .step</text>
+    </svg>
+  </div>
+</section>
+
+<section id="fuer-wen">
+  <div class="sec-head">
+    <span class="eyebrow">Für wen</span>
+    <h2>Gebaut für alle, die viele Pläne im selben Stil haben</h2>
+    <p>Das System lernt einen Zeichenstandard und liest danach jeden Plan aus dieser Quelle. Je mehr Pläne im gleichen Stil, desto größer der Hebel.</p>
+  </div>
+  <div class="who">
+    <div class="main"><span class="tag">Idealer Pilotkunde</span><h3>Planungs- und Architekturbüros</h3><p>Ihr habt eine Vorlage, eine Software, hunderte Grundrisse. Nach dem Anlernen wird jeder davon zum Rohbau-Modell, ohne dass jemand nachzeichnet.</p></div>
+    <div><span class="tag">Hoher Hebel</span><h3>Fertighaus und Bauträger</h3><p>Typenhäuser und Varianten in einem Standard. Ein Anlernen, dann läuft der gesamte Katalog durch.</p></div>
+    <div><span class="tag">Willkommen</span><h3>Private Bauherren</h3><p>Du hast einen Plan von deinem Architekten? Schick ihn. Für ein einzelnes Haus lerne ich den Stil mit, dauert nur etwas länger.</p></div>
+  </div>
+</section>
+
+<section id="deal">
+  <div class="sec-head">
+    <span class="eyebrow">Der Deal</span>
+    <h2>Warum kostenlos? Weil ich eure Pläne brauche.</h2>
+    <p>Jedes Büro zeichnet anders: Maßketten, Wandstärken, Türsymbole, Schraffuren. Das System erkennt vieles schon, aber erst echte Pläne zeigen, wo es noch hakt. Darum vergebe ich eine feste Zahl Pilotplätze, die nichts kosten.</p>
+  </div>
+  <div class="deal">
+    <div>
+      <h3>Du gibst</h3>
+      <ul>
+        <li>Pläne als PDF, Scan oder Foto. Mindestens ein Grundriss vom kompletten Objekt, besser dazu ein Schnitt.</li>
+        <li>Alle Pläne in <b>einem Zeichenstil</b>. Das ist dein Norm-Bauplan, auf den das System angelernt wird.</li>
+        <li>Zwei, drei Sätze: Wandstärken, Geschosshöhe, was dir wichtig ist.</li>
+        <li>Nach dem Bau kurzes Feedback: Stimmen die Maße? Fehlt eine Öffnung?</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Du bekommst</h3>
+      <ul>
+        <li>Den Rohbau als 3D-Modell in Fusion 360 und als STEP für jedes andere CAD-Programm.</li>
+        <li>Ein Erstellungsprotokoll mit Maß-Verifikation Achse für Achse gegen deinen Plan.</li>
+        <li>Dauerhaft vergünstigten Zugang zur fertigen App als Dank fürs Mitmachen.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="promise">
+    <div><p><b>Dein Aufwand: 20 Minuten.</b>Zehn für den Upload, zehn für das Feedback. Den Rest mache ich.</p></div>
+    <div><p><b>Stimmt ein Maß nicht, baue ich nach.</b>Kostet dich nichts. Das Protokoll zeigt jede Abweichung, bevor du sie suchen musst.</p></div>
+  </div>
+</section>
+
+<section id="ablauf">
+  <div class="sec-head">
+    <span class="eyebrow">Ablauf</span>
+    <h2>Vom Plan zum Rohbau in drei Schritten</h2>
+  </div>
+  <div class="steps">
+    <div class="step"><h3>Plan hochladen</h3><p>Im Kundenbereich mit E-Mail anmelden, Objekt benennen, Pläne hochladen. Innerhalb von zwei Werktagen sage ich dir, ob der Plan lesbar ist und was ich noch brauche.</p></div>
+    <div class="step"><h3>Plan wird gelesen</h3><p>Matrix Architekt übersetzt den Plan in eine Bau-Spezifikation: Außen-, Trag- und Innenwände, Öffnungen mit Brüstungshöhe, Räume mit Fläche. Ich prüfe sie gegen deine Maßketten.</p></div>
+    <div class="step"><h3>3D-Rohbau wird gebaut</h3><p>Aus der Spezifikation entsteht in Fusion 360 der Rohbau: Bodenplatte, Wände, Öffnungen, Decke. Jede Achse wird nachgemessen. Du bekommst Modell, Bilder und Protokoll.</p></div>
+  </div>
+  <div class="norm">
+    <span class="eyebrow">Wichtig: der Norm-Bauplan</span>
+    <h3>Ein Standard pro Kunde, nicht pro Architekt</h3>
+    <p>Matrix Architekt liest Pläne per Erkennung. Dafür lernt es deinen Zeichenstandard: Linienstärken, Maßketten, Türsymbole, Schraffuren. Wenn in einem Unternehmen jeder Architekt anders zeichnet, muss ich jede Variante einzeln anlernen. Das geht, kostet aber Zeit.</p>
+    <p>Darum die Regel für die Beta: <b>Alle Pläne eines Kunden kommen im selben Stil</b>, am besten aus derselben Software mit derselben Vorlage. Weicht ein Plan ab, gib es beim Einreichen an, dann plane ich das Anlernen ein.</p>
+  </div>
+</section>
+
+<section id="ergebnis">
+  <div class="sec-head">
+    <span class="eyebrow">Was du bekommst</span>
+    <h2>Vier Dateien, ein geprüftes Gebäude</h2>
+    <p>Nichts davon ist eine Visualisierung. Es ist ein maßhaltiges Volumenmodell, auf dem alles Weitere aufbaut.</p>
+  </div>
+  <div class="files">
+    <div class="file"><code>Haus.f3d</code><p><strong>Fusion-360-Archiv</strong>Das native Modell mit Komponenten für Außen-, Trag- und Innenwände. Zum Weiterbauen, Ändern, Rendern.</p></div>
+    <div class="file"><code>Haus.step</code><p><strong>Für jedes CAD-Programm</strong>Öffnet in SketchUp, FreeCAD, Rhino, Archicad, Revit.</p></div>
+    <div class="file"><code>Haus_iso.png</code><p><strong>Ansichten</strong>Draufsicht, Isometrie und Frontansicht als Bilder, zum Teilen und zum Abgleich mit dem Plan.</p></div>
+    <div class="file"><code>Erstellungsprotokoll.md</code><p><strong>Protokoll</strong>Quelldaten, Schritt-Tabelle, Maß-Verifikation je Achse, Body-Inventur, Fehler und Korrekturen, Status.</p></div>
+  </div>
+</section>
+
+<section id="einblicke" hidden>
+  <div class="sec-head">
+    <span class="eyebrow">Einblicke</span>
+    <h2>So sieht ein Nachbau aus</h2>
+    <p>Bilder und Videos aus echten Builds: Plan, erkannte Wände, fertiger Rohbau in Fusion 360.</p>
+  </div>
+  <div class="gallery">
+    <figure class="wide"><video class="media" src="media/clip-01.mp4" controls muted playsinline preload="metadata" poster="media/clip-01.jpg"></video><figcaption>Vom Plan zum Rohbau: ein kompletter Build in 60 Sekunden</figcaption></figure>
+    <figure><img class="media" src="media/01.jpg" alt="Bauplan mit erkannten Wänden" loading="lazy"><figcaption>Der Plan, wie das System ihn liest</figcaption></figure>
+    <figure><img class="media" src="media/02.jpg" alt="3D-Rohbau in Fusion 360, Isometrie" loading="lazy"><figcaption>Rohbau in Fusion 360, Isometrie</figcaption></figure>
+    <figure><img class="media" src="media/03.jpg" alt="Draufsicht mit Bemaßung" loading="lazy"><figcaption>Draufsicht mit Bemaßungs-Sketch</figcaption></figure>
+    <figure><img class="media" src="media/04.jpg" alt="Frontansicht des Rohbaus" loading="lazy"><figcaption>Frontansicht mit Öffnungen</figcaption></figure>
+    <figure class="wide"><video class="media" src="media/clip-02.mp4" controls muted playsinline preload="metadata" poster="media/clip-02.jpg"></video><figcaption>Maß-Verifikation: Achse für Achse nachgemessen</figcaption></figure>
+    <figure><img class="media" src="media/05.jpg" alt="Erstellungsprotokoll" loading="lazy"><figcaption>Das Erstellungsprotokoll zum Bau</figcaption></figure>
+  </div>
+</section>
+
+<section id="blog">
+  <div class="sec-head">
+    <span class="eyebrow">Erkenntnis-Blog</span>
+    <h2>Fehler müssen nur einmal gefunden werden</h2>
+    <p>Jede Korrektur aus einem Build wird als Regel veröffentlicht: lesbar für dich, maschinenlesbar für andere Planer und KI-Systeme. Hier die drei neuesten, alle weiteren nach Kategorie auf der <a href="erkenntnisse.html" data-track="blog_open" data-pos="intro">Erkenntnis-Seite</a>.</p>
+  </div>
+  <div class="blogx" id="blogx"></div>
+  <div class="cta-row" style="margin-top:22px"><a class="btn" href="erkenntnisse.html" data-track="blog_open" data-pos="button">Alle Erkenntnisse und der JSON-Feed</a></div>
+</section>
+
+<section id="einreichen">
+  <div class="sec-head">
+    <span class="eyebrow">Mitmachen</span>
+    <h2>Pilotkunde werden</h2>
+    <p id="plaetze-text">Die Beta hat eine feste Zahl an Plätzen. Wer dabei ist, bekommt den Nachbau kostenlos und später dauerhaft vergünstigten Zugang.</p>
+  </div>
+  <div class="portal">
+    <div class="main">
+      <span class="eyebrow">Kundenbereich</span>
+      <h3>In drei Minuten eingereicht</h3>
+      <ol>
+        <li>Mit E-Mail anmelden, Code aus der Mail eingeben.</li>
+        <li>Objekt benennen, Zeichenstil angeben.</li>
+        <li>Mindestens einen Plan vom kompletten Objekt hochladen, besser zwei (Grundriss und Schnitt).</li>
+      </ol>
+      <p>Danach siehst du deine Einreichung im Überblick und bekommst innerhalb von zwei Werktagen Rückmeldung.</p>
+      <div class="cta-row"><a class="btn primary" href="portal.html" data-track="cta_click" data-pos="portal">Jetzt Plan hochladen</a></div>
+    </div>
+    <aside class="side">
+      <div class="box">
+        <span class="eyebrow">Lieber per Mail</span>
+        <p>Geht auch. Schick den Plan mit ein paar Worten zum Objekt an:</p>
+        <span class="addr" id="addr"></span>
+        <button type="button" class="copybtn" id="copy-addr" data-track="mail_copy">Adresse kopieren</button>
+      </div>
+      <div class="box">
+        <span class="eyebrow">Was passiert mit dem Plan</span>
+        <p>Er wird nur für deinen Bau verwendet. Kein Verkauf, keine Weitergabe, kein Training fremder Modelle. Server in Frankfurt. Eine Mail reicht, dann ist er gelöscht.</p>
+      </div>
+      <div class="box">
+        <span class="eyebrow">Wer dahinter steht</span>
+        <p>Tobias Ganster, VIBELINK. Ich entwickle Matrix Architekt und baue jeden Beta-Plan selbst nach. Du redest mit dem, der das Ding gebaut hat.</p>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="sec-head">
+    <span class="eyebrow">Fragen</span>
+    <h2>Was Pilotkunden wissen wollen</h2>
+  </div>
+  <div class="faq">
+    <details><summary>Wie viele Pläne brauchst du?</summary><div class="a">Mindestens einen Grundriss vom kompletten Objekt, also alle Geschosse. Besser sind zwei Pläne: Grundriss und Schnitt. Mit dem Schnitt stimmen Geschosshöhen und Fensterbrüstungen ohne Nachfragen.</div></details>
+    <details><summary>Müssen alle meine Pläne gleich aussehen?</summary><div class="a">Ja, für die Beta bitte ein Zeichenstil pro Kunde. Das System erkennt Wände, Öffnungen und Maße anhand der Darstellung und lernt deinen Standard. Pläne aus verschiedenen Büros oder mit verschiedenen Vorlagen muss ich einzeln anlernen. Das ist möglich, aber sag es vorher.</div></details>
+    <details><summary>Welche Pläne eignen sich?</summary><div class="a">Am besten ein Grundriss mit Maßketten, egal ob vom Architekten, aus dem Bauantrag oder vom Fertighausanbieter. Handskizzen gehen auch, wenn die Hauptmaße dranstehen. Je klarer die Wandstärken erkennbar sind, desto genauer das Modell.</div></details>
+    <details><summary>Was heißt Rohbau genau?</summary><div class="a">Bodenplatte, alle Wände mit Öffnungen, Decke. Keine Möbel, keine Fensterrahmen, keine Dachkonstruktion. Es ist das maßhaltige Volumen, auf dem alles Weitere aufbaut.</div></details>
+    <details><summary>Wie lange dauert es?</summary><div class="a">Rückmeldung in zwei Werktagen, das fertige Modell meist innerhalb einer Woche. In der Beta baue ich jeden Plan persönlich nach und prüfe ihn.</div></details>
+    <details><summary>Was, wenn das Modell nicht stimmt?</summary><div class="a">Dann baue ich nach, kostenlos. Das Erstellungsprotokoll zeigt jede Achse mit Soll, Ist und Abweichung. Du musst nichts selbst nachmessen.</div></details>
+    <details><summary>Was kostet es später?</summary><div class="a">In der Beta nichts. Danach ist Matrix Architekt als Abo geplant, unter anderem als Teil eines VIBELINK-Abos. Beta-Teilnehmer bekommen dauerhaft einen vergünstigten Zugang.</div></details>
+    <details><summary>Muss ich beim Erkenntnis-Blog mitmachen?</summary><div class="a">Nein. Das Häkchen ist freiwillig. Ohne Zustimmung wird nichts aus deinem Bau veröffentlicht. Mit Zustimmung erscheinen nur allgemeine Regeln, nie dein Plan oder deine Daten.</div></details>
+  </div>
+</section>
+
+<footer>
+  <div>© 2026 VIBELINK · Tobias Ganster · ganster.tech</div>
+  <nav>
+    <a href="erkenntnisse.html">Erkenntnisse</a>
+    <a href="impressum.html">Impressum</a>
+    <a href="datenschutz.html">Datenschutz</a>
+  </nav>
+</footer>
+</div>
+
+<script src="config.js"></script>
+<script src="track.js"></script>
+<script>
+(function () {
+  var C = window.MA_CONFIG, $ = function (id) { return document.getElementById(id); };
+  // Konfigurierte Werte einsetzen
+  $('addr').textContent = C.KONTAKT_EMAIL;
+  $('p-builds').textContent = C.BUILDS_GESAMT;
+  var frei = Math.max(0, C.PLAETZE_FREI | 0), gesamt = C.PLAETZE_GESAMT | 0;
+  $('pill').textContent = frei > 0 ? 'Beta-Programm · noch ' + frei + ' von ' + gesamt + ' Pilotplätzen frei' : 'Beta-Programm · Warteliste';
+  $('plaetze-text').textContent = frei > 0
+    ? 'Die Beta hat ' + gesamt + ' Plätze, ' + frei + ' sind noch frei. Wer dabei ist, bekommt den Nachbau kostenlos und später dauerhaft vergünstigten Zugang.'
+    : 'Alle ' + gesamt + ' Beta-Plätze sind vergeben. Trag dich trotzdem ein, dann kommst du auf die Warteliste und erfährst als Erster, wenn ein Platz frei wird.';
+
+  // Hero-Formular: E-Mail merken und in den Kundenbereich
+  $('start').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var email = $('start-email').value.trim();
+    if (window.MA) window.MA.track('hero_start', { has_email: !!email });
+    try { if (email) localStorage.setItem('ma_email', email); } catch (x) {}
+    var a = document.querySelector('a[href^="portal.html"]');
+    var base = a ? a.href : 'portal.html';
+    location.href = base + (email && base.indexOf('claude') < 0 ? '?email=' + encodeURIComponent(email) : '');
+  });
+
+  // Adresse kopieren
+  $('copy-addr').addEventListener('click', function () {
+    var btn = this, old = btn.textContent;
+    function done(ok) { btn.textContent = ok ? 'Kopiert' : 'Bitte markieren und kopieren'; setTimeout(function () { btn.textContent = old; }, 1800); }
+    if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(C.KONTAKT_EMAIL).then(function () { done(true); }, function () { done(false); }); } else { done(false); }
+  });
+
+  // Hero-Bild: echtes Vorher/Nachher-Foto ersetzt die Zeichnung, sobald media/hero.jpg existiert
+  var heroImg = document.querySelector('#vn img');
+  heroImg.addEventListener('load', function () { heroImg.hidden = false; $('vn').classList.add('has-img'); });
+
+  // Galerie: nur zeigen, wenn mindestens ein Medium existiert
+  var gal = $('einblicke'), medias = gal.querySelectorAll('.media'), pending = medias.length;
+  function settle() { if (--pending > 0) return; if (gal.querySelectorAll('figure:not(.missing)').length) gal.hidden = false; }
+  Array.prototype.forEach.call(medias, function (m) {
+    var fig = m.closest('figure');
+    m.addEventListener('error', function () { fig.classList.add('missing'); settle(); });
+    if (m.tagName === 'IMG') m.addEventListener('load', settle); else m.addEventListener('loadedmetadata', settle);
+  });
+
+  // Blog-Auszug: drei neueste Einträge aus feed.json
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  fetch('feed.json', { cache: 'no-store' }).then(function (r) { return r.json(); }).then(function (f) {
+    $('p-rules').textContent = f.eintraege.length;
+    var cats = {}; f.kategorien.forEach(function (k) { cats[k.id] = k.name; });
+    var top = f.eintraege.slice().sort(function (a, b) { return a.datum < b.datum ? 1 : -1; }).slice(0, 3);
+    $('blogx').innerHTML = top.map(function (e) {
+      return '<article class="ek"><span class="tag">' + esc(cats[e.kategorie] || e.kategorie) + '</span><h3>' + esc(e.titel) + '</h3>' +
+        '<p>' + esc(e.problem) + '</p><p class="regel">Regel: ' + esc(e.regel) + '</p>' +
+        '<span class="meta">' + (e.status === 'bestaetigt' ? 'bestätigt' : 'vorläufig') + ' · ' + e.builds_geprueft + ' Builds</span></article>';
+    }).join('');
+  }).catch(function () { $('p-rules').textContent = '12'; $('blogx').innerHTML = '<p class="muted">Der Erkenntnis-Feed lädt gerade nicht. Alle Einträge auf der Erkenntnis-Seite.</p>'; });
+})();
+</script>
+</body>
+</html>
