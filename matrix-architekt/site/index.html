@@ -127,6 +127,14 @@
 .portal .box p { font-size: 0.95rem; }
 .portal .box .addr { font-family: var(--font-mono); font-size: 0.95rem; word-break: break-all; }
 
+.styles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.styles figure { margin: 0; min-width: 0; border: 1px solid var(--rule); background: var(--paper-2); overflow: hidden; }
+.styles img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.styles figcaption { display: flex; justify-content: space-between; gap: 8px; padding: 9px 12px; font-family: var(--font-mono); font-size: 0.74rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-2); border-top: 1px solid var(--rule); }
+.styles figcaption b { color: var(--red); font-weight: 500; }
+@media (max-width: 840px) { .styles { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 520px) { .styles { grid-template-columns: 1fr; } }
+
 @media (max-width: 840px) {
   .hero, .deal, .portal, .who, .promise, .result { grid-template-columns: 1fr; }
   .drawings { grid-template-columns: 1fr; }
@@ -330,6 +338,22 @@
     <img src="media/hero.jpg" alt="3D-Modell eines Einfamilienhauses, aus dem Bauplan gebaut" loading="lazy">
     <figcaption>Beispiel · Modell aus Matrix Architekt · Einfamilienhaus, 2 Geschosse</figcaption>
   </figure>
+  </div>
+</section>
+
+<section id="stile">
+  <div class="sec-head">
+    <span class="eyebrow">Darstellung</span>
+    <h2>Sechs Darstellungen, ein Modell</h2>
+    <p>Das Modell ist die Wahrheit, der Stil ist Ansichtssache. Jedes fertige Gebäude lässt sich so ausgeben, für Bauherren, Vertrieb oder das Protokoll. Beispiel: Haus an der Hangecke, drei Geschosse.</p>
+  </div>
+  <div class="styles">
+    <figure><img src="media/stil-3-technisch.jpg" alt="Haus als technische Linienzeichnung auf Blau" loading="lazy"><figcaption>Technisch <b>Standard</b></figcaption></figure>
+    <figure><img src="media/stil-5-cyanotypie.jpg" alt="Haus als Cyanotypie, weiße Flächen auf Kobalt" loading="lazy"><figcaption>Cyanotypie</figcaption></figure>
+    <figure><img src="media/stil-6-historisch.jpg" alt="Haus als historische Blaupause mit Papierstruktur" loading="lazy"><figcaption>Historisch</figcaption></figure>
+    <figure><img src="media/stil-1-neon.jpg" alt="Haus als leuchtende Neon-Linienzeichnung" loading="lazy"><figcaption>Neon</figcaption></figure>
+    <figure><img src="media/stil-4-holo.jpg" alt="Haus als Hologramm, Röntgenblick durch die Wände" loading="lazy"><figcaption>Holo / Röntgen</figcaption></figure>
+    <figure><img src="media/stil-2-gravur.jpg" alt="Haus als Gravur mit Schraffuren" loading="lazy"><figcaption>Gravur</figcaption></figure>
   </div>
 </section>
 
