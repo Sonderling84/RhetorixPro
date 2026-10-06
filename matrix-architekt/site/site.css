@@ -1,27 +1,23 @@
 /* Matrix Architekt – gemeinsame Basis aller Seiten.
    Layout: Zeichenpapier mit Millimeter-Raster, eine ruhige Spalte, Maßlinien als Trenner,
    Korrekturen und Handlung in Rotstift. */
+/* Blueprint: tiefes Planblau, weiße Linien, Maßketten. Bewusst ein einziges Erscheinungsbild,
+   darum keine Hell/Dunkel-Umschaltung. Akzent (Bernstein) nur für Handlung und Korrektur. */
 :root {
-  --paper: #f6f8fa; --paper-2: #eef2f6; --grid: rgba(34, 62, 99, 0.10);
-  --ink: #16283f; --ink-2: #4a5d78; --rule: #b9c6d6;
-  --red: #c42d1f; --red-soft: rgba(196, 45, 31, 0.10); --ok: #1d7a4e; --ok-soft: rgba(29, 122, 78, 0.12);
+  --paper: #0e2b4d;        /* Blaupause */
+  --paper-2: #133b66;      /* Kästen, Karten */
+  --paper-3: #0a2140;      /* tiefer: Code, Eingaben */
+  --grid: rgba(190, 220, 255, 0.09);
+  --ink: #eaf3fd;          /* Linie, Text */
+  --ink-2: #9dbbdc;        /* Beschriftung */
+  --rule: #3e6a9c;         /* Maßlinie, Rahmen */
+  --line: #d7e8fb;         /* Zeichnungslinie */
+  --red: #ffb64a;          /* Akzent: CTA, Korrektur (Name aus Kompatibilität) */
+  --red-soft: rgba(255, 182, 74, 0.16);
+  --ok: #7be3ad; --ok-soft: rgba(123, 227, 173, 0.16);
   --font-display: 'Barlow Condensed', 'Arial Narrow', Impact, sans-serif;
   --font-body: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
   --font-mono: 'IBM Plex Mono', 'SF Mono', Consolas, monospace;
-  color-scheme: light;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --paper: #0f1b2d; --paper-2: #152439; --grid: rgba(173, 199, 230, 0.10);
-    --ink: #e8eef6; --ink-2: #a6b7cc; --rule: #3a5070;
-    --red: #ff6a57; --red-soft: rgba(255, 106, 87, 0.14); --ok: #4fc58a; --ok-soft: rgba(79, 197, 138, 0.16);
-    color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
-  --paper: #0f1b2d; --paper-2: #152439; --grid: rgba(173, 199, 230, 0.10);
-  --ink: #e8eef6; --ink-2: #a6b7cc; --rule: #3a5070;
-  --red: #ff6a57; --red-soft: rgba(255, 106, 87, 0.14); --ok: #4fc58a; --ok-soft: rgba(79, 197, 138, 0.16);
   color-scheme: dark;
 }
 * { box-sizing: border-box; }
@@ -35,8 +31,10 @@ body {
 a { color: inherit; }
 :focus-visible { outline: 3px solid var(--red); outline-offset: 3px; }
 h1, h2, h3 { font-family: var(--font-display); line-height: 1.05; margin: 0; text-wrap: balance; }
-h1 { font-size: clamp(2.5rem, 6.5vw, 4.6rem); font-weight: 700; letter-spacing: -0.01em; }
-h2 { font-size: clamp(1.9rem, 4vw, 2.8rem); font-weight: 600; }
+h1 { font-size: clamp(2.6rem, 7vw, 5.2rem); font-weight: 700; letter-spacing: 0.01em; text-transform: uppercase; }
+.h-grid { color: transparent; -webkit-text-stroke: 1px var(--line); background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px), linear-gradient(rgba(215,232,251,0.22), rgba(215,232,251,0.22)); background-size: 10px 10px, 10px 10px, 100% 100%; -webkit-background-clip: text; background-clip: text; }
+@supports not (-webkit-background-clip: text) { .h-grid { color: var(--line); background: none; } }
+h2 { font-size: clamp(1.9rem, 4vw, 2.8rem); font-weight: 700; text-transform: uppercase; letter-spacing: 0.01em; }
 h3 { font-size: 1.35rem; font-weight: 600; }
 p { margin: 0; max-width: 62ch; }
 .eyebrow { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-2); }
@@ -52,7 +50,7 @@ header.top { display: flex; align-items: center; justify-content: space-between;
 .pill::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--red); }
 
 .btn { display: inline-block; padding: 14px 24px; border-radius: 4px; font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; letter-spacing: 0.02em; text-decoration: none; border: 2px solid var(--ink); cursor: pointer; background: transparent; color: var(--ink); text-align: center; }
-.btn.primary { background: var(--red); border-color: var(--red); color: #fff; }
+.btn.primary { background: var(--red); border-color: var(--red); color: #0a2140; }
 .btn.primary:hover { filter: brightness(0.92); }
 .btn:hover { background: var(--paper-2); }
 .btn.primary:hover { background: var(--red); }
@@ -62,13 +60,15 @@ header.top { display: flex; align-items: center; justify-content: space-between;
 .copybtn, .linkbtn { font: inherit; font-size: 0.85rem; padding: 6px 12px; border: 1px solid var(--ink); background: transparent; color: var(--ink); cursor: pointer; border-radius: 3px; justify-self: start; }
 .copybtn:hover, .linkbtn:hover { background: var(--paper-2); }
 
-section { padding-block: 56px; border-top: 1px solid var(--rule); }
+section { padding-block: 56px; border-top: 1px solid var(--rule); position: relative; }
+/* Maßketten-Marke am Abschnittsanfang */
+section::before { content: ""; position: absolute; left: 0; top: -1px; width: 48px; height: 1px; background: var(--line); }
 .sec-head { display: grid; gap: 10px; margin-bottom: 32px; }
 .sec-head p { max-width: 64ch; }
 
 input[type="text"], input[type="email"], input[type="number"], textarea, select {
   width: 100%; padding: 12px 14px; font: inherit; font-size: 1rem; color: var(--ink);
-  background: var(--paper-2); border: 1px solid var(--rule); border-radius: 3px;
+  background: var(--paper-3); border: 1px solid var(--rule); border-radius: 3px;
 }
 textarea { min-height: 100px; resize: vertical; }
 .field { display: grid; gap: 6px; }
@@ -99,7 +99,7 @@ footer a { color: var(--ink-2); }
 #consent a { color: inherit; }
 .consent-actions { display: flex; gap: 10px; }
 .consent-actions button { font: inherit; font-size: 0.9rem; padding: 8px 14px; border-radius: 3px; cursor: pointer; border: 1px solid var(--paper); background: transparent; color: var(--paper); }
-.consent-actions #consent-yes { background: var(--red); border-color: var(--red); color: #fff; }
+.consent-actions #consent-yes { background: var(--red); border-color: var(--red); color: #0a2140; }
 
 /* Rechtstexte */
 .legal { padding-block: 40px 60px; display: grid; gap: 28px; }
