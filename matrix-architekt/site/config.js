@@ -11,6 +11,11 @@ window.MA_CONFIG = {
   // Nachweis-Zahlen für den Hero. BUILDS = wirklich nachgebaute Gebäude.
   BUILDS_GESAMT: 11,                               // <<< echte Zahl eintragen
 
+  // Preisvergleich (Blatt "Preis"). Marktpreis = beobachteter Preis für EINE Visualisierung
+  // bei Agenturen/Freelancern (Stand Okt. 2026, ohne Anbieternamen). Beides frei änderbar.
+  PREIS_MONAT: 300,                                // Matrix Architekt, pro Monat, unbegrenzt
+  MARKT_EINZELBILD: 500,                           // Agentur, eine Ansicht, ca.
+
   // Supabase (Kundenbereich: Login per E-Mail-Code + Upload). Leer = Demo-Modus.
   SUPABASE_URL: '',
   SUPABASE_ANON_KEY: '',

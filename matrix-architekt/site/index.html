@@ -149,6 +149,34 @@
 @media (max-width: 840px) { .styles { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 520px) { .styles { grid-template-columns: 1fr; } }
 
+.price { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.price > div { min-width: 0; border: 1px solid var(--rule); background: var(--paper-2); display: grid; grid-template-rows: auto auto 1fr; }
+.price .ph { padding: 12px 20px; border-bottom: 1px solid var(--rule); font-family: var(--font-mono); font-size: 0.74rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-2); display: flex; justify-content: space-between; gap: 10px; }
+.price .big { padding: 20px 20px 6px; display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.price .big b { font-family: var(--font-display); font-size: clamp(2.6rem, 5vw, 3.8rem); font-weight: 700; line-height: 1; font-variant-numeric: tabular-nums; }
+.price .big span { font-family: var(--font-mono); font-size: 0.85rem; color: var(--ink-2); }
+.price ul { margin: 0; padding: 10px 20px 20px; list-style: none; display: grid; gap: 8px; font-size: 0.95rem; }
+.price li { display: grid; grid-template-columns: 18px 1fr; gap: 10px; color: var(--ink-2); }
+.price li::before { content: "–"; color: var(--ink-2); font-family: var(--font-mono); }
+.price .us { border-color: var(--red); border-width: 2px; }
+.price .us .ph { color: var(--red); border-color: var(--red); }
+.price .us li { color: var(--ink); }
+.price .us li::before { content: "✓"; color: var(--ok); }
+.calc { margin-top: 18px; border: 1px solid var(--rule); background: var(--paper-2); padding: 20px 22px; display: grid; grid-template-columns: 1fr auto; gap: 16px 28px; align-items: center; }
+.calc > * { min-width: 0; }
+.calc label { font-weight: 500; font-size: 0.95rem; display: block; margin-bottom: 8px; }
+.calc input[type="range"] { width: 100%; accent-color: var(--red); }
+.calc .ticks { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 0.7rem; color: var(--ink-2); }
+.calc .out { display: grid; grid-template-columns: auto auto; gap: 6px 22px; align-items: baseline; font-family: var(--font-mono); font-size: 0.78rem; color: var(--ink-2); text-transform: uppercase; letter-spacing: 0.08em; }
+.calc .out b { font-family: var(--font-display); font-size: 1.7rem; font-weight: 700; color: var(--ink); letter-spacing: 0; text-transform: none; font-variant-numeric: tabular-nums; }
+.calc .out b.save { color: var(--ok); }
+.calc .bars { grid-column: 1 / -1; display: grid; gap: 6px; }
+.calc .bar { display: grid; grid-template-columns: 150px 1fr auto; gap: 12px; align-items: center; font-family: var(--font-mono); font-size: 0.75rem; color: var(--ink-2); }
+.calc .bar i { display: block; height: 10px; background: var(--rule); transition: width 0.25s ease; }
+.calc .bar.us i { background: var(--red); }
+.calc .note { grid-column: 1 / -1; font-size: 0.8rem; color: var(--ink-2); }
+@media (max-width: 840px) { .price { grid-template-columns: 1fr; } .calc { grid-template-columns: 1fr; } .calc .bar { grid-template-columns: 110px 1fr auto; } }
+
 @media (max-width: 840px) {
   .hero, .deal, .portal, .who, .promise, .result { grid-template-columns: 1fr; }
   .drawings { grid-template-columns: 1fr; }
@@ -416,6 +444,53 @@
   </div>
 </section>
 
+<section id="preis">
+  <div class="sec-head">
+    <span class="eyebrow"><span class="sheet"></span>Preis</span>
+    <h2>Eine Visualisierung kostet 500 €. Ein Monat kostet 300 €.</h2>
+    <p>Für eine einzelne gerenderte Ansicht zahlst du bei Agenturen und Freelancern im Schnitt rund <span id="pr-markt-inline">500</span> €. Nach der Beta bekommst du Matrix Architekt für <span id="pr-monat-inline">300</span> € im Monat, und baust so viele Gebäude in allen sechs Darstellungen, wie du willst.</p>
+  </div>
+  <div class="price">
+    <div>
+      <div class="ph"><span>Agentur · Freelancer</span><span>je Ansicht</span></div>
+      <div class="big"><b>ca. <span id="pr-markt">500</span> €</b><span>für ein Bild</span></div>
+      <ul>
+        <li>Eine Ansicht, ein Gebäude, eine Lieferung</li>
+        <li>Jede Änderung ist ein neuer Auftrag</li>
+        <li>Lieferzeit mehrere Tage bis Wochen</li>
+        <li>Kein Modell, keine CAD-Datei, nur das Bild</li>
+      </ul>
+    </div>
+    <div class="us">
+      <div class="ph"><span>Matrix Architekt</span><span>im Monat</span></div>
+      <div class="big"><b><span id="pr-monat">300</span> €</b><span>unbegrenzt viele Gebäude · Beta jetzt 0 €</span></div>
+      <ul>
+        <li>So viele Gebäude und Ansichten, wie du brauchst</li>
+        <li>Sechs Darstellungsstile aus demselben Modell</li>
+        <li>Änderung am Plan = neuer Durchlauf, kein Aufpreis</li>
+        <li>Maßhaltiges Modell dazu: .f3d, .step, Protokoll</li>
+      </ul>
+    </div>
+  </div>
+  <div class="calc">
+    <div>
+      <label for="pr-n">Wie viele Ansichten brauchst du im Monat?</label>
+      <input type="range" id="pr-n" min="1" max="20" value="4" step="1">
+      <div class="ticks"><span>1</span><span>5</span><span>10</span><span>15</span><span>20</span></div>
+    </div>
+    <div class="out">
+      <span>Agentur</span><b id="pr-out-markt">2.000 €</b>
+      <span>Matrix Architekt</span><b id="pr-out-monat">300 €</b>
+      <span>Du sparst</span><b class="save" id="pr-out-save">1.700 €</b>
+    </div>
+    <div class="bars">
+      <div class="bar"><span>Agentur</span><i id="pr-bar-markt"></i><span id="pr-bar-markt-t"></span></div>
+      <div class="bar us"><span>Matrix Architekt</span><i id="pr-bar-monat"></i><span id="pr-bar-monat-t"></span></div>
+    </div>
+    <div class="note">Marktpreis: beobachteter Durchschnitt für eine einzelne 3D-Außenansicht, Stand Oktober 2026, ohne Gewähr. Preise netto. Beta-Teilnehmer behalten dauerhaft einen vergünstigten Tarif.</div>
+  </div>
+</section>
+
 <section id="blog">
   <div class="sec-head">
     <span class="eyebrow"><span class="sheet"></span>Erkenntnis-Blog</span>
@@ -475,7 +550,7 @@
     <details><summary>Was heißt Rohbau genau?</summary><div class="a">Bodenplatte, alle Wände mit Öffnungen, Decke. Keine Möbel, keine Fensterrahmen, keine Dachkonstruktion. Es ist das maßhaltige Volumen, auf dem alles Weitere aufbaut.</div></details>
     <details><summary>Wie lange dauert es?</summary><div class="a">Rückmeldung in zwei Werktagen, das fertige Modell meist innerhalb einer Woche. In der Beta baue ich jeden Plan persönlich nach und prüfe ihn.</div></details>
     <details><summary>Was, wenn das Modell nicht stimmt?</summary><div class="a">Dann baue ich nach, kostenlos. Das Erstellungsprotokoll zeigt jede Achse mit Soll, Ist und Abweichung. Du musst nichts selbst nachmessen.</div></details>
-    <details><summary>Was kostet es später?</summary><div class="a">In der Beta nichts. Danach ist Matrix Architekt als Abo geplant, unter anderem als Teil eines VIBELINK-Abos. Beta-Teilnehmer bekommen dauerhaft einen vergünstigten Zugang.</div></details>
+    <details><summary>Was kostet es später?</summary><div class="a">In der Beta nichts. Danach <span id="faq-preis">300</span> € im Monat für unbegrenzt viele Gebäude und Ansichten, auch als Teil eines VIBELINK-Abos. Zum Vergleich: Eine einzelne Visualisierung kostet bei Agenturen rund <span id="faq-markt">500</span> €. Beta-Teilnehmer bekommen dauerhaft einen vergünstigten Zugang.</div></details>
     <details><summary>Muss ich beim Erkenntnis-Blog mitmachen?</summary><div class="a">Nein. Das Häkchen ist freiwillig. Ohne Zustimmung wird nichts aus deinem Bau veröffentlicht. Mit Zustimmung erscheinen nur allgemeine Regeln, nie dein Plan oder deine Daten.</div></details>
   </div>
 </section>
@@ -510,6 +585,21 @@
   $('plaetze-text').textContent = frei > 0
     ? 'Die Beta hat ' + gesamt + ' Plätze, ' + frei + ' sind noch frei. Wer dabei ist, bekommt den Nachbau kostenlos und später dauerhaft vergünstigten Zugang.'
     : 'Alle ' + gesamt + ' Beta-Plätze sind vergeben. Trag dich trotzdem ein, dann kommst du auf die Warteliste und erfährst als Erster, wenn ein Platz frei wird.';
+
+  // Preisvergleich und Rechner
+  var PM = C.PREIS_MONAT | 0, PE = C.MARKT_EINZELBILD | 0;
+  function eur(n) { return n.toLocaleString('de-DE') + ' €'; }
+  ['pr-markt', 'pr-markt-inline', 'faq-markt'].forEach(function (id) { $(id).textContent = PE.toLocaleString('de-DE'); });
+  ['pr-monat', 'pr-monat-inline', 'faq-preis'].forEach(function (id) { $(id).textContent = PM.toLocaleString('de-DE'); });
+  function calc() {
+    var n = +$('pr-n').value, markt = n * PE, save = Math.max(0, markt - PM), max = Math.max(markt, PM);
+    $('pr-out-markt').textContent = eur(markt); $('pr-out-monat').textContent = eur(PM); $('pr-out-save').textContent = eur(save);
+    $('pr-bar-markt').style.width = (markt / max * 100) + '%'; $('pr-bar-monat').style.width = (PM / max * 100) + '%';
+    $('pr-bar-markt-t').textContent = eur(markt); $('pr-bar-monat-t').textContent = eur(PM);
+    $('pr-n').setAttribute('aria-valuetext', n + ' Ansichten');
+  }
+  $('pr-n').addEventListener('input', calc); calc();
+  $('pr-n').addEventListener('change', function () { if (window.MA) window.MA.track('price_calc', { n: +$('pr-n').value }); });
 
   // Hero-Formular: E-Mail merken und in den Kundenbereich
   $('start').addEventListener('submit', function (e) {
