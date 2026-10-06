@@ -44,7 +44,13 @@
 .vn .arrow { stroke: var(--red); stroke-width: 2.5; fill: none; stroke-linecap: round; stroke-linejoin: round; }
 .vn .ok-t { font-family: var(--font-mono); font-size: 10px; fill: var(--ok); }
 .vn .frame { fill: none; stroke: var(--rule); stroke-width: 1; }
-.vn.has-img svg { display: none; }
+.vn.has-img { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; align-items: stretch; }
+.vn.has-img > * { min-width: 0; }
+.vn.has-img svg { height: 100%; }
+.vn.has-img .after { position: relative; border: 1px solid var(--rule); background: var(--paper-2); display: grid; }
+.vn.has-img .after img { width: 100%; height: 100%; object-fit: cover; border: 0; }
+.vn .after .lbl2 { position: absolute; left: 12px; top: 14px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 1px; color: var(--ink-2); background: var(--paper); padding: 2px 6px; }
+.vn .after .ok2 { position: absolute; left: 12px; bottom: 12px; font-family: var(--font-mono); font-size: 10px; color: var(--ok); background: var(--paper); padding: 2px 6px; }
 
 .who { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .who div { min-width: 0; padding: 22px; background: var(--paper-2); border: 1px solid var(--rule); display: grid; gap: 8px; align-content: start; }
@@ -140,9 +146,9 @@
   </div>
 
   <div class="vn" id="vn">
-    <img src="media/hero.jpg" alt="Links der Bauplan, rechts der fertige 3D-Rohbau in Fusion 360" hidden>
     <svg viewBox="0 0 560 420" role="img" aria-label="Links ein Grundriss mit Bemaßung, rechts der daraus gebaute 3D-Rohbau">
       <!-- Vorher: Plan -->
+      <g id="plan-panel">
       <rect class="frame" x="8" y="8" width="256" height="404"/>
       <text class="lbl" x="20" y="30">VORHER · BAUPLAN.PDF</text>
       <rect class="wall" x="40" y="60" width="192" height="150"/>
@@ -158,6 +164,7 @@
       <line class="dim" x1="250" y1="60" x2="250" y2="210"/><line class="dim" x1="244" y1="60" x2="256" y2="60"/><line class="dim" x1="244" y1="210" x2="256" y2="210"/>
       <text class="dim-t" x="136" y="300" text-anchor="middle">Grundriss EG · Maße in m · Außenwand 36,5</text>
       <text class="dim-t" x="136" y="318" text-anchor="middle">Stil: Büro-Standard A (gelernt)</text>
+      </g>
       <!-- Pfeil -->
       <path class="arrow" d="M268 210 h22 m-8 -8 l8 8 l-8 8"/>
       <!-- Nachher: Rohbau isometrisch -->
@@ -187,6 +194,7 @@
       <text class="ok-t" x="424" y="352" text-anchor="middle">✓ 9,365 × 7,365 m · Diff 0,000</text>
       <text class="dim-t" x="424" y="372" text-anchor="middle">Wände, Öffnungen, Decke · .f3d + .step</text>
     </svg>
+    <div class="after" hidden><img src="media/hero.jpg" alt="Das fertige 3D-Modell des Hauses, aus dem Bauplan gebaut"><span class="lbl2">NACHHER · 3D-MODELL</span><span class="ok2">✓ Maße aus dem Plan übernommen</span></div>
   </div>
 </section>
 
@@ -390,8 +398,10 @@
   });
 
   // Hero-Bild: echtes Vorher/Nachher-Foto ersetzt die Zeichnung, sobald media/hero.jpg existiert
-  var heroImg = document.querySelector('#vn img');
-  heroImg.addEventListener('load', function () { heroImg.hidden = false; $('vn').classList.add('has-img'); });
+  var heroImg = document.querySelector('#vn .after img');
+  function heroPhoto() { document.querySelector('#vn .after').hidden = false; document.querySelector('#vn svg').setAttribute('viewBox', '0 0 272 420'); $('vn').classList.add('has-img'); }
+  heroImg.addEventListener('load', heroPhoto);
+  if (heroImg.complete && heroImg.naturalWidth > 0) heroPhoto();
 
   // Galerie: nur zeigen, wenn mindestens ein Medium existiert
   var gal = $('einblicke'), medias = gal.querySelectorAll('.media'), pending = medias.length;
