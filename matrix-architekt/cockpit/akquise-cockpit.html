@@ -1,0 +1,596 @@
+<title>Akquise-Cockpit</title>
+<style>
+/* Blueprint-Arbeitsplatz: linke Werkzeugleiste als Reiter, rechts die Arbeitsfläche.
+   Ein einziges Erscheinungsbild (Planblau), Akzent Bernstein nur für Handlung. */
+:root {
+  --paper: #11367a; --paper-2: #17428f; --paper-3: #0c2a62; --grid: rgba(200,225,255,0.10);
+  --ink: #eef5ff; --ink-2: #aac6ec; --rule: #4a77b8; --line: #dcebff;
+  --red: #ffc15c; --red-soft: rgba(255,193,92,0.16); --ok: #7be3ad; --ok-soft: rgba(123,227,173,0.16);
+  --warn: #ff9f6e; --bad: #ff7b7b;
+  --font-display: 'Barlow Condensed', 'Arial Narrow', Impact, sans-serif;
+  --font-body: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'SF Mono', Consolas, monospace;
+  color-scheme: dark;
+}
+@font-face { font-family: 'Barlow Condensed'; font-weight: 600; src: url('fonts/barlow-condensed-600.woff2') format('woff2'); font-display: swap; }
+@font-face { font-family: 'Barlow Condensed'; font-weight: 700; src: url('fonts/barlow-condensed-700.woff2') format('woff2'); font-display: swap; }
+@font-face { font-family: 'IBM Plex Sans'; font-weight: 400 600; src: url('fonts/ibm-plex-sans-var.woff2') format('woff2'); font-display: swap; }
+@font-face { font-family: 'IBM Plex Mono'; font-weight: 400; src: url('fonts/ibm-plex-mono-400.woff2') format('woff2'); font-display: swap; }
+@font-face { font-family: 'IBM Plex Mono'; font-weight: 500; src: url('fonts/ibm-plex-mono-500.woff2') format('woff2'); font-display: swap; }
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body { margin: 0; background: var(--paper); background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px); background-size: 24px 24px; color: var(--ink); font-family: var(--font-body); font-size: 15px; line-height: 1.5; overflow-x: clip; }
+.app { display: grid; grid-template-columns: 200px 1fr; min-height: 100%; }
+nav { position: sticky; top: env(safe-area-inset-top, 0px); align-self: start; height: 100vh; padding: 16px 12px; border-right: 1px solid var(--rule); background: rgba(12,42,98,0.6); display: grid; grid-template-rows: auto 1fr auto; gap: 16px; }
+.brand { font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; line-height: 1.05; padding: 4px 8px; }
+.brand small { display: block; font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.16em; color: var(--ink-2); font-weight: 400; margin-top: 4px; }
+.tabs { display: grid; gap: 4px; align-content: start; }
+.tab { font: inherit; text-align: left; padding: 9px 10px; border: 1px solid transparent; background: transparent; color: var(--ink-2); cursor: pointer; border-radius: 3px; display: grid; grid-template-columns: 24px 1fr auto; gap: 8px; align-items: center; }
+.tab .n { font-family: var(--font-mono); font-size: 0.68rem; color: var(--ink-2); }
+.tab .c { font-family: var(--font-mono); font-size: 0.68rem; color: var(--ink-2); }
+.tab:hover { border-color: var(--rule); color: var(--ink); }
+.tab[aria-selected="true"] { background: var(--paper-2); border-color: var(--rule); color: var(--ink); }
+.tab[aria-selected="true"] .n { color: var(--red); }
+.navfoot { font-family: var(--font-mono); font-size: 0.66rem; color: var(--ink-2); line-height: 1.6; padding: 0 8px; }
+.navfoot b { color: var(--ok); font-weight: 500; }
+main { padding: 20px 24px 60px; min-width: 0; }
+.view { display: none; } .view.on { display: block; }
+.head { display: flex; justify-content: space-between; gap: 16px; align-items: end; flex-wrap: wrap; margin-bottom: 18px; }
+.eyebrow { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-2); }
+h1 { font-family: var(--font-display); font-weight: 700; font-size: 2rem; line-height: 1.05; margin: 2px 0 0; text-transform: uppercase; }
+h2 { font-family: var(--font-display); font-weight: 600; font-size: 1.25rem; margin: 0 0 10px; text-transform: uppercase; letter-spacing: 0.02em; }
+p { margin: 0; }
+.muted { color: var(--ink-2); font-size: 0.9rem; }
+.mono { font-family: var(--font-mono); }
+.btn { font-family: var(--font-display); font-size: 1rem; font-weight: 600; letter-spacing: 0.02em; padding: 9px 16px; border: 2px solid var(--ink); background: transparent; color: var(--ink); border-radius: 3px; cursor: pointer; }
+.btn.primary { background: var(--red); border-color: var(--red); color: #0a2140; }
+.btn.small { font-size: 0.9rem; padding: 6px 12px; border-width: 1px; white-space: nowrap; }
+.btn.ghost { border-color: var(--rule); color: var(--ink-2); }
+.btn:hover { filter: brightness(1.08); }
+.btn[disabled] { opacity: 0.45; cursor: not-allowed; }
+.row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.card { background: var(--paper-2); border: 1px solid var(--rule); padding: 16px 18px; }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.grid2 > *, .grid3 > *, .grid4 > * { min-width: 0; }
+/* Kennzahlen-Kacheln */
+.kpi { border: 1px solid var(--rule); background: var(--paper-2); padding: 12px 14px; display: grid; gap: 2px; }
+.kpi .k { font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-2); }
+.kpi .v { font-family: var(--font-display); font-size: 2rem; font-weight: 700; line-height: 1; font-variant-numeric: tabular-nums; }
+.kpi .s { font-size: 0.78rem; color: var(--ink-2); }
+/* Trichter: eine Messgröße, ein Farbton, dünne Balken, direkte Beschriftung */
+.funnel { display: grid; gap: 6px; }
+.frow { display: grid; grid-template-columns: 150px 1fr 70px; gap: 10px; align-items: center; font-size: 0.85rem; }
+.frow .lbl { color: var(--ink-2); font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; }
+.frow .bar { height: 12px; background: rgba(220,235,255,0.12); position: relative; }
+.frow .bar i { position: absolute; left: 0; top: 0; bottom: 0; background: var(--line); border-radius: 0 3px 3px 0; min-width: 2px; transition: width 0.3s; }
+.frow .bar i.hot { background: var(--red); }
+.frow .val { font-family: var(--font-mono); font-size: 0.8rem; text-align: right; font-variant-numeric: tabular-nums; }
+.frow .val small { color: var(--ink-2); }
+.progress { height: 8px; background: rgba(220,235,255,0.12); position: relative; margin-top: 8px; }
+.progress i { position: absolute; inset: 0 auto 0 0; background: var(--ok); }
+/* Tabellen */
+table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+th { text-align: left; font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-2); padding: 8px 8px; border-bottom: 1px solid var(--rule); font-weight: 500; white-space: nowrap; }
+td { padding: 8px 8px; border-bottom: 1px solid rgba(74,119,184,0.45); vertical-align: top; }
+tr:hover td { background: rgba(220,235,255,0.04); }
+td.num { font-family: var(--font-mono); text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.tablewrap { overflow-x: auto; border: 1px solid var(--rule); background: var(--paper-2); }
+.pill { display: inline-block; padding: 1px 8px; border-radius: 999px; font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase; border: 1px solid var(--rule); color: var(--ink-2); white-space: nowrap; }
+.pill.s-recherchiert { } .pill.s-ausgewaehlt { border-color: var(--line); color: var(--ink); }
+.pill.s-gedruckt, .pill.s-versendet { border-color: var(--red); color: var(--red); }
+.pill.s-angerufen { border-color: var(--warn); color: var(--warn); }
+.pill.s-antwort, .pill.s-plan_erhalten { border-color: var(--ok); color: var(--ok); }
+.pill.s-kunde { background: var(--ok); color: #0a2140; border-color: var(--ok); }
+.pill.s-abgesagt { border-color: var(--bad); color: var(--bad); }
+/* Formulare */
+input[type="text"], input[type="email"], input[type="number"], input[type="date"], input[type="tel"], input[type="url"], textarea, select { width: 100%; padding: 8px 10px; font: inherit; font-size: 0.92rem; color: var(--ink); background: var(--paper-3); border: 1px solid var(--rule); border-radius: 3px; }
+textarea { min-height: 120px; resize: vertical; font-family: var(--font-body); }
+textarea.mono { font-family: var(--font-mono); font-size: 0.85rem; }
+label { font-size: 0.8rem; color: var(--ink-2); display: block; margin-bottom: 3px; }
+.field { display: grid; gap: 2px; }
+.form { display: grid; gap: 12px; }
+.check { display: grid; grid-template-columns: auto 1fr; gap: 8px; align-items: start; font-size: 0.88rem; }
+.check input { margin-top: 4px; accent-color: var(--red); }
+:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
+/* Schublade für Bearbeiten */
+.drawer { position: fixed; top: 0; right: 0; bottom: 0; width: min(520px, 100%); background: var(--paper-2); border-left: 1px solid var(--rule); padding: 20px 22px; overflow-y: auto; z-index: 30; display: none; box-shadow: -20px 0 60px -30px rgba(0,0,0,0.6); }
+.drawer.on { display: block; }
+.drawer .dh { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+.backdrop { position: fixed; inset: 0; background: rgba(5,20,45,0.5); z-index: 29; display: none; }
+.backdrop.on { display: block; }
+.log { display: grid; gap: 4px; font-size: 0.8rem; max-height: 180px; overflow-y: auto; }
+.log div { display: grid; grid-template-columns: 84px 1fr; gap: 8px; color: var(--ink-2); }
+.log b { color: var(--ink); font-weight: 500; }
+.toast { position: fixed; left: 50%; bottom: 20px; transform: translateX(-50%); background: var(--ink); color: #0a2140; padding: 10px 16px; font-size: 0.9rem; border-radius: 3px; z-index: 40; display: none; }
+.toast.on { display: block; }
+.note { border: 1px dashed var(--rule); padding: 10px 14px; font-size: 0.85rem; color: var(--ink-2); }
+.note b { color: var(--red); font-weight: 500; }
+.filters { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-bottom: 12px; }
+.filters select, .filters input { width: auto; min-width: 140px; }
+.empty { padding: 28px; border: 1px dashed var(--rule); text-align: center; color: var(--ink-2); font-size: 0.9rem; }
+.timeline { display: grid; gap: 6px; }
+.timeline div { display: grid; grid-template-columns: 110px 1fr; gap: 10px; font-size: 0.88rem; padding: 6px 0; border-bottom: 1px solid rgba(74,119,184,0.45); }
+.timeline .d { font-family: var(--font-mono); font-size: 0.78rem; color: var(--red); }
+.preview { background: #fff; color: #15213a; padding: 18px 20px; font-size: 0.85rem; line-height: 1.5; white-space: pre-wrap; border: 1px solid var(--rule); font-family: var(--font-body); }
+.preview b { color: #11367a; }
+.cost { display: grid; grid-template-columns: 1fr auto; gap: 4px 16px; font-size: 0.9rem; font-variant-numeric: tabular-nums; }
+.cost .t { border-top: 1px solid var(--rule); padding-top: 6px; margin-top: 4px; font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; }
+@media (max-width: 900px) {
+  .app { grid-template-columns: 1fr; }
+  nav { position: sticky; height: auto; grid-template-rows: auto; grid-template-columns: 1fr; border-right: 0; border-bottom: 1px solid var(--rule); padding: 10px 12px; }
+  .tabs { grid-auto-flow: column; grid-auto-columns: max-content; overflow-x: auto; gap: 6px; }
+  .tab { grid-template-columns: auto; } .tab .n, .tab .c { display: none; }
+  .navfoot { display: none; }
+  .grid2, .grid3, .grid4 { grid-template-columns: 1fr 1fr; }
+  main { padding: 16px 16px 60px; }
+  .frow { grid-template-columns: 100px 1fr 60px; }
+}
+@media (max-width: 520px) { .grid2, .grid3, .grid4 { grid-template-columns: 1fr; } }
+</style>
+
+<div class="app">
+<nav>
+  <div class="brand">Akquise-Cockpit<small>MATRIX ARCHITEKT · BETA</small></div>
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" data-view="uebersicht" aria-selected="true"><span class="n">01</span><span>Übersicht</span><span class="c" id="c-ziel"></span></button>
+    <button class="tab" role="tab" data-view="kontakte"><span class="n">02</span><span>Kontakte</span><span class="c" id="c-kontakte">0</span></button>
+    <button class="tab" role="tab" data-view="kampagne"><span class="n">03</span><span>Post</span><span class="c" id="c-kamp">0</span></button>
+    <button class="tab" role="tab" data-view="vorlagen"><span class="n">04</span><span>Vorlagen</span><span class="c"></span></button>
+    <button class="tab" role="tab" data-view="email"><span class="n">05</span><span>E-Mail</span><span class="c" id="c-mail">0</span></button>
+    <button class="tab" role="tab" data-view="analyse"><span class="n">06</span><span>Analyse</span><span class="c"></span></button>
+  </div>
+  <div class="navfoot">Speicher: <b id="db-state">verbinde …</b><br>Gmail: <span id="mail-state">prüfe …</span></div>
+</nav>
+
+<main>
+<!-- 01 Übersicht -->
+<section class="view on" id="v-uebersicht">
+  <div class="head"><div><span class="eyebrow">Blatt 01 · Übersicht</span><h1>Die ersten zehn Kunden</h1></div>
+    <div class="row"><button class="btn small ghost" id="btn-demo">Beispieldaten laden</button><button class="btn primary small" data-go="kontakte">Kontakt anlegen</button></div></div>
+  <div class="grid4" id="kpis"></div>
+  <div class="grid2" style="margin-top:16px">
+    <div class="card"><h2>Trichter</h2><div class="funnel" id="funnel"></div></div>
+    <div class="card"><h2>Heute dran</h2><div id="todo"></div></div>
+  </div>
+  <div class="grid2" style="margin-top:16px">
+    <div class="card"><h2>Ziel</h2><p class="muted">Zehn Pilotbüros mit Plänen im selben Stil. Der Balken zählt Kontakte mit Status „Plan erhalten" oder „Kunde".</p><div class="progress"><i id="ziel-bar" style="width:0%"></i></div><p class="mono muted" id="ziel-txt" style="margin-top:6px"></p></div>
+    <div class="card"><h2>Adressrecherche</h2><p class="muted">Neue Adressen kommen auf zwei Wegen: <b style="color:var(--red)">Claude im Chat bitten</b> („Recherchiere 50 Architekturbüros in Oberbayern mit Einfamilienhaus-Schwerpunkt"), dann landen sie hier mit Status „recherchiert". Oder eine Liste unter Kontakte einfügen.</p></div>
+  </div>
+</section>
+
+<!-- 02 Kontakte -->
+<section class="view" id="v-kontakte">
+  <div class="head"><div><span class="eyebrow">Blatt 02 · Kontakte</span><h1>Adressen und Status</h1></div>
+    <div class="row"><button class="btn small ghost" id="btn-import">Liste einfügen</button><button class="btn small ghost" id="btn-export">CSV für Briefe</button><button class="btn primary small" id="btn-new">Neuer Kontakt</button></div></div>
+  <div class="filters">
+    <input type="text" id="f-q" placeholder="Suche Firma, Name, Ort">
+    <select id="f-status"><option value="">Alle Status</option></select>
+    <select id="f-typ"><option value="">Alle Typen</option></select>
+    <select id="f-region"><option value="">Alle Regionen</option></select>
+    <select id="f-kamp"><option value="">Alle Kampagnen</option></select>
+    <span class="muted" id="f-count"></span>
+  </div>
+  <div class="row" style="margin-bottom:10px"><span class="muted">Markierte:</span>
+    <select id="bulk-status" style="width:auto"><option value="">Status setzen …</option></select>
+    <select id="bulk-kamp" style="width:auto"><option value="">Zur Kampagne …</option></select>
+    <button class="btn small ghost" id="bulk-apply">Anwenden</button></div>
+  <div class="tablewrap"><table id="tbl"><thead><tr><th><input type="checkbox" id="sel-all" aria-label="Alle markieren"></th><th>Firma</th><th>Ansprechpartner</th><th>Ort</th><th>Typ</th><th>Status</th><th>Kampagne</th><th>Letztes</th><th></th></tr></thead><tbody id="tbody"></tbody></table></div>
+  <div id="empty-kontakte" class="empty" hidden>Noch keine Kontakte. Oben „Neuer Kontakt" oder „Liste einfügen", oder Claude recherchieren lassen.</div>
+</section>
+
+<!-- 03 Post -->
+<section class="view" id="v-kampagne">
+  <div class="head"><div><span class="eyebrow">Blatt 03 · Post</span><h1>Postsendungen planen</h1></div><button class="btn primary small" id="btn-newkamp">Neue Sendung</button></div>
+  <div class="grid2">
+    <div class="card">
+      <h2>Sendung</h2>
+      <div class="form">
+        <div class="field"><label for="k-sel">Sendung wählen</label><select id="k-sel"></select></div>
+        <div class="grid2">
+          <div class="field"><label for="k-name">Name</label><input type="text" id="k-name" placeholder="z. B. Welle 1 · Oberbayern"></div>
+          <div class="field"><label for="k-datum">Versanddatum</label><input type="date" id="k-datum"></div>
+        </div>
+        <div class="grid4">
+          <div class="field"><label for="k-porto">Porto €</label><input type="number" id="k-porto" step="0.01" value="0.95"></div>
+          <div class="field"><label for="k-druck">Druck €</label><input type="number" id="k-druck" step="0.01" value="0.35"></div>
+          <div class="field"><label for="k-beilage">Beilage €</label><input type="number" id="k-beilage" step="0.01" value="0.45"></div>
+          <div class="field"><label for="k-umschlag">Umschlag €</label><input type="number" id="k-umschlag" step="0.01" value="0.12"></div>
+        </div>
+        <div class="grid2">
+          <div class="field"><label for="k-aufrufe">Aufrufe ganster.tech/post</label><input type="number" id="k-aufrufe" min="0" placeholder="aus dem Tracking"></div>
+          <div class="field"><label for="k-uploads">Uploads mit Code POST</label><input type="number" id="k-uploads" min="0" placeholder="aus Supabase"></div>
+        </div>
+        <div class="field"><label for="k-notiz">Notizen</label><textarea id="k-notiz" style="min-height:70px"></textarea></div>
+        <div class="row"><button class="btn primary small" id="k-save">Speichern</button><button class="btn small ghost" id="k-del">Löschen</button></div>
+      </div>
+    </div>
+    <div style="display:grid;gap:16px;align-content:start">
+      <div class="card"><h2>Kosten</h2><div class="cost" id="k-cost"></div></div>
+      <div class="card"><h2>Ablauf</h2><div class="timeline" id="k-timeline"></div></div>
+      <div class="card"><h2>Kontakte in dieser Sendung</h2><p class="muted" id="k-kontakte-txt"></p>
+        <div class="row" style="margin-top:10px"><button class="btn small ghost" id="k-mark-gedruckt">Alle als gedruckt</button><button class="btn small ghost" id="k-mark-versendet">Alle als versendet</button><button class="btn small ghost" id="k-export">CSV für Briefe</button></div>
+        <p class="muted" style="margin-top:10px">Kontakte kommen über „Kontakte → Markierte → Zur Kampagne" hinein.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 Vorlagen -->
+<section class="view" id="v-vorlagen">
+  <div class="head"><div><span class="eyebrow">Blatt 04 · Vorlagen</span><h1>Brief und E-Mail</h1></div><button class="btn primary small" id="t-save">Vorlagen speichern</button></div>
+  <p class="note" style="margin-bottom:14px">Platzhalter: <b>{{anrede}}</b> <b>{{name}}</b> <b>{{firma}}</b> <b>{{ort}}</b> <b>{{code}}</b> <b>{{frist}}</b>. Der Brieftext wird von Claude in die Druckvorlage übernommen; die E-Mail-Vorlage nutzt das Cockpit direkt.</p>
+  <div class="grid2">
+    <div class="card form">
+      <h2>Brief (Post)</h2>
+      <div class="field"><label for="t-brief-betreff">Betreff</label><input type="text" id="t-brief-betreff"></div>
+      <div class="field"><label for="t-brief">Text</label><textarea id="t-brief" style="min-height:300px"></textarea></div>
+    </div>
+    <div class="card form">
+      <h2>E-Mail (nach Antwort oder Einwilligung)</h2>
+      <div class="field"><label for="t-mail-betreff">Betreff</label><input type="text" id="t-mail-betreff"></div>
+      <div class="field"><label for="t-mail">Text</label><textarea id="t-mail" style="min-height:300px"></textarea></div>
+    </div>
+  </div>
+  <div class="card" style="margin-top:16px"><h2>Vorschau</h2>
+    <div class="row" style="margin-bottom:10px"><select id="t-prev-kontakt" style="width:auto"></select><select id="t-prev-art" style="width:auto"><option value="brief">Brief</option><option value="mail">E-Mail</option></select></div>
+    <div class="preview" id="t-preview"></div></div>
+</section>
+
+<!-- 05 E-Mail -->
+<section class="view" id="v-email">
+  <div class="head"><div><span class="eyebrow">Blatt 05 · E-Mail</span><h1>Nachfassen per Mail</h1></div></div>
+  <p class="note" style="margin-bottom:14px"><b>Regel:</b> E-Mails nur an Kontakte, die geantwortet haben oder ausdrücklich zugestimmt haben (§ 7 UWG). Das Cockpit zeigt darum nur diese. Erstkontakt läuft über Post und Telefon.</p>
+  <div class="grid2">
+    <div class="card">
+      <h2>Empfänger</h2>
+      <div class="tablewrap"><table><thead><tr><th>Firma</th><th>E-Mail</th><th>Status</th><th></th></tr></thead><tbody id="mail-tbody"></tbody></table></div>
+      <div id="mail-empty" class="empty" hidden>Noch niemand freigegeben. Im Kontakt das Häkchen „E-Mail erlaubt" setzen oder Status auf „Antwort" stellen.</div>
+    </div>
+    <div class="card form">
+      <h2>Nachricht</h2>
+      <div class="field"><label>An</label><input type="text" id="m-an" readonly placeholder="Kontakt links wählen"></div>
+      <div class="field"><label for="m-betreff">Betreff</label><input type="text" id="m-betreff"></div>
+      <div class="field"><label for="m-text">Text</label><textarea id="m-text" style="min-height:260px"></textarea></div>
+      <div class="row"><button class="btn primary small" id="m-draft" disabled>Entwurf in Gmail anlegen</button><button class="btn small ghost" id="m-copy">Text kopieren</button><button class="btn small ghost" id="m-sent">Als gesendet eintragen</button></div>
+      <p class="muted" id="m-hint"></p>
+    </div>
+  </div>
+</section>
+
+<!-- 06 Analyse -->
+<section class="view" id="v-analyse">
+  <div class="head"><div><span class="eyebrow">Blatt 06 · Analyse</span><h1>Was wirkt</h1></div></div>
+  <div class="grid4" id="a-kpis"></div>
+  <div class="card" style="margin-top:16px"><h2>Je Sendung</h2><div class="tablewrap"><table><thead><tr><th>Sendung</th><th>Versand</th><th class="num">Briefe</th><th class="num">Angerufen</th><th class="num">Antworten</th><th class="num">Quote</th><th class="num">Pläne</th><th class="num">Kunden</th><th class="num">Kosten</th><th class="num">€ je Antwort</th><th class="num">Aufrufe</th><th class="num">Uploads</th></tr></thead><tbody id="a-tbody"></tbody></table></div></div>
+  <div class="grid2" style="margin-top:16px">
+    <div class="card"><h2>Nach Typ</h2><div class="funnel" id="a-typ"></div></div>
+    <div class="card"><h2>Nach Region</h2><div class="funnel" id="a-region"></div></div>
+  </div>
+</section>
+</main>
+</div>
+
+<!-- Schublade: Kontakt bearbeiten -->
+<div class="backdrop" id="backdrop"></div>
+<aside class="drawer" id="drawer" aria-label="Kontakt bearbeiten">
+  <div class="dh"><h2 id="d-title" style="margin:0">Kontakt</h2><button class="btn small ghost" id="d-close">Schließen</button></div>
+  <div class="form">
+    <div class="field"><label for="d-firma">Firma / Büro</label><input type="text" id="d-firma"></div>
+    <div class="grid2">
+      <div class="field"><label for="d-anrede">Anrede im Brief</label><input type="text" id="d-anrede" placeholder="Sehr geehrter Herr Muster,"></div>
+      <div class="field"><label for="d-name">Name (Anschrift)</label><input type="text" id="d-name" placeholder="Herr Max Muster"></div>
+    </div>
+    <div class="grid2">
+      <div class="field"><label for="d-strasse">Straße Nr.</label><input type="text" id="d-strasse"></div>
+      <div class="field"><label for="d-plz_ort">PLZ Ort</label><input type="text" id="d-plz_ort"></div>
+    </div>
+    <div class="grid3">
+      <div class="field"><label for="d-typ">Typ</label><select id="d-typ"></select></div>
+      <div class="field"><label for="d-region">Region</label><input type="text" id="d-region" placeholder="z. B. Oberbayern"></div>
+      <div class="field"><label for="d-status">Status</label><select id="d-status"></select></div>
+    </div>
+    <div class="grid3">
+      <div class="field"><label for="d-email">E-Mail</label><input type="email" id="d-email"></div>
+      <div class="field"><label for="d-telefon">Telefon</label><input type="tel" id="d-telefon"></div>
+      <div class="field"><label for="d-web">Website</label><input type="url" id="d-web"></div>
+    </div>
+    <div class="field"><label for="d-kamp">Sendung</label><select id="d-kamp"></select></div>
+    <label class="check"><input type="checkbox" id="d-einw"><span>E-Mail erlaubt (hat geantwortet oder zugestimmt)</span></label>
+    <div class="field"><label for="d-notiz">Notizen</label><textarea id="d-notiz" style="min-height:80px"></textarea></div>
+    <div class="field"><label>Verlauf</label><div class="log" id="d-log"></div></div>
+    <div class="field"><label for="d-logtext">Eintrag hinzufügen</label><div class="row"><input type="text" id="d-logtext" placeholder="z. B. Angerufen, Rückruf Montag" style="flex:1"><button class="btn small ghost" id="d-logadd">+</button></div></div>
+    <div class="row"><button class="btn primary small" id="d-save">Speichern</button><button class="btn small ghost" id="d-delete">Löschen</button></div>
+  </div>
+</aside>
+<div class="toast" id="toast"></div>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var STATUS = [['recherchiert','Recherchiert'],['ausgewaehlt','Ausgewählt'],['gedruckt','Gedruckt'],['versendet','Versendet'],['angerufen','Angerufen'],['antwort','Antwort'],['plan_erhalten','Plan erhalten'],['kunde','Kunde'],['abgesagt','Abgesagt']];
+  var TYPEN = ['Architekturbüro','Planungsbüro','Fertighaus','Bauträger','Bauunternehmen','Privat','Sonstiges'];
+  var ORDER = {}; STATUS.forEach(function (s, i) { ORDER[s[0]] = i; });
+  var SL = {}; STATUS.forEach(function (s) { SL[s[0]] = s[1]; });
+  var ZIEL = 10, CODE = 'POST-10';
+  var state = { kontakte: {}, kampagnen: {}, vorlagen: { brief: null, mail: null }, db: null, dl: null, mcp: null, sel: {}, view: 'uebersicht', mailKontakt: null, kamp: null };
+  var local = { kontakte: {}, kampagnen: {}, vorlagen: {} };
+  function toast(t) { var el = $('toast'); el.textContent = t; el.classList.add('on'); clearTimeout(el._t); el._t = setTimeout(function () { el.classList.remove('on'); }, 2200); }
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function uid(p) { return p + Date.now().toString(36) + Math.random().toString(36).slice(2, 6); }
+  function today() { return new Date().toISOString().slice(0, 10); }
+  function fmtD(iso) { if (!iso) return '–'; var d = new Date(iso.length > 10 ? iso : iso + 'T00:00:00'); return isNaN(d) ? iso : d.toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit', year: '2-digit' }); }
+  function eur(n) { return (Math.round(n * 100) / 100).toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' €'; }
+  function addDays(iso, n) { var d = new Date(iso + 'T00:00:00'); d.setDate(d.getDate() + n); return d.toISOString().slice(0, 10); }
+  function fillSelect(sel, items, first) { sel.innerHTML = (first ? '<option value="">' + esc(first) + '</option>' : '') + items.map(function (i) { return '<option value="' + esc(i[0]) + '">' + esc(i[1]) + '</option>'; }).join(''); }
+
+  // ---------- Speicher: db oder lokal (Fallback) ----------
+  function allK() { return Object.values(state.kontakte); }
+  function allKamp() { return Object.values(state.kampagnen); }
+  function write(coll, id, data) {
+    data.updated = new Date().toISOString();
+    if (state.db) return state.db.doc(coll + '/' + id).set(data).catch(function (e) { toast('Speichern fehlgeschlagen: ' + (e && e.code || e)); });
+    local[coll][id] = data; state[coll === 'vorlagen' ? 'vorlagen' : coll][id] = data; try { localStorage.setItem('ma_cockpit', JSON.stringify(local)); } catch (e) {} renderAll(); return Promise.resolve();
+  }
+  function remove(coll, id) {
+    if (state.db) return state.db.doc(coll + '/' + id).delete();
+    delete local[coll][id]; delete state[coll][id]; try { localStorage.setItem('ma_cockpit', JSON.stringify(local)); } catch (e) {} renderAll(); return Promise.resolve();
+  }
+  function logK(k, text) { k.log = (k.log || []).concat([{ ts: new Date().toISOString(), text: text }]).slice(-60); }
+
+  // ---------- Rendern ----------
+  function count(fn) { return allK().filter(fn).length; }
+  function reached(k, s) { return ORDER[k.status] >= ORDER[s] && k.status !== 'abgesagt'; }
+  function renderKpis() {
+    var n = allK().length, vers = count(function (k) { return reached(k, 'versendet'); }), ant = count(function (k) { return reached(k, 'antwort'); }), plan = count(function (k) { return reached(k, 'plan_erhalten'); }), kund = count(function (k) { return k.status === 'kunde'; });
+    var kosten = allKamp().reduce(function (s, c) { return s + kampKosten(c).gesamt; }, 0);
+    $('kpis').innerHTML = [['Kontakte', n, 'in der Liste'], ['Briefe raus', vers, 'versendet oder weiter'], ['Antworten', ant, vers ? Math.round(ant / vers * 100) + ' % der Briefe' : '–'], ['Pläne erhalten', plan, kund + ' davon Kunde']].map(function (t) { return '<div class="kpi"><span class="k">' + t[0] + '</span><span class="v">' + t[1] + '</span><span class="s">' + esc(t[2]) + '</span></div>'; }).join('');
+    $('ziel-bar').style.width = Math.min(100, plan / ZIEL * 100) + '%';
+    $('ziel-txt').textContent = plan + ' von ' + ZIEL + ' · Budget bisher ' + eur(kosten);
+    $('c-ziel').textContent = plan + '/' + ZIEL; $('c-kontakte').textContent = n; $('c-kamp').textContent = allKamp().length;
+    var stages = ['recherchiert', 'ausgewaehlt', 'versendet', 'angerufen', 'antwort', 'plan_erhalten', 'kunde'];
+    var vals = stages.map(function (s) { return count(function (k) { return reached(k, s); }); }), max = Math.max(1, vals[0]);
+    $('funnel').innerHTML = stages.map(function (s, i) { var prev = i ? vals[i - 1] : vals[0]; var pct = prev ? Math.round(vals[i] / prev * 100) : 0; return '<div class="frow"><span class="lbl">' + SL[s] + '</span><div class="bar" title="' + vals[i] + ' Kontakte"><i class="' + (s === 'kunde' ? 'hot' : '') + '" style="width:' + (vals[i] / max * 100) + '%"></i></div><span class="val">' + vals[i] + (i ? ' <small>' + pct + ' %</small>' : '') + '</span></div>'; }).join('');
+    // Aufgaben: versendet vor ≥5 Tagen ohne Anruf; Antwort ohne Plan; Plätze
+    var now = Date.now(), todo = [];
+    allK().forEach(function (k) {
+      var last = k.log && k.log.length ? k.log[k.log.length - 1].ts : k.updated;
+      var age = Math.floor((now - new Date(last).getTime()) / 864e5);
+      if (k.status === 'versendet' && age >= 5) todo.push({ k: k, t: 'Anrufen: Brief ist seit ' + age + ' Tagen raus' });
+      if (k.status === 'angerufen' && age >= 7) todo.push({ k: k, t: 'Nachfassen: Anruf vor ' + age + ' Tagen, keine Antwort' });
+      if (k.status === 'antwort') todo.push({ k: k, t: 'Plan anfordern: hat geantwortet' });
+      if (k.status === 'plan_erhalten' && age >= 7) todo.push({ k: k, t: 'Modell liefern: Plan seit ' + age + ' Tagen da' });
+    });
+    $('todo').innerHTML = todo.length ? todo.slice(0, 12).map(function (x) { return '<div class="frow" style="grid-template-columns:1fr auto;cursor:pointer" data-open="' + x.k.id + '"><span><b>' + esc(x.k.firma) + '</b> <span class="muted">' + esc(x.t) + '</span></span><span class="pill s-' + x.k.status + '">' + SL[x.k.status] + '</span></div>'; }).join('') : '<p class="muted">Nichts offen. Zeit für neue Adressen.</p>';
+  }
+  function kampOf(k) { var c = k.kampagne && state.kampagnen[k.kampagne]; return c ? c.name : ''; }
+  function filtered() {
+    var q = $('f-q').value.trim().toLowerCase(), st = $('f-status').value, ty = $('f-typ').value, re = $('f-region').value, ka = $('f-kamp').value;
+    return allK().filter(function (k) {
+      if (st && k.status !== st) return false; if (ty && k.typ !== ty) return false; if (re && (k.region || '') !== re) return false; if (ka && (k.kampagne || '') !== ka) return false;
+      if (q && [k.firma, k.name, k.plz_ort, k.region, k.email].join(' ').toLowerCase().indexOf(q) < 0) return false; return true;
+    }).sort(function (a, b) { return (ORDER[b.status] - ORDER[a.status]) || (a.firma || '').localeCompare(b.firma || ''); });
+  }
+  function renderKontakte() {
+    var regs = {}; allK().forEach(function (k) { if (k.region) regs[k.region] = 1; });
+    var keepR = $('f-region').value, keepK = $('f-kamp').value;
+    fillSelect($('f-region'), Object.keys(regs).sort().map(function (r) { return [r, r]; }), 'Alle Regionen'); $('f-region').value = keepR;
+    var kamps = allKamp().sort(function (a, b) { return (b.datum || '').localeCompare(a.datum || ''); }).map(function (c) { return [c.id, c.name]; });
+    fillSelect($('f-kamp'), kamps, 'Alle Kampagnen'); $('f-kamp').value = keepK;
+    fillSelect($('bulk-kamp'), kamps, 'Zur Kampagne …'); fillSelect($('d-kamp'), kamps, 'Keine Sendung');
+    var rows = filtered();
+    $('f-count').textContent = rows.length + ' von ' + allK().length;
+    $('empty-kontakte').hidden = allK().length > 0;
+    $('tbody').innerHTML = rows.map(function (k) {
+      var last = k.log && k.log.length ? k.log[k.log.length - 1] : null;
+      return '<tr><td><input type="checkbox" data-sel="' + k.id + '"' + (state.sel[k.id] ? ' checked' : '') + '></td><td><b>' + esc(k.firma) + '</b><br><span class="muted">' + esc(k.strasse || '') + '</span></td><td>' + esc(k.name || '') + (k.email ? '<br><span class="muted mono" style="font-size:0.75rem">' + esc(k.email) + '</span>' : '') + '</td><td>' + esc(k.plz_ort || '') + (k.region ? '<br><span class="muted">' + esc(k.region) + '</span>' : '') + '</td><td>' + esc(k.typ || '') + '</td><td><span class="pill s-' + k.status + '">' + SL[k.status] + '</span></td><td class="muted">' + esc(kampOf(k)) + '</td><td class="muted" style="font-size:0.8rem">' + (last ? fmtD(last.ts) + ' · ' + esc(last.text) : '–') + '</td><td><button class="btn small ghost" data-open="' + k.id + '">Öffnen</button></td></tr>';
+    }).join('');
+  }
+  function kampKosten(c) {
+    var n = allK().filter(function (k) { return k.kampagne === c.id; }).length;
+    var je = (+c.porto || 0) + (+c.druck || 0) + (+c.beilage || 0) + (+c.umschlag || 0);
+    return { n: n, je: je, gesamt: n * je };
+  }
+  function renderKamp() {
+    var kamps = allKamp().sort(function (a, b) { return (b.datum || '').localeCompare(a.datum || ''); });
+    var keep = state.kamp && state.kampagnen[state.kamp] ? state.kamp : (kamps[0] ? kamps[0].id : null);
+    state.kamp = keep;
+    fillSelect($('k-sel'), kamps.map(function (c) { return [c.id, c.name + (c.datum ? ' · ' + fmtD(c.datum) : '')]; }), kamps.length ? null : 'Noch keine Sendung');
+    if (keep) $('k-sel').value = keep;
+    var c = keep ? state.kampagnen[keep] : null;
+    ['k-name', 'k-datum', 'k-porto', 'k-druck', 'k-beilage', 'k-umschlag', 'k-aufrufe', 'k-uploads', 'k-notiz'].forEach(function (id) { $(id).disabled = !c; });
+    if (!c) { $('k-cost').innerHTML = '<span class="muted">Noch keine Sendung angelegt.</span>'; $('k-timeline').innerHTML = ''; $('k-kontakte-txt').textContent = ''; return; }
+    $('k-name').value = c.name || ''; $('k-datum').value = c.datum || ''; $('k-porto').value = c.porto != null ? c.porto : 0.95; $('k-druck').value = c.druck != null ? c.druck : 0.35; $('k-beilage').value = c.beilage != null ? c.beilage : 0.45; $('k-umschlag').value = c.umschlag != null ? c.umschlag : 0.12;
+    $('k-aufrufe').value = c.aufrufe || ''; $('k-uploads').value = c.uploads || ''; $('k-notiz').value = c.notiz || '';
+    var kk = kampKosten(c);
+    $('k-cost').innerHTML = '<span>Briefe</span><span>' + kk.n + '</span><span>je Brief</span><span>' + eur(kk.je) + '</span><span>Telefon-Nachfassen (eigene Zeit)</span><span>' + Math.round(kk.n * 4) + ' min</span><span class="t">Gesamt</span><span class="t">' + eur(kk.gesamt) + '</span>';
+    var d = c.datum;
+    $('k-timeline').innerHTML = d ? [[addDays(d, -3), 'Adressen final, CSV exportieren, Briefe drucken'], [addDays(d, -1), 'Falzen, Beilage dazu, kuvertieren, frankieren'], [d, 'Versand'], [addDays(d, 2), 'Zustellung (Standardbrief 1 bis 2 Tage)'], [addDays(d, 5) + ' bis ' + addDays(d, 10), 'Anruf-Fenster: „Haben Sie meinen Brief mit der Blaupause bekommen?"'], [addDays(d, 21), 'Frist Code ' + CODE + ' läuft ab']].map(function (t) { return '<div><span class="d">' + esc(t[0]) + '</span><span>' + esc(t[1]) + '</span></div>'; }).join('') : '<span class="muted">Versanddatum setzen, dann erscheint der Ablauf.</span>';
+    $('k-kontakte-txt').textContent = kk.n ? kk.n + ' Kontakte zugeordnet, Status: ' + summarize(allK().filter(function (k) { return k.kampagne === c.id; })) : 'Noch keine Kontakte zugeordnet.';
+  }
+  function summarize(list) { var m = {}; list.forEach(function (k) { m[k.status] = (m[k.status] || 0) + 1; }); return Object.keys(m).sort(function (a, b) { return ORDER[a] - ORDER[b]; }).map(function (s) { return m[s] + '× ' + SL[s]; }).join(', '); }
+  function renderVorlagen() {
+    var b = state.vorlagen.brief || {}, m = state.vorlagen.mail || {};
+    if (document.activeElement !== $('t-brief')) $('t-brief').value = b.text || DEFAULT_BRIEF;
+    if (document.activeElement !== $('t-brief-betreff')) $('t-brief-betreff').value = b.betreff || 'Ihr Grundriss als 3D-Rohbau. In sieben Tagen. Kostenlos.';
+    if (document.activeElement !== $('t-mail')) $('t-mail').value = m.text || DEFAULT_MAIL;
+    if (document.activeElement !== $('t-mail-betreff')) $('t-mail-betreff').value = m.betreff || 'Ihr Beta-Platz bei Matrix Architekt: nächster Schritt';
+    var sel = $('t-prev-kontakt'), keep = sel.value;
+    fillSelect(sel, allK().map(function (k) { return [k.id, k.firma]; }), 'Beispielkontakt'); sel.value = keep;
+    renderPreview();
+  }
+  function merge(tpl, k) {
+    k = k || { anrede: 'Sehr geehrte Damen und Herren,', name: 'Max Muster', firma: 'Muster Architekten', plz_ort: '80331 München' };
+    var frist = fmtD(addDays(today(), 21));
+    return String(tpl || '').replace(/\{\{(\w+)\}\}/g, function (_, key) { return { anrede: k.anrede || 'Sehr geehrte Damen und Herren,', name: k.name || '', firma: k.firma || '', ort: (k.plz_ort || '').replace(/^\d+\s*/, ''), code: CODE, frist: frist }[key] || ''; });
+  }
+  function renderPreview() {
+    var k = state.kontakte[$('t-prev-kontakt').value], art = $('t-prev-art').value;
+    var betreff = art === 'brief' ? $('t-brief-betreff').value : $('t-mail-betreff').value, text = art === 'brief' ? $('t-brief').value : $('t-mail').value;
+    $('t-preview').innerHTML = '<b>' + esc(merge(betreff, k)) + '</b>\n\n' + esc(merge(text, k));
+  }
+  function mailable() { return allK().filter(function (k) { return k.email && (k.einwilligung || ORDER[k.status] >= ORDER['antwort']) && k.status !== 'abgesagt'; }); }
+  function renderMail() {
+    var list = mailable(); $('c-mail').textContent = list.length; $('mail-empty').hidden = list.length > 0;
+    $('mail-tbody').innerHTML = list.map(function (k) { return '<tr><td><b>' + esc(k.firma) + '</b><br><span class="muted">' + esc(k.name || '') + '</span></td><td class="mono" style="font-size:0.8rem">' + esc(k.email) + '</td><td><span class="pill s-' + k.status + '">' + SL[k.status] + '</span></td><td><button class="btn small ghost" data-mail="' + k.id + '">Schreiben</button></td></tr>'; }).join('');
+    $('m-draft').disabled = !(state.mcp && state.mailKontakt);
+    $('m-hint').textContent = state.mcp ? 'Der Entwurf landet in deinem Gmail. Dort prüfen und senden.' : 'Gmail ist in dieser Ansicht nicht verbunden. Text kopieren und selbst senden, dann „Als gesendet eintragen".';
+  }
+  function renderAnalyse() {
+    var vers = allK().filter(function (k) { return reached(k, 'versendet'); }), ant = vers.filter(function (k) { return reached(k, 'antwort'); }), kund = allK().filter(function (k) { return k.status === 'kunde'; });
+    var kosten = allKamp().reduce(function (s, c) { return s + kampKosten(c).gesamt; }, 0);
+    $('a-kpis').innerHTML = [['Antwortquote', vers.length ? Math.round(ant.length / vers.length * 100) + ' %' : '–', ant.length + ' von ' + vers.length + ' Briefen'], ['Kosten je Antwort', ant.length ? eur(kosten / ant.length) : '–', 'Post gesamt ' + eur(kosten)], ['Kosten je Kunde', kund.length ? eur(kosten / kund.length) : '–', kund.length + ' Kunden'], ['Absagen', allK().filter(function (k) { return k.status === 'abgesagt'; }).length, 'ehrlich zählen']].map(function (t) { return '<div class="kpi"><span class="k">' + t[0] + '</span><span class="v">' + t[1] + '</span><span class="s">' + esc(t[2]) + '</span></div>'; }).join('');
+    $('a-tbody').innerHTML = allKamp().sort(function (a, b) { return (b.datum || '').localeCompare(a.datum || ''); }).map(function (c) {
+      var ks = allK().filter(function (k) { return k.kampagne === c.id; }), v = ks.filter(function (k) { return reached(k, 'versendet'); }).length, an = ks.filter(function (k) { return reached(k, 'angerufen'); }).length, a = ks.filter(function (k) { return reached(k, 'antwort'); }).length, p = ks.filter(function (k) { return reached(k, 'plan_erhalten'); }).length, u = ks.filter(function (k) { return k.status === 'kunde'; }).length, cost = kampKosten(c).gesamt;
+      return '<tr><td><b>' + esc(c.name) + '</b></td><td class="muted">' + fmtD(c.datum) + '</td><td class="num">' + v + '</td><td class="num">' + an + '</td><td class="num">' + a + '</td><td class="num">' + (v ? Math.round(a / v * 100) + ' %' : '–') + '</td><td class="num">' + p + '</td><td class="num">' + u + '</td><td class="num">' + eur(cost) + '</td><td class="num">' + (a ? eur(cost / a) : '–') + '</td><td class="num">' + (c.aufrufe || '–') + '</td><td class="num">' + (c.uploads || '–') + '</td></tr>';
+    }).join('') || '<tr><td colspan="12" class="muted">Noch keine Sendung.</td></tr>';
+    function group(field, el) {
+      var m = {}; allK().forEach(function (k) { var g = k[field] || 'ohne'; m[g] = m[g] || { n: 0, a: 0 }; m[g].n++; if (reached(k, 'antwort')) m[g].a++; });
+      var keys = Object.keys(m).sort(function (x, y) { return m[y].n - m[x].n; }), max = Math.max(1, m[keys[0]] ? m[keys[0]].n : 1);
+      $(el).innerHTML = keys.map(function (g) { return '<div class="frow"><span class="lbl">' + esc(g) + '</span><div class="bar" title="' + m[g].n + ' Kontakte, ' + m[g].a + ' Antworten"><i style="width:' + (m[g].n / max * 100) + '%"></i></div><span class="val">' + m[g].n + ' <small>' + m[g].a + ' A</small></span></div>'; }).join('') || '<span class="muted">Keine Daten.</span>';
+    }
+    group('typ', 'a-typ'); group('region', 'a-region');
+  }
+  function renderAll() { renderKpis(); renderKontakte(); renderKamp(); renderVorlagen(); renderMail(); renderAnalyse(); }
+
+  // ---------- Schublade ----------
+  var editing = null;
+  function openK(id) {
+    var k = id ? state.kontakte[id] : { id: uid('k_'), status: 'recherchiert', typ: 'Architekturbüro', log: [], created: new Date().toISOString() };
+    editing = JSON.parse(JSON.stringify(k));
+    $('d-title').textContent = id ? k.firma : 'Neuer Kontakt';
+    ['firma', 'anrede', 'name', 'strasse', 'plz_ort', 'region', 'email', 'telefon', 'notiz'].forEach(function (f) { $('d-' + f).value = k[f] || ''; });
+    $('d-web').value = k.web || ''; $('d-typ').value = k.typ || 'Architekturbüro'; $('d-status').value = k.status; $('d-kamp').value = k.kampagne || ''; $('d-einw').checked = !!k.einwilligung;
+    renderLog(); $('drawer').classList.add('on'); $('backdrop').classList.add('on'); $('d-firma').focus();
+  }
+  function renderLog() { $('d-log').innerHTML = (editing.log || []).slice().reverse().map(function (l) { return '<div><span>' + fmtD(l.ts) + '</span><b>' + esc(l.text) + '</b></div>'; }).join('') || '<span class="muted">Noch kein Eintrag.</span>'; }
+  function closeK() { $('drawer').classList.remove('on'); $('backdrop').classList.remove('on'); editing = null; }
+  $('d-close').addEventListener('click', closeK); $('backdrop').addEventListener('click', closeK);
+  $('d-logadd').addEventListener('click', function () { var t = $('d-logtext').value.trim(); if (!t || !editing) return; logK(editing, t); $('d-logtext').value = ''; renderLog(); });
+  $('d-save').addEventListener('click', function () {
+    if (!editing) return; var k = editing;
+    ['firma', 'anrede', 'name', 'strasse', 'plz_ort', 'region', 'email', 'telefon', 'notiz'].forEach(function (f) { k[f] = $('d-' + f).value.trim(); });
+    k.web = $('d-web').value.trim(); k.typ = $('d-typ').value; k.kampagne = $('d-kamp').value || ''; k.einwilligung = $('d-einw').checked;
+    if (!k.firma) { toast('Firma fehlt.'); return; }
+    var ns = $('d-status').value; if (ns !== k.status) { logK(k, 'Status: ' + SL[k.status] + ' → ' + SL[ns]); k.status = ns; }
+    write('kontakte', k.id, k).then(function () { toast('Gespeichert'); closeK(); });
+  });
+  $('d-delete').addEventListener('click', function () { if (!editing || !state.kontakte[editing.id]) { closeK(); return; } var id = editing.id; closeK(); remove('kontakte', id).then(function () { toast('Gelöscht'); }); });
+  document.addEventListener('click', function (e) {
+    var o = e.target.closest('[data-open]'); if (o) { openK(o.getAttribute('data-open')); return; }
+    var g = e.target.closest('[data-go]'); if (g) { showView(g.getAttribute('data-go')); if (g.getAttribute('data-go') === 'kontakte') openK(null); return; }
+    var m = e.target.closest('[data-mail]'); if (m) { pickMail(m.getAttribute('data-mail')); }
+  });
+
+  // ---------- Kontakte: Filter, Auswahl, Import, Export ----------
+  ['f-q', 'f-status', 'f-typ', 'f-region', 'f-kamp'].forEach(function (id) { $(id).addEventListener('input', renderKontakte); });
+  $('tbody').addEventListener('change', function (e) { var cb = e.target.closest('[data-sel]'); if (cb) { if (cb.checked) state.sel[cb.getAttribute('data-sel')] = 1; else delete state.sel[cb.getAttribute('data-sel')]; } });
+  $('sel-all').addEventListener('change', function () { var on = this.checked; filtered().forEach(function (k) { if (on) state.sel[k.id] = 1; else delete state.sel[k.id]; }); renderKontakte(); });
+  $('bulk-apply').addEventListener('click', function () {
+    var ids = Object.keys(state.sel).filter(function (id) { return state.kontakte[id]; }); if (!ids.length) { toast('Nichts markiert.'); return; }
+    var ns = $('bulk-status').value, nk = $('bulk-kamp').value, chain = Promise.resolve();
+    ids.forEach(function (id) { var k = JSON.parse(JSON.stringify(state.kontakte[id])); var ch = false;
+      if (ns && ns !== k.status) { logK(k, 'Status: ' + SL[k.status] + ' → ' + SL[ns]); k.status = ns; ch = true; }
+      if (nk && nk !== k.kampagne) { k.kampagne = nk; logK(k, 'Sendung: ' + (state.kampagnen[nk] || {}).name); if (k.status === 'recherchiert') k.status = 'ausgewaehlt'; ch = true; }
+      if (ch) chain = chain.then(function () { return write('kontakte', id, k); }); });
+    chain.then(function () { toast(ids.length + ' Kontakte aktualisiert'); state.sel = {}; $('bulk-status').value = ''; $('bulk-kamp').value = ''; });
+  });
+  $('btn-new').addEventListener('click', function () { openK(null); });
+  $('btn-import').addEventListener('click', function () {
+    var box = document.createElement('div'); box.className = 'card'; box.style.cssText = 'position:fixed;left:50%;top:10%;transform:translateX(-50%);width:min(760px,94vw);z-index:35';
+    box.innerHTML = '<h2>Liste einfügen</h2><p class="muted">Eine Zeile je Kontakt, Spalten mit Tab, Semikolon oder Komma. Reihenfolge: <span class="mono">firma; name; anrede; strasse; plz_ort; typ; region; email; telefon</span>. Eine Kopfzeile mit diesen Namen darf dabei sein.</p><textarea class="mono" id="imp-text" style="min-height:220px;margin:10px 0"></textarea><div class="row"><button class="btn primary small" id="imp-ok">Importieren</button><button class="btn small ghost" id="imp-x">Abbrechen</button></div>';
+    document.body.appendChild(box); $('backdrop').classList.add('on');
+    function close() { box.remove(); $('backdrop').classList.remove('on'); }
+    $('imp-x').addEventListener('click', close);
+    $('imp-ok').addEventListener('click', function () {
+      var lines = $('imp-text').value.split(/\r?\n/).filter(function (l) { return l.trim(); }); if (!lines.length) return;
+      var sep = lines[0].indexOf('\t') >= 0 ? '\t' : (lines[0].indexOf(';') >= 0 ? ';' : ',');
+      var cols = ['firma', 'name', 'anrede', 'strasse', 'plz_ort', 'typ', 'region', 'email', 'telefon'];
+      var first = lines[0].split(sep).map(function (s) { return s.trim().toLowerCase(); });
+      if (first.indexOf('firma') >= 0) { cols = first; lines.shift(); }
+      var chain = Promise.resolve(), n = 0;
+      lines.forEach(function (l) { var c = l.split(sep).map(function (s) { return s.trim().replace(/^"|"$/g, ''); }); var k = { id: uid('k_'), status: 'recherchiert', typ: 'Architekturbüro', log: [{ ts: new Date().toISOString(), text: 'Importiert' }], created: new Date().toISOString() };
+        cols.forEach(function (name, i) { if (c[i]) k[name] = c[i]; }); if (!k.firma) return; if (TYPEN.indexOf(k.typ) < 0) k.typ = 'Architekturbüro'; n++; chain = chain.then(function () { return write('kontakte', k.id, k); }); });
+      chain.then(function () { toast(n + ' Kontakte importiert'); close(); });
+    });
+  });
+  function exportCsv(list, name) {
+    if (!list.length) { toast('Keine Kontakte zum Exportieren.'); return; }
+    var q = function (s) { return '"' + String(s || '').replace(/"/g, '""') + '"'; };
+    var csv = 'anrede,name,firma,strasse,plz_ort,email,telefon\n' + list.map(function (k) { return [k.anrede || 'Sehr geehrte Damen und Herren,', k.name, k.firma, k.strasse, k.plz_ort, k.email, k.telefon].map(q).join(','); }).join('\n');
+    if (state.dl) state.dl.save({ filename: name, data: '﻿' + csv }).then(function () { toast('CSV gespeichert'); }).catch(function (e) { if (e && e.code !== 'declined') toast('Download nicht möglich: ' + (e.code || e)); });
+    else { navigator.clipboard && navigator.clipboard.writeText(csv).then(function () { toast('Download hier nicht möglich, CSV in die Zwischenablage kopiert'); }, function () { toast('Download hier nicht möglich'); }); }
+  }
+  $('btn-export').addEventListener('click', function () { var ids = Object.keys(state.sel); var list = ids.length ? ids.map(function (i) { return state.kontakte[i]; }).filter(Boolean) : filtered(); exportCsv(list, 'adressen.csv'); });
+
+  // ---------- Sendungen ----------
+  $('btn-newkamp').addEventListener('click', function () { var c = { id: uid('c_'), name: 'Welle ' + (allKamp().length + 1), datum: addDays(today(), 7), porto: 0.95, druck: 0.35, beilage: 0.45, umschlag: 0.12, created: new Date().toISOString() }; state.kamp = c.id; write('kampagnen', c.id, c).then(function () { showView('kampagne'); }); });
+  $('k-sel').addEventListener('change', function () { state.kamp = this.value; renderKamp(); });
+  ['k-porto', 'k-druck', 'k-beilage', 'k-umschlag'].forEach(function (id) { $(id).addEventListener('input', function () { var c = state.kampagnen[state.kamp]; if (!c) return; var t = JSON.parse(JSON.stringify(c)); t.porto = +$('k-porto').value; t.druck = +$('k-druck').value; t.beilage = +$('k-beilage').value; t.umschlag = +$('k-umschlag').value; var kk = kampKosten(t); $('k-cost').innerHTML = '<span>Briefe</span><span>' + kk.n + '</span><span>je Brief</span><span>' + eur(kk.je) + '</span><span>Telefon-Nachfassen (eigene Zeit)</span><span>' + Math.round(kk.n * 4) + ' min</span><span class="t">Gesamt</span><span class="t">' + eur(kk.gesamt) + '</span>'; }); });
+  $('k-save').addEventListener('click', function () { var c = state.kampagnen[state.kamp]; if (!c) return; c = JSON.parse(JSON.stringify(c)); c.name = $('k-name').value.trim() || c.name; c.datum = $('k-datum').value; c.porto = +$('k-porto').value; c.druck = +$('k-druck').value; c.beilage = +$('k-beilage').value; c.umschlag = +$('k-umschlag').value; c.aufrufe = +$('k-aufrufe').value || 0; c.uploads = +$('k-uploads').value || 0; c.notiz = $('k-notiz').value; write('kampagnen', c.id, c).then(function () { toast('Sendung gespeichert'); }); });
+  $('k-del').addEventListener('click', function () { var c = state.kampagnen[state.kamp]; if (!c) return; if (allK().some(function (k) { return k.kampagne === c.id; })) { toast('Erst die Kontakte aus der Sendung nehmen.'); return; } remove('kampagnen', c.id).then(function () { state.kamp = null; toast('Gelöscht'); }); });
+  function markKamp(status) { var c = state.kampagnen[state.kamp]; if (!c) return; var list = allK().filter(function (k) { return k.kampagne === c.id && ORDER[k.status] < ORDER[status]; }); var chain = Promise.resolve(); list.forEach(function (k) { var t = JSON.parse(JSON.stringify(k)); logK(t, 'Status: ' + SL[t.status] + ' → ' + SL[status] + ' (' + c.name + ')'); t.status = status; chain = chain.then(function () { return write('kontakte', t.id, t); }); }); chain.then(function () { toast(list.length + ' Kontakte → ' + SL[status]); }); }
+  $('k-mark-gedruckt').addEventListener('click', function () { markKamp('gedruckt'); });
+  $('k-mark-versendet').addEventListener('click', function () { markKamp('versendet'); });
+  $('k-export').addEventListener('click', function () { var c = state.kampagnen[state.kamp]; if (!c) return; exportCsv(allK().filter(function (k) { return k.kampagne === c.id; }), 'adressen-' + (c.name || 'sendung').toLowerCase().replace(/[^a-z0-9]+/g, '-') + '.csv'); });
+
+  // ---------- Vorlagen ----------
+  var DEFAULT_BRIEF = '{{anrede}}\n\nein Rohbau-Modell aus einem Grundriss nachzuzeichnen kostet in Ihrem Büro einen halben Tag. Ich habe ein System gebaut, das Ihren Zeichenstandard lernt und aus jedem Grundriss ein maßhaltiges 3D-Modell in Fusion 360 erzeugt: Bodenplatte, Wände, Öffnungen, Decke. Jede Achse nachgemessen, Export als .f3d und .step für jedes CAD.\n\nDamit das System Ihre Pläne sicher liest, brauche ich echte Pläne. Darum suche ich zehn Pilotbüros und biete Ihnen den Nachbau kostenlos an:\n\n– Sie schicken mir einen Grundriss, gern mit Schnitt. Zehn Minuten Aufwand.\n– Innerhalb von zwei Werktagen sage ich Ihnen, ob der Plan lesbar ist.\n– Innerhalb einer Woche bekommen Sie das Modell mit Erstellungsprotokoll und Maß-Verifikation je Achse. Stimmt ein Maß nicht, baue ich nach.\n\nPlatz einlösen: ganster.tech/post · Code {{code}} · reserviert bis {{frist}}\n\nNach der Beta kostet Matrix Architekt 300 € im Monat für beliebig viele Gebäude, Pilotbüros behalten dauerhaft einen vergünstigten Tarif. Ihre Pläne bleiben vertraulich, werden nicht weitergegeben und auf Wunsch gelöscht.\n\nMit freundlichen Grüßen\nTobias Ganster\n\nPS: Ich rufe Sie in den nächsten Tagen kurz an. Wenn Sie schneller sein wollen: Der QR-Code führt direkt zum Upload.';
+  var DEFAULT_MAIL = '{{anrede}}\n\nvielen Dank für Ihre Rückmeldung zu meinem Brief. Hier der direkte Weg zu Ihrem Beta-Platz:\n\n1. ganster.tech/post öffnen, Code {{code}} ist für {{firma}} reserviert.\n2. Mit E-Mail anmelden, Grundriss hochladen (PDF aus dem CAD reicht, gern mit Schnitt).\n3. Innerhalb von zwei Werktagen melde ich mich mit der Rückmeldung, ob der Plan lesbar ist.\n\nWenn Sie den Plan lieber direkt schicken: einfach an diese Mail antworten und anhängen.\n\nMit freundlichen Grüßen\nTobias Ganster\nMatrix Architekt · VIBELINK · ganster.tech';
+  ['t-brief', 't-brief-betreff', 't-mail', 't-mail-betreff'].forEach(function (id) { $(id).addEventListener('input', renderPreview); });
+  $('t-prev-kontakt').addEventListener('change', renderPreview); $('t-prev-art').addEventListener('change', renderPreview);
+  $('t-save').addEventListener('click', function () { Promise.all([write('vorlagen', 'brief', { betreff: $('t-brief-betreff').value, text: $('t-brief').value }), write('vorlagen', 'mail', { betreff: $('t-mail-betreff').value, text: $('t-mail').value })]).then(function () { toast('Vorlagen gespeichert'); }); });
+
+  // ---------- E-Mail ----------
+  function pickMail(id) { var k = state.kontakte[id]; if (!k) return; state.mailKontakt = id; $('m-an').value = k.email; var m = state.vorlagen.mail || {}; $('m-betreff').value = merge(m.betreff || $('t-mail-betreff').value, k); $('m-text').value = merge(m.text || $('t-mail').value, k); renderMail(); }
+  $('m-copy').addEventListener('click', function () { var t = 'Betreff: ' + $('m-betreff').value + '\n\n' + $('m-text').value; if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(function () { toast('Kopiert'); }, function () { toast('Bitte markieren und kopieren'); }); });
+  function noteSent(how) { var k = state.kontakte[state.mailKontakt]; if (!k) return; k = JSON.parse(JSON.stringify(k)); logK(k, 'E-Mail ' + how + ': ' + $('m-betreff').value.slice(0, 60)); write('kontakte', k.id, k).then(function () { toast('Im Verlauf eingetragen'); }); }
+  $('m-sent').addEventListener('click', function () { if (!state.mailKontakt) { toast('Erst Kontakt wählen.'); return; } noteSent('gesendet'); });
+  $('m-draft').addEventListener('click', function () {
+    var k = state.kontakte[state.mailKontakt]; if (!k || !state.mcp) return; var btn = this; btn.disabled = true;
+    state.mcp.callTool('Gmail', 'create_draft', { to: [k.email], subject: $('m-betreff').value, body: $('m-text').value }).then(function (r) {
+      btn.disabled = false; noteSent('als Gmail-Entwurf angelegt'); var p = r && r.payload; toast('Entwurf in Gmail angelegt' + (p && p.viewUrl ? '' : ''));
+      if (p && p.viewUrl) { var a = document.createElement('a'); a.href = p.viewUrl; a.target = '_blank'; a.rel = 'noopener'; a.textContent = 'Entwurf in Gmail öffnen'; a.className = 'btn small ghost'; $('m-hint').innerHTML = ''; $('m-hint').appendChild(a); }
+    }).catch(function (e) {
+      btn.disabled = false; var c = e && e.code;
+      $('m-hint').textContent = c === 'needs_reauth' ? 'Gmail neu verbinden: claude.ai → Einstellungen → Connectors.' : c === 'server_not_connected' ? 'Gmail in claude.ai → Einstellungen → Connectors hinzufügen.' : c === 'not_in_manifest' ? 'Gmail wurde für diese Seite nicht erlaubt.' : c === 'tool_error' ? 'Gmail meldet: ' + (e.message || '').slice(0, 120) : 'Entwurf konnte nicht angelegt werden (' + (c || 'Fehler') + '). Text kopieren und selbst senden.';
+    });
+  });
+
+  // ---------- Beispieldaten ----------
+  $('btn-demo').addEventListener('click', function () {
+    if (allK().length) { toast('Es gibt schon Kontakte. Beispieldaten nur bei leerer Liste.'); return; }
+    var c = { id: uid('c_'), name: 'Welle 1 · Beispiel', datum: addDays(today(), -9), porto: 0.95, druck: 0.35, beilage: 0.45, umschlag: 0.12, aufrufe: 14, uploads: 2, created: new Date().toISOString() };
+    var demo = [['Beispiel Architekten GmbH', 'Herr Max Beispiel', 'Sehr geehrter Herr Beispiel,', 'Musterstraße 12', '80331 München', 'Architekturbüro', 'Oberbayern', 'antwort', 'max@beispiel-architekten.example'], ['Muster Fertighaus', 'Frau Anna Muster', 'Sehr geehrte Frau Muster,', 'Werkweg 3', '85435 Erding', 'Fertighaus', 'Oberbayern', 'plan_erhalten', 'anna@muster-fertighaus.example'], ['Planwerk Nord', 'Herr Jan Nord', 'Sehr geehrter Herr Nord,', 'Hafenstraße 9', '20457 Hamburg', 'Planungsbüro', 'Hamburg', 'versendet', ''], ['Bauträger Süd AG', 'Frau Lena Süd', 'Sehr geehrte Frau Süd,', 'Allee 1', '70173 Stuttgart', 'Bauträger', 'Stuttgart', 'angerufen', ''], ['Studio Linie', 'Herr Tom Linie', 'Sehr geehrter Herr Linie,', 'Ring 22', '80469 München', 'Architekturbüro', 'Oberbayern', 'abgesagt', ''], ['Haus & Hof Planung', 'Frau Rita Hof', 'Sehr geehrte Frau Hof,', 'Dorfstraße 5', '83022 Rosenheim', 'Planungsbüro', 'Oberbayern', 'kunde', 'rita@hausundhof.example']];
+    var chain = write('kampagnen', c.id, c);
+    demo.forEach(function (d, i) { var k = { id: uid('k_'), firma: d[0], name: d[1], anrede: d[2], strasse: d[3], plz_ort: d[4], typ: d[5], region: d[6], status: d[7], email: d[8], kampagne: c.id, einwilligung: !!d[8], created: new Date().toISOString(), log: [{ ts: addDays(today(), -12 + i) + 'T09:00:00.000Z', text: 'Beispieldaten' }, { ts: addDays(today(), -8) + 'T09:00:00.000Z', text: 'Brief versendet (Beispiel)' }] }; chain = chain.then(function () { return write('kontakte', k.id, k); }); });
+    chain.then(function () { toast('Beispieldaten geladen. Zum Löschen jeden Kontakt öffnen und löschen.'); });
+  });
+
+  // ---------- Navigation ----------
+  function showView(v) { state.view = v; document.querySelectorAll('.view').forEach(function (s) { s.classList.toggle('on', s.id === 'v-' + v); }); document.querySelectorAll('.tab').forEach(function (t) { t.setAttribute('aria-selected', String(t.getAttribute('data-view') === v)); }); try { localStorage.setItem('ma_cockpit_view', v); } catch (e) {} }
+  document.querySelectorAll('.tab').forEach(function (t) { t.addEventListener('click', function () { showView(t.getAttribute('data-view')); }); });
+  try { var sv = localStorage.getItem('ma_cockpit_view'); if (sv && $('v-' + sv)) showView(sv); } catch (e) {}
+  fillSelect($('f-status'), STATUS, 'Alle Status'); fillSelect($('f-typ'), TYPEN.map(function (t) { return [t, t]; }), 'Alle Typen');
+  fillSelect($('bulk-status'), STATUS, 'Status setzen …'); fillSelect($('d-status'), STATUS); fillSelect($('d-typ'), TYPEN.map(function (t) { return [t, t]; }));
+  renderAll();
+
+  // ---------- Laufzeit: Speicher, Downloads, Gmail ----------
+  (function boot() {
+    if (!(window.claude && window.claude.use)) { $('db-state').textContent = 'nur dieser Browser'; try { var l = JSON.parse(localStorage.getItem('ma_cockpit') || '{}'); local = Object.assign(local, l); state.kontakte = local.kontakte || {}; state.kampagnen = local.kampagnen || {}; state.vorlagen = Object.assign({ brief: null, mail: null }, local.vorlagen || {}); } catch (e) {} renderAll(); $('mail-state').textContent = 'nicht verfügbar'; return; }
+    window.claude.use('db').then(function (db) {
+      if (!db) { $('db-state').textContent = 'nur dieser Browser'; try { var l = JSON.parse(localStorage.getItem('ma_cockpit') || '{}'); local = Object.assign(local, l); state.kontakte = local.kontakte || {}; state.kampagnen = local.kampagnen || {}; state.vorlagen = Object.assign({ brief: null, mail: null }, local.vorlagen || {}); } catch (e) {} renderAll(); return; }
+      state.db = db; $('db-state').textContent = 'verbunden';
+      db.collection('kontakte').onSnapshot(function (snap) { var m = {}; snap.docs.forEach(function (d) { if (d.exists) { var x = d.data(); x.id = d.id; m[d.id] = x; } }); state.kontakte = m; renderAll(); }, function (e) { $('db-state').textContent = 'Fehler ' + e.code; });
+      db.collection('kampagnen').onSnapshot(function (snap) { var m = {}; snap.docs.forEach(function (d) { if (d.exists) { var x = d.data(); x.id = d.id; m[d.id] = x; } }); state.kampagnen = m; renderAll(); }, function () {});
+      db.collection('vorlagen').onSnapshot(function (snap) { snap.docs.forEach(function (d) { if (d.exists) state.vorlagen[d.id] = d.data(); }); renderVorlagen(); }, function () {});
+    });
+    window.claude.use('downloads').then(function (dl) { state.dl = dl; });
+    window.claude.use('mcp').then(function (mcp) {
+      if (!mcp) { $('mail-state').textContent = 'nicht verfügbar'; renderMail(); return; }
+      state.mcp = mcp; $('mail-state').textContent = 'bereit (fragt beim ersten Entwurf)';
+      mcp.listTools('Gmail').then(function (r) { var s = r.servers && r.servers[0]; if (!s) { $('mail-state').textContent = 'Gmail nicht verbunden'; state.mcp = null; } else if (s.authStatus === 'needs_reauth') { $('mail-state').textContent = 'Gmail neu verbinden'; } renderMail(); }).catch(function () { renderMail(); });
+    });
+  })();
+})();
+</script>
