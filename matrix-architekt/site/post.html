@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Matrix Architekt Post</title>
+<meta name="description" content="Sie haben meinen Brief bekommen. Hier lösen Sie Ihren Beta-Platz ein: Grundriss hochladen, 3D-Rohbau in sieben Tagen, kostenlos.">
+<meta name="robots" content="noindex, follow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2316283f'/%3E%3Cpath d='M6 24V8h4l6 9 6-9h4v16h-4V15l-6 9-6-9v9z' fill='%23f6f8fa'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="fonts/fonts.css">
+<link rel="stylesheet" href="site.css">
+<style>
+.post-hero { padding-block: 44px 36px; border-top: 0; display: grid; gap: 20px; }
+.post-hero::before { display: none; }
+.code { display: inline-grid; grid-template-columns: auto auto; gap: 4px 14px; align-items: center; padding: 12px 18px; border: 2px dashed var(--red); font-family: var(--font-mono); }
+.code .k { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-2); }
+.code .v { font-family: var(--font-display); font-size: 1.6rem; font-weight: 700; color: var(--red); letter-spacing: 0.06em; }
+.steps3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; counter-reset: s; }
+.steps3 div { min-width: 0; padding-top: 14px; border-top: 3px solid var(--ink); display: grid; gap: 6px; }
+.steps3 div::before { counter-increment: s; content: counter(s, decimal-leading-zero); font-family: var(--font-display); font-size: 1.8rem; font-weight: 700; color: var(--red); line-height: 1; }
+.steps3 p { font-size: 0.98rem; color: var(--ink-2); }
+.deal2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.deal2 > div { min-width: 0; padding: 22px; border: 1px solid var(--rule); background: var(--paper-2); }
+.deal2 ul { margin: 10px 0 0; padding-left: 20px; display: grid; gap: 6px; }
+@media (max-width: 840px) { .steps3, .deal2 { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <a class="brand" href="index.html">Matrix Architekt <small>VIBELINK</small></a>
+  <a class="btn primary small" href="portal.html?ref=post" data-track="cta_click" data-pos="post-nav">Platz einlösen</a>
+</header>
+
+<section class="post-hero">
+  <span class="pill">Sie haben Post von mir · Beta-Platz reserviert</span>
+  <h1>Ihr Grundriss.<br>Als <span class="h-grid">3D-Rohbau.</span><br>In 7 Tagen.</h1>
+  <p class="lead">Danke, dass Sie den Brief aufgemacht haben. Das Angebot aus dem Brief gilt: Sie schicken mir einen Grundriss, ich baue daraus ein maßhaltiges 3D-Modell in Fusion 360. Kostenlos, als Pilotkunde der Beta.</p>
+  <div class="code"><span class="k">Ihr Code</span><span class="v" id="post-code">POST-10</span><span class="k">Gültig für</span><span class="v" style="font-size:1.1rem;color:var(--ink)">einen der 10 Pilotplätze</span></div>
+  <div class="cta-row">
+    <a class="btn primary" href="portal.html?ref=post" data-track="cta_click" data-pos="post-hero">Grundriss hochladen</a>
+    <a class="btn" href="index.html" data-track="cta_click" data-pos="post-more">Mehr über Matrix Architekt</a>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="eyebrow">So geht es</span><h2>Drei Schritte, zehn Minuten</h2></div>
+  <div class="steps3">
+    <div><h3>Mit E-Mail anmelden</h3><p>Kein Passwort. Sie bekommen einen Code per Mail und sind drin.</p></div>
+    <div><h3>Grundriss hochladen</h3><p>PDF aus Ihrem CAD reicht. Alle Geschosse, gern dazu ein Schnitt. Alle Pläne im selben Zeichenstil.</p></div>
+    <div><h3>Modell bekommen</h3><p>Innerhalb von zwei Werktagen Rückmeldung, das fertige Modell meist in einer Woche. Mit Maßprotokoll.</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="eyebrow">Der Deal</span><h2>Was Sie geben, was Sie bekommen</h2></div>
+  <div class="deal2">
+    <div><h3>Sie geben</h3><ul><li>Einen Grundriss vom kompletten Objekt, besser dazu einen Schnitt</li><li>Zwei Sätze zu Wandstärken und Geschosshöhe</li><li>Nach dem Bau zehn Minuten Feedback</li></ul></div>
+    <div><h3>Sie bekommen</h3><ul><li>Den Rohbau als Fusion-360-Modell und als STEP für jedes CAD</li><li>Ein Erstellungsprotokoll mit Maß-Verifikation je Achse</li><li>Dauerhaft vergünstigten Zugang nach der Beta</li></ul></div>
+  </div>
+  <p class="muted" style="margin-top:18px">Ihre Pläne bleiben vertraulich, werden nicht weitergegeben und auf Wunsch gelöscht. Details in der <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
+</section>
+
+<footer class="titleblock" aria-label="Schriftfeld">
+  <div class="tb"><span class="k">Projekt</span><span class="v">Matrix Architekt · Beta</span></div>
+  <div class="tb"><span class="k">Absender</span><span class="v">VIBELINK · Tobias Ganster</span></div>
+  <div class="tb"><span class="k">Kampagne</span><span class="v">Post</span></div>
+  <div class="tb"><span class="k">Stand</span><span class="v">2026-10</span></div>
+  <div class="tb"><span class="k">Blatt</span><span class="v">1 / 1</span></div>
+  <div class="tb links"><span class="k">Anhang</span><span class="v"><a href="index.html">Startseite</a> · <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></span></div>
+</footer>
+</div>
+<script src="config.js"></script>
+<script src="track.js"></script>
+<script>
+(function () {
+  // Herkunft merken: landet als "quelle" in der Einreichung im Kundenbereich
+  try { localStorage.setItem('ma_ref', 'post'); } catch (e) {}
+  if (window.MA) window.MA.track('post_landing', { code: document.getElementById('post-code').textContent });
+})();
+</script>
+</body>
+</html>

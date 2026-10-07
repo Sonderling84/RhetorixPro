@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Anschreiben</title>
+<style>
+@page { size: A4; margin: 0; }
+@font-face { font-family: 'Barlow Condensed'; font-weight: 700; src: url('../site/fonts/barlow-condensed-700.woff2') format('woff2'); }
+@font-face { font-family: 'Barlow Condensed'; font-weight: 600; src: url('../site/fonts/barlow-condensed-600.woff2') format('woff2'); }
+@font-face { font-family: 'IBM Plex Sans'; font-weight: 400 600; src: url('../site/fonts/ibm-plex-sans-var.woff2') format('woff2'); }
+@font-face { font-family: 'IBM Plex Mono'; font-weight: 400; src: url('../site/fonts/ibm-plex-mono-400.woff2') format('woff2'); }
+:root { --paper: #ffffff; --paper-3: #eef3fa; --blue: #11367a; --blue-2: #1a4a9c; --ink: #15213a; --muted: #5b6b85; --rule: #b9c6d6; --amber: #e39b1c; }
+* { box-sizing: border-box; }
+html, body { margin: 0; background: #fff; color: var(--ink); font-family: 'IBM Plex Sans', Arial, sans-serif; font-size: 10pt; line-height: 1.45; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.page { width: 210mm; height: 297mm; padding: 18mm 20mm 16mm 25mm; position: relative; overflow: hidden; page-break-after: always; }
+.page:last-child { page-break-after: auto; }
+/* Kopf: Blaupausen-Streifen */
+.head { position: absolute; top: 12mm; left: 25mm; right: 20mm; height: 24mm; display: grid; grid-template-columns: 1fr auto; gap: 10mm; align-items: end; border-bottom: 0.4mm solid var(--blue); padding-bottom: 3mm; }
+.brand { font-family: 'Barlow Condensed'; font-weight: 700; font-size: 20pt; color: var(--blue); letter-spacing: 0.01em; line-height: 1; }
+.brand small { display: block; font-family: 'IBM Plex Mono'; font-size: 7pt; letter-spacing: 0.18em; color: var(--muted); margin-top: 2mm; font-weight: 400; }
+.head .mini { width: 30mm; }
+.head .mini svg { width: 100%; height: auto; display: block; }
+.mini .cut { fill: #fff; stroke: var(--blue); stroke-width: 1; } .mini .dim { stroke: var(--muted); stroke-width: 1; fill: none; }
+.mini .dim-t { font-family: 'IBM Plex Mono'; font-size: 13px; fill: var(--muted); }
+.mini .slab { fill: #eef3fa; stroke: var(--blue); stroke-width: 1.2; } .mini .w-top { fill: #c9d8ee; stroke: var(--blue); stroke-width: 1.1; }
+.mini .w-l { fill: #f6f8fc; stroke: var(--blue); stroke-width: 1.1; } .mini .w-r { fill: #e3ebf7; stroke: var(--blue); stroke-width: 1.1; }
+/* Anschrift nach DIN 5008 (Fensterumschlag) */
+.sender { position: absolute; top: 46mm; left: 25mm; font-size: 7pt; color: var(--muted); border-bottom: 0.2mm solid var(--rule); padding-bottom: 1mm; width: 80mm; }
+.addr { position: absolute; top: 52mm; left: 25mm; width: 80mm; height: 32mm; font-size: 10.5pt; line-height: 1.4; }
+.meta { position: absolute; top: 52mm; right: 20mm; text-align: right; font-family: 'IBM Plex Mono'; font-size: 8pt; color: var(--muted); line-height: 1.7; }
+.meta b { color: var(--ink); font-weight: 400; }
+.body { position: absolute; top: 94mm; left: 25mm; right: 20mm; }
+.subject { font-family: 'Barlow Condensed'; font-weight: 700; font-size: 17pt; color: var(--blue); line-height: 1.15; margin: 0 0 5mm; text-transform: uppercase; }
+.body p { margin: 0 0 2.8mm; }
+.body ul { margin: 0 0 3.2mm; padding-left: 5mm; }
+.body li { margin-bottom: 1mm; }
+.offer { margin: 3mm 0; padding: 3mm 4.5mm; border: 0.3mm solid var(--blue); border-left: 1.2mm solid var(--amber); background: #f4f7fc; display: grid; grid-template-columns: 1fr auto; gap: 6mm; align-items: center; }
+.offer b { font-family: 'Barlow Condensed'; font-weight: 700; font-size: 14pt; color: var(--blue); display: block; line-height: 1.1; margin-bottom: 1mm; }
+.offer .q { width: 24mm; }
+.offer .q img { width: 100%; display: block; }
+.offer .u { font-family: 'IBM Plex Mono'; font-size: 8.5pt; color: var(--ink); }
+.sig { margin-top: 3mm; }
+.sig .n { font-family: 'Barlow Condensed'; font-weight: 600; font-size: 13pt; color: var(--blue); margin-top: 7mm; }
+.sig .t { font-size: 8.5pt; color: var(--muted); }
+.ps { margin-top: 3mm; font-size: 9pt; color: var(--ink); }
+.foot { position: absolute; left: 25mm; right: 20mm; bottom: 9mm; border-top: 0.2mm solid var(--rule); padding-top: 2mm; font-family: 'IBM Plex Mono'; font-size: 7pt; color: var(--muted); display: flex; justify-content: space-between; gap: 6mm; }
+.fold { position: absolute; left: 0; width: 5mm; height: 0.2mm; background: var(--rule); }
+</style>
+</head>
+<body>
+<div class="page">
+  <span class="fold" style="top:105mm"></span><span class="fold" style="top:210mm"></span>
+  <div class="head">
+    <div class="brand">Matrix Architekt<small>LESEN · PLANEN · BAUEN · VIBELINK</small></div>
+    <div class="mini">{{ISO}}</div>
+  </div>
+  <div class="sender">{{ABSENDER_ZEILE}}</div>
+  <div class="addr">{{FIRMA}}<br>{{NAME}}<br>{{STRASSE}}<br>{{PLZ_ORT}}</div>
+  <div class="meta">Beta-Programm<br>Code <b>POST-10</b><br>Ihr Platz: <b>reserviert bis {{FRIST}}</b><br>{{DATUM}}</div>
+
+  <div class="body">
+    <h1 class="subject">Ihr Grundriss als 3D-Rohbau. In sieben Tagen. Kostenlos.</h1>
+    <p>{{ANREDE}}</p>
+    <p>ein Rohbau-Modell aus einem Grundriss nachzuzeichnen kostet in Ihrem Büro einen halben Tag. Ich habe ein System gebaut, das Ihren Zeichenstandard lernt und aus jedem Grundriss ein maßhaltiges 3D-Modell in Fusion 360 erzeugt: Bodenplatte, Wände, Öffnungen, Decke. Jede Achse nachgemessen, Export als .f3d und .step für jedes CAD.</p>
+    <p>Damit das System Ihre Pläne sicher liest, brauche ich echte Pläne. Darum suche ich zehn Pilotbüros und biete Ihnen den Nachbau kostenlos an:</p>
+    <ul>
+      <li>Sie schicken mir einen Grundriss, gern mit Schnitt. Zehn Minuten Aufwand.</li>
+      <li>Innerhalb von zwei Werktagen sage ich Ihnen, ob der Plan lesbar ist.</li>
+      <li>Innerhalb einer Woche bekommen Sie das Modell mit Erstellungsprotokoll und Maß-Verifikation je Achse. Stimmt ein Maß nicht, baue ich nach.</li>
+    </ul>
+    <div class="offer">
+      <div><b>Platz einlösen: ganster.tech/post</b><span class="u">QR-Code scannen oder Adresse eingeben · Code POST-10 · gilt für einen der zehn Pilotplätze</span></div>
+      <div class="q"><img src="qr-post.png" alt="QR-Code zu ganster.tech/post"></div>
+    </div>
+    <p>Nach der Beta kostet Matrix Architekt 300 € im Monat für beliebig viele Gebäude, Pilotbüros behalten dauerhaft einen vergünstigten Tarif. Ihre Pläne bleiben vertraulich, werden nicht weitergegeben und auf Wunsch gelöscht.</p>
+    <div class="sig">
+      <p>Mit freundlichen Grüßen</p>
+      <div class="n">Tobias Ganster</div>
+      <div class="t">Entwickler Matrix Architekt · VIBELINK · {{KONTAKT_EMAIL}} · {{TELEFON}}</div>
+    </div>
+    <p class="ps"><b>PS:</b> Ich rufe Sie in den nächsten Tagen kurz an. Wenn Sie schneller sein wollen: Der QR-Code führt direkt zum Upload.</p>
+  </div>
+  <div class="foot"><span>{{ABSENDER_ZEILE}}</span><span>ganster.tech · Beta-Programm Matrix Architekt</span></div>
+</div>
+</body>
+</html>

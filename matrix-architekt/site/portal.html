@@ -307,7 +307,8 @@ input.code { font-family: var(--font-mono); font-size: 1.6rem; letter-spacing: 0
     if (!state.files.some(function (f) { return /^Grundriss/.test(f.art); })) { err('s3-err', 'Mindestens ein Plan muss ein Grundriss sein.'); return; }
     var btn = $('upload'); btn.disabled = true; btn.textContent = 'Lädt hoch …';
     var uid = state.user.id, stamp = new Date().toISOString().replace(/[:.]/g, '-');
-    var record = Object.assign({}, state.objekt, { email: state.user.email || '', dateien: [], status: 'neu' });
+    var quelle = (/[?&]ref=([^&]+)/.exec(location.search) || [])[1] || ''; try { quelle = quelle || localStorage.getItem('ma_ref') || ''; } catch (e) {}
+    var record = Object.assign({}, state.objekt, { email: state.user.email || '', quelle: quelle || 'direkt', dateien: [], status: 'neu' });
     var chain = Promise.resolve();
     state.files.forEach(function (it) {
       chain = chain.then(function () {

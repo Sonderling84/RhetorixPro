@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Beilage</title>
+<style>
+@page { size: A5 landscape; margin: 0; }
+@font-face { font-family: 'Barlow Condensed'; font-weight: 700; src: url('../site/fonts/barlow-condensed-700.woff2') format('woff2'); }
+@font-face { font-family: 'Barlow Condensed'; font-weight: 600; src: url('../site/fonts/barlow-condensed-600.woff2') format('woff2'); }
+@font-face { font-family: 'IBM Plex Sans'; font-weight: 400 600; src: url('../site/fonts/ibm-plex-sans-var.woff2') format('woff2'); }
+@font-face { font-family: 'IBM Plex Mono'; font-weight: 400 500; src: url('../site/fonts/ibm-plex-mono-400.woff2') format('woff2'); }
+:root { --paper: #11367a; --paper-2: #17428f; --paper-3: #0c2a62; --grid: rgba(200,225,255,0.12); --ink: #eef5ff; --ink-2: #aac6ec; --rule: #4a77b8; --line: #dcebff; --red: #ffc15c; --ok: #7be3ad; }
+* { box-sizing: border-box; }
+html, body { margin: 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.page { width: 210mm; height: 148mm; background: var(--paper); background-image: linear-gradient(var(--grid) 0.25mm, transparent 0.25mm), linear-gradient(90deg, var(--grid) 0.25mm, transparent 0.25mm); background-size: 6mm 6mm; color: var(--ink); font-family: 'IBM Plex Sans', Arial, sans-serif; padding: 9mm 10mm 8mm; position: relative; overflow: hidden; display: grid; grid-template-columns: 1fr 1.05fr; gap: 8mm; page-break-after: always; }
+.page:last-child { page-break-after: auto; }
+.left { display: grid; align-content: space-between; min-width: 0; }
+.kicker { font-family: 'IBM Plex Mono'; font-size: 7pt; letter-spacing: 0.22em; color: var(--ink-2); text-transform: uppercase; }
+h1 { font-family: 'Barlow Condensed'; font-weight: 700; font-size: 30pt; line-height: 0.98; margin: 3mm 0 4mm; text-transform: uppercase; letter-spacing: 0.01em; }
+h1 .o { color: transparent; -webkit-text-stroke: 0.35mm var(--line); }
+.lead { font-size: 9.2pt; line-height: 1.45; color: var(--ink-2); max-width: 62mm; margin: 0 0 4mm; }
+.steps { display: grid; gap: 2mm; font-size: 8.4pt; }
+.steps div { display: grid; grid-template-columns: 7mm 1fr; gap: 2mm; align-items: baseline; }
+.steps b { font-family: 'Barlow Condensed'; font-weight: 700; font-size: 13pt; color: var(--red); }
+.offer { margin-top: 4mm; display: grid; grid-template-columns: 22mm 1fr; gap: 4mm; align-items: center; padding: 3.5mm 4mm; border: 0.4mm dashed var(--red); }
+.offer img { width: 22mm; height: 22mm; display: block; background: #fff; padding: 1mm; }
+.offer .u { font-family: 'Barlow Condensed'; font-weight: 700; font-size: 15pt; line-height: 1; }
+.offer .c { font-family: 'IBM Plex Mono'; font-size: 7.5pt; color: var(--ink-2); margin-top: 1.5mm; line-height: 1.5; }
+.offer .c b { color: var(--red); font-weight: 500; }
+.right { display: grid; grid-template-rows: 1fr auto; gap: 3mm; min-width: 0; }
+.draw { border: 0.3mm solid var(--rule); background: var(--paper-2); padding: 3mm; display: grid; place-items: center; }
+.draw svg { width: 100%; height: auto; max-height: 92mm; }
+.draw .cut { fill: var(--paper-3); stroke: var(--line); stroke-width: 1; } .draw .dim { stroke: var(--ink-2); stroke-width: 1; fill: none; }
+.draw .dim-t { font-family: 'IBM Plex Mono'; font-size: 15px; fill: var(--ink); }
+.draw .slab { fill: rgba(215,232,251,0.06); stroke: var(--line); stroke-width: 1.2; } .draw .w-top { fill: rgba(215,232,251,0.26); stroke: var(--line); stroke-width: 1.1; }
+.draw .w-l { fill: rgba(215,232,251,0.05); stroke: var(--line); stroke-width: 1.1; } .draw .w-r { fill: rgba(215,232,251,0.12); stroke: var(--line); stroke-width: 1.1; }
+.tb { display: grid; grid-template-columns: repeat(4, 1fr); border: 0.3mm solid var(--rule); }
+.tb div { padding: 1.8mm 2.5mm; border-right: 0.3mm solid var(--rule); display: grid; gap: 0.5mm; min-width: 0; }
+.tb div:last-child { border-right: 0; }
+.tb .k { font-family: 'IBM Plex Mono'; font-size: 5.8pt; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-2); }
+.tb .v { font-family: 'Barlow Condensed'; font-weight: 600; font-size: 9.5pt; white-space: nowrap; }
+.tb .v.ok { color: var(--ok); }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="left">
+    <div>
+      <div class="kicker">Lesen · Planen · Bauen · Beta-Programm</div>
+      <h1>Ihr Grundriss.<br>Als <span class="o">3D-Rohbau.</span><br>In 7 Tagen.</h1>
+      <p class="lead">Matrix Architekt lernt Ihren Zeichenstandard und baut aus jedem Grundriss ein maßhaltiges Modell in Fusion 360. Für zehn Pilotbüros kostenlos.</p>
+      <div class="steps">
+        <div><b>01</b><span>Grundriss hochladen, gern mit Schnitt. Zehn Minuten.</span></div>
+        <div><b>02</b><span>Rückmeldung in zwei Werktagen, ob der Plan lesbar ist.</span></div>
+        <div><b>03</b><span>Modell als .f3d und .step, mit Maßprotokoll je Achse.</span></div>
+      </div>
+    </div>
+    <div class="offer">
+      <img src="qr-post.png" alt="QR-Code">
+      <div><div class="u">ganster.tech/post</div><div class="c">Code <b>POST-10</b> · einer von 10 Plätzen<br>Stimmt ein Maß nicht, baue ich nach.</div></div>
+    </div>
+  </div>
+  <div class="right">
+    <div class="draw">{{ISO}}</div>
+    <div class="tb">
+      <div><span class="k">Maße</span><span class="v">9,365 × 7,365 m</span></div>
+      <div><span class="k">Geschosse</span><span class="v">2 × 2,75 m</span></div>
+      <div><span class="k">Verifikation</span><span class="v ok">Diff 0,000</span></div>
+      <div><span class="k">Export</span><span class="v">.f3d · .step</span></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

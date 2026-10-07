@@ -1,0 +1,13 @@
+# Kurzadressen für Druck und Werbung
+RewriteEngine On
+RewriteRule ^post/?$ post.html [L]
+RewriteRule ^start/?$ portal.html [L]
+# Keine Verzeichnislisten
+Options -Indexes
+# Caching für Schriften und Medien
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 30 days"
+  ExpiresByType video/mp4 "access plus 30 days"
+</IfModule>

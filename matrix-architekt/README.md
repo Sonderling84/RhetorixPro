@@ -59,7 +59,7 @@ Im hPanel außerdem: SSL für ganster.tech aktivieren (Let's Encrypt, kostenlos)
      user_id uuid not null default auth.uid() references auth.users(id) on delete cascade,
      email text, objekt text not null, typ text, planstil text default 'unklar',
      geschosse int, wandstaerken text, notizen text,
-     blog_optin boolean default false, dateien jsonb default '[]'::jsonb,
+     blog_optin boolean default false, quelle text default 'direkt', dateien jsonb default '[]'::jsonb,
      status text default 'neu', created_at timestamptz default now()
    );
    alter table public.einreichungen enable row level security;
@@ -92,6 +92,13 @@ Keine Cookies, keine Drittanbieter. Events:
 | `mail_copy` | Mail-Adresse kopiert |
 
 n8n-Workflow dafür: Webhook (POST) → Set (Felder) → Google Sheets oder Drive-JSON, inaktiv anlegen, Sticky Notes, wie gewohnt.
+
+## Postkampagne
+
+`post/` enthält Anschreiben (DIN A4) und Blaupausen-Beilage (DIN A5 quer) als HTML-Vorlagen, den QR-Code
+auf `ganster.tech/post` und den Generator `post/briefe-generieren.js` (Node + Playwright), der aus `post/adressen.csv`
+personalisierte PDFs baut (Spalten: anrede, name, firma, strasse, plz_ort). Die Zielseite `site/post.html`
+setzt die Herkunft `post`, die im Kundenbereich als `quelle` mitgespeichert wird. Kurzadresse per `.htaccess`.
 
 ## Erkenntnis-Feed pflegen
 
