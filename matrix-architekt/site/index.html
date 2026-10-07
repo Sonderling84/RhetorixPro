@@ -178,6 +178,21 @@
 .calc .note { grid-column: 1 / -1; font-size: 0.8rem; color: var(--ink-2); }
 @media (max-width: 840px) { .price { grid-template-columns: 1fr; } .calc { grid-template-columns: 1fr; } .calc .bar { grid-template-columns: 110px 1fr auto; } }
 
+/* Vorher/Nachher-Schieberegler (zeigt sich, sobald ein Bildpaar in media/ liegt) */
+.cmp-grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
+.cmp { position: relative; border: 1px solid var(--rule); background: var(--paper-2); overflow: hidden; aspect-ratio: 16 / 9; max-width: 100%; user-select: none; touch-action: pan-y; }
+.cmp img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.cmp .after { clip-path: inset(0 0 0 50%); }
+.cmp .line { position: absolute; top: 0; bottom: 0; left: 50%; width: 2px; background: var(--red); transform: translateX(-1px); pointer-events: none; }
+.cmp .knob { position: absolute; top: 50%; left: 50%; width: 40px; height: 40px; border-radius: 50%; background: var(--red); color: #0a2140; transform: translate(-50%, -50%); display: grid; place-items: center; font-family: var(--font-mono); font-size: 0.8rem; font-weight: 500; pointer-events: none; box-shadow: 0 6px 20px -6px rgba(0,0,0,0.5); }
+.cmp .tag { position: absolute; top: 12px; padding: 3px 8px; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; background: rgba(10,33,64,0.75); color: var(--ink); pointer-events: none; }
+.cmp .tag.l { left: 12px; } .cmp .tag.r { right: 12px; }
+.cmp input[type="range"] { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: ew-resize; margin: 0; }
+.cmp-cap { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding: 10px 14px; border: 1px solid var(--rule); border-top: 0; background: var(--paper-2); font-family: var(--font-mono); font-size: 0.74rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-2); }
+.cmp-wrap { min-width: 0; }
+.cmp-wrap[hidden] { display: none; }
+@media (min-width: 841px) { .cmp-grid.two { grid-template-columns: 1fr 1fr; } }
+
 @media (max-width: 840px) {
   .hero, .deal, .portal, .who, .promise, .result { grid-template-columns: 1fr; }
   .drawings { grid-template-columns: 1fr; }
@@ -412,6 +427,46 @@
   </div>
 </section>
 
+<section id="vergleich" hidden>
+  <div class="sec-head">
+    <span class="eyebrow"><span class="sheet"></span>Vergleich</span>
+    <h2>Vorher, nachher. Schieb selbst.</h2>
+    <p>Links der Ausgangspunkt, rechts das Ergebnis aus Matrix Architekt. Gleiches Gebäude, gleiche Maße.</p>
+  </div>
+  <div class="cmp-grid" id="cmp-grid">
+    <div class="cmp-wrap" hidden>
+      <div class="cmp" id="cmp-1">
+        <img class="before" src="media/vergleich-1-vorher.jpg" alt="Bauplan">
+        <img class="after" src="media/vergleich-1-nachher.jpg" alt="3D-Modell">
+        <span class="tag l">Bauplan</span><span class="tag r">3D-Modell</span>
+        <span class="line"></span><span class="knob">&lt; &gt;</span>
+        <input type="range" min="0" max="100" value="50" aria-label="Vergleich schieben: Bauplan gegen 3D-Modell">
+      </div>
+      <div class="cmp-cap"><span>Vom Plan zum Rohbau</span><span>Schieben zum Vergleichen</span></div>
+    </div>
+    <div class="cmp-wrap" hidden>
+      <div class="cmp" id="cmp-2">
+        <img class="before" src="media/vergleich-2-vorher.jpg" alt="Agentur-Render">
+        <img class="after" src="media/vergleich-2-nachher.jpg" alt="Matrix Architekt">
+        <span class="tag l">Agentur-Render</span><span class="tag r">Matrix Architekt</span>
+        <span class="line"></span><span class="knob">&lt; &gt;</span>
+        <input type="range" min="0" max="100" value="50" aria-label="Vergleich schieben: Agentur-Render gegen Matrix Architekt">
+      </div>
+      <div class="cmp-cap"><span>Gleiches Haus, zwei Wege</span><span>Schieben zum Vergleichen</span></div>
+    </div>
+    <div class="cmp-wrap" hidden>
+      <div class="cmp" id="cmp-3">
+        <img class="before" src="media/vergleich-3-vorher.jpg" alt="Foto">
+        <img class="after" src="media/vergleich-3-nachher.jpg" alt="Modell">
+        <span class="tag l">Foto</span><span class="tag r">Modell</span>
+        <span class="line"></span><span class="knob">&lt; &gt;</span>
+        <input type="range" min="0" max="100" value="50" aria-label="Vergleich schieben: Foto gegen Modell">
+      </div>
+      <div class="cmp-cap"><span>Bestand nachgebaut</span><span>Schieben zum Vergleichen</span></div>
+    </div>
+  </div>
+</section>
+
 <section id="stile">
   <div class="sec-head">
     <span class="eyebrow"><span class="sheet"></span>Darstellung</span>
@@ -572,11 +627,8 @@
 (function () {
   var C = window.MA_CONFIG, $ = function (id) { return document.getElementById(id); };
   // Blattnummern wie in einem Plansatz: nur sichtbare Abschnitte zählen
-  var n = 0;
-  Array.prototype.forEach.call(document.querySelectorAll('section'), function (sec) {
-    var sh = sec.querySelector('.sheet'); if (!sh || sec.hidden) return;
-    n++; sh.textContent = 'Blatt ' + (n < 10 ? '0' + n : n) + ' · ';
-  });
+  function renumber() { var k = 0; Array.prototype.forEach.call(document.querySelectorAll('section'), function (sec) { var sh = sec.querySelector('.sheet'); if (!sh || sec.hidden) return; k++; sh.textContent = 'Blatt ' + (k < 10 ? '0' + k : k) + ' · '; }); }
+  renumber();
   // Konfigurierte Werte einsetzen
   $('addr').textContent = C.KONTAKT_EMAIL;
   $('p-builds').textContent = C.BUILDS_GESAMT;
@@ -586,6 +638,22 @@
   $('plaetze-text').textContent = frei > 0
     ? 'Die Beta hat ' + gesamt + ' Plätze, ' + frei + ' sind noch frei. Wer dabei ist, bekommt den Nachbau kostenlos und später dauerhaft vergünstigten Zugang.'
     : 'Alle ' + gesamt + ' Beta-Plätze sind vergeben. Trag dich trotzdem ein, dann kommst du auf die Warteliste und erfährst als Erster, wenn ein Platz frei wird.';
+
+  // Vorher/Nachher: Paare einblenden, deren beide Bilder existieren; Regler steuert die Maske
+  (function () {
+    var sec = $('vergleich'), wraps = sec.querySelectorAll('.cmp-wrap'), shown = 0, left = wraps.length;
+    Array.prototype.forEach.call(wraps, function (w) {
+      var imgs = w.querySelectorAll('img'), ok = 0, done = 0, after = w.querySelector('.after'), line = w.querySelector('.line'), knob = w.querySelector('.knob'), r = w.querySelector('input');
+      function set(v) { after.style.clipPath = 'inset(0 0 0 ' + v + '%)'; line.style.left = v + '%'; knob.style.left = v + '%'; }
+      r.addEventListener('input', function () { set(r.value); });
+      r.addEventListener('change', function () { if (window.MA) window.MA.track('compare_slide', { id: w.querySelector('.cmp').id }); });
+      function fin() { if (++done < 2) return; if (ok === 2) { w.hidden = false; shown++; } if (--left === 0 && shown) { sec.hidden = false; $('cmp-grid').classList.toggle('two', shown > 1); renumber(); } }
+      Array.prototype.forEach.call(imgs, function (im) {
+        im.addEventListener('load', function () { ok++; fin(); }); im.addEventListener('error', fin);
+        if (im.complete) { if (im.naturalWidth > 0) ok++; fin(); }
+      });
+    });
+  })();
 
   // Preisvergleich und Rechner
   var PM = C.PREIS_MONAT | 0, PE = C.MARKT_EINZELBILD | 0;
@@ -628,7 +696,6 @@
 
   // Galerie: nur zeigen, wenn mindestens ein Medium existiert
   var gal = $('einblicke'), medias = gal.querySelectorAll('.media'), pending = medias.length;
-  function renumber() { var k = 0; Array.prototype.forEach.call(document.querySelectorAll('section'), function (sec) { var sh = sec.querySelector('.sheet'); if (!sh || sec.hidden) return; k++; sh.textContent = 'Blatt ' + (k < 10 ? '0' + k : k) + ' · '; }); }
   function settle() { if (--pending > 0) return; if (gal.querySelectorAll('figure:not(.missing)').length) { gal.hidden = false; renumber(); } }
   Array.prototype.forEach.call(medias, function (m) {
     var fig = m.closest('figure');
