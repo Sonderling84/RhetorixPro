@@ -19,6 +19,8 @@ Mach danach das Bauplan-Standard-Paket für diese Fotos. Name: <Adresse>.
 6. **Abliefern:** die Blätter schicken (Stückliste über 30 MB → die JPG-Kopie). Dann `blueprint/<tag>/` committen, auf `claude/blueprint-eckhaus-1940` pushen und `bauplan_app/PAKETE-ABLEGEN.bat` um das Haus ergänzen.
 
 ## Regeln (Tobi, 12.10.2026)
+- **SCHNELLMODUS ist Standard:** keine Rückfragen und **nicht** das 5-Phasen-Protokoll (Erfassen/Rückfragen/Skizze/Abgleich/Freigabe). Alles aus den Fotos schätzen, Unsicheres als INFERIERT markieren und direkt das Paket liefern. Höchstens **eine** Rückfrage, und nur wenn ohne sie gar nichts geht (z. B. kein Foto). Tobi korrigiert danach anhand des Vergleichs-Blatts.
+- **Nur Skizze gewünscht** („nur die Bluescreen-Skizze“): Blätter 2 + 3 (Ansichten + 3D in Master Cyanotype), keine Nacht/kein Vergleich, wenn nicht verlangt.
 - **Paket:** 1 Stückliste, 2 Ansichten (S/W/O/N + Draufsicht), 3 3D vorne/hinten (Master Cyanotype `#0044B8`), 4 Nacht-Look (Neon dunkel), 5 Vergleich mit den Fotos, `ABSCHLUSS_<tag>.md` mit Zeit und Tokens.
 - **Geometrie:** Alles kommt aus derselben Geometrie (`haus.json` → Stückliste → Blender). Nichts frei malen.
 - **Objektnamen:** keine Namen mit „Strasse/Weg/Baum/Hecke/Rasen“, die Render-Skripte blenden sie aus.
