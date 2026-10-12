@@ -6,8 +6,8 @@ D, TAG = sys.argv[1:3]; START = float(sys.argv[3]) if len(sys.argv) > 3 else Non
 mt = lambda pat: [os.path.getmtime(f) for f in glob.glob(os.path.join(D, pat))]
 SCHRITTE = [('0 OpenRouter-Erkennung', ['haus_*.json']), ('1 Stückliste', ['stueckliste_*.json']),
             ('2 Blender-Modell', ['BAUPLAN_*.blend', '*.glb']), ('3 Linien-Ansichten', ['render/BP3D_*.png']),
-            ('4 Blätter 1–3', ['1_*.png', '2_*.png', '3_*.png']), ('5 Nacht-Look', ['render/NACHT_*.png']),
-            ('6 Nacht-Blatt', ['4_NACHT_*.png'])]
+            ('4 Nacht-Look', ['render/NACHT_*.png']), ('5 Blätter 1–3', ['1_*.png', '2_*.png', '3_*.png']),
+            ('6 Nacht-Blatt', ['4_NACHT_*.png']), ('7 Vergleich', ['5_VERGLEICH_*.png'])]   # Reihenfolge wie im Ablauf
 t_prev = START; zeilen = []
 for name, pats in SCHRITTE:
     ts = sum((mt(p) for p in pats), [])

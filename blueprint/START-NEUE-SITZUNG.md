@@ -1,11 +1,26 @@
-# Start-Text für eine neue Sitzung (einfach in die neue Sitzung einfügen und Fotos anhängen)
+# Start-Text für eine neue Sitzung
 
-> Mach mir das Bauplan-Standard-Paket für dieses Objekt nach `blueprint/bauplan_app/Bauplan-STANDARD-PAKET-2026-10-12.md`.
-> Einrichtung: `bash blueprint/setup_cloud.sh`. App-Skripte liegen in `blueprint/app_tools/`; Blender-Python ist `/tmp/bl/bin/python`; Builder: `app_tools/bauplan_builder_blender_b.py` mit `BAUPLAN_BOOL_SOLVER=MANIFOLD BAUPLAN_NO_PBR=1 BAUPLAN_OHNE_ALTERUNG=1`.
-> Erkennung: wenn `OPENROUTER_API_KEY` gesetzt ist, mit `bauplan_app/foto_zu_haus.py` (Modell `qwen/qwen3.7-plus`), sonst selbst aus den Fotos.
-> Mehrere Baukörper (Satellitenbild): `bauplan_app/anlage.py`, Beispiel `b268/v2/`.
-> Ausgabe: 1 Stückliste, 2 Ansichten, 3 3D vorne/hinten, 4 Nacht, 5 Vergleich mit den Fotos, `ABSCHLUSS_<tag>.md` mit Zeit und Tokens.
-> Ergebnis in `blueprint/<tag>/paket/` committen und auf den Branch `claude/blueprint-eckhaus-1940` pushen, dann `PAKETE-ABLEGEN.bat` um das Haus ergänzen.
-> Keine Objektnamen mit „Strasse/Weg/Baum/Hecke“ (werden in den Ansichten ausgeblendet). Vor jedem Lauf die Syntax geänderter Skripte prüfen.
+**Einfügen und Fotos anhängen** (am besten mehrere Seiten und ein Satellitenbild):
 
-**Ablauf:** Fotos (am besten mehrere plus Satellitenbild) → Erkennung → `haus.json` → Stückliste → Blender → 5 Blätter.
+```
+Wechsle auf den Branch claude/blueprint-eckhaus-1940 und lies blueprint/START-NEUE-SITZUNG.md.
+Mach danach das Bauplan-Standard-Paket für diese Fotos. Name: <Adresse>.
+```
+
+## Anleitung für Claude in der neuen Sitzung
+1. **Einrichten:** `bash blueprint/setup_cloud.sh` (ca. 1 min: Blender 5.2 als bpy, OpenCV).
+2. **Fotos ablegen:** nach `blueprint/<tag>/fotos/`, Satellitenbild als `*_satellit*.jpg`.
+3. **Erkennung:**
+   - Ist `OPENROUTER_API_KEY` gesetzt → direkt `bash blueprint/paket_cloud.sh <tag> blueprint/<tag>/fotos "<TITEL>"` (Qwen `qwen/qwen3.7-plus`).
+   - Sonst selbst `blueprint/<tag>/haus_<tag>.json` schreiben (Vorlagen: `beethoven9/haus_beethoven9.json`, Schema in `app_tools/bauplan_stueckliste.py`). Vorher im Drive nach einem App-Lauf zur Adresse suchen (`haus.json`, `SKIZZE_*`).
+   - **Mehrere Baukörper / Wohnanlage:** Lageplan aus dem Satellitenbild, `anlage_<tag>.json` wie `b268/v2/b268_v2.py` → `anlage.py`.
+4. **Paket bauen:** `bash blueprint/paket_cloud.sh <tag> <haus_*.json | anlage_*.json> "<TITEL>" blueprint/<tag>/fotos` (ca. 2–4 min).
+5. **Prüfen:** `5_VERGLEICH` ansehen und Abweichungen ehrlich nennen.
+6. **Abliefern:** die Blätter schicken (Stückliste über 30 MB → die JPG-Kopie). Dann `blueprint/<tag>/` committen, auf `claude/blueprint-eckhaus-1940` pushen und `bauplan_app/PAKETE-ABLEGEN.bat` um das Haus ergänzen.
+
+## Regeln (Tobi, 12.10.2026)
+- **Paket:** 1 Stückliste, 2 Ansichten (S/W/O/N + Draufsicht), 3 3D vorne/hinten (Master Cyanotype `#0044B8`), 4 Nacht-Look (Neon dunkel), 5 Vergleich mit den Fotos, `ABSCHLUSS_<tag>.md` mit Zeit und Tokens.
+- **Geometrie:** Alles kommt aus derselben Geometrie (`haus.json` → Stückliste → Blender). Nichts frei malen.
+- **Objektnamen:** keine Namen mit „Strasse/Weg/Baum/Hecke/Rasen“, die Render-Skripte blenden sie aus.
+- **Syntax:** Vor jedem Lauf die geänderten Skripte prüfen (`python3 -c "import ast;…"`).
+- **Inferiert:** Was man nicht sieht, wird als INFERIERT markiert.
