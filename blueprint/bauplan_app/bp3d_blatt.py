@@ -27,8 +27,15 @@ def kachel(key):
     if STIL == 'neon':
         return Image.open(os.path.join(D_, f'NEONGLOW_{key}_{TAG}.png')).convert('RGB')
     g = np.asarray(Image.open(os.path.join(D_, f'BP3D_{key}_{TAG}.png')).convert('L')).astype(np.float32) / 255
-    base = np.array(BG, np.float32) / 255
-    out = base * (1 - g[..., None]) + np.array([1, 1, 1], np.float32) * g[..., None]
+    h, w = g.shape
+    base = np.empty((h, w, 3), np.float32); base[:] = np.array(BG, np.float32) / 255
+    # feines Zeichenraster (Master Cyanotype)
+    ras = np.zeros((h, w), np.float32); ras[:, ::40] = 1; ras[::40, :] = 1; ras[:, ::200] = 2; ras[::200, :] = 2
+    base += (ras * 0.045)[..., None]
+    # sichtbar (hell) = reinweiss, verdeckt (grau) = helles Kobalt
+    sicht = np.clip((g - 0.55) / 0.35, 0, 1); verd = np.clip(g / 0.42, 0, 1) * (1 - sicht)
+    out = base * (1 - verd[..., None] * 0.55) + np.array([0.55, 0.72, 1.0], np.float32) * verd[..., None] * 0.55
+    out = out * (1 - sicht[..., None]) + np.array([1, 1, 1], np.float32) * sicht[..., None]
     return Image.fromarray((np.clip(out, 0, 1) * 255).astype(np.uint8))
 
 
@@ -70,4 +77,15 @@ for j, (k, v) in enumerate(rows_):
     yy = y + 92 + j * 68
     d.line([x + 20, yy - 8, x + TW - 20, yy - 8], fill=SOFT, width=1)
     d.text((x + 24, yy), k, font=fk, fill=SOFT); d.text((x + 24, yy + 20), v, font=fv, fill=TXT)
+if STIL != 'neon':   # Sonnendruck-Papier: Flecken, Korn, Vignette
+    import cv2
+    a = np.asarray(sheet).astype(np.float32) / 255; hh, ww = a.shape[:2]; rng = np.random.default_rng(7)
+    n = cv2.resize(rng.random((hh // 120 + 2, ww // 120 + 2)).astype(np.float32), (ww, hh), interpolation=cv2.INTER_CUBIC)
+    n = cv2.GaussianBlur(n, (0, 0), 60) - 0.5
+    hell = a.min(axis=2, keepdims=True) > 0.85            # weisse Linien/Text bleiben rein
+    yy, xx = np.mgrid[0:hh, 0:ww]
+    vig = 1 - 0.18 * (((xx - ww / 2) / (ww / 2)) ** 2 + ((yy - hh / 2) / (hh / 2)) ** 2) / 2
+    b = a * (1 + 0.25 * n)[..., None] * vig[..., None] + rng.normal(0, 0.02, (hh, ww, 1)).astype(np.float32)
+    a = np.where(hell, a, b)
+    sheet = Image.fromarray((np.clip(a, 0, 1) * 255).astype(np.uint8))
 sheet.save(OUT); print('OK', OUT, sheet.size)
