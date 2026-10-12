@@ -57,11 +57,14 @@ echo [5/6] Blaetter
 "%PY%" "%TOOLS%paket_blaetter.py" "%OUT%\render" "%OUT%\stueckliste_%TAG%.json" %TAG% "%OUT%" "%TITEL%" || exit /b 1
 "%PY%" "%TOOLS%nacht_blatt.py" "%OUT%\render" %TAG% "%OUT%\4_NACHT_%TAG%.png" || exit /b 1
 
+echo Abschluss: Zeit je Schritt + Token-Verbrauch
+"%PY%" "%TOOLS%abschluss.py" "%OUT%" %TAG%
 echo [6/6] Ablage: Katalog + Asset-Bibliothek
 set ZIEL=%KATALOG%\Haus_%TAG%
 if not exist "%ZIEL%" mkdir "%ZIEL%"
 copy /y "%OUT%\*.png" "%ZIEL%\" >nul
 copy /y "%OUT%\*.json" "%ZIEL%\" >nul
+copy /y "%OUT%\ABSCHLUSS_%TAG%.md" "%ZIEL%\" >nul
 copy /y "%HAUS%" "%ZIEL%\" >nul
 copy /y "%OUT%\%TAG%.glb" "%ZIEL%\" >nul
 copy /y "%OUT%\BAUPLAN_%TAG%.blend" "%ZIEL%\" >nul

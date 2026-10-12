@@ -6,7 +6,7 @@
 # Aufruf:  python foto_zu_haus.py <foto | ordner | foto1,foto2,...> <tag> <out_haus.json> ["Hinweise vom Kunden"]
 #   Mehrere Fotos (vorne, Seite, hinten) werden zusammen an das Modell geschickt -> weniger INFERIERT.
 # Umgebung: OPENROUTER_API_KEY (Pflicht), OPENROUTER_MODEL (Standard google/gemini-2.5-flash)
-import sys, os, json, base64, mimetypes, urllib.request, glob
+import sys, os, json, base64, mimetypes, urllib.request, glob, time
 
 FOTO, TAG, OUT = sys.argv[1:4]
 HINWEIS = sys.argv[4] if len(sys.argv) > 4 else ''
@@ -47,7 +47,7 @@ def bild(foto):
 
 
 def frage(fotos):
-    body = {'model': MODELL, 'temperature': 0.1, 'response_format': {'type': 'json_object'},
+    body = {'model': MODELL, 'temperature': 0.1, 'response_format': {'type': 'json_object'}, 'usage': {'include': True},
             'messages': [{'role': 'system', 'content': 'Du bist Architekt und vermisst Gebaeude aus Fotos fuer einen Bauplan. ' + SCHEMA},
                          {'role': 'user', 'content': [
                              {'type': 'text', 'text': ('Vermiss dieses Gebaeude.' if len(fotos) == 1 else
@@ -57,7 +57,10 @@ def frage(fotos):
     rq = urllib.request.Request('https://openrouter.ai/api/v1/chat/completions', data=json.dumps(body).encode(),
                                 headers={'Authorization': f'Bearer {KEY}', 'Content-Type': 'application/json',
                                          'X-Title': 'Bauplan-App foto_zu_haus'})
-    r = json.load(urllib.request.urlopen(rq, timeout=180))
+    t0 = time.time(); r = json.load(urllib.request.urlopen(rq, timeout=180)); dt = round(time.time() - t0, 1)
+    global VERBRAUCH; u = r.get('usage') or {}
+    VERBRAUCH = {'modell': r.get('model', MODELL), 'sekunden': dt, 'prompt_tokens': u.get('prompt_tokens'),
+                 'completion_tokens': u.get('completion_tokens'), 'tokens_gesamt': u.get('total_tokens'), 'kosten_usd': u.get('cost')}
     txt = r['choices'][0]['message']['content'].strip()
     if txt.startswith('```'): txt = txt.split('\n', 1)[1].rsplit('```', 1)[0]
     return json.loads(txt), r.get('model', MODELL)
@@ -116,6 +119,8 @@ if __name__ == '__main__':
     H = normalisieren(K, modell)
     json.dump(H, open(OUT, 'w', encoding='utf-8'), indent=1, ensure_ascii=False)
     json.dump(K, open(OUT.replace('.json', '_openrouter_roh.json'), 'w', encoding='utf-8'), indent=1, ensure_ascii=False)
+    json.dump(VERBRAUCH, open(os.path.join(os.path.dirname(os.path.abspath(OUT)), 'verbrauch_openrouter.json'), 'w', encoding='utf-8'), indent=1)
+    print('VERBRAUCH', VERBRAUCH)
     print(f"HAUS {TAG}: {H['breite_cm']}x{H['tiefe_cm']} cm, {H['geschosse']} Geschosse, Dach {H['dach']['typ']}, "
           f"{len(H['oeffnungen'])} Oeffnungen  ({len(FOTOS)} Foto(s), Modell {modell})")
     print('Begruendung:', K.get('begruendung', ''))
