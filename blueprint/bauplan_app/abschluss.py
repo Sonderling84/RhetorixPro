@@ -14,7 +14,7 @@ for name, pats in SCHRITTE:
     if not ts: continue
     ende = max(ts)
     if t_prev is None: t_prev = min(ts)
-    zeilen.append((name, max(0, ende - t_prev))); t_prev = ende
+    zeilen.append((name, max(0, ende - t_prev))); t_prev = max(t_prev, ende)   # aeltere Dateien (z. B. kopierte Stueckliste) zaehlen nicht rueckwaerts
 gesamt = sum(z[1] for z in zeilen)
 V = {}
 for f in ('verbrauch_openrouter.json', 'verbrauch_claude.json'):

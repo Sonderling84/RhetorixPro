@@ -55,7 +55,7 @@ set NACHT_KAMERAS=ecke,iso_sw,vogel,iso_no
 
 echo [5/6] Blaetter
 "%PY%" "%TOOLS%paket_blaetter.py" "%OUT%\render" "%OUT%\stueckliste_%TAG%.json" %TAG% "%OUT%" "%TITEL%" || exit /b 1
-"%PY%" "%TOOLS%nacht_blatt.py" "%OUT%\render" %TAG% "%OUT%\4_NACHT_%TAG%.png" || exit /b 1
+"%PY%" "%TOOLS%nacht_blatt.py" "%OUT%\render" %TAG% "%OUT%\4_NACHT_%TAG%.png" "%TITEL%" "%OUT%\stueckliste_%TAG%.json" || exit /b 1
 
 echo Abschluss: Zeit je Schritt + Token-Verbrauch
 "%PY%" "%TOOLS%abschluss.py" "%OUT%" %TAG%

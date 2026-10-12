@@ -1,12 +1,17 @@
 # -*- coding: utf-8 -*-
 # NACHT-BLATT: Bloom auf die Nacht-Renders (leuchtende Fenster/Kanten) + 2x2-Planblatt.
-# Aufruf: python nacht_blatt.py <dir> <tag> <out.png>
+# Aufruf: python nacht_blatt.py <dir> <tag> <out.png> ["TITEL"] [stueckliste.json]
 import sys, os
 import cv2
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 
 D_, TAG, OUT = sys.argv[1:4]
+TITEL = sys.argv[4] if len(sys.argv) > 4 else TAG.upper()
+import json
+_SL = json.load(open(sys.argv[5], encoding='utf-8')) if len(sys.argv) > 5 else {'meta': {}, 'teile': []}
+_M = _SL['meta']; N_TEILE = len(_SL['teile'])
+MASSE = (f"{_M['breite_cm'] / 100:.2f} × {_M['tiefe_cm'] / 100:.2f} m · {_M['geschosse']} Geschoss" + ('e' if _M['geschosse'] > 1 else '')).replace('.', ',') if _M.get('breite_cm') else '–'
 def _font(*namen):   # Linux (DejaVu) oder Windows (Arial/Consolas)
     for n in namen:
         for d in ('/usr/share/fonts/truetype/dejavu/', 'C:/Windows/Fonts/'):
@@ -32,8 +37,8 @@ TW, TH, GAP, M = 1200, 900, 30, 60
 W = M * 2 + 2 * TW + GAP; H = 190 + 2 * (TH + 50) + GAP + 150
 sheet = Image.new('RGB', (W, H), BG); d = ImageDraw.Draw(sheet)
 d.rectangle([18, 18, W - 19, H - 19], outline=LINE, width=3); d.rectangle([30, 30, W - 31, H - 31], outline=SOFT, width=1)
-d.text((M, 60), 'ECKGEBÄUDE 1940 · NACHT', font=ImageFont.truetype(FB, 60), fill=TXT)
-d.text((M + 2, 134), 'Aus dem Bauplan-Modell (318 Teile) · dunkle Fassade, leuchtende Fenster, Cyan-Kanten',
+d.text((M, 60), f'{TITEL} · NACHT', font=ImageFont.truetype(FB, 60), fill=TXT)
+d.text((M + 2, 134), f'Aus dem Bauplan-Modell ({N_TEILE} Teile) · dunkle Fassade, leuchtende Fenster, Cyan-Kanten',
        font=ImageFont.truetype(F, 26), fill=SOFT)
 for i, (key, titel) in enumerate(ANS):
     r, c = divmod(i, 2); x = M + c * (TW + GAP); y = 190 + r * (TH + 50 + GAP)
@@ -44,8 +49,8 @@ for i, (key, titel) in enumerate(ANS):
 y = H - 130
 d.line([M, y, W - M, y], fill=SOFT, width=1)
 fk, fv = ImageFont.truetype(F, 16), ImageFont.truetype(FB, 24)
-for j, (k, v) in enumerate([('PROJEKT', 'Wohn- & Geschäftshaus 1940'), ('MASSE', '18,00 × 12,00 m · 2 Geschosse'),
-                            ('KETTE', 'haus.json → Stückliste → Blender'), ('STIL', 'Neon dunkel (Vorlage Tobi)'), ('DATUM', '12.10.2026')]):
+for j, (k, v) in enumerate([('PROJEKT', (_M.get('name') or TITEL)[:34]), ('MASSE', MASSE),
+                            ('KETTE', 'haus.json → Stückliste → Blender'), ('STIL', 'Neon dunkel (Vorlage Tobi)'), ('DATUM', __import__('time').strftime('%d.%m.%Y'))]):
     x = M + j * (W - 2 * M) // 5
     d.text((x, y + 20), k, font=fk, fill=SOFT); d.text((x, y + 44), v, font=fv, fill=TXT)
 sheet.save(OUT); print('OK', OUT, sheet.size)
