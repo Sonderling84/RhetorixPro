@@ -3,9 +3,10 @@
 # Das Modell liest das Foto und fuellt die Hausbeschreibung im Schema von bauplan_stueckliste.py.
 # Danach prueft und normalisiert dieser Code alles (Grenzen, Pflichtfelder, Oeffnungen innerhalb der Wand),
 # damit die Stueckliste nie an einer KI-Antwort scheitert.
-# Aufruf:  python foto_zu_haus.py <foto.jpg|png> <tag> <out_haus.json> ["Hinweise vom Kunden"]
+# Aufruf:  python foto_zu_haus.py <foto | ordner | foto1,foto2,...> <tag> <out_haus.json> ["Hinweise vom Kunden"]
+#   Mehrere Fotos (vorne, Seite, hinten) werden zusammen an das Modell geschickt -> weniger INFERIERT.
 # Umgebung: OPENROUTER_API_KEY (Pflicht), OPENROUTER_MODEL (Standard google/gemini-2.5-flash)
-import sys, os, json, base64, mimetypes, urllib.request
+import sys, os, json, base64, mimetypes, urllib.request, glob
 
 FOTO, TAG, OUT = sys.argv[1:4]
 HINWEIS = sys.argv[4] if len(sys.argv) > 4 else ''
@@ -34,14 +35,25 @@ Oeffnungen, die du im Foto siehst: sichtbar=true. Fuer Seiten, die man nicht sie
 Jede Fassade braucht Fenster in jedem Geschoss. Keine Oeffnung darf ueber die Wand hinausragen."""
 
 
-def frage(foto):
+def fotos_von(arg):
+    if os.path.isdir(arg):
+        return sorted(f for f in glob.glob(os.path.join(arg, '*')) if f.lower().endswith(('.jpg', '.jpeg', '.png', '.webp')))
+    return [f for f in arg.split(',') if f]
+
+
+def bild(foto):
     mt = mimetypes.guess_type(foto)[0] or 'image/jpeg'
-    b64 = base64.b64encode(open(foto, 'rb').read()).decode()
+    return {'type': 'image_url', 'image_url': {'url': f"data:{mt};base64,{base64.b64encode(open(foto, 'rb').read()).decode()}"}}
+
+
+def frage(fotos):
     body = {'model': MODELL, 'temperature': 0.1, 'response_format': {'type': 'json_object'},
             'messages': [{'role': 'system', 'content': 'Du bist Architekt und vermisst Gebaeude aus Fotos fuer einen Bauplan. ' + SCHEMA},
                          {'role': 'user', 'content': [
-                             {'type': 'text', 'text': 'Vermiss dieses Gebaeude.' + (' Hinweise vom Kunden: ' + HINWEIS if HINWEIS else '')},
-                             {'type': 'image_url', 'image_url': {'url': f'data:{mt};base64,{b64}'}}]}]}
+                             {'type': 'text', 'text': ('Vermiss dieses Gebaeude.' if len(fotos) == 1 else
+                                 f'Vermiss dieses Gebaeude. Es gibt {len(fotos)} Fotos desselben Hauses aus verschiedenen Richtungen; '
+                                 'Foto 1 zeigt die Front (S). Ordne die anderen Fotos den Seiten W/E/N zu und markiere dort Gesehenes als sichtbar=true.')
+                              + (' Hinweise vom Kunden: ' + HINWEIS if HINWEIS else '')}] + [bild(f) for f in fotos]}]}
     rq = urllib.request.Request('https://openrouter.ai/api/v1/chat/completions', data=json.dumps(body).encode(),
                                 headers={'Authorization': f'Bearer {KEY}', 'Content-Type': 'application/json',
                                          'X-Title': 'Bauplan-App foto_zu_haus'})
@@ -98,10 +110,12 @@ def normalisieren(K, modell):
 
 
 if __name__ == '__main__':
-    K, modell = frage(FOTO)
+    FOTOS = fotos_von(FOTO)
+    if not FOTOS: sys.exit('kein Foto gefunden: ' + FOTO)
+    K, modell = frage(FOTOS)
     H = normalisieren(K, modell)
     json.dump(H, open(OUT, 'w', encoding='utf-8'), indent=1, ensure_ascii=False)
     json.dump(K, open(OUT.replace('.json', '_openrouter_roh.json'), 'w', encoding='utf-8'), indent=1, ensure_ascii=False)
     print(f"HAUS {TAG}: {H['breite_cm']}x{H['tiefe_cm']} cm, {H['geschosse']} Geschosse, Dach {H['dach']['typ']}, "
-          f"{len(H['oeffnungen'])} Oeffnungen  (Modell {modell})")
+          f"{len(H['oeffnungen'])} Oeffnungen  ({len(FOTOS)} Foto(s), Modell {modell})")
     print('Begruendung:', K.get('begruendung', ''))
