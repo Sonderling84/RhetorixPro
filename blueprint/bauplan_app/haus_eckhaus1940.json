@@ -1,0 +1,352 @@
+{
+ "meta": {
+  "name": "Eckgebaeude Geschaeftshaus um 1940",
+  "kennung": "eckhaus1940",
+  "vorlage": "foto_referenz",
+  "adresse": "fiktiv",
+  "fiktiv": true,
+  "materialien": {
+   "fassade": "Klinker rot",
+   "dach": "Bitumen",
+   "fenster": "Holz dunkel",
+   "tuer": "Holz"
+  }
+ },
+ "breite_cm": 1800,
+ "tiefe_cm": 1200,
+ "geschosse": 2,
+ "geschosshoehe_cm": 400,
+ "deckenstaerke_cm": 30,
+ "aussenwand_cm": 45,
+ "sockel_cm": 50,
+ "dach": {
+  "typ": "flach",
+  "attika_cm": 130,
+  "ueberstand_cm": 0
+ },
+ "oeffnungen": [
+  {
+   "seite": "S",
+   "geschoss": 0,
+   "typ": "glasfront",
+   "pos_cm": 285,
+   "b_cm": 330,
+   "h_cm": 300,
+   "bruestung_cm": 45,
+   "quelle": "Foto 1940 erkannt (Eckhaus, geschaetzt)",
+   "rollladen": 0.0
+  },
+  {
+   "seite": "S",
+   "geschoss": 0,
+   "typ": "glasfront",
+   "pos_cm": 1105,
+   "b_cm": 330,
+   "h_cm": 300,
+   "bruestung_cm": 45,
+   "quelle": "Foto 1940 erkannt (Eckhaus, geschaetzt)",
+   "rollladen": 0.0
+  },
+  {
+   "seite": "S",
+   "geschoss": 0,
+   "typ": "glasfront",
+   "pos_cm": 1515,
+   "b_cm": 330,
+   "h_cm": 300,
+   "bruestung_cm": 45,
+   "quelle": "Foto 1940 erkannt (Eckhaus, geschaetzt)",
+   "rollladen": 0.0
+  },
+  {
+   "seite": "S",
+   "geschoss": 0,
+   "typ": "glasfront",
+   "pos_cm": 545,
+   "b_cm": 120,
+   "h_cm": 300,
+   "bruestung_cm": 45,
+   "quelle": "Foto 1940 erkannt (Eckhaus, geschaetzt)",
+   "rollladen": 0.0
+  },
+  {
+   "seite": "S",
+   "geschoss": 0,
+   "typ": "haustuer",
+   "pos_cm": 695,
+   "b_cm": 120,
+   "h_cm": 290,
+   "bruestung_cm": 0,
+   "quelle": "Foto 1940 erkannt (Eckhaus, geschaetzt)",
+   "rollladen": 0.0
+  },
+  {
+   "seite": "S",
+   "geschoss": 0,
+   "typ": "glasfront",
+   "pos_cm": 845,
+   "b_cm": 120,
+   "h_cm": 300,
+   "bruestung_cm": 45,
+   "quelle": "Foto 1940 erkannt (Eckhaus, geschaetzt)",
+   "rollladen": 0.0
+  },
+  {
+   "seite": "S",
+   "geschoss": 1,
+   "typ": "fenster",
+   "pos_cm": 285,
+   "b_cm": 160,
+   "h_cm": 250,
+   "bruestung_cm": 75,
+   "quelle": "Foto 1940 erkannt (Eckhaus, geschaetzt)",
+   "rollladen": 0.0
+  },
+  {
+   "seite": "S",
+   "geschoss": 1,
+   "typ": "fenster",
+   "pos_cm": 695,
+   "b_cm": 160,
+   "h_cm": 250,
+   "bruestung_cm": 75,
+   "quelle": "Foto 1940 erkannt (Eckhaus, geschaetzt)",
+   "rollladen": 0.0
+  },
+  {
+   "seite": "S",
+   "geschoss": 1,
+   "typ": "fenster",
+   "pos_cm": 1105,
+   "b_cm": 160,
+   "h_cm": 250,
+   "bruestung_cm": 75,
+   "quelle": "Foto 1940 erkannt (Eckhaus, geschaetzt)",
+   "rollladen": 0.0
+  },
+  {
+   "seite": "S",
+   "geschoss": 1,
+   "typ": "fenster",
+   "pos_cm": 1515,
+   "b_cm": 160,
+   "h_cm": 250,
+   "bruestung_cm": 75,
+   "quelle": "Foto 1940 erkannt (Eckhaus, geschaetzt)",
+   "rollladen": 0.0
+  },
+  {
+   "seite": "W",
+   "geschoss": 0,
+   "typ": "glasfront",
+   "pos_cm": 210,
+   "b_cm": 210,
+   "h_cm": 300,
+   "bruestung_cm": 45,
+   "quelle": "Foto 1940 erkannt (Eckhaus, geschaetzt)",
+   "rollladen": 0.0
+  },
+  {
+   "seite": "W",
+   "geschoss": 1,
+   "typ": "fenster",
+   "pos_cm": 210,
+   "b_cm": 115,
+   "h_cm": 250,
+   "bruestung_cm": 75,
+   "quelle": "Foto 1940 erkannt (Eckhaus, geschaetzt)",
+   "rollladen": 0.0
+  },
+  {
+   "seite": "W",
+   "geschoss": 0,
+   "typ": "glasfront",
+   "pos_cm": 470,
+   "b_cm": 210,
+   "h_cm": 300,
+   "bruestung_cm": 45,
+   "quelle": "Foto 1940 erkannt (Eckhaus, geschaetzt)",
+   "rollladen": 0.0
+  },
+  {
+   "seite": "W",
+   "geschoss": 1,
+   "typ": "fenster",
+   "pos_cm": 470,
+   "b_cm": 115,
+   "h_cm": 250,
+   "bruestung_cm": 75,
+   "quelle": "Foto 1940 erkannt (Eckhaus, geschaetzt)",
+   "rollladen": 0.0
+  },
+  {
+   "seite": "W",
+   "geschoss": 0,
+   "typ": "glasfront",
+   "pos_cm": 730,
+   "b_cm": 210,
+   "h_cm": 300,
+   "bruestung_cm": 45,
+   "quelle": "Foto 1940 erkannt (Eckhaus, geschaetzt)",
+   "rollladen": 0.0
+  },
+  {
+   "seite": "W",
+   "geschoss": 1,
+   "typ": "fenster",
+   "pos_cm": 730,
+   "b_cm": 115,
+   "h_cm": 250,
+   "bruestung_cm": 75,
+   "quelle": "Foto 1940 erkannt (Eckhaus, geschaetzt)",
+   "rollladen": 0.0
+  },
+  {
+   "seite": "W",
+   "geschoss": 0,
+   "typ": "glasfront",
+   "pos_cm": 990,
+   "b_cm": 210,
+   "h_cm": 300,
+   "bruestung_cm": 45,
+   "quelle": "Foto 1940 erkannt (Eckhaus, geschaetzt)",
+   "rollladen": 0.0
+  },
+  {
+   "seite": "W",
+   "geschoss": 1,
+   "typ": "fenster",
+   "pos_cm": 990,
+   "b_cm": 115,
+   "h_cm": 250,
+   "bruestung_cm": 75,
+   "quelle": "Foto 1940 erkannt (Eckhaus, geschaetzt)",
+   "rollladen": 0.0
+  },
+  {
+   "seite": "N",
+   "geschoss": 0,
+   "typ": "haustuer",
+   "pos_cm": 300,
+   "b_cm": 110,
+   "h_cm": 220,
+   "bruestung_cm": 0,
+   "quelle": "INFERIERT (im Foto nicht sichtbar)",
+   "rollladen": 0.0
+  },
+  {
+   "seite": "N",
+   "geschoss": 0,
+   "typ": "fenster",
+   "pos_cm": 900,
+   "b_cm": 120,
+   "h_cm": 150,
+   "bruestung_cm": 110,
+   "quelle": "INFERIERT (im Foto nicht sichtbar)",
+   "rollladen": 0.0
+  },
+  {
+   "seite": "N",
+   "geschoss": 0,
+   "typ": "fenster",
+   "pos_cm": 1400,
+   "b_cm": 120,
+   "h_cm": 150,
+   "bruestung_cm": 110,
+   "quelle": "INFERIERT (im Foto nicht sichtbar)",
+   "rollladen": 0.0
+  },
+  {
+   "seite": "N",
+   "geschoss": 1,
+   "typ": "fenster",
+   "pos_cm": 300,
+   "b_cm": 120,
+   "h_cm": 200,
+   "bruestung_cm": 90,
+   "quelle": "INFERIERT (im Foto nicht sichtbar)",
+   "rollladen": 0.0
+  },
+  {
+   "seite": "N",
+   "geschoss": 1,
+   "typ": "fenster",
+   "pos_cm": 900,
+   "b_cm": 120,
+   "h_cm": 200,
+   "bruestung_cm": 90,
+   "quelle": "INFERIERT (im Foto nicht sichtbar)",
+   "rollladen": 0.0
+  },
+  {
+   "seite": "N",
+   "geschoss": 1,
+   "typ": "fenster",
+   "pos_cm": 1400,
+   "b_cm": 120,
+   "h_cm": 200,
+   "bruestung_cm": 90,
+   "quelle": "INFERIERT (im Foto nicht sichtbar)",
+   "rollladen": 0.0
+  },
+  {
+   "seite": "E",
+   "geschoss": 1,
+   "typ": "fenster",
+   "pos_cm": 400,
+   "b_cm": 110,
+   "h_cm": 200,
+   "bruestung_cm": 90,
+   "quelle": "INFERIERT (im Foto nicht sichtbar)",
+   "rollladen": 0.0
+  },
+  {
+   "seite": "E",
+   "geschoss": 1,
+   "typ": "fenster",
+   "pos_cm": 800,
+   "b_cm": 110,
+   "h_cm": 200,
+   "bruestung_cm": 90,
+   "quelle": "INFERIERT (im Foto nicht sichtbar)",
+   "rollladen": 0.0
+  }
+ ],
+ "materialien": {
+  "fassade": "Klinker rot",
+  "dach": "Bitumen",
+  "fenster": "Holz dunkel",
+  "tuer": "Holz"
+ },
+ "sockel_material": "naturstein",
+ "fenster_teilung": {
+  "fluegel_ab_cm": 110
+ },
+ "gelaende": {
+  "ecken_cm": {
+   "SW": 0,
+   "NW": 0,
+   "SE": 0,
+   "NE": 0
+  },
+  "quelle": "eben (Strassenecke)"
+ },
+ "grundstueck": "M",
+ "ruecksteite_kreativ": "aus",
+ "treppe": true,
+ "treppe_x_cm": 1300,
+ "details": true,
+ "keller": {
+  "tiefe_cm": 250,
+  "tueren": [],
+  "fenster": [],
+  "tore": []
+ },
+ "loggien": [],
+ "balkone": [],
+ "anbau_garagen": [],
+ "baeume": [],
+ "front_seite": "S",
+ "giebeltueren": [],
+ "dg_ausbau": false
+}
