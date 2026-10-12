@@ -8,7 +8,12 @@ import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 
 D_, TAG, STIL, OUT = sys.argv[1:5]
-F = "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"; FB = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
+def _font(*namen):   # Linux (DejaVu) oder Windows (Arial/Consolas)
+    for n in namen:
+        for d in ('/usr/share/fonts/truetype/dejavu/', 'C:/Windows/Fonts/'):
+            if os.path.exists(d + n): return d + n
+    return namen[-1]
+F = _font('DejaVuSans.ttf', 'arial.ttf'); FB = _font('DejaVuSans-Bold.ttf', 'arialbd.ttf')
 ANS = [('iso_sw', 'AXONOMETRIE SÜDWEST · STRASSENECKE'), ('iso_so', 'AXONOMETRIE SÜDOST'),
        ('iso_no', 'AXONOMETRIE NORDOST · RÜCKSEITE'), ('iso_nw', 'AXONOMETRIE NORDWEST'),
        ('vogel', 'VOGELPERSPEKTIVE'), ('ecke', 'AUGENHÖHE · WIE FOTO'),

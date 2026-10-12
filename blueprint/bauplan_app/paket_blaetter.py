@@ -13,8 +13,13 @@ from PIL import Image, ImageDraw, ImageFont
 
 RD, SLP, TAG, OUTD = sys.argv[1:5]
 TITEL = sys.argv[5] if len(sys.argv) > 5 else TAG
-F = "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"; FB = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
-FM = "/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf"
+def _font(*namen):   # Linux (DejaVu) oder Windows (Arial/Consolas)
+    for n in namen:
+        for d in ('/usr/share/fonts/truetype/dejavu/', 'C:/Windows/Fonts/'):
+            if os.path.exists(d + n): return d + n
+    return namen[-1]
+F = _font('DejaVuSans.ttf', 'arial.ttf'); FB = _font('DejaVuSans-Bold.ttf', 'arialbd.ttf')
+FM = _font('DejaVuSansMono.ttf', 'consola.ttf')
 BG = (0, 0x44, 0xB8); WH = (255, 255, 255); SO = (200, 220, 255)
 SL = json.load(open(SLP, encoding='utf-8')); T = SL['teile']; META = SL['meta']
 os.makedirs(OUTD, exist_ok=True)

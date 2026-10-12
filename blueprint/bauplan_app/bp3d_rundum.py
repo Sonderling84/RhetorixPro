@@ -10,6 +10,17 @@ argv = sys.argv[sys.argv.index('--') + 1:]
 OUTDIR = os.path.abspath(argv[0]); TAG = argv[1]; SAMPLES = int(argv[2]) if len(argv) > 2 else 8
 os.makedirs(OUTDIR, exist_ok=True)
 sc = bpy.context.scene
+
+def _geraet():   # BAUPLAN_DEVICE=GPU (zu Hause, OptiX/CUDA) oder CPU (Standard, Cloud)
+    if os.environ.get('BAUPLAN_DEVICE', 'CPU').upper() != 'GPU': return 'CPU'
+    try:
+        pr = bpy.context.preferences.addons['cycles'].preferences
+        for t in ('OPTIX', 'CUDA', 'HIP', 'ONEAPI'):
+            try: pr.compute_device_type = t; pr.get_devices(); break
+            except Exception: pass
+        for d in pr.devices: d.use = d.type != 'CPU'
+        return 'GPU'
+    except Exception as e: print('GPU nicht verfuegbar', e); return 'CPU'
 for _o in list(bpy.data.objects):
     if _o.name.startswith('Echtbaum') or _o.name.startswith('Rasen Halme'):
         bpy.data.objects.remove(_o, do_unlink=True)
@@ -31,7 +42,7 @@ for o in sc.objects:
     n = o.name.lower()
     if any(k in n for k in ('rasen', 'innenraum', 'echtbaum')): o.hide_render = True
 
-sc.render.engine = 'CYCLES'; sc.cycles.samples = SAMPLES; sc.cycles.device = 'CPU'
+sc.render.engine = 'CYCLES'; sc.cycles.samples = SAMPLES; sc.cycles.device = _geraet()
 try: sc.cycles.use_denoising = False
 except Exception: pass
 sc.render.use_freestyle = True; sc.render.line_thickness_mode = 'ABSOLUTE'; sc.render.line_thickness = 1.0

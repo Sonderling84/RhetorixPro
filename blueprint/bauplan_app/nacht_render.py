@@ -7,6 +7,17 @@ import bpy, sys, os, math, mathutils
 argv = sys.argv[sys.argv.index('--') + 1:]
 OUTDIR = os.path.abspath(argv[0]); TAG = argv[1]; SAMPLES = int(argv[2]) if len(argv) > 2 else 48
 sc = bpy.context.scene
+
+def _geraet():   # BAUPLAN_DEVICE=GPU (zu Hause, OptiX/CUDA) oder CPU (Standard, Cloud)
+    if os.environ.get('BAUPLAN_DEVICE', 'CPU').upper() != 'GPU': return 'CPU'
+    try:
+        pr = bpy.context.preferences.addons['cycles'].preferences
+        for t in ('OPTIX', 'CUDA', 'HIP', 'ONEAPI'):
+            try: pr.compute_device_type = t; pr.get_devices(); break
+            except Exception: pass
+        for d in pr.devices: d.use = d.type != 'CPU'
+        return 'GPU'
+    except Exception as e: print('GPU nicht verfuegbar', e); return 'CPU'
 for o in list(bpy.data.objects):
     if o.name.startswith('Echtbaum') or o.name.startswith('Rasen Halme'): bpy.data.objects.remove(o, do_unlink=True)
 W = sc.get('bauplan_breite_cm', 1000) / 100.0; D = sc.get('bauplan_tiefe_cm', 800) / 100.0; F = sc.get('bauplan_first_cm', 900) / 100.0
@@ -78,7 +89,7 @@ licht('Mond', (-W, -D * 1.5, F * 2.2), 2500, (0.55, 0.7, 1.0), 10)
 licht('Kante', (W * 1.8, D * 1.8, F * 1.2), 1200, (0.3, 0.55, 1.0), 8)
 licht('Platz', (W * 0.2, -D * 0.6, 3.0), 900, (0.45, 0.65, 1.0), 12)
 
-sc.render.engine = 'CYCLES'; sc.cycles.samples = SAMPLES; sc.cycles.device = 'CPU'; sc.cycles.transparent_max_bounces = 16
+sc.render.engine = 'CYCLES'; sc.cycles.samples = SAMPLES; sc.cycles.device = _geraet(); sc.cycles.transparent_max_bounces = 16
 try: sc.cycles.use_denoising = True
 except Exception: pass
 sc.render.use_freestyle = True; sc.render.line_thickness_mode = 'ABSOLUTE'; sc.render.line_thickness = 1.0
