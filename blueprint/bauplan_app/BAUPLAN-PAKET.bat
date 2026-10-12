@@ -6,7 +6,8 @@ REM    NACHT_BLATT (Neon dunkel nach Vorlage: dunkle Fassade, leuchtende Fenster
 REM    + BAUPLAN_<tag>.blend + <tag>.glb (3D-Tab der App)
 REM  Ablage automatisch in:  Haeuser-Katalog\Haus_<tag>   und   Asset-Bibliothek (kundensim\<tag>)
 REM
-REM  Aufruf:  BAUPLAN-PAKET.bat <tag> <haus_tag.json> ["TITEL"]
+REM  Aufruf:  BAUPLAN-PAKET.bat <tag> <haus_tag.json | foto.jpg/png> ["TITEL"] ["Hinweise"]
+REM  Mit Foto: Schritt 0 = OpenRouter-Bildmodell vermisst das Haus -> haus_<tag>.json (OPENROUTER_API_KEY noetig)
 REM  Beispiel: BAUPLAN-PAKET.bat eckhaus1940 haus_eckhaus1940.json "ECKGEBAEUDE 1940"
 REM ============================================================================================
 setlocal
@@ -26,6 +27,17 @@ set TOOLS=%~dp0
 set OUT=%TOOLS%..\Ergebnisse\paket_%TAG%
 if not exist "%OUT%\render" mkdir "%OUT%\render"
 
+set EXT=%~x2
+if /i "%EXT%"==".jpg" goto foto
+if /i "%EXT%"==".jpeg" goto foto
+if /i "%EXT%"==".png" goto foto
+goto stk
+:foto
+echo [0/6] OpenRouter vermisst das Foto (%OPENROUTER_MODEL%)
+"%PY%" "%TOOLS%foto_zu_haus.py" "%HAUS%" %TAG% "%OUT%\haus_%TAG%.json" "%~4" || exit /b 1
+copy /y "%HAUS%" "%OUT%\foto_%TAG%%EXT%" >nul
+set HAUS=%OUT%\haus_%TAG%.json
+:stk
 echo [1/6] Stueckliste
 "%PY%" "%TOOLS%bauplan_stueckliste.py" "%HAUS%" "%OUT%\stueckliste_%TAG%.json" || exit /b 1
 
