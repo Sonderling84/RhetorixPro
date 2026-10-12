@@ -1,0 +1,5098 @@
+{
+ "meta": {
+  "name": "Eckgebaeude Geschaeftshaus um 1940",
+  "kennung": "eckhaus1940",
+  "vorlage": "foto_referenz",
+  "adresse": "fiktiv",
+  "fiktiv": true,
+  "materialien": {
+   "fassade": "Klinker rot",
+   "dach": "Bitumen",
+   "fenster": "Holz dunkel",
+   "tuer": "Holz"
+  },
+  "gelaende": {
+   "ecken_cm": {
+    "SW": 0,
+    "NW": 0,
+    "SE": 0,
+    "NE": 0
+   },
+   "quelle": "eben (Strassenecke)"
+  },
+  "breite_cm": 1800,
+  "tiefe_cm": 1200,
+  "geschosse": 2,
+  "traufe_cm": 860,
+  "first_cm": 990,
+  "dach": "flach",
+  "anzahl_teile": 297,
+  "bloecke": 1
+ },
+ "teile": [
+  {
+   "nr": 1,
+   "id": "T01",
+   "kat": "fundament",
+   "name": "Bodenplatte Stueck 1 (um Kellertreppe)",
+   "box": [
+    0,
+    0,
+    -20,
+    189,
+    1200,
+    0
+   ],
+   "material": "beton"
+  },
+  {
+   "nr": 2,
+   "id": "T02",
+   "kat": "wand",
+   "name": "Suedwand EG",
+   "geschoss": 0,
+   "seite": "S",
+   "along": [
+    0,
+    1800
+   ],
+   "box": [
+    0,
+    0,
+    0,
+    1800,
+    45,
+    400
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 3,
+   "id": "T03",
+   "kat": "wand",
+   "name": "Nordwand EG",
+   "geschoss": 0,
+   "seite": "N",
+   "along": [
+    0,
+    1800
+   ],
+   "box": [
+    0,
+    1155,
+    0,
+    1800,
+    1200,
+    400
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 4,
+   "id": "T04",
+   "kat": "wand",
+   "name": "Westwand EG",
+   "geschoss": 0,
+   "seite": "W",
+   "along": [
+    45,
+    1155
+   ],
+   "box": [
+    0,
+    45,
+    0,
+    45,
+    1155,
+    400
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 5,
+   "id": "T05",
+   "kat": "wand",
+   "name": "Ostwand EG",
+   "geschoss": 0,
+   "seite": "E",
+   "along": [
+    45,
+    1155
+   ],
+   "box": [
+    1755,
+    45,
+    0,
+    1800,
+    1155,
+    400
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 6,
+   "id": "T06",
+   "kat": "wand",
+   "name": "Suedwand 1.OG",
+   "geschoss": 1,
+   "seite": "S",
+   "along": [
+    0,
+    1800
+   ],
+   "box": [
+    0,
+    0,
+    430,
+    1800,
+    45,
+    830
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 7,
+   "id": "T07",
+   "kat": "wand",
+   "name": "Nordwand 1.OG",
+   "geschoss": 1,
+   "seite": "N",
+   "along": [
+    0,
+    1800
+   ],
+   "box": [
+    0,
+    1155,
+    430,
+    1800,
+    1200,
+    830
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 8,
+   "id": "T08",
+   "kat": "wand",
+   "name": "Westwand 1.OG",
+   "geschoss": 1,
+   "seite": "W",
+   "along": [
+    45,
+    1155
+   ],
+   "box": [
+    0,
+    45,
+    430,
+    45,
+    1155,
+    830
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 9,
+   "id": "T09",
+   "kat": "wand",
+   "name": "Ostwand 1.OG",
+   "geschoss": 1,
+   "seite": "E",
+   "along": [
+    45,
+    1155
+   ],
+   "box": [
+    1755,
+    45,
+    430,
+    1800,
+    1155,
+    830
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 10,
+   "id": "T10",
+   "kat": "decke",
+   "name": "Decke ueber EG Stueck 1 (um Treppenloch)",
+   "box": [
+    0,
+    0,
+    400,
+    1290,
+    1200,
+    430
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 11,
+   "id": "T11",
+   "kat": "decke",
+   "name": "Decke ueber EG Stueck 2 (um Treppenloch)",
+   "box": [
+    1410,
+    0,
+    400,
+    1800,
+    1200,
+    430
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 12,
+   "id": "T12",
+   "kat": "decke",
+   "name": "Decke ueber EG Stueck 3 (um Treppenloch)",
+   "box": [
+    1290,
+    0,
+    400,
+    1410,
+    378.0,
+    430
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 13,
+   "id": "T13",
+   "kat": "decke",
+   "name": "Decke ueber EG Stueck 4 (um Treppenloch)",
+   "box": [
+    1290,
+    763.3,
+    400,
+    1410,
+    1200,
+    430
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 14,
+   "id": "T14",
+   "kat": "gelaender",
+   "name": "Absturzsicherung Treppenloch Ost",
+   "box": [
+    1406,
+    378.0,
+    435,
+    1410,
+    763.3,
+    530
+   ],
+   "material": "stahl"
+  },
+  {
+   "nr": 15,
+   "id": "T15",
+   "kat": "gelaender",
+   "name": "Absturzsicherung Treppenloch Nord",
+   "box": [
+    1290,
+    759.3,
+    435,
+    1410,
+    763.3,
+    530
+   ],
+   "material": "stahl"
+  },
+  {
+   "nr": 16,
+   "id": "T16",
+   "kat": "decke",
+   "name": "Decke ueber 1.OG",
+   "box": [
+    0,
+    0,
+    830,
+    1800,
+    1200,
+    860
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 17,
+   "id": "T17",
+   "kat": "sockel",
+   "name": "Sockelband Sued",
+   "box": [
+    -2,
+    -2,
+    0,
+    1802,
+    0,
+    50
+   ],
+   "material": "naturstein"
+  },
+  {
+   "nr": 18,
+   "id": "T18",
+   "kat": "sockel",
+   "name": "Sockelband Nord -2-239",
+   "box": [
+    -2,
+    1200,
+    0,
+    239.0,
+    1202,
+    50
+   ],
+   "material": "naturstein"
+  },
+  {
+   "nr": 19,
+   "id": "T19",
+   "kat": "sockel",
+   "name": "Sockelband Nord 361-1802",
+   "box": [
+    361.0,
+    1200,
+    0,
+    1802,
+    1202,
+    50
+   ],
+   "material": "naturstein"
+  },
+  {
+   "nr": 20,
+   "id": "T20",
+   "kat": "sockel",
+   "name": "Sockelband West",
+   "box": [
+    -2,
+    0,
+    0,
+    0,
+    1200,
+    50
+   ],
+   "material": "naturstein"
+  },
+  {
+   "nr": 21,
+   "id": "T21",
+   "kat": "sockel",
+   "name": "Sockelband Ost",
+   "box": [
+    1800,
+    0,
+    0,
+    1802,
+    1200,
+    50
+   ],
+   "material": "naturstein"
+  },
+  {
+   "nr": 22,
+   "id": "T22",
+   "kat": "sockel",
+   "name": "Kelleraussenwand Sued",
+   "box": [
+    0,
+    0,
+    -250,
+    1800,
+    45,
+    0
+   ],
+   "material": "naturstein"
+  },
+  {
+   "nr": 23,
+   "id": "T23",
+   "kat": "sockel",
+   "name": "Kelleraussenwand Nord",
+   "box": [
+    0,
+    1155,
+    -250,
+    1800,
+    1200,
+    0
+   ],
+   "material": "naturstein"
+  },
+  {
+   "nr": 24,
+   "id": "T24",
+   "kat": "sockel",
+   "name": "Kelleraussenwand West",
+   "box": [
+    0,
+    45,
+    -250,
+    45,
+    1155,
+    0
+   ],
+   "material": "naturstein"
+  },
+  {
+   "nr": 25,
+   "id": "T25",
+   "kat": "sockel",
+   "name": "Kelleraussenwand Ost",
+   "box": [
+    1755,
+    45,
+    -250,
+    1800,
+    1155,
+    0
+   ],
+   "material": "naturstein"
+  },
+  {
+   "nr": 26,
+   "id": "T26",
+   "kat": "decke",
+   "name": "Kellersohle",
+   "box": [
+    0,
+    0,
+    -280,
+    1800,
+    1200,
+    -250
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 27,
+   "id": "T27",
+   "kat": "dach",
+   "name": "Flachdach-Abdichtung",
+   "box": [
+    0,
+    0,
+    860,
+    1800,
+    1200,
+    864
+   ],
+   "material": "dach_flach"
+  },
+  {
+   "nr": 28,
+   "id": "T28",
+   "kat": "dach",
+   "name": "Attika Sued",
+   "box": [
+    0,
+    0,
+    860,
+    1800,
+    45,
+    990
+   ],
+   "material": "attika_blende"
+  },
+  {
+   "nr": 29,
+   "id": "T29",
+   "kat": "dach",
+   "name": "Attika Nord",
+   "box": [
+    0,
+    1155,
+    860,
+    1800,
+    1200,
+    990
+   ],
+   "material": "attika_blende"
+  },
+  {
+   "nr": 30,
+   "id": "T30",
+   "kat": "dach",
+   "name": "Attika West",
+   "box": [
+    0,
+    45,
+    860,
+    45,
+    1155,
+    990
+   ],
+   "material": "attika_blende"
+  },
+  {
+   "nr": 31,
+   "id": "T31",
+   "kat": "dach",
+   "name": "Attika Ost",
+   "box": [
+    1755,
+    45,
+    860,
+    1800,
+    1155,
+    990
+   ],
+   "material": "attika_blende"
+  },
+  {
+   "nr": 32,
+   "id": "T32",
+   "kat": "treppe",
+   "name": "Stufe 1",
+   "box": [
+    1300,
+    1007.8,
+    0.0,
+    1400,
+    1035.0,
+    17.9
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 33,
+   "id": "T33",
+   "kat": "treppe",
+   "name": "Stufe 2",
+   "box": [
+    1300,
+    980.7,
+    17.9,
+    1400,
+    1007.8,
+    35.8
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 34,
+   "id": "T34",
+   "kat": "treppe",
+   "name": "Stufe 3",
+   "box": [
+    1300,
+    953.5,
+    35.8,
+    1400,
+    980.7,
+    53.8
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 35,
+   "id": "T35",
+   "kat": "treppe",
+   "name": "Stufe 4",
+   "box": [
+    1300,
+    926.3,
+    53.8,
+    1400,
+    953.5,
+    71.7
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 36,
+   "id": "T36",
+   "kat": "treppe",
+   "name": "Stufe 5",
+   "box": [
+    1300,
+    899.2,
+    71.7,
+    1400,
+    926.3,
+    89.6
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 37,
+   "id": "T37",
+   "kat": "treppe",
+   "name": "Stufe 6",
+   "box": [
+    1300,
+    872.0,
+    89.6,
+    1400,
+    899.2,
+    107.5
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 38,
+   "id": "T38",
+   "kat": "treppe",
+   "name": "Stufe 7",
+   "box": [
+    1300,
+    844.8,
+    107.5,
+    1400,
+    872.0,
+    125.4
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 39,
+   "id": "T39",
+   "kat": "treppe",
+   "name": "Stufe 8",
+   "box": [
+    1300,
+    817.7,
+    125.4,
+    1400,
+    844.8,
+    143.3
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 40,
+   "id": "T40",
+   "kat": "treppe",
+   "name": "Stufe 9",
+   "box": [
+    1300,
+    790.5,
+    143.3,
+    1400,
+    817.7,
+    161.2
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 41,
+   "id": "T41",
+   "kat": "treppe",
+   "name": "Stufe 10",
+   "box": [
+    1300,
+    763.3,
+    161.2,
+    1400,
+    790.5,
+    179.2
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 42,
+   "id": "T42",
+   "kat": "treppe",
+   "name": "Stufe 11",
+   "box": [
+    1300,
+    736.2,
+    179.2,
+    1400,
+    763.3,
+    197.1
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 43,
+   "id": "T43",
+   "kat": "treppe",
+   "name": "Stufe 12",
+   "box": [
+    1300,
+    709.0,
+    197.1,
+    1400,
+    736.2,
+    215.0
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 44,
+   "id": "T44",
+   "kat": "treppe",
+   "name": "Stufe 13",
+   "box": [
+    1300,
+    681.8,
+    215.0,
+    1400,
+    709.0,
+    232.9
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 45,
+   "id": "T45",
+   "kat": "treppe",
+   "name": "Stufe 14",
+   "box": [
+    1300,
+    654.7,
+    232.9,
+    1400,
+    681.8,
+    250.8
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 46,
+   "id": "T46",
+   "kat": "treppe",
+   "name": "Stufe 15",
+   "box": [
+    1300,
+    627.5,
+    250.8,
+    1400,
+    654.7,
+    268.8
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 47,
+   "id": "T47",
+   "kat": "treppe",
+   "name": "Stufe 16",
+   "box": [
+    1300,
+    600.3,
+    268.8,
+    1400,
+    627.5,
+    286.7
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 48,
+   "id": "T48",
+   "kat": "treppe",
+   "name": "Stufe 17",
+   "box": [
+    1300,
+    573.2,
+    286.7,
+    1400,
+    600.3,
+    304.6
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 49,
+   "id": "T49",
+   "kat": "treppe",
+   "name": "Stufe 18",
+   "box": [
+    1300,
+    546.0,
+    304.6,
+    1400,
+    573.2,
+    322.5
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 50,
+   "id": "T50",
+   "kat": "treppe",
+   "name": "Stufe 19",
+   "box": [
+    1300,
+    518.8,
+    322.5,
+    1400,
+    546.0,
+    340.4
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 51,
+   "id": "T51",
+   "kat": "treppe",
+   "name": "Stufe 20",
+   "box": [
+    1300,
+    491.7,
+    340.4,
+    1400,
+    518.8,
+    358.3
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 52,
+   "id": "T52",
+   "kat": "treppe",
+   "name": "Stufe 21",
+   "box": [
+    1300,
+    464.5,
+    358.3,
+    1400,
+    491.7,
+    376.3
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 53,
+   "id": "T53",
+   "kat": "treppe",
+   "name": "Stufe 22",
+   "box": [
+    1300,
+    437.3,
+    376.2,
+    1400,
+    464.5,
+    394.2
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 54,
+   "id": "T54",
+   "kat": "treppe",
+   "name": "Stufe 23",
+   "box": [
+    1300,
+    410.2,
+    394.2,
+    1400,
+    437.3,
+    412.1
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 55,
+   "id": "T55",
+   "kat": "treppe",
+   "name": "Stufe 24",
+   "box": [
+    1300,
+    383.0,
+    412.1,
+    1400,
+    410.2,
+    430.0
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 56,
+   "id": "T56",
+   "kat": "treppe",
+   "name": "Treppen-Handlauf",
+   "box": [
+    1398,
+    383.0,
+    90,
+    1402,
+    1035,
+    520
+   ],
+   "material": "stahl"
+  },
+  {
+   "nr": 57,
+   "id": "T57",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer glasfront S0-1 (330x300, BRH 45)",
+   "ziel": "T02",
+   "box": [
+    120.0,
+    -6,
+    45,
+    450.0,
+    51,
+    345
+   ],
+   "quelle": "Foto 1940 erkannt (Eckhaus, geschaetzt)",
+   "oeffnung": 1
+  },
+  {
+   "nr": 58,
+   "id": "T58",
+   "kat": "rahmen",
+   "name": "Rahmen unten glasfront S0-1 (330x300, BRH 45)",
+   "box": [
+    120.0,
+    1.0,
+    45,
+    450.0,
+    9.0,
+    52
+   ],
+   "material": "rahmen",
+   "oeffnung": 1
+  },
+  {
+   "nr": 59,
+   "id": "T59",
+   "kat": "rahmen",
+   "name": "Rahmen oben glasfront S0-1 (330x300, BRH 45)",
+   "box": [
+    120.0,
+    1.0,
+    338,
+    450.0,
+    9.0,
+    345
+   ],
+   "material": "rahmen",
+   "oeffnung": 1
+  },
+  {
+   "nr": 60,
+   "id": "T60",
+   "kat": "rahmen",
+   "name": "Rahmen links glasfront S0-1 (330x300, BRH 45)",
+   "box": [
+    120.0,
+    1.0,
+    45,
+    127.0,
+    9.0,
+    345
+   ],
+   "material": "rahmen",
+   "oeffnung": 1
+  },
+  {
+   "nr": 61,
+   "id": "T61",
+   "kat": "rahmen",
+   "name": "Rahmen rechts glasfront S0-1 (330x300, BRH 45)",
+   "box": [
+    443.0,
+    1.0,
+    45,
+    450.0,
+    9.0,
+    345
+   ],
+   "material": "rahmen",
+   "oeffnung": 1
+  },
+  {
+   "nr": 62,
+   "id": "T62",
+   "kat": "rahmen",
+   "name": "Pfosten 1 glasfront S0-1 (330x300, BRH 45)",
+   "box": [
+    227.0,
+    1.0,
+    52,
+    233.0,
+    9.0,
+    338
+   ],
+   "material": "rahmen",
+   "oeffnung": 1
+  },
+  {
+   "nr": 63,
+   "id": "T63",
+   "kat": "rahmen",
+   "name": "Pfosten 2 glasfront S0-1 (330x300, BRH 45)",
+   "box": [
+    337.0,
+    1.0,
+    52,
+    343.0,
+    9.0,
+    338
+   ],
+   "material": "rahmen",
+   "oeffnung": 1
+  },
+  {
+   "nr": 64,
+   "id": "T64",
+   "kat": "glas",
+   "name": "Glas glasfront S0-1 (330x300, BRH 45)",
+   "box": [
+    127.0,
+    4.4,
+    52,
+    443.0,
+    5.6,
+    338
+   ],
+   "material": "glas",
+   "oeffnung": 1
+  },
+  {
+   "nr": 65,
+   "id": "T65",
+   "kat": "innen",
+   "name": "Innenraum glasfront S0-1 (330x300, BRH 45)",
+   "box": [
+    122.0,
+    46,
+    47,
+    448.0,
+    125,
+    343
+   ],
+   "material": "innen",
+   "oeffnung": 1
+  },
+  {
+   "nr": 66,
+   "id": "T66",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer glasfront S0-2 (330x300, BRH 45)",
+   "ziel": "T02",
+   "box": [
+    940.0,
+    -6,
+    45,
+    1270.0,
+    51,
+    345
+   ],
+   "quelle": "Foto 1940 erkannt (Eckhaus, geschaetzt)",
+   "oeffnung": 2
+  },
+  {
+   "nr": 67,
+   "id": "T67",
+   "kat": "rahmen",
+   "name": "Rahmen unten glasfront S0-2 (330x300, BRH 45)",
+   "box": [
+    940.0,
+    1.0,
+    45,
+    1270.0,
+    9.0,
+    52
+   ],
+   "material": "rahmen",
+   "oeffnung": 2
+  },
+  {
+   "nr": 68,
+   "id": "T68",
+   "kat": "rahmen",
+   "name": "Rahmen oben glasfront S0-2 (330x300, BRH 45)",
+   "box": [
+    940.0,
+    1.0,
+    338,
+    1270.0,
+    9.0,
+    345
+   ],
+   "material": "rahmen",
+   "oeffnung": 2
+  },
+  {
+   "nr": 69,
+   "id": "T69",
+   "kat": "rahmen",
+   "name": "Rahmen links glasfront S0-2 (330x300, BRH 45)",
+   "box": [
+    940.0,
+    1.0,
+    45,
+    947.0,
+    9.0,
+    345
+   ],
+   "material": "rahmen",
+   "oeffnung": 2
+  },
+  {
+   "nr": 70,
+   "id": "T70",
+   "kat": "rahmen",
+   "name": "Rahmen rechts glasfront S0-2 (330x300, BRH 45)",
+   "box": [
+    1263.0,
+    1.0,
+    45,
+    1270.0,
+    9.0,
+    345
+   ],
+   "material": "rahmen",
+   "oeffnung": 2
+  },
+  {
+   "nr": 71,
+   "id": "T71",
+   "kat": "rahmen",
+   "name": "Pfosten 1 glasfront S0-2 (330x300, BRH 45)",
+   "box": [
+    1047.0,
+    1.0,
+    52,
+    1053.0,
+    9.0,
+    338
+   ],
+   "material": "rahmen",
+   "oeffnung": 2
+  },
+  {
+   "nr": 72,
+   "id": "T72",
+   "kat": "rahmen",
+   "name": "Pfosten 2 glasfront S0-2 (330x300, BRH 45)",
+   "box": [
+    1157.0,
+    1.0,
+    52,
+    1163.0,
+    9.0,
+    338
+   ],
+   "material": "rahmen",
+   "oeffnung": 2
+  },
+  {
+   "nr": 73,
+   "id": "T73",
+   "kat": "glas",
+   "name": "Glas glasfront S0-2 (330x300, BRH 45)",
+   "box": [
+    947.0,
+    4.4,
+    52,
+    1263.0,
+    5.6,
+    338
+   ],
+   "material": "glas",
+   "oeffnung": 2
+  },
+  {
+   "nr": 74,
+   "id": "T74",
+   "kat": "innen",
+   "name": "Innenraum glasfront S0-2 (330x300, BRH 45)",
+   "box": [
+    942.0,
+    46,
+    47,
+    1268.0,
+    125,
+    343
+   ],
+   "material": "innen",
+   "oeffnung": 2
+  },
+  {
+   "nr": 75,
+   "id": "T75",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer glasfront S0-3 (330x300, BRH 45)",
+   "ziel": "T02",
+   "box": [
+    1350.0,
+    -6,
+    45,
+    1680.0,
+    51,
+    345
+   ],
+   "quelle": "Foto 1940 erkannt (Eckhaus, geschaetzt)",
+   "oeffnung": 3
+  },
+  {
+   "nr": 76,
+   "id": "T76",
+   "kat": "rahmen",
+   "name": "Rahmen unten glasfront S0-3 (330x300, BRH 45)",
+   "box": [
+    1350.0,
+    1.0,
+    45,
+    1680.0,
+    9.0,
+    52
+   ],
+   "material": "rahmen",
+   "oeffnung": 3
+  },
+  {
+   "nr": 77,
+   "id": "T77",
+   "kat": "rahmen",
+   "name": "Rahmen oben glasfront S0-3 (330x300, BRH 45)",
+   "box": [
+    1350.0,
+    1.0,
+    338,
+    1680.0,
+    9.0,
+    345
+   ],
+   "material": "rahmen",
+   "oeffnung": 3
+  },
+  {
+   "nr": 78,
+   "id": "T78",
+   "kat": "rahmen",
+   "name": "Rahmen links glasfront S0-3 (330x300, BRH 45)",
+   "box": [
+    1350.0,
+    1.0,
+    45,
+    1357.0,
+    9.0,
+    345
+   ],
+   "material": "rahmen",
+   "oeffnung": 3
+  },
+  {
+   "nr": 79,
+   "id": "T79",
+   "kat": "rahmen",
+   "name": "Rahmen rechts glasfront S0-3 (330x300, BRH 45)",
+   "box": [
+    1673.0,
+    1.0,
+    45,
+    1680.0,
+    9.0,
+    345
+   ],
+   "material": "rahmen",
+   "oeffnung": 3
+  },
+  {
+   "nr": 80,
+   "id": "T80",
+   "kat": "rahmen",
+   "name": "Pfosten 1 glasfront S0-3 (330x300, BRH 45)",
+   "box": [
+    1457.0,
+    1.0,
+    52,
+    1463.0,
+    9.0,
+    338
+   ],
+   "material": "rahmen",
+   "oeffnung": 3
+  },
+  {
+   "nr": 81,
+   "id": "T81",
+   "kat": "rahmen",
+   "name": "Pfosten 2 glasfront S0-3 (330x300, BRH 45)",
+   "box": [
+    1567.0,
+    1.0,
+    52,
+    1573.0,
+    9.0,
+    338
+   ],
+   "material": "rahmen",
+   "oeffnung": 3
+  },
+  {
+   "nr": 82,
+   "id": "T82",
+   "kat": "glas",
+   "name": "Glas glasfront S0-3 (330x300, BRH 45)",
+   "box": [
+    1357.0,
+    4.4,
+    52,
+    1673.0,
+    5.6,
+    338
+   ],
+   "material": "glas",
+   "oeffnung": 3
+  },
+  {
+   "nr": 83,
+   "id": "T83",
+   "kat": "innen",
+   "name": "Innenraum glasfront S0-3 (330x300, BRH 45)",
+   "box": [
+    1352.0,
+    46,
+    47,
+    1678.0,
+    125,
+    343
+   ],
+   "material": "innen",
+   "oeffnung": 3
+  },
+  {
+   "nr": 84,
+   "id": "T84",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer glasfront S0-4 (120x300, BRH 45)",
+   "ziel": "T02",
+   "box": [
+    485.0,
+    -6,
+    45,
+    605.0,
+    51,
+    345
+   ],
+   "quelle": "Foto 1940 erkannt (Eckhaus, geschaetzt)",
+   "oeffnung": 4
+  },
+  {
+   "nr": 85,
+   "id": "T85",
+   "kat": "rahmen",
+   "name": "Rahmen unten glasfront S0-4 (120x300, BRH 45)",
+   "box": [
+    485.0,
+    1.0,
+    45,
+    605.0,
+    9.0,
+    52
+   ],
+   "material": "rahmen",
+   "oeffnung": 4
+  },
+  {
+   "nr": 86,
+   "id": "T86",
+   "kat": "rahmen",
+   "name": "Rahmen oben glasfront S0-4 (120x300, BRH 45)",
+   "box": [
+    485.0,
+    1.0,
+    338,
+    605.0,
+    9.0,
+    345
+   ],
+   "material": "rahmen",
+   "oeffnung": 4
+  },
+  {
+   "nr": 87,
+   "id": "T87",
+   "kat": "rahmen",
+   "name": "Rahmen links glasfront S0-4 (120x300, BRH 45)",
+   "box": [
+    485.0,
+    1.0,
+    45,
+    492.0,
+    9.0,
+    345
+   ],
+   "material": "rahmen",
+   "oeffnung": 4
+  },
+  {
+   "nr": 88,
+   "id": "T88",
+   "kat": "rahmen",
+   "name": "Rahmen rechts glasfront S0-4 (120x300, BRH 45)",
+   "box": [
+    598.0,
+    1.0,
+    45,
+    605.0,
+    9.0,
+    345
+   ],
+   "material": "rahmen",
+   "oeffnung": 4
+  },
+  {
+   "nr": 89,
+   "id": "T89",
+   "kat": "glas",
+   "name": "Glas glasfront S0-4 (120x300, BRH 45)",
+   "box": [
+    492.0,
+    4.4,
+    52,
+    598.0,
+    5.6,
+    338
+   ],
+   "material": "glas",
+   "oeffnung": 4
+  },
+  {
+   "nr": 90,
+   "id": "T90",
+   "kat": "innen",
+   "name": "Innenraum glasfront S0-4 (120x300, BRH 45)",
+   "box": [
+    487.0,
+    46,
+    47,
+    603.0,
+    125,
+    343
+   ],
+   "material": "innen",
+   "oeffnung": 4
+  },
+  {
+   "nr": 91,
+   "id": "T91",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer Haustuer S0-5 (120x290, BRH 0)",
+   "ziel": "T02",
+   "box": [
+    635.0,
+    -6,
+    0,
+    755.0,
+    51,
+    290
+   ],
+   "quelle": "Foto 1940 erkannt (Eckhaus, geschaetzt)",
+   "oeffnung": 5
+  },
+  {
+   "nr": 92,
+   "id": "T92",
+   "kat": "tuer",
+   "name": "Tuerblatt Haustuer S0-5 (120x290, BRH 0)",
+   "box": [
+    635.0,
+    20.0,
+    0,
+    755.0,
+    25.0,
+    290
+   ],
+   "material": "tuer",
+   "oeffnung": 5
+  },
+  {
+   "nr": 93,
+   "id": "T93",
+   "kat": "rahmen",
+   "name": "Zarge links Haustuer S0-5 (120x290, BRH 0)",
+   "box": [
+    635.0,
+    18.5,
+    0,
+    640.0,
+    26.5,
+    290
+   ],
+   "material": "rahmen",
+   "oeffnung": 5
+  },
+  {
+   "nr": 94,
+   "id": "T94",
+   "kat": "rahmen",
+   "name": "Zarge rechts Haustuer S0-5 (120x290, BRH 0)",
+   "box": [
+    750.0,
+    18.5,
+    0,
+    755.0,
+    26.5,
+    290
+   ],
+   "material": "rahmen",
+   "oeffnung": 5
+  },
+  {
+   "nr": 95,
+   "id": "T95",
+   "kat": "rahmen",
+   "name": "Zarge oben Haustuer S0-5 (120x290, BRH 0)",
+   "box": [
+    635.0,
+    18.5,
+    285,
+    755.0,
+    26.5,
+    290
+   ],
+   "material": "rahmen",
+   "oeffnung": 5
+  },
+  {
+   "nr": 96,
+   "id": "T96",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer glasfront S0-6 (120x300, BRH 45)",
+   "ziel": "T02",
+   "box": [
+    785.0,
+    -6,
+    45,
+    905.0,
+    51,
+    345
+   ],
+   "quelle": "Foto 1940 erkannt (Eckhaus, geschaetzt)",
+   "oeffnung": 6
+  },
+  {
+   "nr": 97,
+   "id": "T97",
+   "kat": "rahmen",
+   "name": "Rahmen unten glasfront S0-6 (120x300, BRH 45)",
+   "box": [
+    785.0,
+    1.0,
+    45,
+    905.0,
+    9.0,
+    52
+   ],
+   "material": "rahmen",
+   "oeffnung": 6
+  },
+  {
+   "nr": 98,
+   "id": "T98",
+   "kat": "rahmen",
+   "name": "Rahmen oben glasfront S0-6 (120x300, BRH 45)",
+   "box": [
+    785.0,
+    1.0,
+    338,
+    905.0,
+    9.0,
+    345
+   ],
+   "material": "rahmen",
+   "oeffnung": 6
+  },
+  {
+   "nr": 99,
+   "id": "T99",
+   "kat": "rahmen",
+   "name": "Rahmen links glasfront S0-6 (120x300, BRH 45)",
+   "box": [
+    785.0,
+    1.0,
+    45,
+    792.0,
+    9.0,
+    345
+   ],
+   "material": "rahmen",
+   "oeffnung": 6
+  },
+  {
+   "nr": 100,
+   "id": "T100",
+   "kat": "rahmen",
+   "name": "Rahmen rechts glasfront S0-6 (120x300, BRH 45)",
+   "box": [
+    898.0,
+    1.0,
+    45,
+    905.0,
+    9.0,
+    345
+   ],
+   "material": "rahmen",
+   "oeffnung": 6
+  },
+  {
+   "nr": 101,
+   "id": "T101",
+   "kat": "glas",
+   "name": "Glas glasfront S0-6 (120x300, BRH 45)",
+   "box": [
+    792.0,
+    4.4,
+    52,
+    898.0,
+    5.6,
+    338
+   ],
+   "material": "glas",
+   "oeffnung": 6
+  },
+  {
+   "nr": 102,
+   "id": "T102",
+   "kat": "innen",
+   "name": "Innenraum glasfront S0-6 (120x300, BRH 45)",
+   "box": [
+    787.0,
+    46,
+    47,
+    903.0,
+    125,
+    343
+   ],
+   "material": "innen",
+   "oeffnung": 6
+  },
+  {
+   "nr": 103,
+   "id": "T103",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer Fenster S1-7 (160x250, BRH 75)",
+   "ziel": "T06",
+   "box": [
+    205.0,
+    -6,
+    505,
+    365.0,
+    51,
+    755
+   ],
+   "quelle": "Foto 1940 erkannt (Eckhaus, geschaetzt)",
+   "oeffnung": 7
+  },
+  {
+   "nr": 104,
+   "id": "T104",
+   "kat": "rahmen",
+   "name": "Rahmen unten Fenster S1-7 (160x250, BRH 75)",
+   "box": [
+    205.0,
+    18.5,
+    505,
+    365.0,
+    26.5,
+    512
+   ],
+   "material": "rahmen",
+   "oeffnung": 7
+  },
+  {
+   "nr": 105,
+   "id": "T105",
+   "kat": "rahmen",
+   "name": "Rahmen oben Fenster S1-7 (160x250, BRH 75)",
+   "box": [
+    205.0,
+    18.5,
+    748,
+    365.0,
+    26.5,
+    755
+   ],
+   "material": "rahmen",
+   "oeffnung": 7
+  },
+  {
+   "nr": 106,
+   "id": "T106",
+   "kat": "rahmen",
+   "name": "Rahmen links Fenster S1-7 (160x250, BRH 75)",
+   "box": [
+    205.0,
+    18.5,
+    505,
+    212.0,
+    26.5,
+    755
+   ],
+   "material": "rahmen",
+   "oeffnung": 7
+  },
+  {
+   "nr": 107,
+   "id": "T107",
+   "kat": "rahmen",
+   "name": "Rahmen rechts Fenster S1-7 (160x250, BRH 75)",
+   "box": [
+    358.0,
+    18.5,
+    505,
+    365.0,
+    26.5,
+    755
+   ],
+   "material": "rahmen",
+   "oeffnung": 7
+  },
+  {
+   "nr": 108,
+   "id": "T108",
+   "kat": "rahmen",
+   "name": "Pfosten 1 Fenster S1-7 (160x250, BRH 75)",
+   "box": [
+    282.0,
+    18.5,
+    512,
+    288.0,
+    26.5,
+    748
+   ],
+   "material": "rahmen",
+   "oeffnung": 7
+  },
+  {
+   "nr": 109,
+   "id": "T109",
+   "kat": "glas",
+   "name": "Glas Fenster S1-7 (160x250, BRH 75)",
+   "box": [
+    212.0,
+    21.9,
+    512,
+    358.0,
+    23.1,
+    748
+   ],
+   "material": "glas",
+   "oeffnung": 7
+  },
+  {
+   "nr": 110,
+   "id": "T110",
+   "kat": "detail",
+   "name": "Fensterbank Fenster S1-7 (160x250, BRH 75)",
+   "box": [
+    202.0,
+    -4,
+    502,
+    368.0,
+    18.5,
+    505
+   ],
+   "material": "fensterbank",
+   "oeffnung": 7
+  },
+  {
+   "nr": 111,
+   "id": "T111",
+   "kat": "innen",
+   "name": "Innenraum Fenster S1-7 (160x250, BRH 75)",
+   "box": [
+    207.0,
+    46,
+    507,
+    363.0,
+    125,
+    753
+   ],
+   "material": "innen",
+   "oeffnung": 7
+  },
+  {
+   "nr": 112,
+   "id": "T112",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer Fenster S1-8 (160x250, BRH 75)",
+   "ziel": "T06",
+   "box": [
+    615.0,
+    -6,
+    505,
+    775.0,
+    51,
+    755
+   ],
+   "quelle": "Foto 1940 erkannt (Eckhaus, geschaetzt)",
+   "oeffnung": 8
+  },
+  {
+   "nr": 113,
+   "id": "T113",
+   "kat": "rahmen",
+   "name": "Rahmen unten Fenster S1-8 (160x250, BRH 75)",
+   "box": [
+    615.0,
+    18.5,
+    505,
+    775.0,
+    26.5,
+    512
+   ],
+   "material": "rahmen",
+   "oeffnung": 8
+  },
+  {
+   "nr": 114,
+   "id": "T114",
+   "kat": "rahmen",
+   "name": "Rahmen oben Fenster S1-8 (160x250, BRH 75)",
+   "box": [
+    615.0,
+    18.5,
+    748,
+    775.0,
+    26.5,
+    755
+   ],
+   "material": "rahmen",
+   "oeffnung": 8
+  },
+  {
+   "nr": 115,
+   "id": "T115",
+   "kat": "rahmen",
+   "name": "Rahmen links Fenster S1-8 (160x250, BRH 75)",
+   "box": [
+    615.0,
+    18.5,
+    505,
+    622.0,
+    26.5,
+    755
+   ],
+   "material": "rahmen",
+   "oeffnung": 8
+  },
+  {
+   "nr": 116,
+   "id": "T116",
+   "kat": "rahmen",
+   "name": "Rahmen rechts Fenster S1-8 (160x250, BRH 75)",
+   "box": [
+    768.0,
+    18.5,
+    505,
+    775.0,
+    26.5,
+    755
+   ],
+   "material": "rahmen",
+   "oeffnung": 8
+  },
+  {
+   "nr": 117,
+   "id": "T117",
+   "kat": "rahmen",
+   "name": "Pfosten 1 Fenster S1-8 (160x250, BRH 75)",
+   "box": [
+    692.0,
+    18.5,
+    512,
+    698.0,
+    26.5,
+    748
+   ],
+   "material": "rahmen",
+   "oeffnung": 8
+  },
+  {
+   "nr": 118,
+   "id": "T118",
+   "kat": "glas",
+   "name": "Glas Fenster S1-8 (160x250, BRH 75)",
+   "box": [
+    622.0,
+    21.9,
+    512,
+    768.0,
+    23.1,
+    748
+   ],
+   "material": "glas",
+   "oeffnung": 8
+  },
+  {
+   "nr": 119,
+   "id": "T119",
+   "kat": "detail",
+   "name": "Fensterbank Fenster S1-8 (160x250, BRH 75)",
+   "box": [
+    612.0,
+    -4,
+    502,
+    778.0,
+    18.5,
+    505
+   ],
+   "material": "fensterbank",
+   "oeffnung": 8
+  },
+  {
+   "nr": 120,
+   "id": "T120",
+   "kat": "innen",
+   "name": "Innenraum Fenster S1-8 (160x250, BRH 75)",
+   "box": [
+    617.0,
+    46,
+    507,
+    773.0,
+    125,
+    753
+   ],
+   "material": "innen",
+   "oeffnung": 8
+  },
+  {
+   "nr": 121,
+   "id": "T121",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer Fenster S1-9 (160x250, BRH 75)",
+   "ziel": "T06",
+   "box": [
+    1025.0,
+    -6,
+    505,
+    1185.0,
+    51,
+    755
+   ],
+   "quelle": "Foto 1940 erkannt (Eckhaus, geschaetzt)",
+   "oeffnung": 9
+  },
+  {
+   "nr": 122,
+   "id": "T122",
+   "kat": "rahmen",
+   "name": "Rahmen unten Fenster S1-9 (160x250, BRH 75)",
+   "box": [
+    1025.0,
+    18.5,
+    505,
+    1185.0,
+    26.5,
+    512
+   ],
+   "material": "rahmen",
+   "oeffnung": 9
+  },
+  {
+   "nr": 123,
+   "id": "T123",
+   "kat": "rahmen",
+   "name": "Rahmen oben Fenster S1-9 (160x250, BRH 75)",
+   "box": [
+    1025.0,
+    18.5,
+    748,
+    1185.0,
+    26.5,
+    755
+   ],
+   "material": "rahmen",
+   "oeffnung": 9
+  },
+  {
+   "nr": 124,
+   "id": "T124",
+   "kat": "rahmen",
+   "name": "Rahmen links Fenster S1-9 (160x250, BRH 75)",
+   "box": [
+    1025.0,
+    18.5,
+    505,
+    1032.0,
+    26.5,
+    755
+   ],
+   "material": "rahmen",
+   "oeffnung": 9
+  },
+  {
+   "nr": 125,
+   "id": "T125",
+   "kat": "rahmen",
+   "name": "Rahmen rechts Fenster S1-9 (160x250, BRH 75)",
+   "box": [
+    1178.0,
+    18.5,
+    505,
+    1185.0,
+    26.5,
+    755
+   ],
+   "material": "rahmen",
+   "oeffnung": 9
+  },
+  {
+   "nr": 126,
+   "id": "T126",
+   "kat": "rahmen",
+   "name": "Pfosten 1 Fenster S1-9 (160x250, BRH 75)",
+   "box": [
+    1102.0,
+    18.5,
+    512,
+    1108.0,
+    26.5,
+    748
+   ],
+   "material": "rahmen",
+   "oeffnung": 9
+  },
+  {
+   "nr": 127,
+   "id": "T127",
+   "kat": "glas",
+   "name": "Glas Fenster S1-9 (160x250, BRH 75)",
+   "box": [
+    1032.0,
+    21.9,
+    512,
+    1178.0,
+    23.1,
+    748
+   ],
+   "material": "glas",
+   "oeffnung": 9
+  },
+  {
+   "nr": 128,
+   "id": "T128",
+   "kat": "detail",
+   "name": "Fensterbank Fenster S1-9 (160x250, BRH 75)",
+   "box": [
+    1022.0,
+    -4,
+    502,
+    1188.0,
+    18.5,
+    505
+   ],
+   "material": "fensterbank",
+   "oeffnung": 9
+  },
+  {
+   "nr": 129,
+   "id": "T129",
+   "kat": "innen",
+   "name": "Innenraum Fenster S1-9 (160x250, BRH 75)",
+   "box": [
+    1027.0,
+    46,
+    507,
+    1183.0,
+    125,
+    753
+   ],
+   "material": "innen",
+   "oeffnung": 9
+  },
+  {
+   "nr": 130,
+   "id": "T130",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer Fenster S1-10 (160x250, BRH 75)",
+   "ziel": "T06",
+   "box": [
+    1435.0,
+    -6,
+    505,
+    1595.0,
+    51,
+    755
+   ],
+   "quelle": "Foto 1940 erkannt (Eckhaus, geschaetzt)",
+   "oeffnung": 10
+  },
+  {
+   "nr": 131,
+   "id": "T131",
+   "kat": "rahmen",
+   "name": "Rahmen unten Fenster S1-10 (160x250, BRH 75)",
+   "box": [
+    1435.0,
+    18.5,
+    505,
+    1595.0,
+    26.5,
+    512
+   ],
+   "material": "rahmen",
+   "oeffnung": 10
+  },
+  {
+   "nr": 132,
+   "id": "T132",
+   "kat": "rahmen",
+   "name": "Rahmen oben Fenster S1-10 (160x250, BRH 75)",
+   "box": [
+    1435.0,
+    18.5,
+    748,
+    1595.0,
+    26.5,
+    755
+   ],
+   "material": "rahmen",
+   "oeffnung": 10
+  },
+  {
+   "nr": 133,
+   "id": "T133",
+   "kat": "rahmen",
+   "name": "Rahmen links Fenster S1-10 (160x250, BRH 75)",
+   "box": [
+    1435.0,
+    18.5,
+    505,
+    1442.0,
+    26.5,
+    755
+   ],
+   "material": "rahmen",
+   "oeffnung": 10
+  },
+  {
+   "nr": 134,
+   "id": "T134",
+   "kat": "rahmen",
+   "name": "Rahmen rechts Fenster S1-10 (160x250, BRH 75)",
+   "box": [
+    1588.0,
+    18.5,
+    505,
+    1595.0,
+    26.5,
+    755
+   ],
+   "material": "rahmen",
+   "oeffnung": 10
+  },
+  {
+   "nr": 135,
+   "id": "T135",
+   "kat": "rahmen",
+   "name": "Pfosten 1 Fenster S1-10 (160x250, BRH 75)",
+   "box": [
+    1512.0,
+    18.5,
+    512,
+    1518.0,
+    26.5,
+    748
+   ],
+   "material": "rahmen",
+   "oeffnung": 10
+  },
+  {
+   "nr": 136,
+   "id": "T136",
+   "kat": "glas",
+   "name": "Glas Fenster S1-10 (160x250, BRH 75)",
+   "box": [
+    1442.0,
+    21.9,
+    512,
+    1588.0,
+    23.1,
+    748
+   ],
+   "material": "glas",
+   "oeffnung": 10
+  },
+  {
+   "nr": 137,
+   "id": "T137",
+   "kat": "detail",
+   "name": "Fensterbank Fenster S1-10 (160x250, BRH 75)",
+   "box": [
+    1432.0,
+    -4,
+    502,
+    1598.0,
+    18.5,
+    505
+   ],
+   "material": "fensterbank",
+   "oeffnung": 10
+  },
+  {
+   "nr": 138,
+   "id": "T138",
+   "kat": "innen",
+   "name": "Innenraum Fenster S1-10 (160x250, BRH 75)",
+   "box": [
+    1437.0,
+    46,
+    507,
+    1593.0,
+    125,
+    753
+   ],
+   "material": "innen",
+   "oeffnung": 10
+  },
+  {
+   "nr": 139,
+   "id": "T139",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer glasfront W0-11 (210x300, BRH 45)",
+   "ziel": "T04",
+   "box": [
+    -6,
+    105.0,
+    45,
+    51,
+    315.0,
+    345
+   ],
+   "quelle": "Foto 1940 erkannt (Eckhaus, geschaetzt)",
+   "oeffnung": 11
+  },
+  {
+   "nr": 140,
+   "id": "T140",
+   "kat": "rahmen",
+   "name": "Rahmen unten glasfront W0-11 (210x300, BRH 45)",
+   "box": [
+    1.0,
+    105.0,
+    45,
+    9.0,
+    315.0,
+    52
+   ],
+   "material": "rahmen",
+   "oeffnung": 11
+  },
+  {
+   "nr": 141,
+   "id": "T141",
+   "kat": "rahmen",
+   "name": "Rahmen oben glasfront W0-11 (210x300, BRH 45)",
+   "box": [
+    1.0,
+    105.0,
+    338,
+    9.0,
+    315.0,
+    345
+   ],
+   "material": "rahmen",
+   "oeffnung": 11
+  },
+  {
+   "nr": 142,
+   "id": "T142",
+   "kat": "rahmen",
+   "name": "Rahmen links glasfront W0-11 (210x300, BRH 45)",
+   "box": [
+    1.0,
+    105.0,
+    45,
+    9.0,
+    112.0,
+    345
+   ],
+   "material": "rahmen",
+   "oeffnung": 11
+  },
+  {
+   "nr": 143,
+   "id": "T143",
+   "kat": "rahmen",
+   "name": "Rahmen rechts glasfront W0-11 (210x300, BRH 45)",
+   "box": [
+    1.0,
+    308.0,
+    45,
+    9.0,
+    315.0,
+    345
+   ],
+   "material": "rahmen",
+   "oeffnung": 11
+  },
+  {
+   "nr": 144,
+   "id": "T144",
+   "kat": "rahmen",
+   "name": "Pfosten 1 glasfront W0-11 (210x300, BRH 45)",
+   "box": [
+    1.0,
+    207.0,
+    52,
+    9.0,
+    213.0,
+    338
+   ],
+   "material": "rahmen",
+   "oeffnung": 11
+  },
+  {
+   "nr": 145,
+   "id": "T145",
+   "kat": "glas",
+   "name": "Glas glasfront W0-11 (210x300, BRH 45)",
+   "box": [
+    4.4,
+    112.0,
+    52,
+    5.6,
+    308.0,
+    338
+   ],
+   "material": "glas",
+   "oeffnung": 11
+  },
+  {
+   "nr": 146,
+   "id": "T146",
+   "kat": "innen",
+   "name": "Innenraum glasfront W0-11 (210x300, BRH 45)",
+   "box": [
+    46,
+    107.0,
+    47,
+    125,
+    313.0,
+    343
+   ],
+   "material": "innen",
+   "oeffnung": 11
+  },
+  {
+   "nr": 147,
+   "id": "T147",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer Fenster W1-12 (115x250, BRH 75)",
+   "ziel": "T08",
+   "box": [
+    -6,
+    152.5,
+    505,
+    51,
+    267.5,
+    755
+   ],
+   "quelle": "Foto 1940 erkannt (Eckhaus, geschaetzt)",
+   "oeffnung": 12
+  },
+  {
+   "nr": 148,
+   "id": "T148",
+   "kat": "rahmen",
+   "name": "Rahmen unten Fenster W1-12 (115x250, BRH 75)",
+   "box": [
+    18.5,
+    152.5,
+    505,
+    26.5,
+    267.5,
+    512
+   ],
+   "material": "rahmen",
+   "oeffnung": 12
+  },
+  {
+   "nr": 149,
+   "id": "T149",
+   "kat": "rahmen",
+   "name": "Rahmen oben Fenster W1-12 (115x250, BRH 75)",
+   "box": [
+    18.5,
+    152.5,
+    748,
+    26.5,
+    267.5,
+    755
+   ],
+   "material": "rahmen",
+   "oeffnung": 12
+  },
+  {
+   "nr": 150,
+   "id": "T150",
+   "kat": "rahmen",
+   "name": "Rahmen links Fenster W1-12 (115x250, BRH 75)",
+   "box": [
+    18.5,
+    152.5,
+    505,
+    26.5,
+    159.5,
+    755
+   ],
+   "material": "rahmen",
+   "oeffnung": 12
+  },
+  {
+   "nr": 151,
+   "id": "T151",
+   "kat": "rahmen",
+   "name": "Rahmen rechts Fenster W1-12 (115x250, BRH 75)",
+   "box": [
+    18.5,
+    260.5,
+    505,
+    26.5,
+    267.5,
+    755
+   ],
+   "material": "rahmen",
+   "oeffnung": 12
+  },
+  {
+   "nr": 152,
+   "id": "T152",
+   "kat": "rahmen",
+   "name": "Pfosten Fluegel Fenster W1-12 (115x250, BRH 75)",
+   "box": [
+    18.5,
+    207.0,
+    512,
+    26.5,
+    213.0,
+    748
+   ],
+   "material": "rahmen",
+   "oeffnung": 12
+  },
+  {
+   "nr": 153,
+   "id": "T153",
+   "kat": "glas",
+   "name": "Glas Fenster W1-12 (115x250, BRH 75)",
+   "box": [
+    21.9,
+    159.5,
+    512,
+    23.1,
+    260.5,
+    748
+   ],
+   "material": "glas",
+   "oeffnung": 12
+  },
+  {
+   "nr": 154,
+   "id": "T154",
+   "kat": "detail",
+   "name": "Fensterbank Fenster W1-12 (115x250, BRH 75)",
+   "box": [
+    -4,
+    149.5,
+    502,
+    18.5,
+    270.5,
+    505
+   ],
+   "material": "fensterbank",
+   "oeffnung": 12
+  },
+  {
+   "nr": 155,
+   "id": "T155",
+   "kat": "innen",
+   "name": "Innenraum Fenster W1-12 (115x250, BRH 75)",
+   "box": [
+    46,
+    154.5,
+    507,
+    125,
+    265.5,
+    753
+   ],
+   "material": "innen",
+   "oeffnung": 12
+  },
+  {
+   "nr": 156,
+   "id": "T156",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer glasfront W0-13 (210x300, BRH 45)",
+   "ziel": "T04",
+   "box": [
+    -6,
+    365.0,
+    45,
+    51,
+    575.0,
+    345
+   ],
+   "quelle": "Foto 1940 erkannt (Eckhaus, geschaetzt)",
+   "oeffnung": 13
+  },
+  {
+   "nr": 157,
+   "id": "T157",
+   "kat": "rahmen",
+   "name": "Rahmen unten glasfront W0-13 (210x300, BRH 45)",
+   "box": [
+    1.0,
+    365.0,
+    45,
+    9.0,
+    575.0,
+    52
+   ],
+   "material": "rahmen",
+   "oeffnung": 13
+  },
+  {
+   "nr": 158,
+   "id": "T158",
+   "kat": "rahmen",
+   "name": "Rahmen oben glasfront W0-13 (210x300, BRH 45)",
+   "box": [
+    1.0,
+    365.0,
+    338,
+    9.0,
+    575.0,
+    345
+   ],
+   "material": "rahmen",
+   "oeffnung": 13
+  },
+  {
+   "nr": 159,
+   "id": "T159",
+   "kat": "rahmen",
+   "name": "Rahmen links glasfront W0-13 (210x300, BRH 45)",
+   "box": [
+    1.0,
+    365.0,
+    45,
+    9.0,
+    372.0,
+    345
+   ],
+   "material": "rahmen",
+   "oeffnung": 13
+  },
+  {
+   "nr": 160,
+   "id": "T160",
+   "kat": "rahmen",
+   "name": "Rahmen rechts glasfront W0-13 (210x300, BRH 45)",
+   "box": [
+    1.0,
+    568.0,
+    45,
+    9.0,
+    575.0,
+    345
+   ],
+   "material": "rahmen",
+   "oeffnung": 13
+  },
+  {
+   "nr": 161,
+   "id": "T161",
+   "kat": "rahmen",
+   "name": "Pfosten 1 glasfront W0-13 (210x300, BRH 45)",
+   "box": [
+    1.0,
+    467.0,
+    52,
+    9.0,
+    473.0,
+    338
+   ],
+   "material": "rahmen",
+   "oeffnung": 13
+  },
+  {
+   "nr": 162,
+   "id": "T162",
+   "kat": "glas",
+   "name": "Glas glasfront W0-13 (210x300, BRH 45)",
+   "box": [
+    4.4,
+    372.0,
+    52,
+    5.6,
+    568.0,
+    338
+   ],
+   "material": "glas",
+   "oeffnung": 13
+  },
+  {
+   "nr": 163,
+   "id": "T163",
+   "kat": "innen",
+   "name": "Innenraum glasfront W0-13 (210x300, BRH 45)",
+   "box": [
+    46,
+    367.0,
+    47,
+    125,
+    573.0,
+    343
+   ],
+   "material": "innen",
+   "oeffnung": 13
+  },
+  {
+   "nr": 164,
+   "id": "T164",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer Fenster W1-14 (115x250, BRH 75)",
+   "ziel": "T08",
+   "box": [
+    -6,
+    412.5,
+    505,
+    51,
+    527.5,
+    755
+   ],
+   "quelle": "Foto 1940 erkannt (Eckhaus, geschaetzt)",
+   "oeffnung": 14
+  },
+  {
+   "nr": 165,
+   "id": "T165",
+   "kat": "rahmen",
+   "name": "Rahmen unten Fenster W1-14 (115x250, BRH 75)",
+   "box": [
+    18.5,
+    412.5,
+    505,
+    26.5,
+    527.5,
+    512
+   ],
+   "material": "rahmen",
+   "oeffnung": 14
+  },
+  {
+   "nr": 166,
+   "id": "T166",
+   "kat": "rahmen",
+   "name": "Rahmen oben Fenster W1-14 (115x250, BRH 75)",
+   "box": [
+    18.5,
+    412.5,
+    748,
+    26.5,
+    527.5,
+    755
+   ],
+   "material": "rahmen",
+   "oeffnung": 14
+  },
+  {
+   "nr": 167,
+   "id": "T167",
+   "kat": "rahmen",
+   "name": "Rahmen links Fenster W1-14 (115x250, BRH 75)",
+   "box": [
+    18.5,
+    412.5,
+    505,
+    26.5,
+    419.5,
+    755
+   ],
+   "material": "rahmen",
+   "oeffnung": 14
+  },
+  {
+   "nr": 168,
+   "id": "T168",
+   "kat": "rahmen",
+   "name": "Rahmen rechts Fenster W1-14 (115x250, BRH 75)",
+   "box": [
+    18.5,
+    520.5,
+    505,
+    26.5,
+    527.5,
+    755
+   ],
+   "material": "rahmen",
+   "oeffnung": 14
+  },
+  {
+   "nr": 169,
+   "id": "T169",
+   "kat": "rahmen",
+   "name": "Pfosten Fluegel Fenster W1-14 (115x250, BRH 75)",
+   "box": [
+    18.5,
+    467.0,
+    512,
+    26.5,
+    473.0,
+    748
+   ],
+   "material": "rahmen",
+   "oeffnung": 14
+  },
+  {
+   "nr": 170,
+   "id": "T170",
+   "kat": "glas",
+   "name": "Glas Fenster W1-14 (115x250, BRH 75)",
+   "box": [
+    21.9,
+    419.5,
+    512,
+    23.1,
+    520.5,
+    748
+   ],
+   "material": "glas",
+   "oeffnung": 14
+  },
+  {
+   "nr": 171,
+   "id": "T171",
+   "kat": "detail",
+   "name": "Fensterbank Fenster W1-14 (115x250, BRH 75)",
+   "box": [
+    -4,
+    409.5,
+    502,
+    18.5,
+    530.5,
+    505
+   ],
+   "material": "fensterbank",
+   "oeffnung": 14
+  },
+  {
+   "nr": 172,
+   "id": "T172",
+   "kat": "innen",
+   "name": "Innenraum Fenster W1-14 (115x250, BRH 75)",
+   "box": [
+    46,
+    414.5,
+    507,
+    125,
+    525.5,
+    753
+   ],
+   "material": "innen",
+   "oeffnung": 14
+  },
+  {
+   "nr": 173,
+   "id": "T173",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer glasfront W0-15 (210x300, BRH 45)",
+   "ziel": "T04",
+   "box": [
+    -6,
+    625.0,
+    45,
+    51,
+    835.0,
+    345
+   ],
+   "quelle": "Foto 1940 erkannt (Eckhaus, geschaetzt)",
+   "oeffnung": 15
+  },
+  {
+   "nr": 174,
+   "id": "T174",
+   "kat": "rahmen",
+   "name": "Rahmen unten glasfront W0-15 (210x300, BRH 45)",
+   "box": [
+    1.0,
+    625.0,
+    45,
+    9.0,
+    835.0,
+    52
+   ],
+   "material": "rahmen",
+   "oeffnung": 15
+  },
+  {
+   "nr": 175,
+   "id": "T175",
+   "kat": "rahmen",
+   "name": "Rahmen oben glasfront W0-15 (210x300, BRH 45)",
+   "box": [
+    1.0,
+    625.0,
+    338,
+    9.0,
+    835.0,
+    345
+   ],
+   "material": "rahmen",
+   "oeffnung": 15
+  },
+  {
+   "nr": 176,
+   "id": "T176",
+   "kat": "rahmen",
+   "name": "Rahmen links glasfront W0-15 (210x300, BRH 45)",
+   "box": [
+    1.0,
+    625.0,
+    45,
+    9.0,
+    632.0,
+    345
+   ],
+   "material": "rahmen",
+   "oeffnung": 15
+  },
+  {
+   "nr": 177,
+   "id": "T177",
+   "kat": "rahmen",
+   "name": "Rahmen rechts glasfront W0-15 (210x300, BRH 45)",
+   "box": [
+    1.0,
+    828.0,
+    45,
+    9.0,
+    835.0,
+    345
+   ],
+   "material": "rahmen",
+   "oeffnung": 15
+  },
+  {
+   "nr": 178,
+   "id": "T178",
+   "kat": "rahmen",
+   "name": "Pfosten 1 glasfront W0-15 (210x300, BRH 45)",
+   "box": [
+    1.0,
+    727.0,
+    52,
+    9.0,
+    733.0,
+    338
+   ],
+   "material": "rahmen",
+   "oeffnung": 15
+  },
+  {
+   "nr": 179,
+   "id": "T179",
+   "kat": "glas",
+   "name": "Glas glasfront W0-15 (210x300, BRH 45)",
+   "box": [
+    4.4,
+    632.0,
+    52,
+    5.6,
+    828.0,
+    338
+   ],
+   "material": "glas",
+   "oeffnung": 15
+  },
+  {
+   "nr": 180,
+   "id": "T180",
+   "kat": "innen",
+   "name": "Innenraum glasfront W0-15 (210x300, BRH 45)",
+   "box": [
+    46,
+    627.0,
+    47,
+    125,
+    833.0,
+    343
+   ],
+   "material": "innen",
+   "oeffnung": 15
+  },
+  {
+   "nr": 181,
+   "id": "T181",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer Fenster W1-16 (115x250, BRH 75)",
+   "ziel": "T08",
+   "box": [
+    -6,
+    672.5,
+    505,
+    51,
+    787.5,
+    755
+   ],
+   "quelle": "Foto 1940 erkannt (Eckhaus, geschaetzt)",
+   "oeffnung": 16
+  },
+  {
+   "nr": 182,
+   "id": "T182",
+   "kat": "rahmen",
+   "name": "Rahmen unten Fenster W1-16 (115x250, BRH 75)",
+   "box": [
+    18.5,
+    672.5,
+    505,
+    26.5,
+    787.5,
+    512
+   ],
+   "material": "rahmen",
+   "oeffnung": 16
+  },
+  {
+   "nr": 183,
+   "id": "T183",
+   "kat": "rahmen",
+   "name": "Rahmen oben Fenster W1-16 (115x250, BRH 75)",
+   "box": [
+    18.5,
+    672.5,
+    748,
+    26.5,
+    787.5,
+    755
+   ],
+   "material": "rahmen",
+   "oeffnung": 16
+  },
+  {
+   "nr": 184,
+   "id": "T184",
+   "kat": "rahmen",
+   "name": "Rahmen links Fenster W1-16 (115x250, BRH 75)",
+   "box": [
+    18.5,
+    672.5,
+    505,
+    26.5,
+    679.5,
+    755
+   ],
+   "material": "rahmen",
+   "oeffnung": 16
+  },
+  {
+   "nr": 185,
+   "id": "T185",
+   "kat": "rahmen",
+   "name": "Rahmen rechts Fenster W1-16 (115x250, BRH 75)",
+   "box": [
+    18.5,
+    780.5,
+    505,
+    26.5,
+    787.5,
+    755
+   ],
+   "material": "rahmen",
+   "oeffnung": 16
+  },
+  {
+   "nr": 186,
+   "id": "T186",
+   "kat": "rahmen",
+   "name": "Pfosten Fluegel Fenster W1-16 (115x250, BRH 75)",
+   "box": [
+    18.5,
+    727.0,
+    512,
+    26.5,
+    733.0,
+    748
+   ],
+   "material": "rahmen",
+   "oeffnung": 16
+  },
+  {
+   "nr": 187,
+   "id": "T187",
+   "kat": "glas",
+   "name": "Glas Fenster W1-16 (115x250, BRH 75)",
+   "box": [
+    21.9,
+    679.5,
+    512,
+    23.1,
+    780.5,
+    748
+   ],
+   "material": "glas",
+   "oeffnung": 16
+  },
+  {
+   "nr": 188,
+   "id": "T188",
+   "kat": "detail",
+   "name": "Fensterbank Fenster W1-16 (115x250, BRH 75)",
+   "box": [
+    -4,
+    669.5,
+    502,
+    18.5,
+    790.5,
+    505
+   ],
+   "material": "fensterbank",
+   "oeffnung": 16
+  },
+  {
+   "nr": 189,
+   "id": "T189",
+   "kat": "innen",
+   "name": "Innenraum Fenster W1-16 (115x250, BRH 75)",
+   "box": [
+    46,
+    674.5,
+    507,
+    125,
+    785.5,
+    753
+   ],
+   "material": "innen",
+   "oeffnung": 16
+  },
+  {
+   "nr": 190,
+   "id": "T190",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer glasfront W0-17 (210x300, BRH 45)",
+   "ziel": "T04",
+   "box": [
+    -6,
+    885.0,
+    45,
+    51,
+    1095.0,
+    345
+   ],
+   "quelle": "Foto 1940 erkannt (Eckhaus, geschaetzt)",
+   "oeffnung": 17
+  },
+  {
+   "nr": 191,
+   "id": "T191",
+   "kat": "rahmen",
+   "name": "Rahmen unten glasfront W0-17 (210x300, BRH 45)",
+   "box": [
+    1.0,
+    885.0,
+    45,
+    9.0,
+    1095.0,
+    52
+   ],
+   "material": "rahmen",
+   "oeffnung": 17
+  },
+  {
+   "nr": 192,
+   "id": "T192",
+   "kat": "rahmen",
+   "name": "Rahmen oben glasfront W0-17 (210x300, BRH 45)",
+   "box": [
+    1.0,
+    885.0,
+    338,
+    9.0,
+    1095.0,
+    345
+   ],
+   "material": "rahmen",
+   "oeffnung": 17
+  },
+  {
+   "nr": 193,
+   "id": "T193",
+   "kat": "rahmen",
+   "name": "Rahmen links glasfront W0-17 (210x300, BRH 45)",
+   "box": [
+    1.0,
+    885.0,
+    45,
+    9.0,
+    892.0,
+    345
+   ],
+   "material": "rahmen",
+   "oeffnung": 17
+  },
+  {
+   "nr": 194,
+   "id": "T194",
+   "kat": "rahmen",
+   "name": "Rahmen rechts glasfront W0-17 (210x300, BRH 45)",
+   "box": [
+    1.0,
+    1088.0,
+    45,
+    9.0,
+    1095.0,
+    345
+   ],
+   "material": "rahmen",
+   "oeffnung": 17
+  },
+  {
+   "nr": 195,
+   "id": "T195",
+   "kat": "rahmen",
+   "name": "Pfosten 1 glasfront W0-17 (210x300, BRH 45)",
+   "box": [
+    1.0,
+    987.0,
+    52,
+    9.0,
+    993.0,
+    338
+   ],
+   "material": "rahmen",
+   "oeffnung": 17
+  },
+  {
+   "nr": 196,
+   "id": "T196",
+   "kat": "glas",
+   "name": "Glas glasfront W0-17 (210x300, BRH 45)",
+   "box": [
+    4.4,
+    892.0,
+    52,
+    5.6,
+    1088.0,
+    338
+   ],
+   "material": "glas",
+   "oeffnung": 17
+  },
+  {
+   "nr": 197,
+   "id": "T197",
+   "kat": "innen",
+   "name": "Innenraum glasfront W0-17 (210x300, BRH 45)",
+   "box": [
+    46,
+    887.0,
+    47,
+    125,
+    1093.0,
+    343
+   ],
+   "material": "innen",
+   "oeffnung": 17
+  },
+  {
+   "nr": 198,
+   "id": "T198",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer Fenster W1-18 (115x250, BRH 75)",
+   "ziel": "T08",
+   "box": [
+    -6,
+    932.5,
+    505,
+    51,
+    1047.5,
+    755
+   ],
+   "quelle": "Foto 1940 erkannt (Eckhaus, geschaetzt)",
+   "oeffnung": 18
+  },
+  {
+   "nr": 199,
+   "id": "T199",
+   "kat": "rahmen",
+   "name": "Rahmen unten Fenster W1-18 (115x250, BRH 75)",
+   "box": [
+    18.5,
+    932.5,
+    505,
+    26.5,
+    1047.5,
+    512
+   ],
+   "material": "rahmen",
+   "oeffnung": 18
+  },
+  {
+   "nr": 200,
+   "id": "T200",
+   "kat": "rahmen",
+   "name": "Rahmen oben Fenster W1-18 (115x250, BRH 75)",
+   "box": [
+    18.5,
+    932.5,
+    748,
+    26.5,
+    1047.5,
+    755
+   ],
+   "material": "rahmen",
+   "oeffnung": 18
+  },
+  {
+   "nr": 201,
+   "id": "T201",
+   "kat": "rahmen",
+   "name": "Rahmen links Fenster W1-18 (115x250, BRH 75)",
+   "box": [
+    18.5,
+    932.5,
+    505,
+    26.5,
+    939.5,
+    755
+   ],
+   "material": "rahmen",
+   "oeffnung": 18
+  },
+  {
+   "nr": 202,
+   "id": "T202",
+   "kat": "rahmen",
+   "name": "Rahmen rechts Fenster W1-18 (115x250, BRH 75)",
+   "box": [
+    18.5,
+    1040.5,
+    505,
+    26.5,
+    1047.5,
+    755
+   ],
+   "material": "rahmen",
+   "oeffnung": 18
+  },
+  {
+   "nr": 203,
+   "id": "T203",
+   "kat": "rahmen",
+   "name": "Pfosten Fluegel Fenster W1-18 (115x250, BRH 75)",
+   "box": [
+    18.5,
+    987.0,
+    512,
+    26.5,
+    993.0,
+    748
+   ],
+   "material": "rahmen",
+   "oeffnung": 18
+  },
+  {
+   "nr": 204,
+   "id": "T204",
+   "kat": "glas",
+   "name": "Glas Fenster W1-18 (115x250, BRH 75)",
+   "box": [
+    21.9,
+    939.5,
+    512,
+    23.1,
+    1040.5,
+    748
+   ],
+   "material": "glas",
+   "oeffnung": 18
+  },
+  {
+   "nr": 205,
+   "id": "T205",
+   "kat": "detail",
+   "name": "Fensterbank Fenster W1-18 (115x250, BRH 75)",
+   "box": [
+    -4,
+    929.5,
+    502,
+    18.5,
+    1050.5,
+    505
+   ],
+   "material": "fensterbank",
+   "oeffnung": 18
+  },
+  {
+   "nr": 206,
+   "id": "T206",
+   "kat": "innen",
+   "name": "Innenraum Fenster W1-18 (115x250, BRH 75)",
+   "box": [
+    46,
+    934.5,
+    507,
+    125,
+    1045.5,
+    753
+   ],
+   "material": "innen",
+   "oeffnung": 18
+  },
+  {
+   "nr": 207,
+   "id": "T207",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer Haustuer N0-19 (110x220, BRH 0)",
+   "ziel": "T03",
+   "box": [
+    245.0,
+    1149,
+    0,
+    355.0,
+    1206,
+    220
+   ],
+   "quelle": "INFERIERT (im Foto nicht sichtbar)",
+   "oeffnung": 19
+  },
+  {
+   "nr": 208,
+   "id": "T208",
+   "kat": "tuer",
+   "name": "Tuerblatt Haustuer N0-19 (110x220, BRH 0)",
+   "box": [
+    245.0,
+    1175.0,
+    0,
+    355.0,
+    1180.0,
+    220
+   ],
+   "material": "tuer",
+   "oeffnung": 19
+  },
+  {
+   "nr": 209,
+   "id": "T209",
+   "kat": "rahmen",
+   "name": "Zarge links Haustuer N0-19 (110x220, BRH 0)",
+   "box": [
+    245.0,
+    1173.5,
+    0,
+    250.0,
+    1181.5,
+    220
+   ],
+   "material": "rahmen",
+   "oeffnung": 19
+  },
+  {
+   "nr": 210,
+   "id": "T210",
+   "kat": "rahmen",
+   "name": "Zarge rechts Haustuer N0-19 (110x220, BRH 0)",
+   "box": [
+    350.0,
+    1173.5,
+    0,
+    355.0,
+    1181.5,
+    220
+   ],
+   "material": "rahmen",
+   "oeffnung": 19
+  },
+  {
+   "nr": 211,
+   "id": "T211",
+   "kat": "rahmen",
+   "name": "Zarge oben Haustuer N0-19 (110x220, BRH 0)",
+   "box": [
+    245.0,
+    1173.5,
+    215,
+    355.0,
+    1181.5,
+    220
+   ],
+   "material": "rahmen",
+   "oeffnung": 19
+  },
+  {
+   "nr": 212,
+   "id": "T212",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer Fenster N0-20 (120x150, BRH 110)",
+   "ziel": "T03",
+   "box": [
+    840.0,
+    1149,
+    110,
+    960.0,
+    1206,
+    260
+   ],
+   "quelle": "INFERIERT (im Foto nicht sichtbar)",
+   "oeffnung": 20
+  },
+  {
+   "nr": 213,
+   "id": "T213",
+   "kat": "rahmen",
+   "name": "Rahmen unten Fenster N0-20 (120x150, BRH 110)",
+   "box": [
+    840.0,
+    1173.5,
+    110,
+    960.0,
+    1181.5,
+    117
+   ],
+   "material": "rahmen",
+   "oeffnung": 20
+  },
+  {
+   "nr": 214,
+   "id": "T214",
+   "kat": "rahmen",
+   "name": "Rahmen oben Fenster N0-20 (120x150, BRH 110)",
+   "box": [
+    840.0,
+    1173.5,
+    253,
+    960.0,
+    1181.5,
+    260
+   ],
+   "material": "rahmen",
+   "oeffnung": 20
+  },
+  {
+   "nr": 215,
+   "id": "T215",
+   "kat": "rahmen",
+   "name": "Rahmen links Fenster N0-20 (120x150, BRH 110)",
+   "box": [
+    840.0,
+    1173.5,
+    110,
+    847.0,
+    1181.5,
+    260
+   ],
+   "material": "rahmen",
+   "oeffnung": 20
+  },
+  {
+   "nr": 216,
+   "id": "T216",
+   "kat": "rahmen",
+   "name": "Rahmen rechts Fenster N0-20 (120x150, BRH 110)",
+   "box": [
+    953.0,
+    1173.5,
+    110,
+    960.0,
+    1181.5,
+    260
+   ],
+   "material": "rahmen",
+   "oeffnung": 20
+  },
+  {
+   "nr": 217,
+   "id": "T217",
+   "kat": "rahmen",
+   "name": "Pfosten Fluegel Fenster N0-20 (120x150, BRH 110)",
+   "box": [
+    897.0,
+    1173.5,
+    117,
+    903.0,
+    1181.5,
+    253
+   ],
+   "material": "rahmen",
+   "oeffnung": 20
+  },
+  {
+   "nr": 218,
+   "id": "T218",
+   "kat": "glas",
+   "name": "Glas Fenster N0-20 (120x150, BRH 110)",
+   "box": [
+    847.0,
+    1176.9,
+    117,
+    953.0,
+    1178.1,
+    253
+   ],
+   "material": "glas",
+   "oeffnung": 20
+  },
+  {
+   "nr": 219,
+   "id": "T219",
+   "kat": "detail",
+   "name": "Fensterbank Fenster N0-20 (120x150, BRH 110)",
+   "box": [
+    837.0,
+    1181.5,
+    107,
+    963.0,
+    1204,
+    110
+   ],
+   "material": "fensterbank",
+   "oeffnung": 20
+  },
+  {
+   "nr": 220,
+   "id": "T220",
+   "kat": "innen",
+   "name": "Innenraum Fenster N0-20 (120x150, BRH 110)",
+   "box": [
+    842.0,
+    1075,
+    112,
+    958.0,
+    1154,
+    258
+   ],
+   "material": "innen",
+   "oeffnung": 20
+  },
+  {
+   "nr": 221,
+   "id": "T221",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer Fenster N0-21 (120x150, BRH 110)",
+   "ziel": "T03",
+   "box": [
+    1340.0,
+    1149,
+    110,
+    1460.0,
+    1206,
+    260
+   ],
+   "quelle": "INFERIERT (im Foto nicht sichtbar)",
+   "oeffnung": 21
+  },
+  {
+   "nr": 222,
+   "id": "T222",
+   "kat": "rahmen",
+   "name": "Rahmen unten Fenster N0-21 (120x150, BRH 110)",
+   "box": [
+    1340.0,
+    1173.5,
+    110,
+    1460.0,
+    1181.5,
+    117
+   ],
+   "material": "rahmen",
+   "oeffnung": 21
+  },
+  {
+   "nr": 223,
+   "id": "T223",
+   "kat": "rahmen",
+   "name": "Rahmen oben Fenster N0-21 (120x150, BRH 110)",
+   "box": [
+    1340.0,
+    1173.5,
+    253,
+    1460.0,
+    1181.5,
+    260
+   ],
+   "material": "rahmen",
+   "oeffnung": 21
+  },
+  {
+   "nr": 224,
+   "id": "T224",
+   "kat": "rahmen",
+   "name": "Rahmen links Fenster N0-21 (120x150, BRH 110)",
+   "box": [
+    1340.0,
+    1173.5,
+    110,
+    1347.0,
+    1181.5,
+    260
+   ],
+   "material": "rahmen",
+   "oeffnung": 21
+  },
+  {
+   "nr": 225,
+   "id": "T225",
+   "kat": "rahmen",
+   "name": "Rahmen rechts Fenster N0-21 (120x150, BRH 110)",
+   "box": [
+    1453.0,
+    1173.5,
+    110,
+    1460.0,
+    1181.5,
+    260
+   ],
+   "material": "rahmen",
+   "oeffnung": 21
+  },
+  {
+   "nr": 226,
+   "id": "T226",
+   "kat": "rahmen",
+   "name": "Pfosten Fluegel Fenster N0-21 (120x150, BRH 110)",
+   "box": [
+    1397.0,
+    1173.5,
+    117,
+    1403.0,
+    1181.5,
+    253
+   ],
+   "material": "rahmen",
+   "oeffnung": 21
+  },
+  {
+   "nr": 227,
+   "id": "T227",
+   "kat": "glas",
+   "name": "Glas Fenster N0-21 (120x150, BRH 110)",
+   "box": [
+    1347.0,
+    1176.9,
+    117,
+    1453.0,
+    1178.1,
+    253
+   ],
+   "material": "glas",
+   "oeffnung": 21
+  },
+  {
+   "nr": 228,
+   "id": "T228",
+   "kat": "detail",
+   "name": "Fensterbank Fenster N0-21 (120x150, BRH 110)",
+   "box": [
+    1337.0,
+    1181.5,
+    107,
+    1463.0,
+    1204,
+    110
+   ],
+   "material": "fensterbank",
+   "oeffnung": 21
+  },
+  {
+   "nr": 229,
+   "id": "T229",
+   "kat": "innen",
+   "name": "Innenraum Fenster N0-21 (120x150, BRH 110)",
+   "box": [
+    1342.0,
+    1075,
+    112,
+    1458.0,
+    1154,
+    258
+   ],
+   "material": "innen",
+   "oeffnung": 21
+  },
+  {
+   "nr": 230,
+   "id": "T230",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer Fenster N1-22 (120x200, BRH 90)",
+   "ziel": "T07",
+   "box": [
+    240.0,
+    1149,
+    520,
+    360.0,
+    1206,
+    720
+   ],
+   "quelle": "INFERIERT (im Foto nicht sichtbar)",
+   "oeffnung": 22
+  },
+  {
+   "nr": 231,
+   "id": "T231",
+   "kat": "rahmen",
+   "name": "Rahmen unten Fenster N1-22 (120x200, BRH 90)",
+   "box": [
+    240.0,
+    1173.5,
+    520,
+    360.0,
+    1181.5,
+    527
+   ],
+   "material": "rahmen",
+   "oeffnung": 22
+  },
+  {
+   "nr": 232,
+   "id": "T232",
+   "kat": "rahmen",
+   "name": "Rahmen oben Fenster N1-22 (120x200, BRH 90)",
+   "box": [
+    240.0,
+    1173.5,
+    713,
+    360.0,
+    1181.5,
+    720
+   ],
+   "material": "rahmen",
+   "oeffnung": 22
+  },
+  {
+   "nr": 233,
+   "id": "T233",
+   "kat": "rahmen",
+   "name": "Rahmen links Fenster N1-22 (120x200, BRH 90)",
+   "box": [
+    240.0,
+    1173.5,
+    520,
+    247.0,
+    1181.5,
+    720
+   ],
+   "material": "rahmen",
+   "oeffnung": 22
+  },
+  {
+   "nr": 234,
+   "id": "T234",
+   "kat": "rahmen",
+   "name": "Rahmen rechts Fenster N1-22 (120x200, BRH 90)",
+   "box": [
+    353.0,
+    1173.5,
+    520,
+    360.0,
+    1181.5,
+    720
+   ],
+   "material": "rahmen",
+   "oeffnung": 22
+  },
+  {
+   "nr": 235,
+   "id": "T235",
+   "kat": "rahmen",
+   "name": "Pfosten Fluegel Fenster N1-22 (120x200, BRH 90)",
+   "box": [
+    297.0,
+    1173.5,
+    527,
+    303.0,
+    1181.5,
+    713
+   ],
+   "material": "rahmen",
+   "oeffnung": 22
+  },
+  {
+   "nr": 236,
+   "id": "T236",
+   "kat": "glas",
+   "name": "Glas Fenster N1-22 (120x200, BRH 90)",
+   "box": [
+    247.0,
+    1176.9,
+    527,
+    353.0,
+    1178.1,
+    713
+   ],
+   "material": "glas",
+   "oeffnung": 22
+  },
+  {
+   "nr": 237,
+   "id": "T237",
+   "kat": "detail",
+   "name": "Fensterbank Fenster N1-22 (120x200, BRH 90)",
+   "box": [
+    237.0,
+    1181.5,
+    517,
+    363.0,
+    1204,
+    520
+   ],
+   "material": "fensterbank",
+   "oeffnung": 22
+  },
+  {
+   "nr": 238,
+   "id": "T238",
+   "kat": "innen",
+   "name": "Innenraum Fenster N1-22 (120x200, BRH 90)",
+   "box": [
+    242.0,
+    1075,
+    522,
+    358.0,
+    1154,
+    718
+   ],
+   "material": "innen",
+   "oeffnung": 22
+  },
+  {
+   "nr": 239,
+   "id": "T239",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer Fenster N1-23 (120x200, BRH 90)",
+   "ziel": "T07",
+   "box": [
+    840.0,
+    1149,
+    520,
+    960.0,
+    1206,
+    720
+   ],
+   "quelle": "INFERIERT (im Foto nicht sichtbar)",
+   "oeffnung": 23
+  },
+  {
+   "nr": 240,
+   "id": "T240",
+   "kat": "rahmen",
+   "name": "Rahmen unten Fenster N1-23 (120x200, BRH 90)",
+   "box": [
+    840.0,
+    1173.5,
+    520,
+    960.0,
+    1181.5,
+    527
+   ],
+   "material": "rahmen",
+   "oeffnung": 23
+  },
+  {
+   "nr": 241,
+   "id": "T241",
+   "kat": "rahmen",
+   "name": "Rahmen oben Fenster N1-23 (120x200, BRH 90)",
+   "box": [
+    840.0,
+    1173.5,
+    713,
+    960.0,
+    1181.5,
+    720
+   ],
+   "material": "rahmen",
+   "oeffnung": 23
+  },
+  {
+   "nr": 242,
+   "id": "T242",
+   "kat": "rahmen",
+   "name": "Rahmen links Fenster N1-23 (120x200, BRH 90)",
+   "box": [
+    840.0,
+    1173.5,
+    520,
+    847.0,
+    1181.5,
+    720
+   ],
+   "material": "rahmen",
+   "oeffnung": 23
+  },
+  {
+   "nr": 243,
+   "id": "T243",
+   "kat": "rahmen",
+   "name": "Rahmen rechts Fenster N1-23 (120x200, BRH 90)",
+   "box": [
+    953.0,
+    1173.5,
+    520,
+    960.0,
+    1181.5,
+    720
+   ],
+   "material": "rahmen",
+   "oeffnung": 23
+  },
+  {
+   "nr": 244,
+   "id": "T244",
+   "kat": "rahmen",
+   "name": "Pfosten Fluegel Fenster N1-23 (120x200, BRH 90)",
+   "box": [
+    897.0,
+    1173.5,
+    527,
+    903.0,
+    1181.5,
+    713
+   ],
+   "material": "rahmen",
+   "oeffnung": 23
+  },
+  {
+   "nr": 245,
+   "id": "T245",
+   "kat": "glas",
+   "name": "Glas Fenster N1-23 (120x200, BRH 90)",
+   "box": [
+    847.0,
+    1176.9,
+    527,
+    953.0,
+    1178.1,
+    713
+   ],
+   "material": "glas",
+   "oeffnung": 23
+  },
+  {
+   "nr": 246,
+   "id": "T246",
+   "kat": "detail",
+   "name": "Fensterbank Fenster N1-23 (120x200, BRH 90)",
+   "box": [
+    837.0,
+    1181.5,
+    517,
+    963.0,
+    1204,
+    520
+   ],
+   "material": "fensterbank",
+   "oeffnung": 23
+  },
+  {
+   "nr": 247,
+   "id": "T247",
+   "kat": "innen",
+   "name": "Innenraum Fenster N1-23 (120x200, BRH 90)",
+   "box": [
+    842.0,
+    1075,
+    522,
+    958.0,
+    1154,
+    718
+   ],
+   "material": "innen",
+   "oeffnung": 23
+  },
+  {
+   "nr": 248,
+   "id": "T248",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer Fenster N1-24 (120x200, BRH 90)",
+   "ziel": "T07",
+   "box": [
+    1340.0,
+    1149,
+    520,
+    1460.0,
+    1206,
+    720
+   ],
+   "quelle": "INFERIERT (im Foto nicht sichtbar)",
+   "oeffnung": 24
+  },
+  {
+   "nr": 249,
+   "id": "T249",
+   "kat": "rahmen",
+   "name": "Rahmen unten Fenster N1-24 (120x200, BRH 90)",
+   "box": [
+    1340.0,
+    1173.5,
+    520,
+    1460.0,
+    1181.5,
+    527
+   ],
+   "material": "rahmen",
+   "oeffnung": 24
+  },
+  {
+   "nr": 250,
+   "id": "T250",
+   "kat": "rahmen",
+   "name": "Rahmen oben Fenster N1-24 (120x200, BRH 90)",
+   "box": [
+    1340.0,
+    1173.5,
+    713,
+    1460.0,
+    1181.5,
+    720
+   ],
+   "material": "rahmen",
+   "oeffnung": 24
+  },
+  {
+   "nr": 251,
+   "id": "T251",
+   "kat": "rahmen",
+   "name": "Rahmen links Fenster N1-24 (120x200, BRH 90)",
+   "box": [
+    1340.0,
+    1173.5,
+    520,
+    1347.0,
+    1181.5,
+    720
+   ],
+   "material": "rahmen",
+   "oeffnung": 24
+  },
+  {
+   "nr": 252,
+   "id": "T252",
+   "kat": "rahmen",
+   "name": "Rahmen rechts Fenster N1-24 (120x200, BRH 90)",
+   "box": [
+    1453.0,
+    1173.5,
+    520,
+    1460.0,
+    1181.5,
+    720
+   ],
+   "material": "rahmen",
+   "oeffnung": 24
+  },
+  {
+   "nr": 253,
+   "id": "T253",
+   "kat": "rahmen",
+   "name": "Pfosten Fluegel Fenster N1-24 (120x200, BRH 90)",
+   "box": [
+    1397.0,
+    1173.5,
+    527,
+    1403.0,
+    1181.5,
+    713
+   ],
+   "material": "rahmen",
+   "oeffnung": 24
+  },
+  {
+   "nr": 254,
+   "id": "T254",
+   "kat": "glas",
+   "name": "Glas Fenster N1-24 (120x200, BRH 90)",
+   "box": [
+    1347.0,
+    1176.9,
+    527,
+    1453.0,
+    1178.1,
+    713
+   ],
+   "material": "glas",
+   "oeffnung": 24
+  },
+  {
+   "nr": 255,
+   "id": "T255",
+   "kat": "detail",
+   "name": "Fensterbank Fenster N1-24 (120x200, BRH 90)",
+   "box": [
+    1337.0,
+    1181.5,
+    517,
+    1463.0,
+    1204,
+    520
+   ],
+   "material": "fensterbank",
+   "oeffnung": 24
+  },
+  {
+   "nr": 256,
+   "id": "T256",
+   "kat": "innen",
+   "name": "Innenraum Fenster N1-24 (120x200, BRH 90)",
+   "box": [
+    1342.0,
+    1075,
+    522,
+    1458.0,
+    1154,
+    718
+   ],
+   "material": "innen",
+   "oeffnung": 24
+  },
+  {
+   "nr": 257,
+   "id": "T257",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer Fenster E1-25 (110x200, BRH 90)",
+   "ziel": "T09",
+   "box": [
+    1749,
+    345.0,
+    520,
+    1806,
+    455.0,
+    720
+   ],
+   "quelle": "INFERIERT (im Foto nicht sichtbar)",
+   "oeffnung": 25
+  },
+  {
+   "nr": 258,
+   "id": "T258",
+   "kat": "rahmen",
+   "name": "Rahmen unten Fenster E1-25 (110x200, BRH 90)",
+   "box": [
+    1773.5,
+    345.0,
+    520,
+    1781.5,
+    455.0,
+    527
+   ],
+   "material": "rahmen",
+   "oeffnung": 25
+  },
+  {
+   "nr": 259,
+   "id": "T259",
+   "kat": "rahmen",
+   "name": "Rahmen oben Fenster E1-25 (110x200, BRH 90)",
+   "box": [
+    1773.5,
+    345.0,
+    713,
+    1781.5,
+    455.0,
+    720
+   ],
+   "material": "rahmen",
+   "oeffnung": 25
+  },
+  {
+   "nr": 260,
+   "id": "T260",
+   "kat": "rahmen",
+   "name": "Rahmen links Fenster E1-25 (110x200, BRH 90)",
+   "box": [
+    1773.5,
+    345.0,
+    520,
+    1781.5,
+    352.0,
+    720
+   ],
+   "material": "rahmen",
+   "oeffnung": 25
+  },
+  {
+   "nr": 261,
+   "id": "T261",
+   "kat": "rahmen",
+   "name": "Rahmen rechts Fenster E1-25 (110x200, BRH 90)",
+   "box": [
+    1773.5,
+    448.0,
+    520,
+    1781.5,
+    455.0,
+    720
+   ],
+   "material": "rahmen",
+   "oeffnung": 25
+  },
+  {
+   "nr": 262,
+   "id": "T262",
+   "kat": "rahmen",
+   "name": "Pfosten Fluegel Fenster E1-25 (110x200, BRH 90)",
+   "box": [
+    1773.5,
+    397.0,
+    527,
+    1781.5,
+    403.0,
+    713
+   ],
+   "material": "rahmen",
+   "oeffnung": 25
+  },
+  {
+   "nr": 263,
+   "id": "T263",
+   "kat": "glas",
+   "name": "Glas Fenster E1-25 (110x200, BRH 90)",
+   "box": [
+    1776.9,
+    352.0,
+    527,
+    1778.1,
+    448.0,
+    713
+   ],
+   "material": "glas",
+   "oeffnung": 25
+  },
+  {
+   "nr": 264,
+   "id": "T264",
+   "kat": "detail",
+   "name": "Fensterbank Fenster E1-25 (110x200, BRH 90)",
+   "box": [
+    1781.5,
+    342.0,
+    517,
+    1804,
+    458.0,
+    520
+   ],
+   "material": "fensterbank",
+   "oeffnung": 25
+  },
+  {
+   "nr": 265,
+   "id": "T265",
+   "kat": "innen",
+   "name": "Innenraum Fenster E1-25 (110x200, BRH 90)",
+   "box": [
+    1675,
+    347.0,
+    522,
+    1754,
+    453.0,
+    718
+   ],
+   "material": "innen",
+   "oeffnung": 25
+  },
+  {
+   "nr": 266,
+   "id": "T266",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer Fenster E1-26 (110x200, BRH 90)",
+   "ziel": "T09",
+   "box": [
+    1749,
+    745.0,
+    520,
+    1806,
+    855.0,
+    720
+   ],
+   "quelle": "INFERIERT (im Foto nicht sichtbar)",
+   "oeffnung": 26
+  },
+  {
+   "nr": 267,
+   "id": "T267",
+   "kat": "rahmen",
+   "name": "Rahmen unten Fenster E1-26 (110x200, BRH 90)",
+   "box": [
+    1773.5,
+    745.0,
+    520,
+    1781.5,
+    855.0,
+    527
+   ],
+   "material": "rahmen",
+   "oeffnung": 26
+  },
+  {
+   "nr": 268,
+   "id": "T268",
+   "kat": "rahmen",
+   "name": "Rahmen oben Fenster E1-26 (110x200, BRH 90)",
+   "box": [
+    1773.5,
+    745.0,
+    713,
+    1781.5,
+    855.0,
+    720
+   ],
+   "material": "rahmen",
+   "oeffnung": 26
+  },
+  {
+   "nr": 269,
+   "id": "T269",
+   "kat": "rahmen",
+   "name": "Rahmen links Fenster E1-26 (110x200, BRH 90)",
+   "box": [
+    1773.5,
+    745.0,
+    520,
+    1781.5,
+    752.0,
+    720
+   ],
+   "material": "rahmen",
+   "oeffnung": 26
+  },
+  {
+   "nr": 270,
+   "id": "T270",
+   "kat": "rahmen",
+   "name": "Rahmen rechts Fenster E1-26 (110x200, BRH 90)",
+   "box": [
+    1773.5,
+    848.0,
+    520,
+    1781.5,
+    855.0,
+    720
+   ],
+   "material": "rahmen",
+   "oeffnung": 26
+  },
+  {
+   "nr": 271,
+   "id": "T271",
+   "kat": "rahmen",
+   "name": "Pfosten Fluegel Fenster E1-26 (110x200, BRH 90)",
+   "box": [
+    1773.5,
+    797.0,
+    527,
+    1781.5,
+    803.0,
+    713
+   ],
+   "material": "rahmen",
+   "oeffnung": 26
+  },
+  {
+   "nr": 272,
+   "id": "T272",
+   "kat": "glas",
+   "name": "Glas Fenster E1-26 (110x200, BRH 90)",
+   "box": [
+    1776.9,
+    752.0,
+    527,
+    1778.1,
+    848.0,
+    713
+   ],
+   "material": "glas",
+   "oeffnung": 26
+  },
+  {
+   "nr": 273,
+   "id": "T273",
+   "kat": "detail",
+   "name": "Fensterbank Fenster E1-26 (110x200, BRH 90)",
+   "box": [
+    1781.5,
+    742.0,
+    517,
+    1804,
+    858.0,
+    520
+   ],
+   "material": "fensterbank",
+   "oeffnung": 26
+  },
+  {
+   "nr": 274,
+   "id": "T274",
+   "kat": "innen",
+   "name": "Innenraum Fenster E1-26 (110x200, BRH 90)",
+   "box": [
+    1675,
+    747.0,
+    522,
+    1754,
+    853.0,
+    718
+   ],
+   "material": "innen",
+   "oeffnung": 26
+  },
+  {
+   "nr": 275,
+   "id": "T275",
+   "kat": "detail",
+   "name": "Vordach Haustuer",
+   "box": [
+    590.0,
+    -120.0,
+    312,
+    800.0,
+    0.0,
+    324
+   ],
+   "material": "blende"
+  },
+  {
+   "nr": 276,
+   "id": "T276",
+   "kat": "detail",
+   "name": "Wandleuchte Eingang",
+   "box": [
+    810.0,
+    -10.0,
+    185,
+    822.0,
+    0.0,
+    215
+   ],
+   "material": "blende"
+  },
+  {
+   "nr": 277,
+   "id": "T277",
+   "kat": "gelaende",
+   "name": "Rasen",
+   "box": [
+    -3000,
+    -3000,
+    -3,
+    4800,
+    4200,
+    0
+   ],
+   "material": "rasen"
+  },
+  {
+   "nr": 278,
+   "id": "T278",
+   "kat": "gelaende",
+   "name": "Weg zur Haustuer",
+   "box": [
+    615,
+    -1400,
+    -2,
+    775,
+    0.0,
+    0.5
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 279,
+   "id": "T279",
+   "kat": "gelaende",
+   "name": "Eingangspodest",
+   "box": [
+    565,
+    0,
+    -2,
+    825,
+    0,
+    0.5
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 280,
+   "id": "T280",
+   "kat": "gelaende",
+   "name": "Gehweg",
+   "box": [
+    -3000,
+    -1600,
+    -2,
+    4800,
+    -1400,
+    0.5
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 281,
+   "id": "T281",
+   "kat": "gelaende",
+   "name": "Strasse",
+   "box": [
+    -3000,
+    -2400,
+    -2,
+    4800,
+    -1600,
+    0.5
+   ],
+   "material": "asphalt"
+  },
+  {
+   "nr": 282,
+   "id": "T282",
+   "kat": "grundstueck",
+   "name": "Grundstuecksgrenze Sued",
+   "box": [
+    -500,
+    -1400,
+    -0.5,
+    2300,
+    -1399,
+    0.5
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 283,
+   "id": "T283",
+   "kat": "grundstueck",
+   "name": "Grundstuecksgrenze Nord",
+   "box": [
+    -500,
+    2199,
+    -0.5,
+    2300,
+    2200,
+    0.5
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 284,
+   "id": "T284",
+   "kat": "grundstueck",
+   "name": "Grundstuecksgrenze West",
+   "box": [
+    -500,
+    -1400,
+    -0.5,
+    -499,
+    2200,
+    0.5
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 285,
+   "id": "T285",
+   "kat": "grundstueck",
+   "name": "Grundstuecksgrenze Ost",
+   "box": [
+    2299,
+    -1400,
+    -0.5,
+    2300,
+    2200,
+    0.5
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 286,
+   "id": "T286",
+   "kat": "grundstueck",
+   "name": "Terrasse Nord",
+   "box": [
+    405.0,
+    1200,
+    -2,
+    1395.0,
+    1550,
+    6
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 287,
+   "id": "T287",
+   "kat": "garten",
+   "name": "Hecke West",
+   "box": [
+    -500,
+    -1200,
+    0,
+    -440,
+    2200,
+    100
+   ],
+   "material": "hecke"
+  },
+  {
+   "nr": 288,
+   "id": "T288",
+   "kat": "garten",
+   "name": "Hecke Ost",
+   "box": [
+    2240,
+    -1200,
+    0,
+    2300,
+    2200,
+    100
+   ],
+   "material": "hecke"
+  },
+  {
+   "nr": 289,
+   "id": "T289",
+   "kat": "garten",
+   "name": "Hecke Nord",
+   "box": [
+    -500,
+    2140,
+    0,
+    2300,
+    2200,
+    100
+   ],
+   "material": "hecke"
+  },
+  {
+   "nr": 290,
+   "id": "T290",
+   "kat": "garten",
+   "name": "Hecke Sued 1",
+   "box": [
+    -500,
+    -1390,
+    0,
+    595,
+    -1330,
+    80
+   ],
+   "material": "hecke"
+  },
+  {
+   "nr": 291,
+   "id": "T291",
+   "kat": "garten",
+   "name": "Hecke Sued 2",
+   "box": [
+    795,
+    -1390,
+    0,
+    2300,
+    -1330,
+    80
+   ],
+   "material": "hecke"
+  },
+  {
+   "nr": 292,
+   "id": "T292",
+   "kat": "garten",
+   "name": "Gartenweg",
+   "box": [
+    850.0,
+    1550,
+    -1,
+    950.0,
+    2120,
+    1
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 293,
+   "id": "T293",
+   "kat": "kamera",
+   "name": "Kamera Front (3/4 von Suedwest, im Grundstueck, Augenhoehe)",
+   "pos": [
+    -410,
+    -1270,
+    165
+   ],
+   "ziel": [
+    900.0,
+    300.0,
+    390.0
+   ],
+   "brennweite_mm": 26
+  },
+  {
+   "nr": 294,
+   "id": "T294",
+   "kat": "kamera",
+   "name": "Kamera Rueck (3/4 von Nordost, im Grundstueck)",
+   "pos": [
+    2210,
+    2090,
+    165
+   ],
+   "ziel": [
+    900.0,
+    840.0,
+    490.0
+   ],
+   "brennweite_mm": 21
+  },
+  {
+   "nr": 295,
+   "id": "T295",
+   "kat": "kamera",
+   "name": "Kamera Ansicht Sued (orthografisch, Elevation)",
+   "pos": [
+    900.0,
+    -3000,
+    430.0
+   ],
+   "ziel": [
+    900.0,
+    0,
+    430.0
+   ],
+   "ortho_cm": 2340
+  },
+  {
+   "nr": 296,
+   "id": "T296",
+   "kat": "kamera",
+   "name": "Kamera Ansicht Nord (orthografisch, Elevation)",
+   "pos": [
+    900.0,
+    4200,
+    430.0
+   ],
+   "ziel": [
+    900.0,
+    1200,
+    430.0
+   ],
+   "ortho_cm": 2340
+  },
+  {
+   "nr": 297,
+   "id": "T297",
+   "kat": "licht",
+   "name": "Sonne (Azimut 215, Hoehe 42)",
+   "azimut": 215,
+   "hoehe": 42,
+   "staerke": 4.0
+  },
+  {
+   "nr": 298,
+   "id": "T298",
+   "kat": "treppe",
+   "name": "Kellertreppe Stufe 1",
+   "box": [
+    199,
+    653.0,
+    -250.0,
+    299,
+    680.3,
+    -232.1
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 299,
+   "id": "T299",
+   "kat": "treppe",
+   "name": "Kellertreppe Stufe 2",
+   "box": [
+    199,
+    680.3,
+    -232.1,
+    299,
+    707.6,
+    -214.3
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 300,
+   "id": "T300",
+   "kat": "treppe",
+   "name": "Kellertreppe Stufe 3",
+   "box": [
+    199,
+    707.6,
+    -214.3,
+    299,
+    734.9,
+    -196.4
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 301,
+   "id": "T301",
+   "kat": "treppe",
+   "name": "Kellertreppe Stufe 4",
+   "box": [
+    199,
+    734.9,
+    -196.4,
+    299,
+    762.1,
+    -178.6
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 302,
+   "id": "T302",
+   "kat": "treppe",
+   "name": "Kellertreppe Stufe 5",
+   "box": [
+    199,
+    762.1,
+    -178.6,
+    299,
+    789.4,
+    -160.7
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 303,
+   "id": "T303",
+   "kat": "treppe",
+   "name": "Kellertreppe Stufe 6",
+   "box": [
+    199,
+    789.4,
+    -160.7,
+    299,
+    816.7,
+    -142.9
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 304,
+   "id": "T304",
+   "kat": "treppe",
+   "name": "Kellertreppe Stufe 7",
+   "box": [
+    199,
+    816.7,
+    -142.9,
+    299,
+    844.0,
+    -125.0
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 305,
+   "id": "T305",
+   "kat": "treppe",
+   "name": "Kellertreppe Stufe 8",
+   "box": [
+    199,
+    844.0,
+    -125.0,
+    299,
+    871.3,
+    -107.1
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 306,
+   "id": "T306",
+   "kat": "treppe",
+   "name": "Kellertreppe Stufe 9",
+   "box": [
+    199,
+    871.3,
+    -107.1,
+    299,
+    898.6,
+    -89.3
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 307,
+   "id": "T307",
+   "kat": "treppe",
+   "name": "Kellertreppe Stufe 10",
+   "box": [
+    199,
+    898.6,
+    -89.3,
+    299,
+    925.9,
+    -71.4
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 308,
+   "id": "T308",
+   "kat": "treppe",
+   "name": "Kellertreppe Stufe 11",
+   "box": [
+    199,
+    925.9,
+    -71.4,
+    299,
+    953.1,
+    -53.6
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 309,
+   "id": "T309",
+   "kat": "treppe",
+   "name": "Kellertreppe Stufe 12",
+   "box": [
+    199,
+    953.1,
+    -53.6,
+    299,
+    980.4,
+    -35.7
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 310,
+   "id": "T310",
+   "kat": "treppe",
+   "name": "Kellertreppe Stufe 13",
+   "box": [
+    199,
+    980.4,
+    -35.7,
+    299,
+    1007.7,
+    -17.9
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 311,
+   "id": "T311",
+   "kat": "treppe",
+   "name": "Kellertreppe Stufe 14",
+   "box": [
+    199,
+    1007.7,
+    -17.9,
+    299,
+    1035.0,
+    0.0
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 312,
+   "id": "T312",
+   "kat": "treppe",
+   "name": "Kellertreppe Handlauf",
+   "box": [
+    197,
+    653.0,
+    -160,
+    201,
+    1035,
+    90
+   ],
+   "material": "stahl"
+  },
+  {
+   "nr": 313,
+   "id": "T313",
+   "kat": "fundament",
+   "name": "Bodenplatte Stueck 2 (um Kellertreppe)",
+   "box": [
+    309,
+    0,
+    -20,
+    1800,
+    1200,
+    0
+   ],
+   "material": "beton"
+  },
+  {
+   "nr": 314,
+   "id": "T314",
+   "kat": "fundament",
+   "name": "Bodenplatte Stueck 3 (um Kellertreppe)",
+   "box": [
+    189,
+    0,
+    -20,
+    309,
+    675.3,
+    0
+   ],
+   "material": "beton"
+  },
+  {
+   "nr": 315,
+   "id": "T315",
+   "kat": "fundament",
+   "name": "Bodenplatte Stueck 4 (um Kellertreppe)",
+   "box": [
+    189,
+    1035,
+    -20,
+    309,
+    1200,
+    0
+   ],
+   "material": "beton"
+  },
+  {
+   "nr": 316,
+   "id": "T316",
+   "kat": "gelaender",
+   "name": "Absturzsicherung Kellertreppe O",
+   "box": [
+    305,
+    675.3,
+    2,
+    309,
+    1035,
+    100
+   ],
+   "material": "stahl"
+  },
+  {
+   "nr": 317,
+   "id": "T317",
+   "kat": "gelaender",
+   "name": "Absturzsicherung Kellertreppe W",
+   "box": [
+    189,
+    675.3,
+    2,
+    193,
+    1035,
+    100
+   ],
+   "material": "stahl"
+  },
+  {
+   "nr": 318,
+   "id": "T318",
+   "kat": "gelaender",
+   "name": "Absturzsicherung Kellertreppe S",
+   "box": [
+    189,
+    675.3,
+    2,
+    309,
+    679.3,
+    100
+   ],
+   "material": "stahl"
+  }
+ ]
+}
