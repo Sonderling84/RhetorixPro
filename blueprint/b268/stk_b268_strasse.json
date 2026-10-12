@@ -1,0 +1,7060 @@
+{
+ "meta": {
+  "name": "B268 Nr. 9 - Strassenhaus",
+  "kennung": "b268_strasse",
+  "vorlage": "fotohaus",
+  "adresse": "B268 Nr. 9, Riegelsberg",
+  "fiktiv": false,
+  "baujahr": 2018,
+  "materialien": {
+   "fassade": "Putz grau",
+   "dach": "Flachdach",
+   "fenster": "Alu anthrazit",
+   "tuer": "Alu anthrazit"
+  },
+  "gelaende": {
+   "ecken_cm": {
+    "SW": 0,
+    "NW": 0,
+    "SE": 0,
+    "NE": 0
+   },
+   "quelle": "eben (Strasse/Parkplatz)"
+  },
+  "breite_cm": 1900,
+  "tiefe_cm": 1100,
+  "geschosse": 3,
+  "traufe_cm": 945,
+  "first_cm": 990,
+  "dach": "flach",
+  "anzahl_teile": 418,
+  "bloecke": 1
+ },
+ "teile": [
+  {
+   "nr": 1,
+   "id": "T01",
+   "kat": "fundament",
+   "name": "Bodenplatte Stueck 1 (um Kellertreppe)",
+   "box": [
+    0,
+    0,
+    -20,
+    180,
+    1100,
+    0
+   ],
+   "material": "beton"
+  },
+  {
+   "nr": 2,
+   "id": "T02",
+   "kat": "wand",
+   "name": "Suedwand EG",
+   "geschoss": 0,
+   "seite": "S",
+   "along": [
+    0,
+    1900
+   ],
+   "box": [
+    0,
+    0,
+    0,
+    1900,
+    36,
+    290
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 3,
+   "id": "T03",
+   "kat": "wand",
+   "name": "Nordwand EG",
+   "geschoss": 0,
+   "seite": "N",
+   "along": [
+    0,
+    1900
+   ],
+   "box": [
+    0,
+    1064,
+    0,
+    1900,
+    1100,
+    290
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 4,
+   "id": "T04",
+   "kat": "wand",
+   "name": "Westwand EG",
+   "geschoss": 0,
+   "seite": "W",
+   "along": [
+    36,
+    1064
+   ],
+   "box": [
+    0,
+    36,
+    0,
+    36,
+    1064,
+    290
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 5,
+   "id": "T05",
+   "kat": "wand",
+   "name": "Ostwand EG",
+   "geschoss": 0,
+   "seite": "E",
+   "along": [
+    36,
+    1064
+   ],
+   "box": [
+    1864,
+    36,
+    0,
+    1900,
+    1064,
+    290
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 6,
+   "id": "T06",
+   "kat": "wand",
+   "name": "Suedwand 1.OG",
+   "geschoss": 1,
+   "seite": "S",
+   "along": [
+    0,
+    1900
+   ],
+   "box": [
+    0,
+    0,
+    315,
+    1900,
+    36,
+    605
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 7,
+   "id": "T07",
+   "kat": "wand",
+   "name": "Nordwand 1.OG",
+   "geschoss": 1,
+   "seite": "N",
+   "along": [
+    0,
+    1900
+   ],
+   "box": [
+    0,
+    1064,
+    315,
+    1900,
+    1100,
+    605
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 8,
+   "id": "T08",
+   "kat": "wand",
+   "name": "Westwand 1.OG",
+   "geschoss": 1,
+   "seite": "W",
+   "along": [
+    36,
+    1064
+   ],
+   "box": [
+    0,
+    36,
+    315,
+    36,
+    1064,
+    605
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 9,
+   "id": "T09",
+   "kat": "wand",
+   "name": "Ostwand 1.OG",
+   "geschoss": 1,
+   "seite": "E",
+   "along": [
+    36,
+    1064
+   ],
+   "box": [
+    1864,
+    36,
+    315,
+    1900,
+    1064,
+    605
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 10,
+   "id": "T10",
+   "kat": "wand",
+   "name": "Suedwand 2.OG",
+   "geschoss": 2,
+   "seite": "S",
+   "along": [
+    0,
+    1900
+   ],
+   "box": [
+    0,
+    0,
+    630,
+    1900,
+    36,
+    920
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 11,
+   "id": "T11",
+   "kat": "wand",
+   "name": "Nordwand 2.OG",
+   "geschoss": 2,
+   "seite": "N",
+   "along": [
+    0,
+    1900
+   ],
+   "box": [
+    0,
+    1064,
+    630,
+    1900,
+    1100,
+    920
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 12,
+   "id": "T12",
+   "kat": "wand",
+   "name": "Westwand 2.OG",
+   "geschoss": 2,
+   "seite": "W",
+   "along": [
+    36,
+    1064
+   ],
+   "box": [
+    0,
+    36,
+    630,
+    36,
+    1064,
+    920
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 13,
+   "id": "T13",
+   "kat": "wand",
+   "name": "Ostwand 2.OG",
+   "geschoss": 2,
+   "seite": "E",
+   "along": [
+    36,
+    1064
+   ],
+   "box": [
+    1864,
+    36,
+    630,
+    1900,
+    1064,
+    920
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 14,
+   "id": "T14",
+   "kat": "decke",
+   "name": "Decke ueber EG Stueck 1 (um Treppenloch)",
+   "box": [
+    0,
+    0,
+    290,
+    850,
+    1100,
+    315
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 15,
+   "id": "T15",
+   "kat": "decke",
+   "name": "Decke ueber EG Stueck 2 (um Treppenloch)",
+   "box": [
+    970,
+    0,
+    290,
+    1900,
+    1100,
+    315
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 16,
+   "id": "T16",
+   "kat": "decke",
+   "name": "Decke ueber EG Stueck 3 (um Treppenloch)",
+   "box": [
+    850,
+    0,
+    290,
+    970,
+    435.0,
+    315
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 17,
+   "id": "T17",
+   "kat": "decke",
+   "name": "Decke ueber EG Stueck 4 (um Treppenloch)",
+   "box": [
+    850,
+    832.0,
+    290,
+    970,
+    1100,
+    315
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 18,
+   "id": "T18",
+   "kat": "gelaender",
+   "name": "Absturzsicherung Treppenloch Ost",
+   "box": [
+    966,
+    435.0,
+    320,
+    970,
+    832.0,
+    415
+   ],
+   "material": "stahl"
+  },
+  {
+   "nr": 19,
+   "id": "T19",
+   "kat": "gelaender",
+   "name": "Absturzsicherung Treppenloch Nord",
+   "box": [
+    850,
+    828.0,
+    320,
+    970,
+    832.0,
+    415
+   ],
+   "material": "stahl"
+  },
+  {
+   "nr": 20,
+   "id": "T20",
+   "kat": "decke",
+   "name": "Decke ueber 1.OG",
+   "box": [
+    0,
+    0,
+    605,
+    1900,
+    1100,
+    630
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 21,
+   "id": "T21",
+   "kat": "decke",
+   "name": "Decke ueber 2.OG",
+   "box": [
+    0,
+    0,
+    920,
+    1900,
+    1100,
+    945
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 22,
+   "id": "T22",
+   "kat": "sockel",
+   "name": "Sockelband Sued",
+   "box": [
+    -2,
+    -2,
+    0,
+    1902,
+    0,
+    60
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 23,
+   "id": "T23",
+   "kat": "sockel",
+   "name": "Sockelband Nord -2-799",
+   "box": [
+    -2,
+    1100,
+    0,
+    799.0,
+    1102,
+    60
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 24,
+   "id": "T24",
+   "kat": "sockel",
+   "name": "Sockelband Nord 921-1614",
+   "box": [
+    921.0,
+    1100,
+    0,
+    1614.0,
+    1102,
+    60
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 25,
+   "id": "T25",
+   "kat": "sockel",
+   "name": "Sockelband Nord 1786-1902",
+   "box": [
+    1786.0,
+    1100,
+    0,
+    1902,
+    1102,
+    60
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 26,
+   "id": "T26",
+   "kat": "sockel",
+   "name": "Sockelband West",
+   "box": [
+    -2,
+    0,
+    0,
+    0,
+    1100,
+    60
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 27,
+   "id": "T27",
+   "kat": "sockel",
+   "name": "Sockelband Ost",
+   "box": [
+    1900,
+    0,
+    0,
+    1902,
+    1100,
+    60
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 28,
+   "id": "T28",
+   "kat": "balkon",
+   "name": "Balkon 1 Platte (glas-Gelaender)",
+   "box": [
+    1560,
+    1100,
+    -18,
+    1860,
+    1290,
+    0
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 29,
+   "id": "T29",
+   "kat": "gelaender",
+   "name": "Balkon 1 Glasbruestung vorne",
+   "box": [
+    1560,
+    1288,
+    0,
+    1860,
+    1290,
+    105
+   ],
+   "material": "glas"
+  },
+  {
+   "nr": 30,
+   "id": "T30",
+   "kat": "gelaender",
+   "name": "Balkon 1 Glasbruestung West",
+   "box": [
+    1560,
+    1100,
+    0,
+    1562,
+    1290,
+    105
+   ],
+   "material": "glas"
+  },
+  {
+   "nr": 31,
+   "id": "T31",
+   "kat": "gelaender",
+   "name": "Balkon 1 Glasbruestung Ost",
+   "box": [
+    1858,
+    1100,
+    0,
+    1860,
+    1290,
+    105
+   ],
+   "material": "glas"
+  },
+  {
+   "nr": 32,
+   "id": "T32",
+   "kat": "gelaender",
+   "name": "Balkon 1 Handlauf",
+   "box": [
+    1560,
+    1286,
+    102,
+    1860,
+    1291,
+    105
+   ],
+   "material": "stahl"
+  },
+  {
+   "nr": 33,
+   "id": "T33",
+   "kat": "balkon",
+   "name": "Balkon 2 Platte (glas-Gelaender)",
+   "box": [
+    1560,
+    1100,
+    297,
+    1860,
+    1290,
+    315
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 34,
+   "id": "T34",
+   "kat": "gelaender",
+   "name": "Balkon 2 Glasbruestung vorne",
+   "box": [
+    1560,
+    1288,
+    315,
+    1860,
+    1290,
+    420
+   ],
+   "material": "glas"
+  },
+  {
+   "nr": 35,
+   "id": "T35",
+   "kat": "gelaender",
+   "name": "Balkon 2 Glasbruestung West",
+   "box": [
+    1560,
+    1100,
+    315,
+    1562,
+    1290,
+    420
+   ],
+   "material": "glas"
+  },
+  {
+   "nr": 36,
+   "id": "T36",
+   "kat": "gelaender",
+   "name": "Balkon 2 Glasbruestung Ost",
+   "box": [
+    1858,
+    1100,
+    315,
+    1860,
+    1290,
+    420
+   ],
+   "material": "glas"
+  },
+  {
+   "nr": 37,
+   "id": "T37",
+   "kat": "gelaender",
+   "name": "Balkon 2 Handlauf",
+   "box": [
+    1560,
+    1286,
+    417,
+    1860,
+    1291,
+    420
+   ],
+   "material": "stahl"
+  },
+  {
+   "nr": 38,
+   "id": "T38",
+   "kat": "balkon",
+   "name": "Balkon 3 Platte (glas-Gelaender)",
+   "box": [
+    1560,
+    1100,
+    612,
+    1860,
+    1290,
+    630
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 39,
+   "id": "T39",
+   "kat": "gelaender",
+   "name": "Balkon 3 Glasbruestung vorne",
+   "box": [
+    1560,
+    1288,
+    630,
+    1860,
+    1290,
+    735
+   ],
+   "material": "glas"
+  },
+  {
+   "nr": 40,
+   "id": "T40",
+   "kat": "gelaender",
+   "name": "Balkon 3 Glasbruestung West",
+   "box": [
+    1560,
+    1100,
+    630,
+    1562,
+    1290,
+    735
+   ],
+   "material": "glas"
+  },
+  {
+   "nr": 41,
+   "id": "T41",
+   "kat": "gelaender",
+   "name": "Balkon 3 Glasbruestung Ost",
+   "box": [
+    1858,
+    1100,
+    630,
+    1860,
+    1290,
+    735
+   ],
+   "material": "glas"
+  },
+  {
+   "nr": 42,
+   "id": "T42",
+   "kat": "gelaender",
+   "name": "Balkon 3 Handlauf",
+   "box": [
+    1560,
+    1286,
+    732,
+    1860,
+    1291,
+    735
+   ],
+   "material": "stahl"
+  },
+  {
+   "nr": 43,
+   "id": "T43",
+   "kat": "sockel",
+   "name": "Kelleraussenwand Sued",
+   "box": [
+    0,
+    0,
+    -250,
+    1900,
+    36,
+    0
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 44,
+   "id": "T44",
+   "kat": "sockel",
+   "name": "Kelleraussenwand Nord",
+   "box": [
+    0,
+    1064,
+    -250,
+    1900,
+    1100,
+    0
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 45,
+   "id": "T45",
+   "kat": "sockel",
+   "name": "Kelleraussenwand West",
+   "box": [
+    0,
+    36,
+    -250,
+    36,
+    1064,
+    0
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 46,
+   "id": "T46",
+   "kat": "sockel",
+   "name": "Kelleraussenwand Ost",
+   "box": [
+    1864,
+    36,
+    -250,
+    1900,
+    1064,
+    0
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 47,
+   "id": "T47",
+   "kat": "decke",
+   "name": "Kellersohle",
+   "box": [
+    0,
+    0,
+    -280,
+    1900,
+    1100,
+    -250
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 48,
+   "id": "T48",
+   "kat": "dach",
+   "name": "Flachdach-Abdichtung",
+   "box": [
+    0,
+    0,
+    945,
+    1900,
+    1100,
+    949
+   ],
+   "material": "dach_flach"
+  },
+  {
+   "nr": 49,
+   "id": "T49",
+   "kat": "dach",
+   "name": "Attika Sued",
+   "box": [
+    0,
+    0,
+    945,
+    1900,
+    36,
+    990
+   ],
+   "material": "attika_blende"
+  },
+  {
+   "nr": 50,
+   "id": "T50",
+   "kat": "dach",
+   "name": "Attika Nord",
+   "box": [
+    0,
+    1064,
+    945,
+    1900,
+    1100,
+    990
+   ],
+   "material": "attika_blende"
+  },
+  {
+   "nr": 51,
+   "id": "T51",
+   "kat": "dach",
+   "name": "Attika West",
+   "box": [
+    0,
+    36,
+    945,
+    36,
+    1064,
+    990
+   ],
+   "material": "attika_blende"
+  },
+  {
+   "nr": 52,
+   "id": "T52",
+   "kat": "dach",
+   "name": "Attika Ost",
+   "box": [
+    1864,
+    36,
+    945,
+    1900,
+    1064,
+    990
+   ],
+   "material": "attika_blende"
+  },
+  {
+   "nr": 53,
+   "id": "T53",
+   "kat": "treppe",
+   "name": "Stufe 1",
+   "box": [
+    860,
+    916.0,
+    0.0,
+    960,
+    944.0,
+    17.5
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 54,
+   "id": "T54",
+   "kat": "treppe",
+   "name": "Stufe 2",
+   "box": [
+    860,
+    888.0,
+    17.5,
+    960,
+    916.0,
+    35.0
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 55,
+   "id": "T55",
+   "kat": "treppe",
+   "name": "Stufe 3",
+   "box": [
+    860,
+    860.0,
+    35.0,
+    960,
+    888.0,
+    52.5
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 56,
+   "id": "T56",
+   "kat": "treppe",
+   "name": "Stufe 4",
+   "box": [
+    860,
+    832.0,
+    52.5,
+    960,
+    860.0,
+    70.0
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 57,
+   "id": "T57",
+   "kat": "treppe",
+   "name": "Stufe 5",
+   "box": [
+    860,
+    804.0,
+    70.0,
+    960,
+    832.0,
+    87.5
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 58,
+   "id": "T58",
+   "kat": "treppe",
+   "name": "Stufe 6",
+   "box": [
+    860,
+    776.0,
+    87.5,
+    960,
+    804.0,
+    105.0
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 59,
+   "id": "T59",
+   "kat": "treppe",
+   "name": "Stufe 7",
+   "box": [
+    860,
+    748.0,
+    105.0,
+    960,
+    776.0,
+    122.5
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 60,
+   "id": "T60",
+   "kat": "treppe",
+   "name": "Stufe 8",
+   "box": [
+    860,
+    720.0,
+    122.5,
+    960,
+    748.0,
+    140.0
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 61,
+   "id": "T61",
+   "kat": "treppe",
+   "name": "Stufe 9",
+   "box": [
+    860,
+    692.0,
+    140.0,
+    960,
+    720.0,
+    157.5
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 62,
+   "id": "T62",
+   "kat": "treppe",
+   "name": "Stufe 10",
+   "box": [
+    860,
+    664.0,
+    157.5,
+    960,
+    692.0,
+    175.0
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 63,
+   "id": "T63",
+   "kat": "treppe",
+   "name": "Stufe 11",
+   "box": [
+    860,
+    636.0,
+    175.0,
+    960,
+    664.0,
+    192.5
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 64,
+   "id": "T64",
+   "kat": "treppe",
+   "name": "Stufe 12",
+   "box": [
+    860,
+    608.0,
+    192.5,
+    960,
+    636.0,
+    210.0
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 65,
+   "id": "T65",
+   "kat": "treppe",
+   "name": "Stufe 13",
+   "box": [
+    860,
+    580.0,
+    210.0,
+    960,
+    608.0,
+    227.5
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 66,
+   "id": "T66",
+   "kat": "treppe",
+   "name": "Stufe 14",
+   "box": [
+    860,
+    552.0,
+    227.5,
+    960,
+    580.0,
+    245.0
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 67,
+   "id": "T67",
+   "kat": "treppe",
+   "name": "Stufe 15",
+   "box": [
+    860,
+    524.0,
+    245.0,
+    960,
+    552.0,
+    262.5
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 68,
+   "id": "T68",
+   "kat": "treppe",
+   "name": "Stufe 16",
+   "box": [
+    860,
+    496.0,
+    262.5,
+    960,
+    524.0,
+    280.0
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 69,
+   "id": "T69",
+   "kat": "treppe",
+   "name": "Stufe 17",
+   "box": [
+    860,
+    468.0,
+    280.0,
+    960,
+    496.0,
+    297.5
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 70,
+   "id": "T70",
+   "kat": "treppe",
+   "name": "Stufe 18",
+   "box": [
+    860,
+    440.0,
+    297.5,
+    960,
+    468.0,
+    315.0
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 71,
+   "id": "T71",
+   "kat": "treppe",
+   "name": "Treppen-Handlauf",
+   "box": [
+    958,
+    440.0,
+    90,
+    962,
+    944,
+    405
+   ],
+   "material": "stahl"
+  },
+  {
+   "nr": 72,
+   "id": "T72",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer Fenster S0-1 (170x140, BRH 90)",
+   "ziel": "T02",
+   "box": [
+    195.0,
+    -6,
+    90,
+    365.0,
+    42,
+    230
+   ],
+   "quelle": "Fotos B268 (6 Stk.), geschaetzt",
+   "oeffnung": 1
+  },
+  {
+   "nr": 73,
+   "id": "T73",
+   "kat": "rahmen",
+   "name": "Rahmen unten Fenster S0-1 (170x140, BRH 90)",
+   "box": [
+    195.0,
+    14.0,
+    90,
+    365.0,
+    22.0,
+    97
+   ],
+   "material": "rahmen",
+   "oeffnung": 1
+  },
+  {
+   "nr": 74,
+   "id": "T74",
+   "kat": "rahmen",
+   "name": "Rahmen oben Fenster S0-1 (170x140, BRH 90)",
+   "box": [
+    195.0,
+    14.0,
+    223,
+    365.0,
+    22.0,
+    230
+   ],
+   "material": "rahmen",
+   "oeffnung": 1
+  },
+  {
+   "nr": 75,
+   "id": "T75",
+   "kat": "rahmen",
+   "name": "Rahmen links Fenster S0-1 (170x140, BRH 90)",
+   "box": [
+    195.0,
+    14.0,
+    90,
+    202.0,
+    22.0,
+    230
+   ],
+   "material": "rahmen",
+   "oeffnung": 1
+  },
+  {
+   "nr": 76,
+   "id": "T76",
+   "kat": "rahmen",
+   "name": "Rahmen rechts Fenster S0-1 (170x140, BRH 90)",
+   "box": [
+    358.0,
+    14.0,
+    90,
+    365.0,
+    22.0,
+    230
+   ],
+   "material": "rahmen",
+   "oeffnung": 1
+  },
+  {
+   "nr": 77,
+   "id": "T77",
+   "kat": "rahmen",
+   "name": "Pfosten 1 Fenster S0-1 (170x140, BRH 90)",
+   "box": [
+    277.0,
+    14.0,
+    97,
+    283.0,
+    22.0,
+    223
+   ],
+   "material": "rahmen",
+   "oeffnung": 1
+  },
+  {
+   "nr": 78,
+   "id": "T78",
+   "kat": "glas",
+   "name": "Glas Fenster S0-1 (170x140, BRH 90)",
+   "box": [
+    202.0,
+    17.4,
+    97,
+    358.0,
+    18.6,
+    223
+   ],
+   "material": "glas",
+   "oeffnung": 1
+  },
+  {
+   "nr": 79,
+   "id": "T79",
+   "kat": "detail",
+   "name": "Rollladen 60 % Fenster S0-1 (170x140, BRH 90)",
+   "box": [
+    197.0,
+    10.0,
+    147.4,
+    363.0,
+    12.0,
+    228
+   ],
+   "material": "rollladen",
+   "oeffnung": 1
+  },
+  {
+   "nr": 80,
+   "id": "T80",
+   "kat": "detail",
+   "name": "Fensterbank Fenster S0-1 (170x140, BRH 90)",
+   "box": [
+    192.0,
+    -4,
+    87,
+    368.0,
+    14.0,
+    90
+   ],
+   "material": "fensterbank",
+   "oeffnung": 1
+  },
+  {
+   "nr": 81,
+   "id": "T81",
+   "kat": "innen",
+   "name": "Innenraum Fenster S0-1 (170x140, BRH 90)",
+   "box": [
+    197.0,
+    37,
+    92,
+    363.0,
+    116,
+    228
+   ],
+   "material": "innen",
+   "oeffnung": 1
+  },
+  {
+   "nr": 82,
+   "id": "T82",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer Fenster S0-2 (110x140, BRH 90)",
+   "ziel": "T02",
+   "box": [
+    545.0,
+    -6,
+    90,
+    655.0,
+    42,
+    230
+   ],
+   "quelle": "Fotos B268 (6 Stk.), geschaetzt",
+   "oeffnung": 2
+  },
+  {
+   "nr": 83,
+   "id": "T83",
+   "kat": "rahmen",
+   "name": "Rahmen unten Fenster S0-2 (110x140, BRH 90)",
+   "box": [
+    545.0,
+    14.0,
+    90,
+    655.0,
+    22.0,
+    97
+   ],
+   "material": "rahmen",
+   "oeffnung": 2
+  },
+  {
+   "nr": 84,
+   "id": "T84",
+   "kat": "rahmen",
+   "name": "Rahmen oben Fenster S0-2 (110x140, BRH 90)",
+   "box": [
+    545.0,
+    14.0,
+    223,
+    655.0,
+    22.0,
+    230
+   ],
+   "material": "rahmen",
+   "oeffnung": 2
+  },
+  {
+   "nr": 85,
+   "id": "T85",
+   "kat": "rahmen",
+   "name": "Rahmen links Fenster S0-2 (110x140, BRH 90)",
+   "box": [
+    545.0,
+    14.0,
+    90,
+    552.0,
+    22.0,
+    230
+   ],
+   "material": "rahmen",
+   "oeffnung": 2
+  },
+  {
+   "nr": 86,
+   "id": "T86",
+   "kat": "rahmen",
+   "name": "Rahmen rechts Fenster S0-2 (110x140, BRH 90)",
+   "box": [
+    648.0,
+    14.0,
+    90,
+    655.0,
+    22.0,
+    230
+   ],
+   "material": "rahmen",
+   "oeffnung": 2
+  },
+  {
+   "nr": 87,
+   "id": "T87",
+   "kat": "glas",
+   "name": "Glas Fenster S0-2 (110x140, BRH 90)",
+   "box": [
+    552.0,
+    17.4,
+    97,
+    648.0,
+    18.6,
+    223
+   ],
+   "material": "glas",
+   "oeffnung": 2
+  },
+  {
+   "nr": 88,
+   "id": "T88",
+   "kat": "detail",
+   "name": "Rollladen 60 % Fenster S0-2 (110x140, BRH 90)",
+   "box": [
+    547.0,
+    10.0,
+    147.4,
+    653.0,
+    12.0,
+    228
+   ],
+   "material": "rollladen",
+   "oeffnung": 2
+  },
+  {
+   "nr": 89,
+   "id": "T89",
+   "kat": "detail",
+   "name": "Fensterbank Fenster S0-2 (110x140, BRH 90)",
+   "box": [
+    542.0,
+    -4,
+    87,
+    658.0,
+    14.0,
+    90
+   ],
+   "material": "fensterbank",
+   "oeffnung": 2
+  },
+  {
+   "nr": 90,
+   "id": "T90",
+   "kat": "innen",
+   "name": "Innenraum Fenster S0-2 (110x140, BRH 90)",
+   "box": [
+    547.0,
+    37,
+    92,
+    653.0,
+    116,
+    228
+   ],
+   "material": "innen",
+   "oeffnung": 2
+  },
+  {
+   "nr": 91,
+   "id": "T91",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer Fenster S0-3 (55x120, BRH 100)",
+   "ziel": "T02",
+   "box": [
+    872.5,
+    -6,
+    100,
+    927.5,
+    42,
+    220
+   ],
+   "quelle": "Fotos B268 (6 Stk.), geschaetzt",
+   "oeffnung": 3
+  },
+  {
+   "nr": 92,
+   "id": "T92",
+   "kat": "rahmen",
+   "name": "Rahmen unten Fenster S0-3 (55x120, BRH 100)",
+   "box": [
+    872.5,
+    14.0,
+    100,
+    927.5,
+    22.0,
+    107
+   ],
+   "material": "rahmen",
+   "oeffnung": 3
+  },
+  {
+   "nr": 93,
+   "id": "T93",
+   "kat": "rahmen",
+   "name": "Rahmen oben Fenster S0-3 (55x120, BRH 100)",
+   "box": [
+    872.5,
+    14.0,
+    213,
+    927.5,
+    22.0,
+    220
+   ],
+   "material": "rahmen",
+   "oeffnung": 3
+  },
+  {
+   "nr": 94,
+   "id": "T94",
+   "kat": "rahmen",
+   "name": "Rahmen links Fenster S0-3 (55x120, BRH 100)",
+   "box": [
+    872.5,
+    14.0,
+    100,
+    879.5,
+    22.0,
+    220
+   ],
+   "material": "rahmen",
+   "oeffnung": 3
+  },
+  {
+   "nr": 95,
+   "id": "T95",
+   "kat": "rahmen",
+   "name": "Rahmen rechts Fenster S0-3 (55x120, BRH 100)",
+   "box": [
+    920.5,
+    14.0,
+    100,
+    927.5,
+    22.0,
+    220
+   ],
+   "material": "rahmen",
+   "oeffnung": 3
+  },
+  {
+   "nr": 96,
+   "id": "T96",
+   "kat": "glas",
+   "name": "Glas Fenster S0-3 (55x120, BRH 100)",
+   "box": [
+    879.5,
+    17.4,
+    107,
+    920.5,
+    18.6,
+    213
+   ],
+   "material": "glas",
+   "oeffnung": 3
+  },
+  {
+   "nr": 97,
+   "id": "T97",
+   "kat": "detail",
+   "name": "Rollladen 60 % Fenster S0-3 (55x120, BRH 100)",
+   "box": [
+    874.5,
+    10.0,
+    149.4,
+    925.5,
+    12.0,
+    218
+   ],
+   "material": "rollladen",
+   "oeffnung": 3
+  },
+  {
+   "nr": 98,
+   "id": "T98",
+   "kat": "detail",
+   "name": "Fensterbank Fenster S0-3 (55x120, BRH 100)",
+   "box": [
+    869.5,
+    -4,
+    97,
+    930.5,
+    14.0,
+    100
+   ],
+   "material": "fensterbank",
+   "oeffnung": 3
+  },
+  {
+   "nr": 99,
+   "id": "T99",
+   "kat": "innen",
+   "name": "Innenraum Fenster S0-3 (55x120, BRH 100)",
+   "box": [
+    874.5,
+    37,
+    102,
+    925.5,
+    116,
+    218
+   ],
+   "material": "innen",
+   "oeffnung": 3
+  },
+  {
+   "nr": 100,
+   "id": "T100",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer Fenster S0-4 (110x140, BRH 90)",
+   "ziel": "T02",
+   "box": [
+    1125.0,
+    -6,
+    90,
+    1235.0,
+    42,
+    230
+   ],
+   "quelle": "Fotos B268 (6 Stk.), geschaetzt",
+   "oeffnung": 4
+  },
+  {
+   "nr": 101,
+   "id": "T101",
+   "kat": "rahmen",
+   "name": "Rahmen unten Fenster S0-4 (110x140, BRH 90)",
+   "box": [
+    1125.0,
+    14.0,
+    90,
+    1235.0,
+    22.0,
+    97
+   ],
+   "material": "rahmen",
+   "oeffnung": 4
+  },
+  {
+   "nr": 102,
+   "id": "T102",
+   "kat": "rahmen",
+   "name": "Rahmen oben Fenster S0-4 (110x140, BRH 90)",
+   "box": [
+    1125.0,
+    14.0,
+    223,
+    1235.0,
+    22.0,
+    230
+   ],
+   "material": "rahmen",
+   "oeffnung": 4
+  },
+  {
+   "nr": 103,
+   "id": "T103",
+   "kat": "rahmen",
+   "name": "Rahmen links Fenster S0-4 (110x140, BRH 90)",
+   "box": [
+    1125.0,
+    14.0,
+    90,
+    1132.0,
+    22.0,
+    230
+   ],
+   "material": "rahmen",
+   "oeffnung": 4
+  },
+  {
+   "nr": 104,
+   "id": "T104",
+   "kat": "rahmen",
+   "name": "Rahmen rechts Fenster S0-4 (110x140, BRH 90)",
+   "box": [
+    1228.0,
+    14.0,
+    90,
+    1235.0,
+    22.0,
+    230
+   ],
+   "material": "rahmen",
+   "oeffnung": 4
+  },
+  {
+   "nr": 105,
+   "id": "T105",
+   "kat": "glas",
+   "name": "Glas Fenster S0-4 (110x140, BRH 90)",
+   "box": [
+    1132.0,
+    17.4,
+    97,
+    1228.0,
+    18.6,
+    223
+   ],
+   "material": "glas",
+   "oeffnung": 4
+  },
+  {
+   "nr": 106,
+   "id": "T106",
+   "kat": "detail",
+   "name": "Rollladen 60 % Fenster S0-4 (110x140, BRH 90)",
+   "box": [
+    1127.0,
+    10.0,
+    147.4,
+    1233.0,
+    12.0,
+    228
+   ],
+   "material": "rollladen",
+   "oeffnung": 4
+  },
+  {
+   "nr": 107,
+   "id": "T107",
+   "kat": "detail",
+   "name": "Fensterbank Fenster S0-4 (110x140, BRH 90)",
+   "box": [
+    1122.0,
+    -4,
+    87,
+    1238.0,
+    14.0,
+    90
+   ],
+   "material": "fensterbank",
+   "oeffnung": 4
+  },
+  {
+   "nr": 108,
+   "id": "T108",
+   "kat": "innen",
+   "name": "Innenraum Fenster S0-4 (110x140, BRH 90)",
+   "box": [
+    1127.0,
+    37,
+    92,
+    1233.0,
+    116,
+    228
+   ],
+   "material": "innen",
+   "oeffnung": 4
+  },
+  {
+   "nr": 109,
+   "id": "T109",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer Fenster S0-5 (110x140, BRH 90)",
+   "ziel": "T02",
+   "box": [
+    1375.0,
+    -6,
+    90,
+    1485.0,
+    42,
+    230
+   ],
+   "quelle": "Fotos B268 (6 Stk.), geschaetzt",
+   "oeffnung": 5
+  },
+  {
+   "nr": 110,
+   "id": "T110",
+   "kat": "rahmen",
+   "name": "Rahmen unten Fenster S0-5 (110x140, BRH 90)",
+   "box": [
+    1375.0,
+    14.0,
+    90,
+    1485.0,
+    22.0,
+    97
+   ],
+   "material": "rahmen",
+   "oeffnung": 5
+  },
+  {
+   "nr": 111,
+   "id": "T111",
+   "kat": "rahmen",
+   "name": "Rahmen oben Fenster S0-5 (110x140, BRH 90)",
+   "box": [
+    1375.0,
+    14.0,
+    223,
+    1485.0,
+    22.0,
+    230
+   ],
+   "material": "rahmen",
+   "oeffnung": 5
+  },
+  {
+   "nr": 112,
+   "id": "T112",
+   "kat": "rahmen",
+   "name": "Rahmen links Fenster S0-5 (110x140, BRH 90)",
+   "box": [
+    1375.0,
+    14.0,
+    90,
+    1382.0,
+    22.0,
+    230
+   ],
+   "material": "rahmen",
+   "oeffnung": 5
+  },
+  {
+   "nr": 113,
+   "id": "T113",
+   "kat": "rahmen",
+   "name": "Rahmen rechts Fenster S0-5 (110x140, BRH 90)",
+   "box": [
+    1478.0,
+    14.0,
+    90,
+    1485.0,
+    22.0,
+    230
+   ],
+   "material": "rahmen",
+   "oeffnung": 5
+  },
+  {
+   "nr": 114,
+   "id": "T114",
+   "kat": "glas",
+   "name": "Glas Fenster S0-5 (110x140, BRH 90)",
+   "box": [
+    1382.0,
+    17.4,
+    97,
+    1478.0,
+    18.6,
+    223
+   ],
+   "material": "glas",
+   "oeffnung": 5
+  },
+  {
+   "nr": 115,
+   "id": "T115",
+   "kat": "detail",
+   "name": "Rollladen 60 % Fenster S0-5 (110x140, BRH 90)",
+   "box": [
+    1377.0,
+    10.0,
+    147.4,
+    1483.0,
+    12.0,
+    228
+   ],
+   "material": "rollladen",
+   "oeffnung": 5
+  },
+  {
+   "nr": 116,
+   "id": "T116",
+   "kat": "detail",
+   "name": "Fensterbank Fenster S0-5 (110x140, BRH 90)",
+   "box": [
+    1372.0,
+    -4,
+    87,
+    1488.0,
+    14.0,
+    90
+   ],
+   "material": "fensterbank",
+   "oeffnung": 5
+  },
+  {
+   "nr": 117,
+   "id": "T117",
+   "kat": "innen",
+   "name": "Innenraum Fenster S0-5 (110x140, BRH 90)",
+   "box": [
+    1377.0,
+    37,
+    92,
+    1483.0,
+    116,
+    228
+   ],
+   "material": "innen",
+   "oeffnung": 5
+  },
+  {
+   "nr": 118,
+   "id": "T118",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer Fenster S0-6 (110x140, BRH 90)",
+   "ziel": "T02",
+   "box": [
+    1625.0,
+    -6,
+    90,
+    1735.0,
+    42,
+    230
+   ],
+   "quelle": "INFERIERT",
+   "oeffnung": 6
+  },
+  {
+   "nr": 119,
+   "id": "T119",
+   "kat": "rahmen",
+   "name": "Rahmen unten Fenster S0-6 (110x140, BRH 90)",
+   "box": [
+    1625.0,
+    14.0,
+    90,
+    1735.0,
+    22.0,
+    97
+   ],
+   "material": "rahmen",
+   "oeffnung": 6
+  },
+  {
+   "nr": 120,
+   "id": "T120",
+   "kat": "rahmen",
+   "name": "Rahmen oben Fenster S0-6 (110x140, BRH 90)",
+   "box": [
+    1625.0,
+    14.0,
+    223,
+    1735.0,
+    22.0,
+    230
+   ],
+   "material": "rahmen",
+   "oeffnung": 6
+  },
+  {
+   "nr": 121,
+   "id": "T121",
+   "kat": "rahmen",
+   "name": "Rahmen links Fenster S0-6 (110x140, BRH 90)",
+   "box": [
+    1625.0,
+    14.0,
+    90,
+    1632.0,
+    22.0,
+    230
+   ],
+   "material": "rahmen",
+   "oeffnung": 6
+  },
+  {
+   "nr": 122,
+   "id": "T122",
+   "kat": "rahmen",
+   "name": "Rahmen rechts Fenster S0-6 (110x140, BRH 90)",
+   "box": [
+    1728.0,
+    14.0,
+    90,
+    1735.0,
+    22.0,
+    230
+   ],
+   "material": "rahmen",
+   "oeffnung": 6
+  },
+  {
+   "nr": 123,
+   "id": "T123",
+   "kat": "glas",
+   "name": "Glas Fenster S0-6 (110x140, BRH 90)",
+   "box": [
+    1632.0,
+    17.4,
+    97,
+    1728.0,
+    18.6,
+    223
+   ],
+   "material": "glas",
+   "oeffnung": 6
+  },
+  {
+   "nr": 124,
+   "id": "T124",
+   "kat": "detail",
+   "name": "Rollladen 60 % Fenster S0-6 (110x140, BRH 90)",
+   "box": [
+    1627.0,
+    10.0,
+    147.4,
+    1733.0,
+    12.0,
+    228
+   ],
+   "material": "rollladen",
+   "oeffnung": 6
+  },
+  {
+   "nr": 125,
+   "id": "T125",
+   "kat": "detail",
+   "name": "Fensterbank Fenster S0-6 (110x140, BRH 90)",
+   "box": [
+    1622.0,
+    -4,
+    87,
+    1738.0,
+    14.0,
+    90
+   ],
+   "material": "fensterbank",
+   "oeffnung": 6
+  },
+  {
+   "nr": 126,
+   "id": "T126",
+   "kat": "innen",
+   "name": "Innenraum Fenster S0-6 (110x140, BRH 90)",
+   "box": [
+    1627.0,
+    37,
+    92,
+    1733.0,
+    116,
+    228
+   ],
+   "material": "innen",
+   "oeffnung": 6
+  },
+  {
+   "nr": 127,
+   "id": "T127",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer Fenster E0-7 (110x140, BRH 90)",
+   "ziel": "T05",
+   "box": [
+    1858,
+    205.0,
+    90,
+    1906,
+    315.0,
+    230
+   ],
+   "quelle": "Fotos B268 (6 Stk.), geschaetzt",
+   "oeffnung": 7
+  },
+  {
+   "nr": 128,
+   "id": "T128",
+   "kat": "rahmen",
+   "name": "Rahmen unten Fenster E0-7 (110x140, BRH 90)",
+   "box": [
+    1878.0,
+    205.0,
+    90,
+    1886.0,
+    315.0,
+    97
+   ],
+   "material": "rahmen",
+   "oeffnung": 7
+  },
+  {
+   "nr": 129,
+   "id": "T129",
+   "kat": "rahmen",
+   "name": "Rahmen oben Fenster E0-7 (110x140, BRH 90)",
+   "box": [
+    1878.0,
+    205.0,
+    223,
+    1886.0,
+    315.0,
+    230
+   ],
+   "material": "rahmen",
+   "oeffnung": 7
+  },
+  {
+   "nr": 130,
+   "id": "T130",
+   "kat": "rahmen",
+   "name": "Rahmen links Fenster E0-7 (110x140, BRH 90)",
+   "box": [
+    1878.0,
+    205.0,
+    90,
+    1886.0,
+    212.0,
+    230
+   ],
+   "material": "rahmen",
+   "oeffnung": 7
+  },
+  {
+   "nr": 131,
+   "id": "T131",
+   "kat": "rahmen",
+   "name": "Rahmen rechts Fenster E0-7 (110x140, BRH 90)",
+   "box": [
+    1878.0,
+    308.0,
+    90,
+    1886.0,
+    315.0,
+    230
+   ],
+   "material": "rahmen",
+   "oeffnung": 7
+  },
+  {
+   "nr": 132,
+   "id": "T132",
+   "kat": "glas",
+   "name": "Glas Fenster E0-7 (110x140, BRH 90)",
+   "box": [
+    1881.4,
+    212.0,
+    97,
+    1882.6,
+    308.0,
+    223
+   ],
+   "material": "glas",
+   "oeffnung": 7
+  },
+  {
+   "nr": 133,
+   "id": "T133",
+   "kat": "detail",
+   "name": "Rollladen 60 % Fenster E0-7 (110x140, BRH 90)",
+   "box": [
+    1888.0,
+    207.0,
+    147.4,
+    1890.0,
+    313.0,
+    228
+   ],
+   "material": "rollladen",
+   "oeffnung": 7
+  },
+  {
+   "nr": 134,
+   "id": "T134",
+   "kat": "detail",
+   "name": "Fensterbank Fenster E0-7 (110x140, BRH 90)",
+   "box": [
+    1886.0,
+    202.0,
+    87,
+    1904,
+    318.0,
+    90
+   ],
+   "material": "fensterbank",
+   "oeffnung": 7
+  },
+  {
+   "nr": 135,
+   "id": "T135",
+   "kat": "innen",
+   "name": "Innenraum Fenster E0-7 (110x140, BRH 90)",
+   "box": [
+    1784,
+    207.0,
+    92,
+    1863,
+    313.0,
+    228
+   ],
+   "material": "innen",
+   "oeffnung": 7
+  },
+  {
+   "nr": 136,
+   "id": "T136",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer Fenster E0-8 (110x140, BRH 90)",
+   "ziel": "T05",
+   "box": [
+    1858,
+    505.0,
+    90,
+    1906,
+    615.0,
+    230
+   ],
+   "quelle": "Fotos B268 (6 Stk.), geschaetzt",
+   "oeffnung": 8
+  },
+  {
+   "nr": 137,
+   "id": "T137",
+   "kat": "rahmen",
+   "name": "Rahmen unten Fenster E0-8 (110x140, BRH 90)",
+   "box": [
+    1878.0,
+    505.0,
+    90,
+    1886.0,
+    615.0,
+    97
+   ],
+   "material": "rahmen",
+   "oeffnung": 8
+  },
+  {
+   "nr": 138,
+   "id": "T138",
+   "kat": "rahmen",
+   "name": "Rahmen oben Fenster E0-8 (110x140, BRH 90)",
+   "box": [
+    1878.0,
+    505.0,
+    223,
+    1886.0,
+    615.0,
+    230
+   ],
+   "material": "rahmen",
+   "oeffnung": 8
+  },
+  {
+   "nr": 139,
+   "id": "T139",
+   "kat": "rahmen",
+   "name": "Rahmen links Fenster E0-8 (110x140, BRH 90)",
+   "box": [
+    1878.0,
+    505.0,
+    90,
+    1886.0,
+    512.0,
+    230
+   ],
+   "material": "rahmen",
+   "oeffnung": 8
+  },
+  {
+   "nr": 140,
+   "id": "T140",
+   "kat": "rahmen",
+   "name": "Rahmen rechts Fenster E0-8 (110x140, BRH 90)",
+   "box": [
+    1878.0,
+    608.0,
+    90,
+    1886.0,
+    615.0,
+    230
+   ],
+   "material": "rahmen",
+   "oeffnung": 8
+  },
+  {
+   "nr": 141,
+   "id": "T141",
+   "kat": "glas",
+   "name": "Glas Fenster E0-8 (110x140, BRH 90)",
+   "box": [
+    1881.4,
+    512.0,
+    97,
+    1882.6,
+    608.0,
+    223
+   ],
+   "material": "glas",
+   "oeffnung": 8
+  },
+  {
+   "nr": 142,
+   "id": "T142",
+   "kat": "detail",
+   "name": "Rollladen 60 % Fenster E0-8 (110x140, BRH 90)",
+   "box": [
+    1888.0,
+    507.0,
+    147.4,
+    1890.0,
+    613.0,
+    228
+   ],
+   "material": "rollladen",
+   "oeffnung": 8
+  },
+  {
+   "nr": 143,
+   "id": "T143",
+   "kat": "detail",
+   "name": "Fensterbank Fenster E0-8 (110x140, BRH 90)",
+   "box": [
+    1886.0,
+    502.0,
+    87,
+    1904,
+    618.0,
+    90
+   ],
+   "material": "fensterbank",
+   "oeffnung": 8
+  },
+  {
+   "nr": 144,
+   "id": "T144",
+   "kat": "innen",
+   "name": "Innenraum Fenster E0-8 (110x140, BRH 90)",
+   "box": [
+    1784,
+    507.0,
+    92,
+    1863,
+    613.0,
+    228
+   ],
+   "material": "innen",
+   "oeffnung": 8
+  },
+  {
+   "nr": 145,
+   "id": "T145",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer Fenster W0-9 (60x90, BRH 120)",
+   "ziel": "T04",
+   "box": [
+    -6,
+    420.0,
+    120,
+    42,
+    480.0,
+    210
+   ],
+   "quelle": "Fotos B268 (6 Stk.), geschaetzt",
+   "oeffnung": 9
+  },
+  {
+   "nr": 146,
+   "id": "T146",
+   "kat": "rahmen",
+   "name": "Rahmen unten Fenster W0-9 (60x90, BRH 120)",
+   "box": [
+    14.0,
+    420.0,
+    120,
+    22.0,
+    480.0,
+    127
+   ],
+   "material": "rahmen",
+   "oeffnung": 9
+  },
+  {
+   "nr": 147,
+   "id": "T147",
+   "kat": "rahmen",
+   "name": "Rahmen oben Fenster W0-9 (60x90, BRH 120)",
+   "box": [
+    14.0,
+    420.0,
+    203,
+    22.0,
+    480.0,
+    210
+   ],
+   "material": "rahmen",
+   "oeffnung": 9
+  },
+  {
+   "nr": 148,
+   "id": "T148",
+   "kat": "rahmen",
+   "name": "Rahmen links Fenster W0-9 (60x90, BRH 120)",
+   "box": [
+    14.0,
+    420.0,
+    120,
+    22.0,
+    427.0,
+    210
+   ],
+   "material": "rahmen",
+   "oeffnung": 9
+  },
+  {
+   "nr": 149,
+   "id": "T149",
+   "kat": "rahmen",
+   "name": "Rahmen rechts Fenster W0-9 (60x90, BRH 120)",
+   "box": [
+    14.0,
+    473.0,
+    120,
+    22.0,
+    480.0,
+    210
+   ],
+   "material": "rahmen",
+   "oeffnung": 9
+  },
+  {
+   "nr": 150,
+   "id": "T150",
+   "kat": "glas",
+   "name": "Glas Fenster W0-9 (60x90, BRH 120)",
+   "box": [
+    17.4,
+    427.0,
+    127,
+    18.6,
+    473.0,
+    203
+   ],
+   "material": "glas",
+   "oeffnung": 9
+  },
+  {
+   "nr": 151,
+   "id": "T151",
+   "kat": "detail",
+   "name": "Rollladen 60 % Fenster W0-9 (60x90, BRH 120)",
+   "box": [
+    10.0,
+    422.0,
+    157.4,
+    12.0,
+    478.0,
+    208
+   ],
+   "material": "rollladen",
+   "oeffnung": 9
+  },
+  {
+   "nr": 152,
+   "id": "T152",
+   "kat": "detail",
+   "name": "Fensterbank Fenster W0-9 (60x90, BRH 120)",
+   "box": [
+    -4,
+    417.0,
+    117,
+    14.0,
+    483.0,
+    120
+   ],
+   "material": "fensterbank",
+   "oeffnung": 9
+  },
+  {
+   "nr": 153,
+   "id": "T153",
+   "kat": "innen",
+   "name": "Innenraum Fenster W0-9 (60x90, BRH 120)",
+   "box": [
+    37,
+    422.0,
+    122,
+    116,
+    478.0,
+    208
+   ],
+   "material": "innen",
+   "oeffnung": 9
+  },
+  {
+   "nr": 154,
+   "id": "T154",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer Balkontuer N0-10 (160x230, BRH 0)",
+   "ziel": "T03",
+   "box": [
+    1620.0,
+    1058,
+    0,
+    1780.0,
+    1106,
+    230
+   ],
+   "quelle": "Fotos B268 (6 Stk.), geschaetzt",
+   "oeffnung": 10
+  },
+  {
+   "nr": 155,
+   "id": "T155",
+   "kat": "rahmen",
+   "name": "Rahmen unten Balkontuer N0-10 (160x230, BRH 0)",
+   "box": [
+    1620.0,
+    1078.0,
+    0,
+    1780.0,
+    1086.0,
+    7
+   ],
+   "material": "rahmen",
+   "oeffnung": 10
+  },
+  {
+   "nr": 156,
+   "id": "T156",
+   "kat": "rahmen",
+   "name": "Rahmen oben Balkontuer N0-10 (160x230, BRH 0)",
+   "box": [
+    1620.0,
+    1078.0,
+    223,
+    1780.0,
+    1086.0,
+    230
+   ],
+   "material": "rahmen",
+   "oeffnung": 10
+  },
+  {
+   "nr": 157,
+   "id": "T157",
+   "kat": "rahmen",
+   "name": "Rahmen links Balkontuer N0-10 (160x230, BRH 0)",
+   "box": [
+    1620.0,
+    1078.0,
+    0,
+    1627.0,
+    1086.0,
+    230
+   ],
+   "material": "rahmen",
+   "oeffnung": 10
+  },
+  {
+   "nr": 158,
+   "id": "T158",
+   "kat": "rahmen",
+   "name": "Rahmen rechts Balkontuer N0-10 (160x230, BRH 0)",
+   "box": [
+    1773.0,
+    1078.0,
+    0,
+    1780.0,
+    1086.0,
+    230
+   ],
+   "material": "rahmen",
+   "oeffnung": 10
+  },
+  {
+   "nr": 159,
+   "id": "T159",
+   "kat": "rahmen",
+   "name": "Pfosten 1 Balkontuer N0-10 (160x230, BRH 0)",
+   "box": [
+    1697.0,
+    1078.0,
+    7,
+    1703.0,
+    1086.0,
+    223
+   ],
+   "material": "rahmen",
+   "oeffnung": 10
+  },
+  {
+   "nr": 160,
+   "id": "T160",
+   "kat": "glas",
+   "name": "Glas Balkontuer N0-10 (160x230, BRH 0)",
+   "box": [
+    1627.0,
+    1081.4,
+    7,
+    1773.0,
+    1082.6,
+    223
+   ],
+   "material": "glas",
+   "oeffnung": 10
+  },
+  {
+   "nr": 161,
+   "id": "T161",
+   "kat": "innen",
+   "name": "Innenraum Balkontuer N0-10 (160x230, BRH 0)",
+   "box": [
+    1622.0,
+    984,
+    2,
+    1778.0,
+    1063,
+    228
+   ],
+   "material": "innen",
+   "oeffnung": 10
+  },
+  {
+   "nr": 162,
+   "id": "T162",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer Fenster N0-11 (110x140, BRH 90)",
+   "ziel": "T03",
+   "box": [
+    345.0,
+    1058,
+    90,
+    455.0,
+    1106,
+    230
+   ],
+   "quelle": "INFERIERT",
+   "oeffnung": 11
+  },
+  {
+   "nr": 163,
+   "id": "T163",
+   "kat": "rahmen",
+   "name": "Rahmen unten Fenster N0-11 (110x140, BRH 90)",
+   "box": [
+    345.0,
+    1078.0,
+    90,
+    455.0,
+    1086.0,
+    97
+   ],
+   "material": "rahmen",
+   "oeffnung": 11
+  },
+  {
+   "nr": 164,
+   "id": "T164",
+   "kat": "rahmen",
+   "name": "Rahmen oben Fenster N0-11 (110x140, BRH 90)",
+   "box": [
+    345.0,
+    1078.0,
+    223,
+    455.0,
+    1086.0,
+    230
+   ],
+   "material": "rahmen",
+   "oeffnung": 11
+  },
+  {
+   "nr": 165,
+   "id": "T165",
+   "kat": "rahmen",
+   "name": "Rahmen links Fenster N0-11 (110x140, BRH 90)",
+   "box": [
+    345.0,
+    1078.0,
+    90,
+    352.0,
+    1086.0,
+    230
+   ],
+   "material": "rahmen",
+   "oeffnung": 11
+  },
+  {
+   "nr": 166,
+   "id": "T166",
+   "kat": "rahmen",
+   "name": "Rahmen rechts Fenster N0-11 (110x140, BRH 90)",
+   "box": [
+    448.0,
+    1078.0,
+    90,
+    455.0,
+    1086.0,
+    230
+   ],
+   "material": "rahmen",
+   "oeffnung": 11
+  },
+  {
+   "nr": 167,
+   "id": "T167",
+   "kat": "glas",
+   "name": "Glas Fenster N0-11 (110x140, BRH 90)",
+   "box": [
+    352.0,
+    1081.4,
+    97,
+    448.0,
+    1082.6,
+    223
+   ],
+   "material": "glas",
+   "oeffnung": 11
+  },
+  {
+   "nr": 168,
+   "id": "T168",
+   "kat": "detail",
+   "name": "Rollladen 60 % Fenster N0-11 (110x140, BRH 90)",
+   "box": [
+    347.0,
+    1088.0,
+    147.4,
+    453.0,
+    1090.0,
+    228
+   ],
+   "material": "rollladen",
+   "oeffnung": 11
+  },
+  {
+   "nr": 169,
+   "id": "T169",
+   "kat": "detail",
+   "name": "Fensterbank Fenster N0-11 (110x140, BRH 90)",
+   "box": [
+    342.0,
+    1086.0,
+    87,
+    458.0,
+    1104,
+    90
+   ],
+   "material": "fensterbank",
+   "oeffnung": 11
+  },
+  {
+   "nr": 170,
+   "id": "T170",
+   "kat": "innen",
+   "name": "Innenraum Fenster N0-11 (110x140, BRH 90)",
+   "box": [
+    347.0,
+    984,
+    92,
+    453.0,
+    1063,
+    228
+   ],
+   "material": "innen",
+   "oeffnung": 11
+  },
+  {
+   "nr": 171,
+   "id": "T171",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer Fenster N0-12 (110x140, BRH 90)",
+   "ziel": "T03",
+   "box": [
+    1095.0,
+    1058,
+    90,
+    1205.0,
+    1106,
+    230
+   ],
+   "quelle": "INFERIERT",
+   "oeffnung": 12
+  },
+  {
+   "nr": 172,
+   "id": "T172",
+   "kat": "rahmen",
+   "name": "Rahmen unten Fenster N0-12 (110x140, BRH 90)",
+   "box": [
+    1095.0,
+    1078.0,
+    90,
+    1205.0,
+    1086.0,
+    97
+   ],
+   "material": "rahmen",
+   "oeffnung": 12
+  },
+  {
+   "nr": 173,
+   "id": "T173",
+   "kat": "rahmen",
+   "name": "Rahmen oben Fenster N0-12 (110x140, BRH 90)",
+   "box": [
+    1095.0,
+    1078.0,
+    223,
+    1205.0,
+    1086.0,
+    230
+   ],
+   "material": "rahmen",
+   "oeffnung": 12
+  },
+  {
+   "nr": 174,
+   "id": "T174",
+   "kat": "rahmen",
+   "name": "Rahmen links Fenster N0-12 (110x140, BRH 90)",
+   "box": [
+    1095.0,
+    1078.0,
+    90,
+    1102.0,
+    1086.0,
+    230
+   ],
+   "material": "rahmen",
+   "oeffnung": 12
+  },
+  {
+   "nr": 175,
+   "id": "T175",
+   "kat": "rahmen",
+   "name": "Rahmen rechts Fenster N0-12 (110x140, BRH 90)",
+   "box": [
+    1198.0,
+    1078.0,
+    90,
+    1205.0,
+    1086.0,
+    230
+   ],
+   "material": "rahmen",
+   "oeffnung": 12
+  },
+  {
+   "nr": 176,
+   "id": "T176",
+   "kat": "glas",
+   "name": "Glas Fenster N0-12 (110x140, BRH 90)",
+   "box": [
+    1102.0,
+    1081.4,
+    97,
+    1198.0,
+    1082.6,
+    223
+   ],
+   "material": "glas",
+   "oeffnung": 12
+  },
+  {
+   "nr": 177,
+   "id": "T177",
+   "kat": "detail",
+   "name": "Rollladen 60 % Fenster N0-12 (110x140, BRH 90)",
+   "box": [
+    1097.0,
+    1088.0,
+    147.4,
+    1203.0,
+    1090.0,
+    228
+   ],
+   "material": "rollladen",
+   "oeffnung": 12
+  },
+  {
+   "nr": 178,
+   "id": "T178",
+   "kat": "detail",
+   "name": "Fensterbank Fenster N0-12 (110x140, BRH 90)",
+   "box": [
+    1092.0,
+    1086.0,
+    87,
+    1208.0,
+    1104,
+    90
+   ],
+   "material": "fensterbank",
+   "oeffnung": 12
+  },
+  {
+   "nr": 179,
+   "id": "T179",
+   "kat": "innen",
+   "name": "Innenraum Fenster N0-12 (110x140, BRH 90)",
+   "box": [
+    1097.0,
+    984,
+    92,
+    1203.0,
+    1063,
+    228
+   ],
+   "material": "innen",
+   "oeffnung": 12
+  },
+  {
+   "nr": 180,
+   "id": "T180",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer Fenster S1-13 (170x140, BRH 90)",
+   "ziel": "T06",
+   "box": [
+    195.0,
+    -6,
+    405,
+    365.0,
+    42,
+    545
+   ],
+   "quelle": "Fotos B268 (6 Stk.), geschaetzt",
+   "oeffnung": 13
+  },
+  {
+   "nr": 181,
+   "id": "T181",
+   "kat": "rahmen",
+   "name": "Rahmen unten Fenster S1-13 (170x140, BRH 90)",
+   "box": [
+    195.0,
+    14.0,
+    405,
+    365.0,
+    22.0,
+    412
+   ],
+   "material": "rahmen",
+   "oeffnung": 13
+  },
+  {
+   "nr": 182,
+   "id": "T182",
+   "kat": "rahmen",
+   "name": "Rahmen oben Fenster S1-13 (170x140, BRH 90)",
+   "box": [
+    195.0,
+    14.0,
+    538,
+    365.0,
+    22.0,
+    545
+   ],
+   "material": "rahmen",
+   "oeffnung": 13
+  },
+  {
+   "nr": 183,
+   "id": "T183",
+   "kat": "rahmen",
+   "name": "Rahmen links Fenster S1-13 (170x140, BRH 90)",
+   "box": [
+    195.0,
+    14.0,
+    405,
+    202.0,
+    22.0,
+    545
+   ],
+   "material": "rahmen",
+   "oeffnung": 13
+  },
+  {
+   "nr": 184,
+   "id": "T184",
+   "kat": "rahmen",
+   "name": "Rahmen rechts Fenster S1-13 (170x140, BRH 90)",
+   "box": [
+    358.0,
+    14.0,
+    405,
+    365.0,
+    22.0,
+    545
+   ],
+   "material": "rahmen",
+   "oeffnung": 13
+  },
+  {
+   "nr": 185,
+   "id": "T185",
+   "kat": "rahmen",
+   "name": "Pfosten 1 Fenster S1-13 (170x140, BRH 90)",
+   "box": [
+    277.0,
+    14.0,
+    412,
+    283.0,
+    22.0,
+    538
+   ],
+   "material": "rahmen",
+   "oeffnung": 13
+  },
+  {
+   "nr": 186,
+   "id": "T186",
+   "kat": "glas",
+   "name": "Glas Fenster S1-13 (170x140, BRH 90)",
+   "box": [
+    202.0,
+    17.4,
+    412,
+    358.0,
+    18.6,
+    538
+   ],
+   "material": "glas",
+   "oeffnung": 13
+  },
+  {
+   "nr": 187,
+   "id": "T187",
+   "kat": "detail",
+   "name": "Rollladen 60 % Fenster S1-13 (170x140, BRH 90)",
+   "box": [
+    197.0,
+    10.0,
+    462.4,
+    363.0,
+    12.0,
+    543
+   ],
+   "material": "rollladen",
+   "oeffnung": 13
+  },
+  {
+   "nr": 188,
+   "id": "T188",
+   "kat": "detail",
+   "name": "Fensterbank Fenster S1-13 (170x140, BRH 90)",
+   "box": [
+    192.0,
+    -4,
+    402,
+    368.0,
+    14.0,
+    405
+   ],
+   "material": "fensterbank",
+   "oeffnung": 13
+  },
+  {
+   "nr": 189,
+   "id": "T189",
+   "kat": "innen",
+   "name": "Innenraum Fenster S1-13 (170x140, BRH 90)",
+   "box": [
+    197.0,
+    37,
+    407,
+    363.0,
+    116,
+    543
+   ],
+   "material": "innen",
+   "oeffnung": 13
+  },
+  {
+   "nr": 190,
+   "id": "T190",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer Fenster S1-14 (110x140, BRH 90)",
+   "ziel": "T06",
+   "box": [
+    545.0,
+    -6,
+    405,
+    655.0,
+    42,
+    545
+   ],
+   "quelle": "Fotos B268 (6 Stk.), geschaetzt",
+   "oeffnung": 14
+  },
+  {
+   "nr": 191,
+   "id": "T191",
+   "kat": "rahmen",
+   "name": "Rahmen unten Fenster S1-14 (110x140, BRH 90)",
+   "box": [
+    545.0,
+    14.0,
+    405,
+    655.0,
+    22.0,
+    412
+   ],
+   "material": "rahmen",
+   "oeffnung": 14
+  },
+  {
+   "nr": 192,
+   "id": "T192",
+   "kat": "rahmen",
+   "name": "Rahmen oben Fenster S1-14 (110x140, BRH 90)",
+   "box": [
+    545.0,
+    14.0,
+    538,
+    655.0,
+    22.0,
+    545
+   ],
+   "material": "rahmen",
+   "oeffnung": 14
+  },
+  {
+   "nr": 193,
+   "id": "T193",
+   "kat": "rahmen",
+   "name": "Rahmen links Fenster S1-14 (110x140, BRH 90)",
+   "box": [
+    545.0,
+    14.0,
+    405,
+    552.0,
+    22.0,
+    545
+   ],
+   "material": "rahmen",
+   "oeffnung": 14
+  },
+  {
+   "nr": 194,
+   "id": "T194",
+   "kat": "rahmen",
+   "name": "Rahmen rechts Fenster S1-14 (110x140, BRH 90)",
+   "box": [
+    648.0,
+    14.0,
+    405,
+    655.0,
+    22.0,
+    545
+   ],
+   "material": "rahmen",
+   "oeffnung": 14
+  },
+  {
+   "nr": 195,
+   "id": "T195",
+   "kat": "glas",
+   "name": "Glas Fenster S1-14 (110x140, BRH 90)",
+   "box": [
+    552.0,
+    17.4,
+    412,
+    648.0,
+    18.6,
+    538
+   ],
+   "material": "glas",
+   "oeffnung": 14
+  },
+  {
+   "nr": 196,
+   "id": "T196",
+   "kat": "detail",
+   "name": "Rollladen 60 % Fenster S1-14 (110x140, BRH 90)",
+   "box": [
+    547.0,
+    10.0,
+    462.4,
+    653.0,
+    12.0,
+    543
+   ],
+   "material": "rollladen",
+   "oeffnung": 14
+  },
+  {
+   "nr": 197,
+   "id": "T197",
+   "kat": "detail",
+   "name": "Fensterbank Fenster S1-14 (110x140, BRH 90)",
+   "box": [
+    542.0,
+    -4,
+    402,
+    658.0,
+    14.0,
+    405
+   ],
+   "material": "fensterbank",
+   "oeffnung": 14
+  },
+  {
+   "nr": 198,
+   "id": "T198",
+   "kat": "innen",
+   "name": "Innenraum Fenster S1-14 (110x140, BRH 90)",
+   "box": [
+    547.0,
+    37,
+    407,
+    653.0,
+    116,
+    543
+   ],
+   "material": "innen",
+   "oeffnung": 14
+  },
+  {
+   "nr": 199,
+   "id": "T199",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer Fenster S1-15 (55x120, BRH 100)",
+   "ziel": "T06",
+   "box": [
+    872.5,
+    -6,
+    415,
+    927.5,
+    42,
+    535
+   ],
+   "quelle": "Fotos B268 (6 Stk.), geschaetzt",
+   "oeffnung": 15
+  },
+  {
+   "nr": 200,
+   "id": "T200",
+   "kat": "rahmen",
+   "name": "Rahmen unten Fenster S1-15 (55x120, BRH 100)",
+   "box": [
+    872.5,
+    14.0,
+    415,
+    927.5,
+    22.0,
+    422
+   ],
+   "material": "rahmen",
+   "oeffnung": 15
+  },
+  {
+   "nr": 201,
+   "id": "T201",
+   "kat": "rahmen",
+   "name": "Rahmen oben Fenster S1-15 (55x120, BRH 100)",
+   "box": [
+    872.5,
+    14.0,
+    528,
+    927.5,
+    22.0,
+    535
+   ],
+   "material": "rahmen",
+   "oeffnung": 15
+  },
+  {
+   "nr": 202,
+   "id": "T202",
+   "kat": "rahmen",
+   "name": "Rahmen links Fenster S1-15 (55x120, BRH 100)",
+   "box": [
+    872.5,
+    14.0,
+    415,
+    879.5,
+    22.0,
+    535
+   ],
+   "material": "rahmen",
+   "oeffnung": 15
+  },
+  {
+   "nr": 203,
+   "id": "T203",
+   "kat": "rahmen",
+   "name": "Rahmen rechts Fenster S1-15 (55x120, BRH 100)",
+   "box": [
+    920.5,
+    14.0,
+    415,
+    927.5,
+    22.0,
+    535
+   ],
+   "material": "rahmen",
+   "oeffnung": 15
+  },
+  {
+   "nr": 204,
+   "id": "T204",
+   "kat": "glas",
+   "name": "Glas Fenster S1-15 (55x120, BRH 100)",
+   "box": [
+    879.5,
+    17.4,
+    422,
+    920.5,
+    18.6,
+    528
+   ],
+   "material": "glas",
+   "oeffnung": 15
+  },
+  {
+   "nr": 205,
+   "id": "T205",
+   "kat": "detail",
+   "name": "Rollladen 60 % Fenster S1-15 (55x120, BRH 100)",
+   "box": [
+    874.5,
+    10.0,
+    464.4,
+    925.5,
+    12.0,
+    533
+   ],
+   "material": "rollladen",
+   "oeffnung": 15
+  },
+  {
+   "nr": 206,
+   "id": "T206",
+   "kat": "detail",
+   "name": "Fensterbank Fenster S1-15 (55x120, BRH 100)",
+   "box": [
+    869.5,
+    -4,
+    412,
+    930.5,
+    14.0,
+    415
+   ],
+   "material": "fensterbank",
+   "oeffnung": 15
+  },
+  {
+   "nr": 207,
+   "id": "T207",
+   "kat": "innen",
+   "name": "Innenraum Fenster S1-15 (55x120, BRH 100)",
+   "box": [
+    874.5,
+    37,
+    417,
+    925.5,
+    116,
+    533
+   ],
+   "material": "innen",
+   "oeffnung": 15
+  },
+  {
+   "nr": 208,
+   "id": "T208",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer Fenster S1-16 (110x140, BRH 90)",
+   "ziel": "T06",
+   "box": [
+    1125.0,
+    -6,
+    405,
+    1235.0,
+    42,
+    545
+   ],
+   "quelle": "Fotos B268 (6 Stk.), geschaetzt",
+   "oeffnung": 16
+  },
+  {
+   "nr": 209,
+   "id": "T209",
+   "kat": "rahmen",
+   "name": "Rahmen unten Fenster S1-16 (110x140, BRH 90)",
+   "box": [
+    1125.0,
+    14.0,
+    405,
+    1235.0,
+    22.0,
+    412
+   ],
+   "material": "rahmen",
+   "oeffnung": 16
+  },
+  {
+   "nr": 210,
+   "id": "T210",
+   "kat": "rahmen",
+   "name": "Rahmen oben Fenster S1-16 (110x140, BRH 90)",
+   "box": [
+    1125.0,
+    14.0,
+    538,
+    1235.0,
+    22.0,
+    545
+   ],
+   "material": "rahmen",
+   "oeffnung": 16
+  },
+  {
+   "nr": 211,
+   "id": "T211",
+   "kat": "rahmen",
+   "name": "Rahmen links Fenster S1-16 (110x140, BRH 90)",
+   "box": [
+    1125.0,
+    14.0,
+    405,
+    1132.0,
+    22.0,
+    545
+   ],
+   "material": "rahmen",
+   "oeffnung": 16
+  },
+  {
+   "nr": 212,
+   "id": "T212",
+   "kat": "rahmen",
+   "name": "Rahmen rechts Fenster S1-16 (110x140, BRH 90)",
+   "box": [
+    1228.0,
+    14.0,
+    405,
+    1235.0,
+    22.0,
+    545
+   ],
+   "material": "rahmen",
+   "oeffnung": 16
+  },
+  {
+   "nr": 213,
+   "id": "T213",
+   "kat": "glas",
+   "name": "Glas Fenster S1-16 (110x140, BRH 90)",
+   "box": [
+    1132.0,
+    17.4,
+    412,
+    1228.0,
+    18.6,
+    538
+   ],
+   "material": "glas",
+   "oeffnung": 16
+  },
+  {
+   "nr": 214,
+   "id": "T214",
+   "kat": "detail",
+   "name": "Rollladen 60 % Fenster S1-16 (110x140, BRH 90)",
+   "box": [
+    1127.0,
+    10.0,
+    462.4,
+    1233.0,
+    12.0,
+    543
+   ],
+   "material": "rollladen",
+   "oeffnung": 16
+  },
+  {
+   "nr": 215,
+   "id": "T215",
+   "kat": "detail",
+   "name": "Fensterbank Fenster S1-16 (110x140, BRH 90)",
+   "box": [
+    1122.0,
+    -4,
+    402,
+    1238.0,
+    14.0,
+    405
+   ],
+   "material": "fensterbank",
+   "oeffnung": 16
+  },
+  {
+   "nr": 216,
+   "id": "T216",
+   "kat": "innen",
+   "name": "Innenraum Fenster S1-16 (110x140, BRH 90)",
+   "box": [
+    1127.0,
+    37,
+    407,
+    1233.0,
+    116,
+    543
+   ],
+   "material": "innen",
+   "oeffnung": 16
+  },
+  {
+   "nr": 217,
+   "id": "T217",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer Fenster S1-17 (110x140, BRH 90)",
+   "ziel": "T06",
+   "box": [
+    1375.0,
+    -6,
+    405,
+    1485.0,
+    42,
+    545
+   ],
+   "quelle": "Fotos B268 (6 Stk.), geschaetzt",
+   "oeffnung": 17
+  },
+  {
+   "nr": 218,
+   "id": "T218",
+   "kat": "rahmen",
+   "name": "Rahmen unten Fenster S1-17 (110x140, BRH 90)",
+   "box": [
+    1375.0,
+    14.0,
+    405,
+    1485.0,
+    22.0,
+    412
+   ],
+   "material": "rahmen",
+   "oeffnung": 17
+  },
+  {
+   "nr": 219,
+   "id": "T219",
+   "kat": "rahmen",
+   "name": "Rahmen oben Fenster S1-17 (110x140, BRH 90)",
+   "box": [
+    1375.0,
+    14.0,
+    538,
+    1485.0,
+    22.0,
+    545
+   ],
+   "material": "rahmen",
+   "oeffnung": 17
+  },
+  {
+   "nr": 220,
+   "id": "T220",
+   "kat": "rahmen",
+   "name": "Rahmen links Fenster S1-17 (110x140, BRH 90)",
+   "box": [
+    1375.0,
+    14.0,
+    405,
+    1382.0,
+    22.0,
+    545
+   ],
+   "material": "rahmen",
+   "oeffnung": 17
+  },
+  {
+   "nr": 221,
+   "id": "T221",
+   "kat": "rahmen",
+   "name": "Rahmen rechts Fenster S1-17 (110x140, BRH 90)",
+   "box": [
+    1478.0,
+    14.0,
+    405,
+    1485.0,
+    22.0,
+    545
+   ],
+   "material": "rahmen",
+   "oeffnung": 17
+  },
+  {
+   "nr": 222,
+   "id": "T222",
+   "kat": "glas",
+   "name": "Glas Fenster S1-17 (110x140, BRH 90)",
+   "box": [
+    1382.0,
+    17.4,
+    412,
+    1478.0,
+    18.6,
+    538
+   ],
+   "material": "glas",
+   "oeffnung": 17
+  },
+  {
+   "nr": 223,
+   "id": "T223",
+   "kat": "detail",
+   "name": "Rollladen 60 % Fenster S1-17 (110x140, BRH 90)",
+   "box": [
+    1377.0,
+    10.0,
+    462.4,
+    1483.0,
+    12.0,
+    543
+   ],
+   "material": "rollladen",
+   "oeffnung": 17
+  },
+  {
+   "nr": 224,
+   "id": "T224",
+   "kat": "detail",
+   "name": "Fensterbank Fenster S1-17 (110x140, BRH 90)",
+   "box": [
+    1372.0,
+    -4,
+    402,
+    1488.0,
+    14.0,
+    405
+   ],
+   "material": "fensterbank",
+   "oeffnung": 17
+  },
+  {
+   "nr": 225,
+   "id": "T225",
+   "kat": "innen",
+   "name": "Innenraum Fenster S1-17 (110x140, BRH 90)",
+   "box": [
+    1377.0,
+    37,
+    407,
+    1483.0,
+    116,
+    543
+   ],
+   "material": "innen",
+   "oeffnung": 17
+  },
+  {
+   "nr": 226,
+   "id": "T226",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer Fenster S1-18 (110x140, BRH 90)",
+   "ziel": "T06",
+   "box": [
+    1625.0,
+    -6,
+    405,
+    1735.0,
+    42,
+    545
+   ],
+   "quelle": "INFERIERT",
+   "oeffnung": 18
+  },
+  {
+   "nr": 227,
+   "id": "T227",
+   "kat": "rahmen",
+   "name": "Rahmen unten Fenster S1-18 (110x140, BRH 90)",
+   "box": [
+    1625.0,
+    14.0,
+    405,
+    1735.0,
+    22.0,
+    412
+   ],
+   "material": "rahmen",
+   "oeffnung": 18
+  },
+  {
+   "nr": 228,
+   "id": "T228",
+   "kat": "rahmen",
+   "name": "Rahmen oben Fenster S1-18 (110x140, BRH 90)",
+   "box": [
+    1625.0,
+    14.0,
+    538,
+    1735.0,
+    22.0,
+    545
+   ],
+   "material": "rahmen",
+   "oeffnung": 18
+  },
+  {
+   "nr": 229,
+   "id": "T229",
+   "kat": "rahmen",
+   "name": "Rahmen links Fenster S1-18 (110x140, BRH 90)",
+   "box": [
+    1625.0,
+    14.0,
+    405,
+    1632.0,
+    22.0,
+    545
+   ],
+   "material": "rahmen",
+   "oeffnung": 18
+  },
+  {
+   "nr": 230,
+   "id": "T230",
+   "kat": "rahmen",
+   "name": "Rahmen rechts Fenster S1-18 (110x140, BRH 90)",
+   "box": [
+    1728.0,
+    14.0,
+    405,
+    1735.0,
+    22.0,
+    545
+   ],
+   "material": "rahmen",
+   "oeffnung": 18
+  },
+  {
+   "nr": 231,
+   "id": "T231",
+   "kat": "glas",
+   "name": "Glas Fenster S1-18 (110x140, BRH 90)",
+   "box": [
+    1632.0,
+    17.4,
+    412,
+    1728.0,
+    18.6,
+    538
+   ],
+   "material": "glas",
+   "oeffnung": 18
+  },
+  {
+   "nr": 232,
+   "id": "T232",
+   "kat": "detail",
+   "name": "Rollladen 60 % Fenster S1-18 (110x140, BRH 90)",
+   "box": [
+    1627.0,
+    10.0,
+    462.4,
+    1733.0,
+    12.0,
+    543
+   ],
+   "material": "rollladen",
+   "oeffnung": 18
+  },
+  {
+   "nr": 233,
+   "id": "T233",
+   "kat": "detail",
+   "name": "Fensterbank Fenster S1-18 (110x140, BRH 90)",
+   "box": [
+    1622.0,
+    -4,
+    402,
+    1738.0,
+    14.0,
+    405
+   ],
+   "material": "fensterbank",
+   "oeffnung": 18
+  },
+  {
+   "nr": 234,
+   "id": "T234",
+   "kat": "innen",
+   "name": "Innenraum Fenster S1-18 (110x140, BRH 90)",
+   "box": [
+    1627.0,
+    37,
+    407,
+    1733.0,
+    116,
+    543
+   ],
+   "material": "innen",
+   "oeffnung": 18
+  },
+  {
+   "nr": 235,
+   "id": "T235",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer Fenster E1-19 (110x140, BRH 90)",
+   "ziel": "T09",
+   "box": [
+    1858,
+    205.0,
+    405,
+    1906,
+    315.0,
+    545
+   ],
+   "quelle": "Fotos B268 (6 Stk.), geschaetzt",
+   "oeffnung": 19
+  },
+  {
+   "nr": 236,
+   "id": "T236",
+   "kat": "rahmen",
+   "name": "Rahmen unten Fenster E1-19 (110x140, BRH 90)",
+   "box": [
+    1878.0,
+    205.0,
+    405,
+    1886.0,
+    315.0,
+    412
+   ],
+   "material": "rahmen",
+   "oeffnung": 19
+  },
+  {
+   "nr": 237,
+   "id": "T237",
+   "kat": "rahmen",
+   "name": "Rahmen oben Fenster E1-19 (110x140, BRH 90)",
+   "box": [
+    1878.0,
+    205.0,
+    538,
+    1886.0,
+    315.0,
+    545
+   ],
+   "material": "rahmen",
+   "oeffnung": 19
+  },
+  {
+   "nr": 238,
+   "id": "T238",
+   "kat": "rahmen",
+   "name": "Rahmen links Fenster E1-19 (110x140, BRH 90)",
+   "box": [
+    1878.0,
+    205.0,
+    405,
+    1886.0,
+    212.0,
+    545
+   ],
+   "material": "rahmen",
+   "oeffnung": 19
+  },
+  {
+   "nr": 239,
+   "id": "T239",
+   "kat": "rahmen",
+   "name": "Rahmen rechts Fenster E1-19 (110x140, BRH 90)",
+   "box": [
+    1878.0,
+    308.0,
+    405,
+    1886.0,
+    315.0,
+    545
+   ],
+   "material": "rahmen",
+   "oeffnung": 19
+  },
+  {
+   "nr": 240,
+   "id": "T240",
+   "kat": "glas",
+   "name": "Glas Fenster E1-19 (110x140, BRH 90)",
+   "box": [
+    1881.4,
+    212.0,
+    412,
+    1882.6,
+    308.0,
+    538
+   ],
+   "material": "glas",
+   "oeffnung": 19
+  },
+  {
+   "nr": 241,
+   "id": "T241",
+   "kat": "detail",
+   "name": "Rollladen 60 % Fenster E1-19 (110x140, BRH 90)",
+   "box": [
+    1888.0,
+    207.0,
+    462.4,
+    1890.0,
+    313.0,
+    543
+   ],
+   "material": "rollladen",
+   "oeffnung": 19
+  },
+  {
+   "nr": 242,
+   "id": "T242",
+   "kat": "detail",
+   "name": "Fensterbank Fenster E1-19 (110x140, BRH 90)",
+   "box": [
+    1886.0,
+    202.0,
+    402,
+    1904,
+    318.0,
+    405
+   ],
+   "material": "fensterbank",
+   "oeffnung": 19
+  },
+  {
+   "nr": 243,
+   "id": "T243",
+   "kat": "innen",
+   "name": "Innenraum Fenster E1-19 (110x140, BRH 90)",
+   "box": [
+    1784,
+    207.0,
+    407,
+    1863,
+    313.0,
+    543
+   ],
+   "material": "innen",
+   "oeffnung": 19
+  },
+  {
+   "nr": 244,
+   "id": "T244",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer Fenster E1-20 (110x140, BRH 90)",
+   "ziel": "T09",
+   "box": [
+    1858,
+    505.0,
+    405,
+    1906,
+    615.0,
+    545
+   ],
+   "quelle": "Fotos B268 (6 Stk.), geschaetzt",
+   "oeffnung": 20
+  },
+  {
+   "nr": 245,
+   "id": "T245",
+   "kat": "rahmen",
+   "name": "Rahmen unten Fenster E1-20 (110x140, BRH 90)",
+   "box": [
+    1878.0,
+    505.0,
+    405,
+    1886.0,
+    615.0,
+    412
+   ],
+   "material": "rahmen",
+   "oeffnung": 20
+  },
+  {
+   "nr": 246,
+   "id": "T246",
+   "kat": "rahmen",
+   "name": "Rahmen oben Fenster E1-20 (110x140, BRH 90)",
+   "box": [
+    1878.0,
+    505.0,
+    538,
+    1886.0,
+    615.0,
+    545
+   ],
+   "material": "rahmen",
+   "oeffnung": 20
+  },
+  {
+   "nr": 247,
+   "id": "T247",
+   "kat": "rahmen",
+   "name": "Rahmen links Fenster E1-20 (110x140, BRH 90)",
+   "box": [
+    1878.0,
+    505.0,
+    405,
+    1886.0,
+    512.0,
+    545
+   ],
+   "material": "rahmen",
+   "oeffnung": 20
+  },
+  {
+   "nr": 248,
+   "id": "T248",
+   "kat": "rahmen",
+   "name": "Rahmen rechts Fenster E1-20 (110x140, BRH 90)",
+   "box": [
+    1878.0,
+    608.0,
+    405,
+    1886.0,
+    615.0,
+    545
+   ],
+   "material": "rahmen",
+   "oeffnung": 20
+  },
+  {
+   "nr": 249,
+   "id": "T249",
+   "kat": "glas",
+   "name": "Glas Fenster E1-20 (110x140, BRH 90)",
+   "box": [
+    1881.4,
+    512.0,
+    412,
+    1882.6,
+    608.0,
+    538
+   ],
+   "material": "glas",
+   "oeffnung": 20
+  },
+  {
+   "nr": 250,
+   "id": "T250",
+   "kat": "detail",
+   "name": "Rollladen 60 % Fenster E1-20 (110x140, BRH 90)",
+   "box": [
+    1888.0,
+    507.0,
+    462.4,
+    1890.0,
+    613.0,
+    543
+   ],
+   "material": "rollladen",
+   "oeffnung": 20
+  },
+  {
+   "nr": 251,
+   "id": "T251",
+   "kat": "detail",
+   "name": "Fensterbank Fenster E1-20 (110x140, BRH 90)",
+   "box": [
+    1886.0,
+    502.0,
+    402,
+    1904,
+    618.0,
+    405
+   ],
+   "material": "fensterbank",
+   "oeffnung": 20
+  },
+  {
+   "nr": 252,
+   "id": "T252",
+   "kat": "innen",
+   "name": "Innenraum Fenster E1-20 (110x140, BRH 90)",
+   "box": [
+    1784,
+    507.0,
+    407,
+    1863,
+    613.0,
+    543
+   ],
+   "material": "innen",
+   "oeffnung": 20
+  },
+  {
+   "nr": 253,
+   "id": "T253",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer Fenster W1-21 (60x90, BRH 120)",
+   "ziel": "T08",
+   "box": [
+    -6,
+    420.0,
+    435,
+    42,
+    480.0,
+    525
+   ],
+   "quelle": "Fotos B268 (6 Stk.), geschaetzt",
+   "oeffnung": 21
+  },
+  {
+   "nr": 254,
+   "id": "T254",
+   "kat": "rahmen",
+   "name": "Rahmen unten Fenster W1-21 (60x90, BRH 120)",
+   "box": [
+    14.0,
+    420.0,
+    435,
+    22.0,
+    480.0,
+    442
+   ],
+   "material": "rahmen",
+   "oeffnung": 21
+  },
+  {
+   "nr": 255,
+   "id": "T255",
+   "kat": "rahmen",
+   "name": "Rahmen oben Fenster W1-21 (60x90, BRH 120)",
+   "box": [
+    14.0,
+    420.0,
+    518,
+    22.0,
+    480.0,
+    525
+   ],
+   "material": "rahmen",
+   "oeffnung": 21
+  },
+  {
+   "nr": 256,
+   "id": "T256",
+   "kat": "rahmen",
+   "name": "Rahmen links Fenster W1-21 (60x90, BRH 120)",
+   "box": [
+    14.0,
+    420.0,
+    435,
+    22.0,
+    427.0,
+    525
+   ],
+   "material": "rahmen",
+   "oeffnung": 21
+  },
+  {
+   "nr": 257,
+   "id": "T257",
+   "kat": "rahmen",
+   "name": "Rahmen rechts Fenster W1-21 (60x90, BRH 120)",
+   "box": [
+    14.0,
+    473.0,
+    435,
+    22.0,
+    480.0,
+    525
+   ],
+   "material": "rahmen",
+   "oeffnung": 21
+  },
+  {
+   "nr": 258,
+   "id": "T258",
+   "kat": "glas",
+   "name": "Glas Fenster W1-21 (60x90, BRH 120)",
+   "box": [
+    17.4,
+    427.0,
+    442,
+    18.6,
+    473.0,
+    518
+   ],
+   "material": "glas",
+   "oeffnung": 21
+  },
+  {
+   "nr": 259,
+   "id": "T259",
+   "kat": "detail",
+   "name": "Rollladen 60 % Fenster W1-21 (60x90, BRH 120)",
+   "box": [
+    10.0,
+    422.0,
+    472.4,
+    12.0,
+    478.0,
+    523
+   ],
+   "material": "rollladen",
+   "oeffnung": 21
+  },
+  {
+   "nr": 260,
+   "id": "T260",
+   "kat": "detail",
+   "name": "Fensterbank Fenster W1-21 (60x90, BRH 120)",
+   "box": [
+    -4,
+    417.0,
+    432,
+    14.0,
+    483.0,
+    435
+   ],
+   "material": "fensterbank",
+   "oeffnung": 21
+  },
+  {
+   "nr": 261,
+   "id": "T261",
+   "kat": "innen",
+   "name": "Innenraum Fenster W1-21 (60x90, BRH 120)",
+   "box": [
+    37,
+    422.0,
+    437,
+    116,
+    478.0,
+    523
+   ],
+   "material": "innen",
+   "oeffnung": 21
+  },
+  {
+   "nr": 262,
+   "id": "T262",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer Balkontuer N1-22 (160x230, BRH 0)",
+   "ziel": "T07",
+   "box": [
+    1620.0,
+    1058,
+    315,
+    1780.0,
+    1106,
+    545
+   ],
+   "quelle": "Fotos B268 (6 Stk.), geschaetzt",
+   "oeffnung": 22
+  },
+  {
+   "nr": 263,
+   "id": "T263",
+   "kat": "rahmen",
+   "name": "Rahmen unten Balkontuer N1-22 (160x230, BRH 0)",
+   "box": [
+    1620.0,
+    1078.0,
+    315,
+    1780.0,
+    1086.0,
+    322
+   ],
+   "material": "rahmen",
+   "oeffnung": 22
+  },
+  {
+   "nr": 264,
+   "id": "T264",
+   "kat": "rahmen",
+   "name": "Rahmen oben Balkontuer N1-22 (160x230, BRH 0)",
+   "box": [
+    1620.0,
+    1078.0,
+    538,
+    1780.0,
+    1086.0,
+    545
+   ],
+   "material": "rahmen",
+   "oeffnung": 22
+  },
+  {
+   "nr": 265,
+   "id": "T265",
+   "kat": "rahmen",
+   "name": "Rahmen links Balkontuer N1-22 (160x230, BRH 0)",
+   "box": [
+    1620.0,
+    1078.0,
+    315,
+    1627.0,
+    1086.0,
+    545
+   ],
+   "material": "rahmen",
+   "oeffnung": 22
+  },
+  {
+   "nr": 266,
+   "id": "T266",
+   "kat": "rahmen",
+   "name": "Rahmen rechts Balkontuer N1-22 (160x230, BRH 0)",
+   "box": [
+    1773.0,
+    1078.0,
+    315,
+    1780.0,
+    1086.0,
+    545
+   ],
+   "material": "rahmen",
+   "oeffnung": 22
+  },
+  {
+   "nr": 267,
+   "id": "T267",
+   "kat": "rahmen",
+   "name": "Pfosten 1 Balkontuer N1-22 (160x230, BRH 0)",
+   "box": [
+    1697.0,
+    1078.0,
+    322,
+    1703.0,
+    1086.0,
+    538
+   ],
+   "material": "rahmen",
+   "oeffnung": 22
+  },
+  {
+   "nr": 268,
+   "id": "T268",
+   "kat": "glas",
+   "name": "Glas Balkontuer N1-22 (160x230, BRH 0)",
+   "box": [
+    1627.0,
+    1081.4,
+    322,
+    1773.0,
+    1082.6,
+    538
+   ],
+   "material": "glas",
+   "oeffnung": 22
+  },
+  {
+   "nr": 269,
+   "id": "T269",
+   "kat": "innen",
+   "name": "Innenraum Balkontuer N1-22 (160x230, BRH 0)",
+   "box": [
+    1622.0,
+    984,
+    317,
+    1778.0,
+    1063,
+    543
+   ],
+   "material": "innen",
+   "oeffnung": 22
+  },
+  {
+   "nr": 270,
+   "id": "T270",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer Fenster N1-23 (110x140, BRH 90)",
+   "ziel": "T07",
+   "box": [
+    345.0,
+    1058,
+    405,
+    455.0,
+    1106,
+    545
+   ],
+   "quelle": "INFERIERT",
+   "oeffnung": 23
+  },
+  {
+   "nr": 271,
+   "id": "T271",
+   "kat": "rahmen",
+   "name": "Rahmen unten Fenster N1-23 (110x140, BRH 90)",
+   "box": [
+    345.0,
+    1078.0,
+    405,
+    455.0,
+    1086.0,
+    412
+   ],
+   "material": "rahmen",
+   "oeffnung": 23
+  },
+  {
+   "nr": 272,
+   "id": "T272",
+   "kat": "rahmen",
+   "name": "Rahmen oben Fenster N1-23 (110x140, BRH 90)",
+   "box": [
+    345.0,
+    1078.0,
+    538,
+    455.0,
+    1086.0,
+    545
+   ],
+   "material": "rahmen",
+   "oeffnung": 23
+  },
+  {
+   "nr": 273,
+   "id": "T273",
+   "kat": "rahmen",
+   "name": "Rahmen links Fenster N1-23 (110x140, BRH 90)",
+   "box": [
+    345.0,
+    1078.0,
+    405,
+    352.0,
+    1086.0,
+    545
+   ],
+   "material": "rahmen",
+   "oeffnung": 23
+  },
+  {
+   "nr": 274,
+   "id": "T274",
+   "kat": "rahmen",
+   "name": "Rahmen rechts Fenster N1-23 (110x140, BRH 90)",
+   "box": [
+    448.0,
+    1078.0,
+    405,
+    455.0,
+    1086.0,
+    545
+   ],
+   "material": "rahmen",
+   "oeffnung": 23
+  },
+  {
+   "nr": 275,
+   "id": "T275",
+   "kat": "glas",
+   "name": "Glas Fenster N1-23 (110x140, BRH 90)",
+   "box": [
+    352.0,
+    1081.4,
+    412,
+    448.0,
+    1082.6,
+    538
+   ],
+   "material": "glas",
+   "oeffnung": 23
+  },
+  {
+   "nr": 276,
+   "id": "T276",
+   "kat": "detail",
+   "name": "Rollladen 60 % Fenster N1-23 (110x140, BRH 90)",
+   "box": [
+    347.0,
+    1088.0,
+    462.4,
+    453.0,
+    1090.0,
+    543
+   ],
+   "material": "rollladen",
+   "oeffnung": 23
+  },
+  {
+   "nr": 277,
+   "id": "T277",
+   "kat": "detail",
+   "name": "Fensterbank Fenster N1-23 (110x140, BRH 90)",
+   "box": [
+    342.0,
+    1086.0,
+    402,
+    458.0,
+    1104,
+    405
+   ],
+   "material": "fensterbank",
+   "oeffnung": 23
+  },
+  {
+   "nr": 278,
+   "id": "T278",
+   "kat": "innen",
+   "name": "Innenraum Fenster N1-23 (110x140, BRH 90)",
+   "box": [
+    347.0,
+    984,
+    407,
+    453.0,
+    1063,
+    543
+   ],
+   "material": "innen",
+   "oeffnung": 23
+  },
+  {
+   "nr": 279,
+   "id": "T279",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer Fenster N1-24 (110x140, BRH 90)",
+   "ziel": "T07",
+   "box": [
+    1095.0,
+    1058,
+    405,
+    1205.0,
+    1106,
+    545
+   ],
+   "quelle": "INFERIERT",
+   "oeffnung": 24
+  },
+  {
+   "nr": 280,
+   "id": "T280",
+   "kat": "rahmen",
+   "name": "Rahmen unten Fenster N1-24 (110x140, BRH 90)",
+   "box": [
+    1095.0,
+    1078.0,
+    405,
+    1205.0,
+    1086.0,
+    412
+   ],
+   "material": "rahmen",
+   "oeffnung": 24
+  },
+  {
+   "nr": 281,
+   "id": "T281",
+   "kat": "rahmen",
+   "name": "Rahmen oben Fenster N1-24 (110x140, BRH 90)",
+   "box": [
+    1095.0,
+    1078.0,
+    538,
+    1205.0,
+    1086.0,
+    545
+   ],
+   "material": "rahmen",
+   "oeffnung": 24
+  },
+  {
+   "nr": 282,
+   "id": "T282",
+   "kat": "rahmen",
+   "name": "Rahmen links Fenster N1-24 (110x140, BRH 90)",
+   "box": [
+    1095.0,
+    1078.0,
+    405,
+    1102.0,
+    1086.0,
+    545
+   ],
+   "material": "rahmen",
+   "oeffnung": 24
+  },
+  {
+   "nr": 283,
+   "id": "T283",
+   "kat": "rahmen",
+   "name": "Rahmen rechts Fenster N1-24 (110x140, BRH 90)",
+   "box": [
+    1198.0,
+    1078.0,
+    405,
+    1205.0,
+    1086.0,
+    545
+   ],
+   "material": "rahmen",
+   "oeffnung": 24
+  },
+  {
+   "nr": 284,
+   "id": "T284",
+   "kat": "glas",
+   "name": "Glas Fenster N1-24 (110x140, BRH 90)",
+   "box": [
+    1102.0,
+    1081.4,
+    412,
+    1198.0,
+    1082.6,
+    538
+   ],
+   "material": "glas",
+   "oeffnung": 24
+  },
+  {
+   "nr": 285,
+   "id": "T285",
+   "kat": "detail",
+   "name": "Rollladen 60 % Fenster N1-24 (110x140, BRH 90)",
+   "box": [
+    1097.0,
+    1088.0,
+    462.4,
+    1203.0,
+    1090.0,
+    543
+   ],
+   "material": "rollladen",
+   "oeffnung": 24
+  },
+  {
+   "nr": 286,
+   "id": "T286",
+   "kat": "detail",
+   "name": "Fensterbank Fenster N1-24 (110x140, BRH 90)",
+   "box": [
+    1092.0,
+    1086.0,
+    402,
+    1208.0,
+    1104,
+    405
+   ],
+   "material": "fensterbank",
+   "oeffnung": 24
+  },
+  {
+   "nr": 287,
+   "id": "T287",
+   "kat": "innen",
+   "name": "Innenraum Fenster N1-24 (110x140, BRH 90)",
+   "box": [
+    1097.0,
+    984,
+    407,
+    1203.0,
+    1063,
+    543
+   ],
+   "material": "innen",
+   "oeffnung": 24
+  },
+  {
+   "nr": 288,
+   "id": "T288",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer Fenster S2-25 (170x140, BRH 90)",
+   "ziel": "T10",
+   "box": [
+    195.0,
+    -6,
+    720,
+    365.0,
+    42,
+    860
+   ],
+   "quelle": "Fotos B268 (6 Stk.), geschaetzt",
+   "oeffnung": 25
+  },
+  {
+   "nr": 289,
+   "id": "T289",
+   "kat": "rahmen",
+   "name": "Rahmen unten Fenster S2-25 (170x140, BRH 90)",
+   "box": [
+    195.0,
+    14.0,
+    720,
+    365.0,
+    22.0,
+    727
+   ],
+   "material": "rahmen",
+   "oeffnung": 25
+  },
+  {
+   "nr": 290,
+   "id": "T290",
+   "kat": "rahmen",
+   "name": "Rahmen oben Fenster S2-25 (170x140, BRH 90)",
+   "box": [
+    195.0,
+    14.0,
+    853,
+    365.0,
+    22.0,
+    860
+   ],
+   "material": "rahmen",
+   "oeffnung": 25
+  },
+  {
+   "nr": 291,
+   "id": "T291",
+   "kat": "rahmen",
+   "name": "Rahmen links Fenster S2-25 (170x140, BRH 90)",
+   "box": [
+    195.0,
+    14.0,
+    720,
+    202.0,
+    22.0,
+    860
+   ],
+   "material": "rahmen",
+   "oeffnung": 25
+  },
+  {
+   "nr": 292,
+   "id": "T292",
+   "kat": "rahmen",
+   "name": "Rahmen rechts Fenster S2-25 (170x140, BRH 90)",
+   "box": [
+    358.0,
+    14.0,
+    720,
+    365.0,
+    22.0,
+    860
+   ],
+   "material": "rahmen",
+   "oeffnung": 25
+  },
+  {
+   "nr": 293,
+   "id": "T293",
+   "kat": "rahmen",
+   "name": "Pfosten 1 Fenster S2-25 (170x140, BRH 90)",
+   "box": [
+    277.0,
+    14.0,
+    727,
+    283.0,
+    22.0,
+    853
+   ],
+   "material": "rahmen",
+   "oeffnung": 25
+  },
+  {
+   "nr": 294,
+   "id": "T294",
+   "kat": "glas",
+   "name": "Glas Fenster S2-25 (170x140, BRH 90)",
+   "box": [
+    202.0,
+    17.4,
+    727,
+    358.0,
+    18.6,
+    853
+   ],
+   "material": "glas",
+   "oeffnung": 25
+  },
+  {
+   "nr": 295,
+   "id": "T295",
+   "kat": "detail",
+   "name": "Rollladen 60 % Fenster S2-25 (170x140, BRH 90)",
+   "box": [
+    197.0,
+    10.0,
+    777.4,
+    363.0,
+    12.0,
+    858
+   ],
+   "material": "rollladen",
+   "oeffnung": 25
+  },
+  {
+   "nr": 296,
+   "id": "T296",
+   "kat": "detail",
+   "name": "Fensterbank Fenster S2-25 (170x140, BRH 90)",
+   "box": [
+    192.0,
+    -4,
+    717,
+    368.0,
+    14.0,
+    720
+   ],
+   "material": "fensterbank",
+   "oeffnung": 25
+  },
+  {
+   "nr": 297,
+   "id": "T297",
+   "kat": "innen",
+   "name": "Innenraum Fenster S2-25 (170x140, BRH 90)",
+   "box": [
+    197.0,
+    37,
+    722,
+    363.0,
+    116,
+    858
+   ],
+   "material": "innen",
+   "oeffnung": 25
+  },
+  {
+   "nr": 298,
+   "id": "T298",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer Fenster S2-26 (110x140, BRH 90)",
+   "ziel": "T10",
+   "box": [
+    545.0,
+    -6,
+    720,
+    655.0,
+    42,
+    860
+   ],
+   "quelle": "Fotos B268 (6 Stk.), geschaetzt",
+   "oeffnung": 26
+  },
+  {
+   "nr": 299,
+   "id": "T299",
+   "kat": "rahmen",
+   "name": "Rahmen unten Fenster S2-26 (110x140, BRH 90)",
+   "box": [
+    545.0,
+    14.0,
+    720,
+    655.0,
+    22.0,
+    727
+   ],
+   "material": "rahmen",
+   "oeffnung": 26
+  },
+  {
+   "nr": 300,
+   "id": "T300",
+   "kat": "rahmen",
+   "name": "Rahmen oben Fenster S2-26 (110x140, BRH 90)",
+   "box": [
+    545.0,
+    14.0,
+    853,
+    655.0,
+    22.0,
+    860
+   ],
+   "material": "rahmen",
+   "oeffnung": 26
+  },
+  {
+   "nr": 301,
+   "id": "T301",
+   "kat": "rahmen",
+   "name": "Rahmen links Fenster S2-26 (110x140, BRH 90)",
+   "box": [
+    545.0,
+    14.0,
+    720,
+    552.0,
+    22.0,
+    860
+   ],
+   "material": "rahmen",
+   "oeffnung": 26
+  },
+  {
+   "nr": 302,
+   "id": "T302",
+   "kat": "rahmen",
+   "name": "Rahmen rechts Fenster S2-26 (110x140, BRH 90)",
+   "box": [
+    648.0,
+    14.0,
+    720,
+    655.0,
+    22.0,
+    860
+   ],
+   "material": "rahmen",
+   "oeffnung": 26
+  },
+  {
+   "nr": 303,
+   "id": "T303",
+   "kat": "glas",
+   "name": "Glas Fenster S2-26 (110x140, BRH 90)",
+   "box": [
+    552.0,
+    17.4,
+    727,
+    648.0,
+    18.6,
+    853
+   ],
+   "material": "glas",
+   "oeffnung": 26
+  },
+  {
+   "nr": 304,
+   "id": "T304",
+   "kat": "detail",
+   "name": "Rollladen 60 % Fenster S2-26 (110x140, BRH 90)",
+   "box": [
+    547.0,
+    10.0,
+    777.4,
+    653.0,
+    12.0,
+    858
+   ],
+   "material": "rollladen",
+   "oeffnung": 26
+  },
+  {
+   "nr": 305,
+   "id": "T305",
+   "kat": "detail",
+   "name": "Fensterbank Fenster S2-26 (110x140, BRH 90)",
+   "box": [
+    542.0,
+    -4,
+    717,
+    658.0,
+    14.0,
+    720
+   ],
+   "material": "fensterbank",
+   "oeffnung": 26
+  },
+  {
+   "nr": 306,
+   "id": "T306",
+   "kat": "innen",
+   "name": "Innenraum Fenster S2-26 (110x140, BRH 90)",
+   "box": [
+    547.0,
+    37,
+    722,
+    653.0,
+    116,
+    858
+   ],
+   "material": "innen",
+   "oeffnung": 26
+  },
+  {
+   "nr": 307,
+   "id": "T307",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer Fenster S2-27 (55x120, BRH 100)",
+   "ziel": "T10",
+   "box": [
+    872.5,
+    -6,
+    730,
+    927.5,
+    42,
+    850
+   ],
+   "quelle": "Fotos B268 (6 Stk.), geschaetzt",
+   "oeffnung": 27
+  },
+  {
+   "nr": 308,
+   "id": "T308",
+   "kat": "rahmen",
+   "name": "Rahmen unten Fenster S2-27 (55x120, BRH 100)",
+   "box": [
+    872.5,
+    14.0,
+    730,
+    927.5,
+    22.0,
+    737
+   ],
+   "material": "rahmen",
+   "oeffnung": 27
+  },
+  {
+   "nr": 309,
+   "id": "T309",
+   "kat": "rahmen",
+   "name": "Rahmen oben Fenster S2-27 (55x120, BRH 100)",
+   "box": [
+    872.5,
+    14.0,
+    843,
+    927.5,
+    22.0,
+    850
+   ],
+   "material": "rahmen",
+   "oeffnung": 27
+  },
+  {
+   "nr": 310,
+   "id": "T310",
+   "kat": "rahmen",
+   "name": "Rahmen links Fenster S2-27 (55x120, BRH 100)",
+   "box": [
+    872.5,
+    14.0,
+    730,
+    879.5,
+    22.0,
+    850
+   ],
+   "material": "rahmen",
+   "oeffnung": 27
+  },
+  {
+   "nr": 311,
+   "id": "T311",
+   "kat": "rahmen",
+   "name": "Rahmen rechts Fenster S2-27 (55x120, BRH 100)",
+   "box": [
+    920.5,
+    14.0,
+    730,
+    927.5,
+    22.0,
+    850
+   ],
+   "material": "rahmen",
+   "oeffnung": 27
+  },
+  {
+   "nr": 312,
+   "id": "T312",
+   "kat": "glas",
+   "name": "Glas Fenster S2-27 (55x120, BRH 100)",
+   "box": [
+    879.5,
+    17.4,
+    737,
+    920.5,
+    18.6,
+    843
+   ],
+   "material": "glas",
+   "oeffnung": 27
+  },
+  {
+   "nr": 313,
+   "id": "T313",
+   "kat": "detail",
+   "name": "Rollladen 60 % Fenster S2-27 (55x120, BRH 100)",
+   "box": [
+    874.5,
+    10.0,
+    779.4,
+    925.5,
+    12.0,
+    848
+   ],
+   "material": "rollladen",
+   "oeffnung": 27
+  },
+  {
+   "nr": 314,
+   "id": "T314",
+   "kat": "detail",
+   "name": "Fensterbank Fenster S2-27 (55x120, BRH 100)",
+   "box": [
+    869.5,
+    -4,
+    727,
+    930.5,
+    14.0,
+    730
+   ],
+   "material": "fensterbank",
+   "oeffnung": 27
+  },
+  {
+   "nr": 315,
+   "id": "T315",
+   "kat": "innen",
+   "name": "Innenraum Fenster S2-27 (55x120, BRH 100)",
+   "box": [
+    874.5,
+    37,
+    732,
+    925.5,
+    116,
+    848
+   ],
+   "material": "innen",
+   "oeffnung": 27
+  },
+  {
+   "nr": 316,
+   "id": "T316",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer Fenster S2-28 (110x140, BRH 90)",
+   "ziel": "T10",
+   "box": [
+    1125.0,
+    -6,
+    720,
+    1235.0,
+    42,
+    860
+   ],
+   "quelle": "Fotos B268 (6 Stk.), geschaetzt",
+   "oeffnung": 28
+  },
+  {
+   "nr": 317,
+   "id": "T317",
+   "kat": "rahmen",
+   "name": "Rahmen unten Fenster S2-28 (110x140, BRH 90)",
+   "box": [
+    1125.0,
+    14.0,
+    720,
+    1235.0,
+    22.0,
+    727
+   ],
+   "material": "rahmen",
+   "oeffnung": 28
+  },
+  {
+   "nr": 318,
+   "id": "T318",
+   "kat": "rahmen",
+   "name": "Rahmen oben Fenster S2-28 (110x140, BRH 90)",
+   "box": [
+    1125.0,
+    14.0,
+    853,
+    1235.0,
+    22.0,
+    860
+   ],
+   "material": "rahmen",
+   "oeffnung": 28
+  },
+  {
+   "nr": 319,
+   "id": "T319",
+   "kat": "rahmen",
+   "name": "Rahmen links Fenster S2-28 (110x140, BRH 90)",
+   "box": [
+    1125.0,
+    14.0,
+    720,
+    1132.0,
+    22.0,
+    860
+   ],
+   "material": "rahmen",
+   "oeffnung": 28
+  },
+  {
+   "nr": 320,
+   "id": "T320",
+   "kat": "rahmen",
+   "name": "Rahmen rechts Fenster S2-28 (110x140, BRH 90)",
+   "box": [
+    1228.0,
+    14.0,
+    720,
+    1235.0,
+    22.0,
+    860
+   ],
+   "material": "rahmen",
+   "oeffnung": 28
+  },
+  {
+   "nr": 321,
+   "id": "T321",
+   "kat": "glas",
+   "name": "Glas Fenster S2-28 (110x140, BRH 90)",
+   "box": [
+    1132.0,
+    17.4,
+    727,
+    1228.0,
+    18.6,
+    853
+   ],
+   "material": "glas",
+   "oeffnung": 28
+  },
+  {
+   "nr": 322,
+   "id": "T322",
+   "kat": "detail",
+   "name": "Rollladen 60 % Fenster S2-28 (110x140, BRH 90)",
+   "box": [
+    1127.0,
+    10.0,
+    777.4,
+    1233.0,
+    12.0,
+    858
+   ],
+   "material": "rollladen",
+   "oeffnung": 28
+  },
+  {
+   "nr": 323,
+   "id": "T323",
+   "kat": "detail",
+   "name": "Fensterbank Fenster S2-28 (110x140, BRH 90)",
+   "box": [
+    1122.0,
+    -4,
+    717,
+    1238.0,
+    14.0,
+    720
+   ],
+   "material": "fensterbank",
+   "oeffnung": 28
+  },
+  {
+   "nr": 324,
+   "id": "T324",
+   "kat": "innen",
+   "name": "Innenraum Fenster S2-28 (110x140, BRH 90)",
+   "box": [
+    1127.0,
+    37,
+    722,
+    1233.0,
+    116,
+    858
+   ],
+   "material": "innen",
+   "oeffnung": 28
+  },
+  {
+   "nr": 325,
+   "id": "T325",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer Fenster S2-29 (110x140, BRH 90)",
+   "ziel": "T10",
+   "box": [
+    1375.0,
+    -6,
+    720,
+    1485.0,
+    42,
+    860
+   ],
+   "quelle": "Fotos B268 (6 Stk.), geschaetzt",
+   "oeffnung": 29
+  },
+  {
+   "nr": 326,
+   "id": "T326",
+   "kat": "rahmen",
+   "name": "Rahmen unten Fenster S2-29 (110x140, BRH 90)",
+   "box": [
+    1375.0,
+    14.0,
+    720,
+    1485.0,
+    22.0,
+    727
+   ],
+   "material": "rahmen",
+   "oeffnung": 29
+  },
+  {
+   "nr": 327,
+   "id": "T327",
+   "kat": "rahmen",
+   "name": "Rahmen oben Fenster S2-29 (110x140, BRH 90)",
+   "box": [
+    1375.0,
+    14.0,
+    853,
+    1485.0,
+    22.0,
+    860
+   ],
+   "material": "rahmen",
+   "oeffnung": 29
+  },
+  {
+   "nr": 328,
+   "id": "T328",
+   "kat": "rahmen",
+   "name": "Rahmen links Fenster S2-29 (110x140, BRH 90)",
+   "box": [
+    1375.0,
+    14.0,
+    720,
+    1382.0,
+    22.0,
+    860
+   ],
+   "material": "rahmen",
+   "oeffnung": 29
+  },
+  {
+   "nr": 329,
+   "id": "T329",
+   "kat": "rahmen",
+   "name": "Rahmen rechts Fenster S2-29 (110x140, BRH 90)",
+   "box": [
+    1478.0,
+    14.0,
+    720,
+    1485.0,
+    22.0,
+    860
+   ],
+   "material": "rahmen",
+   "oeffnung": 29
+  },
+  {
+   "nr": 330,
+   "id": "T330",
+   "kat": "glas",
+   "name": "Glas Fenster S2-29 (110x140, BRH 90)",
+   "box": [
+    1382.0,
+    17.4,
+    727,
+    1478.0,
+    18.6,
+    853
+   ],
+   "material": "glas",
+   "oeffnung": 29
+  },
+  {
+   "nr": 331,
+   "id": "T331",
+   "kat": "detail",
+   "name": "Rollladen 60 % Fenster S2-29 (110x140, BRH 90)",
+   "box": [
+    1377.0,
+    10.0,
+    777.4,
+    1483.0,
+    12.0,
+    858
+   ],
+   "material": "rollladen",
+   "oeffnung": 29
+  },
+  {
+   "nr": 332,
+   "id": "T332",
+   "kat": "detail",
+   "name": "Fensterbank Fenster S2-29 (110x140, BRH 90)",
+   "box": [
+    1372.0,
+    -4,
+    717,
+    1488.0,
+    14.0,
+    720
+   ],
+   "material": "fensterbank",
+   "oeffnung": 29
+  },
+  {
+   "nr": 333,
+   "id": "T333",
+   "kat": "innen",
+   "name": "Innenraum Fenster S2-29 (110x140, BRH 90)",
+   "box": [
+    1377.0,
+    37,
+    722,
+    1483.0,
+    116,
+    858
+   ],
+   "material": "innen",
+   "oeffnung": 29
+  },
+  {
+   "nr": 334,
+   "id": "T334",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer Fenster S2-30 (110x140, BRH 90)",
+   "ziel": "T10",
+   "box": [
+    1625.0,
+    -6,
+    720,
+    1735.0,
+    42,
+    860
+   ],
+   "quelle": "INFERIERT",
+   "oeffnung": 30
+  },
+  {
+   "nr": 335,
+   "id": "T335",
+   "kat": "rahmen",
+   "name": "Rahmen unten Fenster S2-30 (110x140, BRH 90)",
+   "box": [
+    1625.0,
+    14.0,
+    720,
+    1735.0,
+    22.0,
+    727
+   ],
+   "material": "rahmen",
+   "oeffnung": 30
+  },
+  {
+   "nr": 336,
+   "id": "T336",
+   "kat": "rahmen",
+   "name": "Rahmen oben Fenster S2-30 (110x140, BRH 90)",
+   "box": [
+    1625.0,
+    14.0,
+    853,
+    1735.0,
+    22.0,
+    860
+   ],
+   "material": "rahmen",
+   "oeffnung": 30
+  },
+  {
+   "nr": 337,
+   "id": "T337",
+   "kat": "rahmen",
+   "name": "Rahmen links Fenster S2-30 (110x140, BRH 90)",
+   "box": [
+    1625.0,
+    14.0,
+    720,
+    1632.0,
+    22.0,
+    860
+   ],
+   "material": "rahmen",
+   "oeffnung": 30
+  },
+  {
+   "nr": 338,
+   "id": "T338",
+   "kat": "rahmen",
+   "name": "Rahmen rechts Fenster S2-30 (110x140, BRH 90)",
+   "box": [
+    1728.0,
+    14.0,
+    720,
+    1735.0,
+    22.0,
+    860
+   ],
+   "material": "rahmen",
+   "oeffnung": 30
+  },
+  {
+   "nr": 339,
+   "id": "T339",
+   "kat": "glas",
+   "name": "Glas Fenster S2-30 (110x140, BRH 90)",
+   "box": [
+    1632.0,
+    17.4,
+    727,
+    1728.0,
+    18.6,
+    853
+   ],
+   "material": "glas",
+   "oeffnung": 30
+  },
+  {
+   "nr": 340,
+   "id": "T340",
+   "kat": "detail",
+   "name": "Rollladen 60 % Fenster S2-30 (110x140, BRH 90)",
+   "box": [
+    1627.0,
+    10.0,
+    777.4,
+    1733.0,
+    12.0,
+    858
+   ],
+   "material": "rollladen",
+   "oeffnung": 30
+  },
+  {
+   "nr": 341,
+   "id": "T341",
+   "kat": "detail",
+   "name": "Fensterbank Fenster S2-30 (110x140, BRH 90)",
+   "box": [
+    1622.0,
+    -4,
+    717,
+    1738.0,
+    14.0,
+    720
+   ],
+   "material": "fensterbank",
+   "oeffnung": 30
+  },
+  {
+   "nr": 342,
+   "id": "T342",
+   "kat": "innen",
+   "name": "Innenraum Fenster S2-30 (110x140, BRH 90)",
+   "box": [
+    1627.0,
+    37,
+    722,
+    1733.0,
+    116,
+    858
+   ],
+   "material": "innen",
+   "oeffnung": 30
+  },
+  {
+   "nr": 343,
+   "id": "T343",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer Fenster E2-31 (110x140, BRH 90)",
+   "ziel": "T13",
+   "box": [
+    1858,
+    205.0,
+    720,
+    1906,
+    315.0,
+    860
+   ],
+   "quelle": "Fotos B268 (6 Stk.), geschaetzt",
+   "oeffnung": 31
+  },
+  {
+   "nr": 344,
+   "id": "T344",
+   "kat": "rahmen",
+   "name": "Rahmen unten Fenster E2-31 (110x140, BRH 90)",
+   "box": [
+    1878.0,
+    205.0,
+    720,
+    1886.0,
+    315.0,
+    727
+   ],
+   "material": "rahmen",
+   "oeffnung": 31
+  },
+  {
+   "nr": 345,
+   "id": "T345",
+   "kat": "rahmen",
+   "name": "Rahmen oben Fenster E2-31 (110x140, BRH 90)",
+   "box": [
+    1878.0,
+    205.0,
+    853,
+    1886.0,
+    315.0,
+    860
+   ],
+   "material": "rahmen",
+   "oeffnung": 31
+  },
+  {
+   "nr": 346,
+   "id": "T346",
+   "kat": "rahmen",
+   "name": "Rahmen links Fenster E2-31 (110x140, BRH 90)",
+   "box": [
+    1878.0,
+    205.0,
+    720,
+    1886.0,
+    212.0,
+    860
+   ],
+   "material": "rahmen",
+   "oeffnung": 31
+  },
+  {
+   "nr": 347,
+   "id": "T347",
+   "kat": "rahmen",
+   "name": "Rahmen rechts Fenster E2-31 (110x140, BRH 90)",
+   "box": [
+    1878.0,
+    308.0,
+    720,
+    1886.0,
+    315.0,
+    860
+   ],
+   "material": "rahmen",
+   "oeffnung": 31
+  },
+  {
+   "nr": 348,
+   "id": "T348",
+   "kat": "glas",
+   "name": "Glas Fenster E2-31 (110x140, BRH 90)",
+   "box": [
+    1881.4,
+    212.0,
+    727,
+    1882.6,
+    308.0,
+    853
+   ],
+   "material": "glas",
+   "oeffnung": 31
+  },
+  {
+   "nr": 349,
+   "id": "T349",
+   "kat": "detail",
+   "name": "Rollladen 60 % Fenster E2-31 (110x140, BRH 90)",
+   "box": [
+    1888.0,
+    207.0,
+    777.4,
+    1890.0,
+    313.0,
+    858
+   ],
+   "material": "rollladen",
+   "oeffnung": 31
+  },
+  {
+   "nr": 350,
+   "id": "T350",
+   "kat": "detail",
+   "name": "Fensterbank Fenster E2-31 (110x140, BRH 90)",
+   "box": [
+    1886.0,
+    202.0,
+    717,
+    1904,
+    318.0,
+    720
+   ],
+   "material": "fensterbank",
+   "oeffnung": 31
+  },
+  {
+   "nr": 351,
+   "id": "T351",
+   "kat": "innen",
+   "name": "Innenraum Fenster E2-31 (110x140, BRH 90)",
+   "box": [
+    1784,
+    207.0,
+    722,
+    1863,
+    313.0,
+    858
+   ],
+   "material": "innen",
+   "oeffnung": 31
+  },
+  {
+   "nr": 352,
+   "id": "T352",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer Fenster E2-32 (110x140, BRH 90)",
+   "ziel": "T13",
+   "box": [
+    1858,
+    505.0,
+    720,
+    1906,
+    615.0,
+    860
+   ],
+   "quelle": "Fotos B268 (6 Stk.), geschaetzt",
+   "oeffnung": 32
+  },
+  {
+   "nr": 353,
+   "id": "T353",
+   "kat": "rahmen",
+   "name": "Rahmen unten Fenster E2-32 (110x140, BRH 90)",
+   "box": [
+    1878.0,
+    505.0,
+    720,
+    1886.0,
+    615.0,
+    727
+   ],
+   "material": "rahmen",
+   "oeffnung": 32
+  },
+  {
+   "nr": 354,
+   "id": "T354",
+   "kat": "rahmen",
+   "name": "Rahmen oben Fenster E2-32 (110x140, BRH 90)",
+   "box": [
+    1878.0,
+    505.0,
+    853,
+    1886.0,
+    615.0,
+    860
+   ],
+   "material": "rahmen",
+   "oeffnung": 32
+  },
+  {
+   "nr": 355,
+   "id": "T355",
+   "kat": "rahmen",
+   "name": "Rahmen links Fenster E2-32 (110x140, BRH 90)",
+   "box": [
+    1878.0,
+    505.0,
+    720,
+    1886.0,
+    512.0,
+    860
+   ],
+   "material": "rahmen",
+   "oeffnung": 32
+  },
+  {
+   "nr": 356,
+   "id": "T356",
+   "kat": "rahmen",
+   "name": "Rahmen rechts Fenster E2-32 (110x140, BRH 90)",
+   "box": [
+    1878.0,
+    608.0,
+    720,
+    1886.0,
+    615.0,
+    860
+   ],
+   "material": "rahmen",
+   "oeffnung": 32
+  },
+  {
+   "nr": 357,
+   "id": "T357",
+   "kat": "glas",
+   "name": "Glas Fenster E2-32 (110x140, BRH 90)",
+   "box": [
+    1881.4,
+    512.0,
+    727,
+    1882.6,
+    608.0,
+    853
+   ],
+   "material": "glas",
+   "oeffnung": 32
+  },
+  {
+   "nr": 358,
+   "id": "T358",
+   "kat": "detail",
+   "name": "Rollladen 60 % Fenster E2-32 (110x140, BRH 90)",
+   "box": [
+    1888.0,
+    507.0,
+    777.4,
+    1890.0,
+    613.0,
+    858
+   ],
+   "material": "rollladen",
+   "oeffnung": 32
+  },
+  {
+   "nr": 359,
+   "id": "T359",
+   "kat": "detail",
+   "name": "Fensterbank Fenster E2-32 (110x140, BRH 90)",
+   "box": [
+    1886.0,
+    502.0,
+    717,
+    1904,
+    618.0,
+    720
+   ],
+   "material": "fensterbank",
+   "oeffnung": 32
+  },
+  {
+   "nr": 360,
+   "id": "T360",
+   "kat": "innen",
+   "name": "Innenraum Fenster E2-32 (110x140, BRH 90)",
+   "box": [
+    1784,
+    507.0,
+    722,
+    1863,
+    613.0,
+    858
+   ],
+   "material": "innen",
+   "oeffnung": 32
+  },
+  {
+   "nr": 361,
+   "id": "T361",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer Fenster W2-33 (60x90, BRH 120)",
+   "ziel": "T12",
+   "box": [
+    -6,
+    420.0,
+    750,
+    42,
+    480.0,
+    840
+   ],
+   "quelle": "Fotos B268 (6 Stk.), geschaetzt",
+   "oeffnung": 33
+  },
+  {
+   "nr": 362,
+   "id": "T362",
+   "kat": "rahmen",
+   "name": "Rahmen unten Fenster W2-33 (60x90, BRH 120)",
+   "box": [
+    14.0,
+    420.0,
+    750,
+    22.0,
+    480.0,
+    757
+   ],
+   "material": "rahmen",
+   "oeffnung": 33
+  },
+  {
+   "nr": 363,
+   "id": "T363",
+   "kat": "rahmen",
+   "name": "Rahmen oben Fenster W2-33 (60x90, BRH 120)",
+   "box": [
+    14.0,
+    420.0,
+    833,
+    22.0,
+    480.0,
+    840
+   ],
+   "material": "rahmen",
+   "oeffnung": 33
+  },
+  {
+   "nr": 364,
+   "id": "T364",
+   "kat": "rahmen",
+   "name": "Rahmen links Fenster W2-33 (60x90, BRH 120)",
+   "box": [
+    14.0,
+    420.0,
+    750,
+    22.0,
+    427.0,
+    840
+   ],
+   "material": "rahmen",
+   "oeffnung": 33
+  },
+  {
+   "nr": 365,
+   "id": "T365",
+   "kat": "rahmen",
+   "name": "Rahmen rechts Fenster W2-33 (60x90, BRH 120)",
+   "box": [
+    14.0,
+    473.0,
+    750,
+    22.0,
+    480.0,
+    840
+   ],
+   "material": "rahmen",
+   "oeffnung": 33
+  },
+  {
+   "nr": 366,
+   "id": "T366",
+   "kat": "glas",
+   "name": "Glas Fenster W2-33 (60x90, BRH 120)",
+   "box": [
+    17.4,
+    427.0,
+    757,
+    18.6,
+    473.0,
+    833
+   ],
+   "material": "glas",
+   "oeffnung": 33
+  },
+  {
+   "nr": 367,
+   "id": "T367",
+   "kat": "detail",
+   "name": "Rollladen 60 % Fenster W2-33 (60x90, BRH 120)",
+   "box": [
+    10.0,
+    422.0,
+    787.4,
+    12.0,
+    478.0,
+    838
+   ],
+   "material": "rollladen",
+   "oeffnung": 33
+  },
+  {
+   "nr": 368,
+   "id": "T368",
+   "kat": "detail",
+   "name": "Fensterbank Fenster W2-33 (60x90, BRH 120)",
+   "box": [
+    -4,
+    417.0,
+    747,
+    14.0,
+    483.0,
+    750
+   ],
+   "material": "fensterbank",
+   "oeffnung": 33
+  },
+  {
+   "nr": 369,
+   "id": "T369",
+   "kat": "innen",
+   "name": "Innenraum Fenster W2-33 (60x90, BRH 120)",
+   "box": [
+    37,
+    422.0,
+    752,
+    116,
+    478.0,
+    838
+   ],
+   "material": "innen",
+   "oeffnung": 33
+  },
+  {
+   "nr": 370,
+   "id": "T370",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer Balkontuer N2-34 (160x230, BRH 0)",
+   "ziel": "T11",
+   "box": [
+    1620.0,
+    1058,
+    630,
+    1780.0,
+    1106,
+    860
+   ],
+   "quelle": "Fotos B268 (6 Stk.), geschaetzt",
+   "oeffnung": 34
+  },
+  {
+   "nr": 371,
+   "id": "T371",
+   "kat": "rahmen",
+   "name": "Rahmen unten Balkontuer N2-34 (160x230, BRH 0)",
+   "box": [
+    1620.0,
+    1078.0,
+    630,
+    1780.0,
+    1086.0,
+    637
+   ],
+   "material": "rahmen",
+   "oeffnung": 34
+  },
+  {
+   "nr": 372,
+   "id": "T372",
+   "kat": "rahmen",
+   "name": "Rahmen oben Balkontuer N2-34 (160x230, BRH 0)",
+   "box": [
+    1620.0,
+    1078.0,
+    853,
+    1780.0,
+    1086.0,
+    860
+   ],
+   "material": "rahmen",
+   "oeffnung": 34
+  },
+  {
+   "nr": 373,
+   "id": "T373",
+   "kat": "rahmen",
+   "name": "Rahmen links Balkontuer N2-34 (160x230, BRH 0)",
+   "box": [
+    1620.0,
+    1078.0,
+    630,
+    1627.0,
+    1086.0,
+    860
+   ],
+   "material": "rahmen",
+   "oeffnung": 34
+  },
+  {
+   "nr": 374,
+   "id": "T374",
+   "kat": "rahmen",
+   "name": "Rahmen rechts Balkontuer N2-34 (160x230, BRH 0)",
+   "box": [
+    1773.0,
+    1078.0,
+    630,
+    1780.0,
+    1086.0,
+    860
+   ],
+   "material": "rahmen",
+   "oeffnung": 34
+  },
+  {
+   "nr": 375,
+   "id": "T375",
+   "kat": "rahmen",
+   "name": "Pfosten 1 Balkontuer N2-34 (160x230, BRH 0)",
+   "box": [
+    1697.0,
+    1078.0,
+    637,
+    1703.0,
+    1086.0,
+    853
+   ],
+   "material": "rahmen",
+   "oeffnung": 34
+  },
+  {
+   "nr": 376,
+   "id": "T376",
+   "kat": "glas",
+   "name": "Glas Balkontuer N2-34 (160x230, BRH 0)",
+   "box": [
+    1627.0,
+    1081.4,
+    637,
+    1773.0,
+    1082.6,
+    853
+   ],
+   "material": "glas",
+   "oeffnung": 34
+  },
+  {
+   "nr": 377,
+   "id": "T377",
+   "kat": "innen",
+   "name": "Innenraum Balkontuer N2-34 (160x230, BRH 0)",
+   "box": [
+    1622.0,
+    984,
+    632,
+    1778.0,
+    1063,
+    858
+   ],
+   "material": "innen",
+   "oeffnung": 34
+  },
+  {
+   "nr": 378,
+   "id": "T378",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer Fenster N2-35 (110x140, BRH 90)",
+   "ziel": "T11",
+   "box": [
+    345.0,
+    1058,
+    720,
+    455.0,
+    1106,
+    860
+   ],
+   "quelle": "INFERIERT",
+   "oeffnung": 35
+  },
+  {
+   "nr": 379,
+   "id": "T379",
+   "kat": "rahmen",
+   "name": "Rahmen unten Fenster N2-35 (110x140, BRH 90)",
+   "box": [
+    345.0,
+    1078.0,
+    720,
+    455.0,
+    1086.0,
+    727
+   ],
+   "material": "rahmen",
+   "oeffnung": 35
+  },
+  {
+   "nr": 380,
+   "id": "T380",
+   "kat": "rahmen",
+   "name": "Rahmen oben Fenster N2-35 (110x140, BRH 90)",
+   "box": [
+    345.0,
+    1078.0,
+    853,
+    455.0,
+    1086.0,
+    860
+   ],
+   "material": "rahmen",
+   "oeffnung": 35
+  },
+  {
+   "nr": 381,
+   "id": "T381",
+   "kat": "rahmen",
+   "name": "Rahmen links Fenster N2-35 (110x140, BRH 90)",
+   "box": [
+    345.0,
+    1078.0,
+    720,
+    352.0,
+    1086.0,
+    860
+   ],
+   "material": "rahmen",
+   "oeffnung": 35
+  },
+  {
+   "nr": 382,
+   "id": "T382",
+   "kat": "rahmen",
+   "name": "Rahmen rechts Fenster N2-35 (110x140, BRH 90)",
+   "box": [
+    448.0,
+    1078.0,
+    720,
+    455.0,
+    1086.0,
+    860
+   ],
+   "material": "rahmen",
+   "oeffnung": 35
+  },
+  {
+   "nr": 383,
+   "id": "T383",
+   "kat": "glas",
+   "name": "Glas Fenster N2-35 (110x140, BRH 90)",
+   "box": [
+    352.0,
+    1081.4,
+    727,
+    448.0,
+    1082.6,
+    853
+   ],
+   "material": "glas",
+   "oeffnung": 35
+  },
+  {
+   "nr": 384,
+   "id": "T384",
+   "kat": "detail",
+   "name": "Rollladen 60 % Fenster N2-35 (110x140, BRH 90)",
+   "box": [
+    347.0,
+    1088.0,
+    777.4,
+    453.0,
+    1090.0,
+    858
+   ],
+   "material": "rollladen",
+   "oeffnung": 35
+  },
+  {
+   "nr": 385,
+   "id": "T385",
+   "kat": "detail",
+   "name": "Fensterbank Fenster N2-35 (110x140, BRH 90)",
+   "box": [
+    342.0,
+    1086.0,
+    717,
+    458.0,
+    1104,
+    720
+   ],
+   "material": "fensterbank",
+   "oeffnung": 35
+  },
+  {
+   "nr": 386,
+   "id": "T386",
+   "kat": "innen",
+   "name": "Innenraum Fenster N2-35 (110x140, BRH 90)",
+   "box": [
+    347.0,
+    984,
+    722,
+    453.0,
+    1063,
+    858
+   ],
+   "material": "innen",
+   "oeffnung": 35
+  },
+  {
+   "nr": 387,
+   "id": "T387",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer Fenster N2-36 (110x140, BRH 90)",
+   "ziel": "T11",
+   "box": [
+    1095.0,
+    1058,
+    720,
+    1205.0,
+    1106,
+    860
+   ],
+   "quelle": "INFERIERT",
+   "oeffnung": 36
+  },
+  {
+   "nr": 388,
+   "id": "T388",
+   "kat": "rahmen",
+   "name": "Rahmen unten Fenster N2-36 (110x140, BRH 90)",
+   "box": [
+    1095.0,
+    1078.0,
+    720,
+    1205.0,
+    1086.0,
+    727
+   ],
+   "material": "rahmen",
+   "oeffnung": 36
+  },
+  {
+   "nr": 389,
+   "id": "T389",
+   "kat": "rahmen",
+   "name": "Rahmen oben Fenster N2-36 (110x140, BRH 90)",
+   "box": [
+    1095.0,
+    1078.0,
+    853,
+    1205.0,
+    1086.0,
+    860
+   ],
+   "material": "rahmen",
+   "oeffnung": 36
+  },
+  {
+   "nr": 390,
+   "id": "T390",
+   "kat": "rahmen",
+   "name": "Rahmen links Fenster N2-36 (110x140, BRH 90)",
+   "box": [
+    1095.0,
+    1078.0,
+    720,
+    1102.0,
+    1086.0,
+    860
+   ],
+   "material": "rahmen",
+   "oeffnung": 36
+  },
+  {
+   "nr": 391,
+   "id": "T391",
+   "kat": "rahmen",
+   "name": "Rahmen rechts Fenster N2-36 (110x140, BRH 90)",
+   "box": [
+    1198.0,
+    1078.0,
+    720,
+    1205.0,
+    1086.0,
+    860
+   ],
+   "material": "rahmen",
+   "oeffnung": 36
+  },
+  {
+   "nr": 392,
+   "id": "T392",
+   "kat": "glas",
+   "name": "Glas Fenster N2-36 (110x140, BRH 90)",
+   "box": [
+    1102.0,
+    1081.4,
+    727,
+    1198.0,
+    1082.6,
+    853
+   ],
+   "material": "glas",
+   "oeffnung": 36
+  },
+  {
+   "nr": 393,
+   "id": "T393",
+   "kat": "detail",
+   "name": "Rollladen 60 % Fenster N2-36 (110x140, BRH 90)",
+   "box": [
+    1097.0,
+    1088.0,
+    777.4,
+    1203.0,
+    1090.0,
+    858
+   ],
+   "material": "rollladen",
+   "oeffnung": 36
+  },
+  {
+   "nr": 394,
+   "id": "T394",
+   "kat": "detail",
+   "name": "Fensterbank Fenster N2-36 (110x140, BRH 90)",
+   "box": [
+    1092.0,
+    1086.0,
+    717,
+    1208.0,
+    1104,
+    720
+   ],
+   "material": "fensterbank",
+   "oeffnung": 36
+  },
+  {
+   "nr": 395,
+   "id": "T395",
+   "kat": "innen",
+   "name": "Innenraum Fenster N2-36 (110x140, BRH 90)",
+   "box": [
+    1097.0,
+    984,
+    722,
+    1203.0,
+    1063,
+    858
+   ],
+   "material": "innen",
+   "oeffnung": 36
+  },
+  {
+   "nr": 396,
+   "id": "T396",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer Haustuer N0-37 (110x220, BRH 0)",
+   "ziel": "T03",
+   "box": [
+    805.0,
+    1058,
+    0,
+    915.0,
+    1106,
+    220
+   ],
+   "quelle": "Fotos B268 (6 Stk.), geschaetzt",
+   "oeffnung": 37
+  },
+  {
+   "nr": 397,
+   "id": "T397",
+   "kat": "tuer",
+   "name": "Tuerblatt Haustuer N0-37 (110x220, BRH 0)",
+   "box": [
+    805.0,
+    1079.5,
+    0,
+    915.0,
+    1084.5,
+    220
+   ],
+   "material": "tuer",
+   "oeffnung": 37
+  },
+  {
+   "nr": 398,
+   "id": "T398",
+   "kat": "rahmen",
+   "name": "Zarge links Haustuer N0-37 (110x220, BRH 0)",
+   "box": [
+    805.0,
+    1078.0,
+    0,
+    810.0,
+    1086.0,
+    220
+   ],
+   "material": "rahmen",
+   "oeffnung": 37
+  },
+  {
+   "nr": 399,
+   "id": "T399",
+   "kat": "rahmen",
+   "name": "Zarge rechts Haustuer N0-37 (110x220, BRH 0)",
+   "box": [
+    910.0,
+    1078.0,
+    0,
+    915.0,
+    1086.0,
+    220
+   ],
+   "material": "rahmen",
+   "oeffnung": 37
+  },
+  {
+   "nr": 400,
+   "id": "T400",
+   "kat": "rahmen",
+   "name": "Zarge oben Haustuer N0-37 (110x220, BRH 0)",
+   "box": [
+    805.0,
+    1078.0,
+    215,
+    915.0,
+    1086.0,
+    220
+   ],
+   "material": "rahmen",
+   "oeffnung": 37
+  },
+  {
+   "nr": 401,
+   "id": "T401",
+   "kat": "gelaende",
+   "name": "Rasen",
+   "box": [
+    -3000,
+    -3000,
+    -3,
+    4900,
+    4100,
+    0
+   ],
+   "material": "rasen"
+  },
+  {
+   "nr": 402,
+   "id": "T402",
+   "kat": "gelaende",
+   "name": "Gehweg",
+   "box": [
+    -3000,
+    -1600,
+    -2,
+    4900,
+    -1400,
+    0.5
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 403,
+   "id": "T403",
+   "kat": "gelaende",
+   "name": "Strasse",
+   "box": [
+    -3000,
+    -2400,
+    -2,
+    4900,
+    -1600,
+    0.5
+   ],
+   "material": "asphalt"
+  },
+  {
+   "nr": 404,
+   "id": "T404",
+   "kat": "grundstueck",
+   "name": "Grundstuecksgrenze Sued",
+   "box": [
+    -500,
+    -1400,
+    -0.5,
+    2400,
+    -1399,
+    0.5
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 405,
+   "id": "T405",
+   "kat": "grundstueck",
+   "name": "Grundstuecksgrenze Nord",
+   "box": [
+    -500,
+    2099,
+    -0.5,
+    2400,
+    2100,
+    0.5
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 406,
+   "id": "T406",
+   "kat": "grundstueck",
+   "name": "Grundstuecksgrenze West",
+   "box": [
+    -500,
+    -1400,
+    -0.5,
+    -499,
+    2100,
+    0.5
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 407,
+   "id": "T407",
+   "kat": "grundstueck",
+   "name": "Grundstuecksgrenze Ost",
+   "box": [
+    2399,
+    -1400,
+    -0.5,
+    2400,
+    2100,
+    0.5
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 408,
+   "id": "T408",
+   "kat": "grundstueck",
+   "name": "Terrasse Nord",
+   "box": [
+    427.5,
+    1100,
+    -2,
+    1472.5,
+    1450,
+    6
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 409,
+   "id": "T409",
+   "kat": "garten",
+   "name": "Hecke West",
+   "box": [
+    -500,
+    -1200,
+    0,
+    -440,
+    2100,
+    100
+   ],
+   "material": "hecke"
+  },
+  {
+   "nr": 410,
+   "id": "T410",
+   "kat": "garten",
+   "name": "Hecke Ost",
+   "box": [
+    2340,
+    -1200,
+    0,
+    2400,
+    2100,
+    100
+   ],
+   "material": "hecke"
+  },
+  {
+   "nr": 411,
+   "id": "T411",
+   "kat": "garten",
+   "name": "Hecke Nord",
+   "box": [
+    -500,
+    2040,
+    0,
+    2400,
+    2100,
+    100
+   ],
+   "material": "hecke"
+  },
+  {
+   "nr": 412,
+   "id": "T412",
+   "kat": "garten",
+   "name": "Hecke Sued 1",
+   "box": [
+    -500,
+    -1390,
+    0,
+    2400,
+    -1330,
+    80
+   ],
+   "material": "hecke"
+  },
+  {
+   "nr": 413,
+   "id": "T413",
+   "kat": "garten",
+   "name": "Gartenweg",
+   "box": [
+    900.0,
+    1450,
+    -1,
+    1000.0,
+    2020,
+    1
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 414,
+   "id": "T414",
+   "kat": "kamera",
+   "name": "Kamera Front (3/4 von Suedwest, im Grundstueck, Augenhoehe)",
+   "pos": [
+    -410,
+    -1270,
+    165
+   ],
+   "ziel": [
+    950.0,
+    275.0,
+    432.5
+   ],
+   "brennweite_mm": 26
+  },
+  {
+   "nr": 415,
+   "id": "T415",
+   "kat": "kamera",
+   "name": "Kamera Rueck (3/4 von Nordost, im Grundstueck)",
+   "pos": [
+    2310,
+    1990,
+    165
+   ],
+   "ziel": [
+    950.0,
+    770.0,
+    532.5
+   ],
+   "brennweite_mm": 21
+  },
+  {
+   "nr": 416,
+   "id": "T416",
+   "kat": "kamera",
+   "name": "Kamera Ansicht Sued (orthografisch, Elevation)",
+   "pos": [
+    950.0,
+    -3000,
+    472.5
+   ],
+   "ziel": [
+    950.0,
+    0,
+    472.5
+   ],
+   "ortho_cm": 2470
+  },
+  {
+   "nr": 417,
+   "id": "T417",
+   "kat": "kamera",
+   "name": "Kamera Ansicht Nord (orthografisch, Elevation)",
+   "pos": [
+    950.0,
+    4100,
+    472.5
+   ],
+   "ziel": [
+    950.0,
+    1100,
+    472.5
+   ],
+   "ortho_cm": 2470
+  },
+  {
+   "nr": 418,
+   "id": "T418",
+   "kat": "licht",
+   "name": "Sonne (Azimut 215, Hoehe 42)",
+   "azimut": 215,
+   "hoehe": 42,
+   "staerke": 4.0
+  },
+  {
+   "nr": 419,
+   "id": "T419",
+   "kat": "treppe",
+   "name": "Kellertreppe Stufe 1",
+   "box": [
+    190,
+    562.0,
+    -250.0,
+    290,
+    589.3,
+    -232.1
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 420,
+   "id": "T420",
+   "kat": "treppe",
+   "name": "Kellertreppe Stufe 2",
+   "box": [
+    190,
+    589.3,
+    -232.1,
+    290,
+    616.6,
+    -214.3
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 421,
+   "id": "T421",
+   "kat": "treppe",
+   "name": "Kellertreppe Stufe 3",
+   "box": [
+    190,
+    616.6,
+    -214.3,
+    290,
+    643.9,
+    -196.4
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 422,
+   "id": "T422",
+   "kat": "treppe",
+   "name": "Kellertreppe Stufe 4",
+   "box": [
+    190,
+    643.9,
+    -196.4,
+    290,
+    671.1,
+    -178.6
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 423,
+   "id": "T423",
+   "kat": "treppe",
+   "name": "Kellertreppe Stufe 5",
+   "box": [
+    190,
+    671.1,
+    -178.6,
+    290,
+    698.4,
+    -160.7
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 424,
+   "id": "T424",
+   "kat": "treppe",
+   "name": "Kellertreppe Stufe 6",
+   "box": [
+    190,
+    698.4,
+    -160.7,
+    290,
+    725.7,
+    -142.9
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 425,
+   "id": "T425",
+   "kat": "treppe",
+   "name": "Kellertreppe Stufe 7",
+   "box": [
+    190,
+    725.7,
+    -142.9,
+    290,
+    753.0,
+    -125.0
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 426,
+   "id": "T426",
+   "kat": "treppe",
+   "name": "Kellertreppe Stufe 8",
+   "box": [
+    190,
+    753.0,
+    -125.0,
+    290,
+    780.3,
+    -107.1
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 427,
+   "id": "T427",
+   "kat": "treppe",
+   "name": "Kellertreppe Stufe 9",
+   "box": [
+    190,
+    780.3,
+    -107.1,
+    290,
+    807.6,
+    -89.3
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 428,
+   "id": "T428",
+   "kat": "treppe",
+   "name": "Kellertreppe Stufe 10",
+   "box": [
+    190,
+    807.6,
+    -89.3,
+    290,
+    834.9,
+    -71.4
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 429,
+   "id": "T429",
+   "kat": "treppe",
+   "name": "Kellertreppe Stufe 11",
+   "box": [
+    190,
+    834.9,
+    -71.4,
+    290,
+    862.1,
+    -53.6
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 430,
+   "id": "T430",
+   "kat": "treppe",
+   "name": "Kellertreppe Stufe 12",
+   "box": [
+    190,
+    862.1,
+    -53.6,
+    290,
+    889.4,
+    -35.7
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 431,
+   "id": "T431",
+   "kat": "treppe",
+   "name": "Kellertreppe Stufe 13",
+   "box": [
+    190,
+    889.4,
+    -35.7,
+    290,
+    916.7,
+    -17.9
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 432,
+   "id": "T432",
+   "kat": "treppe",
+   "name": "Kellertreppe Stufe 14",
+   "box": [
+    190,
+    916.7,
+    -17.9,
+    290,
+    944.0,
+    0.0
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 433,
+   "id": "T433",
+   "kat": "treppe",
+   "name": "Kellertreppe Handlauf",
+   "box": [
+    188,
+    562.0,
+    -160,
+    192,
+    944,
+    90
+   ],
+   "material": "stahl"
+  },
+  {
+   "nr": 434,
+   "id": "T434",
+   "kat": "fundament",
+   "name": "Bodenplatte Stueck 2 (um Kellertreppe)",
+   "box": [
+    300,
+    0,
+    -20,
+    1900,
+    1100,
+    0
+   ],
+   "material": "beton"
+  },
+  {
+   "nr": 435,
+   "id": "T435",
+   "kat": "fundament",
+   "name": "Bodenplatte Stueck 3 (um Kellertreppe)",
+   "box": [
+    180,
+    0,
+    -20,
+    300,
+    584.3,
+    0
+   ],
+   "material": "beton"
+  },
+  {
+   "nr": 436,
+   "id": "T436",
+   "kat": "fundament",
+   "name": "Bodenplatte Stueck 4 (um Kellertreppe)",
+   "box": [
+    180,
+    944,
+    -20,
+    300,
+    1100,
+    0
+   ],
+   "material": "beton"
+  },
+  {
+   "nr": 437,
+   "id": "T437",
+   "kat": "gelaender",
+   "name": "Absturzsicherung Kellertreppe O",
+   "box": [
+    296,
+    584.3,
+    2,
+    300,
+    944,
+    100
+   ],
+   "material": "stahl"
+  },
+  {
+   "nr": 438,
+   "id": "T438",
+   "kat": "gelaender",
+   "name": "Absturzsicherung Kellertreppe W",
+   "box": [
+    180,
+    584.3,
+    2,
+    184,
+    944,
+    100
+   ],
+   "material": "stahl"
+  },
+  {
+   "nr": 439,
+   "id": "T439",
+   "kat": "gelaender",
+   "name": "Absturzsicherung Kellertreppe S",
+   "box": [
+    180,
+    584.3,
+    2,
+    300,
+    588.3,
+    100
+   ],
+   "material": "stahl"
+  }
+ ]
+}

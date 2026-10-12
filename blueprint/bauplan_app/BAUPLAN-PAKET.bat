@@ -36,7 +36,11 @@ if /i "%EXT%"==".jpeg" set FOTO=1
 if /i "%EXT%"==".png" set FOTO=1
 if "%FOTO%"=="1" echo [0/6] OpenRouter vermisst das Foto (%OPENROUTER_MODEL%)
 if "%FOTO%"=="1" "%PY%" "%TOOLS%foto_zu_haus.py" "%HAUS%" %TAG% "%OUT%\haus_%TAG%.json" "%~4" || exit /b 1
-if "%FOTO%"=="1" if not exist "%~2\*" copy /y "%HAUS%" "%OUT%\foto_%TAG%%EXT%" >nul
+set FOTODIR=
+if exist "%~2\*" set FOTODIR=%~f2
+if "%FOTO%"=="1" if not exist "%~2\*" mkdir "%OUT%\fotos" 2>nul
+if "%FOTO%"=="1" if not exist "%~2\*" copy /y "%HAUS%" "%OUT%\fotos\foto_%TAG%%EXT%" >nul
+if "%FOTO%"=="1" if not exist "%~2\*" set FOTODIR=%OUT%\fotos
 if "%FOTO%"=="1" set HAUS=%OUT%\haus_%TAG%.json
 echo [1/6] Stueckliste
 "%PY%" "%TOOLS%bauplan_stueckliste.py" "%HAUS%" "%OUT%\stueckliste_%TAG%.json" || exit /b 1
@@ -57,6 +61,7 @@ echo [5/6] Blaetter
 "%PY%" "%TOOLS%paket_blaetter.py" "%OUT%\render" "%OUT%\stueckliste_%TAG%.json" %TAG% "%OUT%" "%TITEL%" || exit /b 1
 "%PY%" "%TOOLS%nacht_blatt.py" "%OUT%\render" %TAG% "%OUT%\4_NACHT_%TAG%.png" "%TITEL%" "%OUT%\stueckliste_%TAG%.json" || exit /b 1
 
+if not "%FOTODIR%"=="" "%PY%" "%TOOLS%vergleich_blatt.py" "%FOTODIR%" "%OUT%\render" %TAG% "%OUT%\5_VERGLEICH_%TAG%.png" "%TITEL%"
 echo Abschluss: Zeit je Schritt + Token-Verbrauch
 "%PY%" "%TOOLS%abschluss.py" "%OUT%" %TAG%
 echo [6/6] Ablage: Katalog + Asset-Bibliothek

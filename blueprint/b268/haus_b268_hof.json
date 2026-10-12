@@ -1,0 +1,546 @@
+{
+ "meta": {
+  "name": "B268 Nr. 9 - Hofflugel",
+  "kennung": "b268_hof",
+  "vorlage": "fotohaus",
+  "adresse": "B268 Nr. 9, Riegelsberg",
+  "fiktiv": false,
+  "baujahr": 2018,
+  "materialien": {
+   "fassade": "Putz grau",
+   "dach": "Flachdach",
+   "fenster": "Alu anthrazit",
+   "tuer": "Alu anthrazit"
+  }
+ },
+ "breite_cm": 2400,
+ "tiefe_cm": 1100,
+ "geschosse": 3,
+ "geschosshoehe_cm": 290,
+ "deckenstaerke_cm": 25,
+ "aussenwand_cm": 36,
+ "sockel_cm": 60,
+ "dach": {
+  "typ": "flach",
+  "attika_cm": 45,
+  "ueberstand_cm": 0
+ },
+ "oeffnungen": [
+  {
+   "seite": "N",
+   "geschoss": 0,
+   "typ": "balkontuer",
+   "pos_cm": 550.0,
+   "b_cm": 110,
+   "h_cm": 230,
+   "bruestung_cm": 0,
+   "quelle": "Fotos B268 (6 Stk.), geschaetzt",
+   "rollladen": 0
+  },
+  {
+   "seite": "N",
+   "geschoss": 0,
+   "typ": "fenster",
+   "pos_cm": 780.0,
+   "b_cm": 120,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "Fotos B268 (6 Stk.), geschaetzt",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "N",
+   "geschoss": 0,
+   "typ": "balkontuer",
+   "pos_cm": 1080.0,
+   "b_cm": 110,
+   "h_cm": 230,
+   "bruestung_cm": 0,
+   "quelle": "Fotos B268 (6 Stk.), geschaetzt",
+   "rollladen": 0
+  },
+  {
+   "seite": "N",
+   "geschoss": 0,
+   "typ": "fenster",
+   "pos_cm": 1310.0,
+   "b_cm": 120,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "Fotos B268 (6 Stk.), geschaetzt",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "N",
+   "geschoss": 0,
+   "typ": "balkontuer",
+   "pos_cm": 1610.0,
+   "b_cm": 110,
+   "h_cm": 230,
+   "bruestung_cm": 0,
+   "quelle": "Fotos B268 (6 Stk.), geschaetzt",
+   "rollladen": 0
+  },
+  {
+   "seite": "N",
+   "geschoss": 0,
+   "typ": "fenster",
+   "pos_cm": 1840.0,
+   "b_cm": 120,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "Fotos B268 (6 Stk.), geschaetzt",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "S",
+   "geschoss": 0,
+   "typ": "fenster",
+   "pos_cm": 500,
+   "b_cm": 110,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "INFERIERT",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "S",
+   "geschoss": 0,
+   "typ": "fenster",
+   "pos_cm": 900,
+   "b_cm": 110,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "INFERIERT",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "S",
+   "geschoss": 0,
+   "typ": "fenster",
+   "pos_cm": 1300,
+   "b_cm": 110,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "INFERIERT",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "S",
+   "geschoss": 0,
+   "typ": "fenster",
+   "pos_cm": 1700,
+   "b_cm": 110,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "INFERIERT",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "S",
+   "geschoss": 0,
+   "typ": "fenster",
+   "pos_cm": 2100,
+   "b_cm": 110,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "INFERIERT",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "W",
+   "geschoss": 0,
+   "typ": "fenster",
+   "pos_cm": 550,
+   "b_cm": 60,
+   "h_cm": 90,
+   "bruestung_cm": 120,
+   "quelle": "INFERIERT",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "N",
+   "geschoss": 1,
+   "typ": "balkontuer",
+   "pos_cm": 550.0,
+   "b_cm": 110,
+   "h_cm": 230,
+   "bruestung_cm": 0,
+   "quelle": "Fotos B268 (6 Stk.), geschaetzt",
+   "rollladen": 0
+  },
+  {
+   "seite": "N",
+   "geschoss": 1,
+   "typ": "fenster",
+   "pos_cm": 780.0,
+   "b_cm": 120,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "Fotos B268 (6 Stk.), geschaetzt",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "N",
+   "geschoss": 1,
+   "typ": "balkontuer",
+   "pos_cm": 1080.0,
+   "b_cm": 110,
+   "h_cm": 230,
+   "bruestung_cm": 0,
+   "quelle": "Fotos B268 (6 Stk.), geschaetzt",
+   "rollladen": 0
+  },
+  {
+   "seite": "N",
+   "geschoss": 1,
+   "typ": "fenster",
+   "pos_cm": 1310.0,
+   "b_cm": 120,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "Fotos B268 (6 Stk.), geschaetzt",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "N",
+   "geschoss": 1,
+   "typ": "balkontuer",
+   "pos_cm": 1610.0,
+   "b_cm": 110,
+   "h_cm": 230,
+   "bruestung_cm": 0,
+   "quelle": "Fotos B268 (6 Stk.), geschaetzt",
+   "rollladen": 0
+  },
+  {
+   "seite": "N",
+   "geschoss": 1,
+   "typ": "fenster",
+   "pos_cm": 1840.0,
+   "b_cm": 120,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "Fotos B268 (6 Stk.), geschaetzt",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "S",
+   "geschoss": 1,
+   "typ": "fenster",
+   "pos_cm": 500,
+   "b_cm": 110,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "INFERIERT",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "S",
+   "geschoss": 1,
+   "typ": "fenster",
+   "pos_cm": 900,
+   "b_cm": 110,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "INFERIERT",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "S",
+   "geschoss": 1,
+   "typ": "fenster",
+   "pos_cm": 1300,
+   "b_cm": 110,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "INFERIERT",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "S",
+   "geschoss": 1,
+   "typ": "fenster",
+   "pos_cm": 1700,
+   "b_cm": 110,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "INFERIERT",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "S",
+   "geschoss": 1,
+   "typ": "fenster",
+   "pos_cm": 2100,
+   "b_cm": 110,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "INFERIERT",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "W",
+   "geschoss": 1,
+   "typ": "fenster",
+   "pos_cm": 550,
+   "b_cm": 60,
+   "h_cm": 90,
+   "bruestung_cm": 120,
+   "quelle": "INFERIERT",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "N",
+   "geschoss": 2,
+   "typ": "balkontuer",
+   "pos_cm": 550.0,
+   "b_cm": 110,
+   "h_cm": 230,
+   "bruestung_cm": 0,
+   "quelle": "Fotos B268 (6 Stk.), geschaetzt",
+   "rollladen": 0
+  },
+  {
+   "seite": "N",
+   "geschoss": 2,
+   "typ": "fenster",
+   "pos_cm": 780.0,
+   "b_cm": 120,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "Fotos B268 (6 Stk.), geschaetzt",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "N",
+   "geschoss": 2,
+   "typ": "balkontuer",
+   "pos_cm": 1080.0,
+   "b_cm": 110,
+   "h_cm": 230,
+   "bruestung_cm": 0,
+   "quelle": "Fotos B268 (6 Stk.), geschaetzt",
+   "rollladen": 0
+  },
+  {
+   "seite": "N",
+   "geschoss": 2,
+   "typ": "fenster",
+   "pos_cm": 1310.0,
+   "b_cm": 120,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "Fotos B268 (6 Stk.), geschaetzt",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "N",
+   "geschoss": 2,
+   "typ": "balkontuer",
+   "pos_cm": 1610.0,
+   "b_cm": 110,
+   "h_cm": 230,
+   "bruestung_cm": 0,
+   "quelle": "Fotos B268 (6 Stk.), geschaetzt",
+   "rollladen": 0
+  },
+  {
+   "seite": "N",
+   "geschoss": 2,
+   "typ": "fenster",
+   "pos_cm": 1840.0,
+   "b_cm": 120,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "Fotos B268 (6 Stk.), geschaetzt",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "S",
+   "geschoss": 2,
+   "typ": "fenster",
+   "pos_cm": 500,
+   "b_cm": 110,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "INFERIERT",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "S",
+   "geschoss": 2,
+   "typ": "fenster",
+   "pos_cm": 900,
+   "b_cm": 110,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "INFERIERT",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "S",
+   "geschoss": 2,
+   "typ": "fenster",
+   "pos_cm": 1300,
+   "b_cm": 110,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "INFERIERT",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "S",
+   "geschoss": 2,
+   "typ": "fenster",
+   "pos_cm": 1700,
+   "b_cm": 110,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "INFERIERT",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "S",
+   "geschoss": 2,
+   "typ": "fenster",
+   "pos_cm": 2100,
+   "b_cm": 110,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "INFERIERT",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "W",
+   "geschoss": 2,
+   "typ": "fenster",
+   "pos_cm": 550,
+   "b_cm": 60,
+   "h_cm": 90,
+   "bruestung_cm": 120,
+   "quelle": "INFERIERT",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "N",
+   "geschoss": 0,
+   "typ": "haustuer",
+   "pos_cm": 2200,
+   "b_cm": 110,
+   "h_cm": 220,
+   "bruestung_cm": 0,
+   "quelle": "Fotos B268 (6 Stk.), geschaetzt",
+   "rollladen": 0
+  }
+ ],
+ "balkone": [
+  {
+   "seite": "N",
+   "geschoss": 0,
+   "von_cm": 420,
+   "bis_cm": 900,
+   "tiefe_cm": 200,
+   "gelaender": "glas"
+  },
+  {
+   "seite": "N",
+   "geschoss": 0,
+   "von_cm": 950,
+   "bis_cm": 1430,
+   "tiefe_cm": 200,
+   "gelaender": "glas"
+  },
+  {
+   "seite": "N",
+   "geschoss": 0,
+   "von_cm": 1480,
+   "bis_cm": 1960,
+   "tiefe_cm": 200,
+   "gelaender": "glas"
+  },
+  {
+   "seite": "N",
+   "geschoss": 1,
+   "von_cm": 420,
+   "bis_cm": 900,
+   "tiefe_cm": 200,
+   "gelaender": "glas"
+  },
+  {
+   "seite": "N",
+   "geschoss": 1,
+   "von_cm": 950,
+   "bis_cm": 1430,
+   "tiefe_cm": 200,
+   "gelaender": "glas"
+  },
+  {
+   "seite": "N",
+   "geschoss": 1,
+   "von_cm": 1480,
+   "bis_cm": 1960,
+   "tiefe_cm": 200,
+   "gelaender": "glas"
+  },
+  {
+   "seite": "N",
+   "geschoss": 2,
+   "von_cm": 420,
+   "bis_cm": 900,
+   "tiefe_cm": 200,
+   "gelaender": "glas"
+  },
+  {
+   "seite": "N",
+   "geschoss": 2,
+   "von_cm": 950,
+   "bis_cm": 1430,
+   "tiefe_cm": 200,
+   "gelaender": "glas"
+  },
+  {
+   "seite": "N",
+   "geschoss": 2,
+   "von_cm": 1480,
+   "bis_cm": 1960,
+   "tiefe_cm": 200,
+   "gelaender": "glas"
+  }
+ ],
+ "materialien": {
+  "fassade": "Putz grau",
+  "dach": "Flachdach",
+  "fenster": "Alu anthrazit",
+  "tuer": "Alu anthrazit"
+ },
+ "sockel_material": "putz",
+ "fenster_teilung": {
+  "fluegel_ab_cm": 120
+ },
+ "gelaende": {
+  "ecken_cm": {
+   "SW": 0,
+   "NW": 0,
+   "SE": 0,
+   "NE": 0
+  },
+  "quelle": "eben (Strasse/Parkplatz)"
+ },
+ "grundstueck": "M",
+ "treppe": true,
+ "treppe_x_cm": 120,
+ "details": true,
+ "keller": {
+  "tiefe_cm": 250,
+  "tueren": [],
+  "fenster": [],
+  "tore": []
+ },
+ "loggien": [],
+ "anbau_garagen": [],
+ "baeume": [],
+ "front_seite": "S",
+ "giebeltueren": [],
+ "dg_ausbau": false
+}
