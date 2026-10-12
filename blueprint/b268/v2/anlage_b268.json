@@ -1,0 +1,89 @@
+{
+ "name": "B268 Nr. 9, Riegelsberg - Wohnanlage",
+ "kennung": "b268",
+ "geschosse": 3,
+ "lageplan_quelle": "Satellitenbild Tobi 12.10.2026, 1 px = 5 cm",
+ "baukoerper": [
+  {
+   "haus": "haus_strasse.json",
+   "name": "Strassenhaus",
+   "drehung": 0,
+   "x": 1700,
+   "y": 0
+  },
+  {
+   "haus": "haus_haupt.json",
+   "name": "Hauptblock",
+   "drehung": 90,
+   "x": 3000,
+   "y": 1100
+  },
+  {
+   "haus": "haus_nord.json",
+   "name": "Nordfluegel",
+   "drehung": 0,
+   "x": 3200,
+   "y": 3625
+  },
+  {
+   "haus": "haus_versatz.json",
+   "name": "Versatz Ost",
+   "drehung": 0,
+   "x": 5475,
+   "y": 3050
+  }
+ ],
+ "balkonanlagen": [
+  {
+   "seite": "W",
+   "wand_x": 3000,
+   "wand_y0": 1200,
+   "wand_y1": 1650,
+   "tiefe_cm": 300
+  },
+  {
+   "seite": "W",
+   "wand_x": 3000,
+   "wand_y0": 1750,
+   "wand_y1": 2200,
+   "tiefe_cm": 300
+  },
+  {
+   "seite": "W",
+   "wand_x": 3000,
+   "wand_y0": 2300,
+   "wand_y1": 2750,
+   "tiefe_cm": 300
+  },
+  {
+   "seite": "W",
+   "wand_x": 3000,
+   "wand_y0": 2850,
+   "wand_y1": 3300,
+   "tiefe_cm": 300
+  },
+  {
+   "seite": "E",
+   "wand_x": 5475,
+   "wand_y0": 2550,
+   "wand_y1": 3050,
+   "tiefe_cm": 200
+  },
+  {
+   "seite": "W",
+   "wand_x": 3200,
+   "wand_y0": 3725,
+   "wand_y1": 4225,
+   "tiefe_cm": 250
+  }
+ ],
+ "kerne": [
+  {
+   "x0": 2700,
+   "y0": 3450,
+   "x1": 3000,
+   "y1": 3720,
+   "ueber_attika_cm": 70
+  }
+ ]
+}

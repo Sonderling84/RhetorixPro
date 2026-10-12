@@ -1,0 +1,98 @@
+{
+ "meta": {
+  "name": "Versatz Ost",
+  "kennung": "b268_versatz",
+  "vorlage": "fotohaus",
+  "adresse": "B268 Nr. 9, Riegelsberg",
+  "fiktiv": false,
+  "materialien": {
+   "fassade": "Putz grau",
+   "dach": "Flachdach",
+   "fenster": "Alu anthrazit",
+   "tuer": "Alu anthrazit"
+  }
+ },
+ "breite_cm": 325,
+ "tiefe_cm": 575,
+ "geschosse": 3,
+ "geschosshoehe_cm": 290,
+ "deckenstaerke_cm": 25,
+ "aussenwand_cm": 36,
+ "sockel_cm": 60,
+ "dach": {
+  "typ": "flach",
+  "attika_cm": 45,
+  "ueberstand_cm": 0
+ },
+ "oeffnungen": [
+  {
+   "seite": "E",
+   "geschoss": 0,
+   "typ": "fenster",
+   "pos_cm": 290,
+   "b_cm": 110,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "INFERIERT",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "E",
+   "geschoss": 1,
+   "typ": "fenster",
+   "pos_cm": 290,
+   "b_cm": 110,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "INFERIERT",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "E",
+   "geschoss": 2,
+   "typ": "fenster",
+   "pos_cm": 290,
+   "b_cm": 110,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "INFERIERT",
+   "rollladen": 0.6
+  }
+ ],
+ "balkone": [],
+ "materialien": {
+  "fassade": "Putz grau",
+  "dach": "Flachdach",
+  "fenster": "Alu anthrazit",
+  "tuer": "Alu anthrazit"
+ },
+ "sockel_material": "putz",
+ "fenster_teilung": {
+  "fluegel_ab_cm": 120
+ },
+ "gelaende": {
+  "ecken_cm": {
+   "SW": 0,
+   "NW": 0,
+   "SE": 0,
+   "NE": 0
+  },
+  "quelle": "eben"
+ },
+ "grundstueck": "M",
+ "treppe": false,
+ "treppe_x_cm": 162,
+ "details": true,
+ "keller": {
+  "tiefe_cm": 250,
+  "tueren": [],
+  "fenster": [],
+  "tore": []
+ },
+ "loggien": [],
+ "anbau_garagen": [],
+ "baeume": [],
+ "front_seite": "S",
+ "giebeltueren": [],
+ "dg_ausbau": false
+}

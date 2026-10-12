@@ -1,0 +1,1578 @@
+{
+ "meta": {
+  "name": "Versatz Ost",
+  "kennung": "b268_versatz",
+  "vorlage": "fotohaus",
+  "adresse": "B268 Nr. 9, Riegelsberg",
+  "fiktiv": false,
+  "materialien": {
+   "fassade": "Putz grau",
+   "dach": "Flachdach",
+   "fenster": "Alu anthrazit",
+   "tuer": "Alu anthrazit"
+  },
+  "gelaende": {
+   "ecken_cm": {
+    "SW": 0,
+    "NW": 0,
+    "SE": 0,
+    "NE": 0
+   },
+   "quelle": "eben"
+  },
+  "breite_cm": 325,
+  "tiefe_cm": 575,
+  "geschosse": 3,
+  "traufe_cm": 945,
+  "first_cm": 990,
+  "dach": "flach",
+  "anzahl_teile": 75,
+  "bloecke": 1
+ },
+ "teile": [
+  {
+   "nr": 1,
+   "id": "T01",
+   "kat": "fundament",
+   "name": "Bodenplatte Stueck 1 (um Kellertreppe)",
+   "box": [
+    0,
+    0,
+    -20,
+    180,
+    575,
+    0
+   ],
+   "material": "beton"
+  },
+  {
+   "nr": 2,
+   "id": "T02",
+   "kat": "wand",
+   "name": "Suedwand EG",
+   "geschoss": 0,
+   "seite": "S",
+   "along": [
+    0,
+    325
+   ],
+   "box": [
+    0,
+    0,
+    0,
+    325,
+    36,
+    290
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 3,
+   "id": "T03",
+   "kat": "wand",
+   "name": "Nordwand EG",
+   "geschoss": 0,
+   "seite": "N",
+   "along": [
+    0,
+    325
+   ],
+   "box": [
+    0,
+    539,
+    0,
+    325,
+    575,
+    290
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 4,
+   "id": "T04",
+   "kat": "wand",
+   "name": "Westwand EG",
+   "geschoss": 0,
+   "seite": "W",
+   "along": [
+    36,
+    539
+   ],
+   "box": [
+    0,
+    36,
+    0,
+    36,
+    539,
+    290
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 5,
+   "id": "T05",
+   "kat": "wand",
+   "name": "Ostwand EG",
+   "geschoss": 0,
+   "seite": "E",
+   "along": [
+    36,
+    539
+   ],
+   "box": [
+    289,
+    36,
+    0,
+    325,
+    539,
+    290
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 6,
+   "id": "T06",
+   "kat": "wand",
+   "name": "Suedwand 1.OG",
+   "geschoss": 1,
+   "seite": "S",
+   "along": [
+    0,
+    325
+   ],
+   "box": [
+    0,
+    0,
+    315,
+    325,
+    36,
+    605
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 7,
+   "id": "T07",
+   "kat": "wand",
+   "name": "Nordwand 1.OG",
+   "geschoss": 1,
+   "seite": "N",
+   "along": [
+    0,
+    325
+   ],
+   "box": [
+    0,
+    539,
+    315,
+    325,
+    575,
+    605
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 8,
+   "id": "T08",
+   "kat": "wand",
+   "name": "Westwand 1.OG",
+   "geschoss": 1,
+   "seite": "W",
+   "along": [
+    36,
+    539
+   ],
+   "box": [
+    0,
+    36,
+    315,
+    36,
+    539,
+    605
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 9,
+   "id": "T09",
+   "kat": "wand",
+   "name": "Ostwand 1.OG",
+   "geschoss": 1,
+   "seite": "E",
+   "along": [
+    36,
+    539
+   ],
+   "box": [
+    289,
+    36,
+    315,
+    325,
+    539,
+    605
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 10,
+   "id": "T10",
+   "kat": "wand",
+   "name": "Suedwand 2.OG",
+   "geschoss": 2,
+   "seite": "S",
+   "along": [
+    0,
+    325
+   ],
+   "box": [
+    0,
+    0,
+    630,
+    325,
+    36,
+    920
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 11,
+   "id": "T11",
+   "kat": "wand",
+   "name": "Nordwand 2.OG",
+   "geschoss": 2,
+   "seite": "N",
+   "along": [
+    0,
+    325
+   ],
+   "box": [
+    0,
+    539,
+    630,
+    325,
+    575,
+    920
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 12,
+   "id": "T12",
+   "kat": "wand",
+   "name": "Westwand 2.OG",
+   "geschoss": 2,
+   "seite": "W",
+   "along": [
+    36,
+    539
+   ],
+   "box": [
+    0,
+    36,
+    630,
+    36,
+    539,
+    920
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 13,
+   "id": "T13",
+   "kat": "wand",
+   "name": "Ostwand 2.OG",
+   "geschoss": 2,
+   "seite": "E",
+   "along": [
+    36,
+    539
+   ],
+   "box": [
+    289,
+    36,
+    630,
+    325,
+    539,
+    920
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 14,
+   "id": "T14",
+   "kat": "decke",
+   "name": "Decke ueber EG",
+   "box": [
+    0,
+    0,
+    290,
+    325,
+    575,
+    315
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 15,
+   "id": "T15",
+   "kat": "decke",
+   "name": "Decke ueber 1.OG",
+   "box": [
+    0,
+    0,
+    605,
+    325,
+    575,
+    630
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 16,
+   "id": "T16",
+   "kat": "decke",
+   "name": "Decke ueber 2.OG",
+   "box": [
+    0,
+    0,
+    920,
+    325,
+    575,
+    945
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 17,
+   "id": "T17",
+   "kat": "sockel",
+   "name": "Sockelband Sued",
+   "box": [
+    -2,
+    -2,
+    0,
+    327,
+    0,
+    60
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 18,
+   "id": "T18",
+   "kat": "sockel",
+   "name": "Sockelband Nord -2-327",
+   "box": [
+    -2,
+    575,
+    0,
+    327,
+    577,
+    60
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 19,
+   "id": "T19",
+   "kat": "sockel",
+   "name": "Sockelband West",
+   "box": [
+    -2,
+    0,
+    0,
+    0,
+    575,
+    60
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 20,
+   "id": "T20",
+   "kat": "sockel",
+   "name": "Sockelband Ost",
+   "box": [
+    325,
+    0,
+    0,
+    327,
+    575,
+    60
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 21,
+   "id": "T21",
+   "kat": "sockel",
+   "name": "Kelleraussenwand Sued",
+   "box": [
+    0,
+    0,
+    -250,
+    325,
+    36,
+    0
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 22,
+   "id": "T22",
+   "kat": "sockel",
+   "name": "Kelleraussenwand Nord",
+   "box": [
+    0,
+    539,
+    -250,
+    325,
+    575,
+    0
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 23,
+   "id": "T23",
+   "kat": "sockel",
+   "name": "Kelleraussenwand West",
+   "box": [
+    0,
+    36,
+    -250,
+    36,
+    539,
+    0
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 24,
+   "id": "T24",
+   "kat": "sockel",
+   "name": "Kelleraussenwand Ost",
+   "box": [
+    289,
+    36,
+    -250,
+    325,
+    539,
+    0
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 25,
+   "id": "T25",
+   "kat": "decke",
+   "name": "Kellersohle",
+   "box": [
+    0,
+    0,
+    -280,
+    325,
+    575,
+    -250
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 26,
+   "id": "T26",
+   "kat": "dach",
+   "name": "Flachdach-Abdichtung",
+   "box": [
+    0,
+    0,
+    945,
+    325,
+    575,
+    949
+   ],
+   "material": "dach_flach"
+  },
+  {
+   "nr": 27,
+   "id": "T27",
+   "kat": "dach",
+   "name": "Attika Sued",
+   "box": [
+    0,
+    0,
+    945,
+    325,
+    36,
+    990
+   ],
+   "material": "attika_blende"
+  },
+  {
+   "nr": 28,
+   "id": "T28",
+   "kat": "dach",
+   "name": "Attika Nord",
+   "box": [
+    0,
+    539,
+    945,
+    325,
+    575,
+    990
+   ],
+   "material": "attika_blende"
+  },
+  {
+   "nr": 29,
+   "id": "T29",
+   "kat": "dach",
+   "name": "Attika West",
+   "box": [
+    0,
+    36,
+    945,
+    36,
+    539,
+    990
+   ],
+   "material": "attika_blende"
+  },
+  {
+   "nr": 30,
+   "id": "T30",
+   "kat": "dach",
+   "name": "Attika Ost",
+   "box": [
+    289,
+    36,
+    945,
+    325,
+    539,
+    990
+   ],
+   "material": "attika_blende"
+  },
+  {
+   "nr": 31,
+   "id": "T31",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer Fenster E0-1 (110x140, BRH 90)",
+   "ziel": "T05",
+   "box": [
+    283,
+    235.0,
+    90,
+    331,
+    345.0,
+    230
+   ],
+   "quelle": "INFERIERT",
+   "oeffnung": 1
+  },
+  {
+   "nr": 32,
+   "id": "T32",
+   "kat": "rahmen",
+   "name": "Rahmen unten Fenster E0-1 (110x140, BRH 90)",
+   "box": [
+    303.0,
+    235.0,
+    90,
+    311.0,
+    345.0,
+    97
+   ],
+   "material": "rahmen",
+   "oeffnung": 1
+  },
+  {
+   "nr": 33,
+   "id": "T33",
+   "kat": "rahmen",
+   "name": "Rahmen oben Fenster E0-1 (110x140, BRH 90)",
+   "box": [
+    303.0,
+    235.0,
+    223,
+    311.0,
+    345.0,
+    230
+   ],
+   "material": "rahmen",
+   "oeffnung": 1
+  },
+  {
+   "nr": 34,
+   "id": "T34",
+   "kat": "rahmen",
+   "name": "Rahmen links Fenster E0-1 (110x140, BRH 90)",
+   "box": [
+    303.0,
+    235.0,
+    90,
+    311.0,
+    242.0,
+    230
+   ],
+   "material": "rahmen",
+   "oeffnung": 1
+  },
+  {
+   "nr": 35,
+   "id": "T35",
+   "kat": "rahmen",
+   "name": "Rahmen rechts Fenster E0-1 (110x140, BRH 90)",
+   "box": [
+    303.0,
+    338.0,
+    90,
+    311.0,
+    345.0,
+    230
+   ],
+   "material": "rahmen",
+   "oeffnung": 1
+  },
+  {
+   "nr": 36,
+   "id": "T36",
+   "kat": "glas",
+   "name": "Glas Fenster E0-1 (110x140, BRH 90)",
+   "box": [
+    306.4,
+    242.0,
+    97,
+    307.6,
+    338.0,
+    223
+   ],
+   "material": "glas",
+   "oeffnung": 1
+  },
+  {
+   "nr": 37,
+   "id": "T37",
+   "kat": "detail",
+   "name": "Rollladen 60 % Fenster E0-1 (110x140, BRH 90)",
+   "box": [
+    313.0,
+    237.0,
+    147.4,
+    315.0,
+    343.0,
+    228
+   ],
+   "material": "rollladen",
+   "oeffnung": 1
+  },
+  {
+   "nr": 38,
+   "id": "T38",
+   "kat": "detail",
+   "name": "Fensterbank Fenster E0-1 (110x140, BRH 90)",
+   "box": [
+    311.0,
+    232.0,
+    87,
+    329,
+    348.0,
+    90
+   ],
+   "material": "fensterbank",
+   "oeffnung": 1
+  },
+  {
+   "nr": 39,
+   "id": "T39",
+   "kat": "innen",
+   "name": "Innenraum Fenster E0-1 (110x140, BRH 90)",
+   "box": [
+    209,
+    237.0,
+    92,
+    288,
+    343.0,
+    228
+   ],
+   "material": "innen",
+   "oeffnung": 1
+  },
+  {
+   "nr": 40,
+   "id": "T40",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer Fenster E1-2 (110x140, BRH 90)",
+   "ziel": "T09",
+   "box": [
+    283,
+    235.0,
+    405,
+    331,
+    345.0,
+    545
+   ],
+   "quelle": "INFERIERT",
+   "oeffnung": 2
+  },
+  {
+   "nr": 41,
+   "id": "T41",
+   "kat": "rahmen",
+   "name": "Rahmen unten Fenster E1-2 (110x140, BRH 90)",
+   "box": [
+    303.0,
+    235.0,
+    405,
+    311.0,
+    345.0,
+    412
+   ],
+   "material": "rahmen",
+   "oeffnung": 2
+  },
+  {
+   "nr": 42,
+   "id": "T42",
+   "kat": "rahmen",
+   "name": "Rahmen oben Fenster E1-2 (110x140, BRH 90)",
+   "box": [
+    303.0,
+    235.0,
+    538,
+    311.0,
+    345.0,
+    545
+   ],
+   "material": "rahmen",
+   "oeffnung": 2
+  },
+  {
+   "nr": 43,
+   "id": "T43",
+   "kat": "rahmen",
+   "name": "Rahmen links Fenster E1-2 (110x140, BRH 90)",
+   "box": [
+    303.0,
+    235.0,
+    405,
+    311.0,
+    242.0,
+    545
+   ],
+   "material": "rahmen",
+   "oeffnung": 2
+  },
+  {
+   "nr": 44,
+   "id": "T44",
+   "kat": "rahmen",
+   "name": "Rahmen rechts Fenster E1-2 (110x140, BRH 90)",
+   "box": [
+    303.0,
+    338.0,
+    405,
+    311.0,
+    345.0,
+    545
+   ],
+   "material": "rahmen",
+   "oeffnung": 2
+  },
+  {
+   "nr": 45,
+   "id": "T45",
+   "kat": "glas",
+   "name": "Glas Fenster E1-2 (110x140, BRH 90)",
+   "box": [
+    306.4,
+    242.0,
+    412,
+    307.6,
+    338.0,
+    538
+   ],
+   "material": "glas",
+   "oeffnung": 2
+  },
+  {
+   "nr": 46,
+   "id": "T46",
+   "kat": "detail",
+   "name": "Rollladen 60 % Fenster E1-2 (110x140, BRH 90)",
+   "box": [
+    313.0,
+    237.0,
+    462.4,
+    315.0,
+    343.0,
+    543
+   ],
+   "material": "rollladen",
+   "oeffnung": 2
+  },
+  {
+   "nr": 47,
+   "id": "T47",
+   "kat": "detail",
+   "name": "Fensterbank Fenster E1-2 (110x140, BRH 90)",
+   "box": [
+    311.0,
+    232.0,
+    402,
+    329,
+    348.0,
+    405
+   ],
+   "material": "fensterbank",
+   "oeffnung": 2
+  },
+  {
+   "nr": 48,
+   "id": "T48",
+   "kat": "innen",
+   "name": "Innenraum Fenster E1-2 (110x140, BRH 90)",
+   "box": [
+    209,
+    237.0,
+    407,
+    288,
+    343.0,
+    543
+   ],
+   "material": "innen",
+   "oeffnung": 2
+  },
+  {
+   "nr": 49,
+   "id": "T49",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer Fenster E2-3 (110x140, BRH 90)",
+   "ziel": "T13",
+   "box": [
+    283,
+    235.0,
+    720,
+    331,
+    345.0,
+    860
+   ],
+   "quelle": "INFERIERT",
+   "oeffnung": 3
+  },
+  {
+   "nr": 50,
+   "id": "T50",
+   "kat": "rahmen",
+   "name": "Rahmen unten Fenster E2-3 (110x140, BRH 90)",
+   "box": [
+    303.0,
+    235.0,
+    720,
+    311.0,
+    345.0,
+    727
+   ],
+   "material": "rahmen",
+   "oeffnung": 3
+  },
+  {
+   "nr": 51,
+   "id": "T51",
+   "kat": "rahmen",
+   "name": "Rahmen oben Fenster E2-3 (110x140, BRH 90)",
+   "box": [
+    303.0,
+    235.0,
+    853,
+    311.0,
+    345.0,
+    860
+   ],
+   "material": "rahmen",
+   "oeffnung": 3
+  },
+  {
+   "nr": 52,
+   "id": "T52",
+   "kat": "rahmen",
+   "name": "Rahmen links Fenster E2-3 (110x140, BRH 90)",
+   "box": [
+    303.0,
+    235.0,
+    720,
+    311.0,
+    242.0,
+    860
+   ],
+   "material": "rahmen",
+   "oeffnung": 3
+  },
+  {
+   "nr": 53,
+   "id": "T53",
+   "kat": "rahmen",
+   "name": "Rahmen rechts Fenster E2-3 (110x140, BRH 90)",
+   "box": [
+    303.0,
+    338.0,
+    720,
+    311.0,
+    345.0,
+    860
+   ],
+   "material": "rahmen",
+   "oeffnung": 3
+  },
+  {
+   "nr": 54,
+   "id": "T54",
+   "kat": "glas",
+   "name": "Glas Fenster E2-3 (110x140, BRH 90)",
+   "box": [
+    306.4,
+    242.0,
+    727,
+    307.6,
+    338.0,
+    853
+   ],
+   "material": "glas",
+   "oeffnung": 3
+  },
+  {
+   "nr": 55,
+   "id": "T55",
+   "kat": "detail",
+   "name": "Rollladen 60 % Fenster E2-3 (110x140, BRH 90)",
+   "box": [
+    313.0,
+    237.0,
+    777.4,
+    315.0,
+    343.0,
+    858
+   ],
+   "material": "rollladen",
+   "oeffnung": 3
+  },
+  {
+   "nr": 56,
+   "id": "T56",
+   "kat": "detail",
+   "name": "Fensterbank Fenster E2-3 (110x140, BRH 90)",
+   "box": [
+    311.0,
+    232.0,
+    717,
+    329,
+    348.0,
+    720
+   ],
+   "material": "fensterbank",
+   "oeffnung": 3
+  },
+  {
+   "nr": 57,
+   "id": "T57",
+   "kat": "innen",
+   "name": "Innenraum Fenster E2-3 (110x140, BRH 90)",
+   "box": [
+    209,
+    237.0,
+    722,
+    288,
+    343.0,
+    858
+   ],
+   "material": "innen",
+   "oeffnung": 3
+  },
+  {
+   "nr": 58,
+   "id": "T58",
+   "kat": "gelaende",
+   "name": "Rasen",
+   "box": [
+    -3000,
+    -3000,
+    -3,
+    3325,
+    3575,
+    0
+   ],
+   "material": "rasen"
+  },
+  {
+   "nr": 59,
+   "id": "T59",
+   "kat": "gelaende",
+   "name": "Gehweg",
+   "box": [
+    -3000,
+    -1600,
+    -2,
+    3325,
+    -1400,
+    0.5
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 60,
+   "id": "T60",
+   "kat": "gelaende",
+   "name": "Strasse",
+   "box": [
+    -3000,
+    -2400,
+    -2,
+    3325,
+    -1600,
+    0.5
+   ],
+   "material": "asphalt"
+  },
+  {
+   "nr": 61,
+   "id": "T61",
+   "kat": "grundstueck",
+   "name": "Grundstuecksgrenze Sued",
+   "box": [
+    -500,
+    -1400,
+    -0.5,
+    825,
+    -1399,
+    0.5
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 62,
+   "id": "T62",
+   "kat": "grundstueck",
+   "name": "Grundstuecksgrenze Nord",
+   "box": [
+    -500,
+    1574,
+    -0.5,
+    825,
+    1575,
+    0.5
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 63,
+   "id": "T63",
+   "kat": "grundstueck",
+   "name": "Grundstuecksgrenze West",
+   "box": [
+    -500,
+    -1400,
+    -0.5,
+    -499,
+    1575,
+    0.5
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 64,
+   "id": "T64",
+   "kat": "grundstueck",
+   "name": "Grundstuecksgrenze Ost",
+   "box": [
+    824,
+    -1400,
+    -0.5,
+    825,
+    1575,
+    0.5
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 65,
+   "id": "T65",
+   "kat": "grundstueck",
+   "name": "Terrasse Nord",
+   "box": [
+    73.1,
+    575,
+    -2,
+    251.9,
+    925,
+    6
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 66,
+   "id": "T66",
+   "kat": "garten",
+   "name": "Hecke West",
+   "box": [
+    -500,
+    -1200,
+    0,
+    -440,
+    1575,
+    100
+   ],
+   "material": "hecke"
+  },
+  {
+   "nr": 67,
+   "id": "T67",
+   "kat": "garten",
+   "name": "Hecke Ost",
+   "box": [
+    765,
+    -1200,
+    0,
+    825,
+    1575,
+    100
+   ],
+   "material": "hecke"
+  },
+  {
+   "nr": 68,
+   "id": "T68",
+   "kat": "garten",
+   "name": "Hecke Nord",
+   "box": [
+    -500,
+    1515,
+    0,
+    825,
+    1575,
+    100
+   ],
+   "material": "hecke"
+  },
+  {
+   "nr": 69,
+   "id": "T69",
+   "kat": "garten",
+   "name": "Hecke Sued 1",
+   "box": [
+    -500,
+    -1390,
+    0,
+    825,
+    -1330,
+    80
+   ],
+   "material": "hecke"
+  },
+  {
+   "nr": 70,
+   "id": "T70",
+   "kat": "garten",
+   "name": "Gartenweg",
+   "box": [
+    112.5,
+    925,
+    -1,
+    212.5,
+    1495,
+    1
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 71,
+   "id": "T71",
+   "kat": "kamera",
+   "name": "Kamera Front (3/4 von Suedwest, im Grundstueck, Augenhoehe)",
+   "pos": [
+    -410,
+    -1270,
+    165
+   ],
+   "ziel": [
+    162.5,
+    143.75,
+    432.5
+   ],
+   "brennweite_mm": 26
+  },
+  {
+   "nr": 72,
+   "id": "T72",
+   "kat": "kamera",
+   "name": "Kamera Rueck (3/4 von Nordost, im Grundstueck)",
+   "pos": [
+    735,
+    1465,
+    165
+   ],
+   "ziel": [
+    162.5,
+    402.5,
+    532.5
+   ],
+   "brennweite_mm": 21
+  },
+  {
+   "nr": 73,
+   "id": "T73",
+   "kat": "kamera",
+   "name": "Kamera Ansicht Sued (orthografisch, Elevation)",
+   "pos": [
+    162.5,
+    -3000,
+    472.5
+   ],
+   "ziel": [
+    162.5,
+    0,
+    472.5
+   ],
+   "ortho_cm": 1400
+  },
+  {
+   "nr": 74,
+   "id": "T74",
+   "kat": "kamera",
+   "name": "Kamera Ansicht Nord (orthografisch, Elevation)",
+   "pos": [
+    162.5,
+    3575,
+    472.5
+   ],
+   "ziel": [
+    162.5,
+    575,
+    472.5
+   ],
+   "ortho_cm": 1400
+  },
+  {
+   "nr": 75,
+   "id": "T75",
+   "kat": "licht",
+   "name": "Sonne (Azimut 215, Hoehe 42)",
+   "azimut": 215,
+   "hoehe": 42,
+   "staerke": 4.0
+  },
+  {
+   "nr": 76,
+   "id": "T76",
+   "kat": "treppe",
+   "name": "Kellertreppe Stufe 1",
+   "box": [
+    190,
+    37.0,
+    -250.0,
+    290,
+    64.3,
+    -232.1
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 77,
+   "id": "T77",
+   "kat": "treppe",
+   "name": "Kellertreppe Stufe 2",
+   "box": [
+    190,
+    64.3,
+    -232.1,
+    290,
+    91.6,
+    -214.3
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 78,
+   "id": "T78",
+   "kat": "treppe",
+   "name": "Kellertreppe Stufe 3",
+   "box": [
+    190,
+    91.6,
+    -214.3,
+    290,
+    118.9,
+    -196.4
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 79,
+   "id": "T79",
+   "kat": "treppe",
+   "name": "Kellertreppe Stufe 4",
+   "box": [
+    190,
+    118.9,
+    -196.4,
+    290,
+    146.1,
+    -178.6
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 80,
+   "id": "T80",
+   "kat": "treppe",
+   "name": "Kellertreppe Stufe 5",
+   "box": [
+    190,
+    146.1,
+    -178.6,
+    290,
+    173.4,
+    -160.7
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 81,
+   "id": "T81",
+   "kat": "treppe",
+   "name": "Kellertreppe Stufe 6",
+   "box": [
+    190,
+    173.4,
+    -160.7,
+    290,
+    200.7,
+    -142.9
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 82,
+   "id": "T82",
+   "kat": "treppe",
+   "name": "Kellertreppe Stufe 7",
+   "box": [
+    190,
+    200.7,
+    -142.9,
+    290,
+    228.0,
+    -125.0
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 83,
+   "id": "T83",
+   "kat": "treppe",
+   "name": "Kellertreppe Stufe 8",
+   "box": [
+    190,
+    228.0,
+    -125.0,
+    290,
+    255.3,
+    -107.1
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 84,
+   "id": "T84",
+   "kat": "treppe",
+   "name": "Kellertreppe Stufe 9",
+   "box": [
+    190,
+    255.3,
+    -107.1,
+    290,
+    282.6,
+    -89.3
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 85,
+   "id": "T85",
+   "kat": "treppe",
+   "name": "Kellertreppe Stufe 10",
+   "box": [
+    190,
+    282.6,
+    -89.3,
+    290,
+    309.9,
+    -71.4
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 86,
+   "id": "T86",
+   "kat": "treppe",
+   "name": "Kellertreppe Stufe 11",
+   "box": [
+    190,
+    309.9,
+    -71.4,
+    290,
+    337.1,
+    -53.6
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 87,
+   "id": "T87",
+   "kat": "treppe",
+   "name": "Kellertreppe Stufe 12",
+   "box": [
+    190,
+    337.1,
+    -53.6,
+    290,
+    364.4,
+    -35.7
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 88,
+   "id": "T88",
+   "kat": "treppe",
+   "name": "Kellertreppe Stufe 13",
+   "box": [
+    190,
+    364.4,
+    -35.7,
+    290,
+    391.7,
+    -17.9
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 89,
+   "id": "T89",
+   "kat": "treppe",
+   "name": "Kellertreppe Stufe 14",
+   "box": [
+    190,
+    391.7,
+    -17.9,
+    290,
+    419.0,
+    0.0
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 90,
+   "id": "T90",
+   "kat": "treppe",
+   "name": "Kellertreppe Handlauf",
+   "box": [
+    188,
+    37.0,
+    -160,
+    192,
+    419,
+    90
+   ],
+   "material": "stahl"
+  },
+  {
+   "nr": 91,
+   "id": "T91",
+   "kat": "fundament",
+   "name": "Bodenplatte Stueck 2 (um Kellertreppe)",
+   "box": [
+    300,
+    0,
+    -20,
+    325,
+    575,
+    0
+   ],
+   "material": "beton"
+  },
+  {
+   "nr": 92,
+   "id": "T92",
+   "kat": "fundament",
+   "name": "Bodenplatte Stueck 3 (um Kellertreppe)",
+   "box": [
+    180,
+    0,
+    -20,
+    300,
+    59.3,
+    0
+   ],
+   "material": "beton"
+  },
+  {
+   "nr": 93,
+   "id": "T93",
+   "kat": "fundament",
+   "name": "Bodenplatte Stueck 4 (um Kellertreppe)",
+   "box": [
+    180,
+    419,
+    -20,
+    300,
+    575,
+    0
+   ],
+   "material": "beton"
+  },
+  {
+   "nr": 94,
+   "id": "T94",
+   "kat": "gelaender",
+   "name": "Absturzsicherung Kellertreppe O",
+   "box": [
+    296,
+    59.3,
+    2,
+    300,
+    419,
+    100
+   ],
+   "material": "stahl"
+  },
+  {
+   "nr": 95,
+   "id": "T95",
+   "kat": "gelaender",
+   "name": "Absturzsicherung Kellertreppe W",
+   "box": [
+    180,
+    59.3,
+    2,
+    184,
+    419,
+    100
+   ],
+   "material": "stahl"
+  },
+  {
+   "nr": 96,
+   "id": "T96",
+   "kat": "gelaender",
+   "name": "Absturzsicherung Kellertreppe S",
+   "box": [
+    180,
+    59.3,
+    2,
+    300,
+    63.3,
+    100
+   ],
+   "material": "stahl"
+  }
+ ]
+}

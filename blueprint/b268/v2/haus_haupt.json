@@ -1,0 +1,505 @@
+{
+ "meta": {
+  "name": "Hauptblock",
+  "kennung": "b268_haupt",
+  "vorlage": "fotohaus",
+  "adresse": "B268 Nr. 9, Riegelsberg",
+  "fiktiv": false,
+  "materialien": {
+   "fassade": "Putz grau",
+   "dach": "Flachdach",
+   "fenster": "Alu anthrazit",
+   "tuer": "Alu anthrazit"
+  }
+ },
+ "breite_cm": 2525,
+ "tiefe_cm": 2475,
+ "geschosse": 3,
+ "geschosshoehe_cm": 290,
+ "deckenstaerke_cm": 25,
+ "aussenwand_cm": 36,
+ "sockel_cm": 60,
+ "dach": {
+  "typ": "flach",
+  "attika_cm": 45,
+  "ueberstand_cm": 0
+ },
+ "oeffnungen": [
+  {
+   "seite": "N",
+   "geschoss": 0,
+   "typ": "balkontuer",
+   "pos_cm": 250,
+   "b_cm": 110,
+   "h_cm": 230,
+   "bruestung_cm": 0,
+   "quelle": "Fotos + Satellitenbild, geschaetzt",
+   "rollladen": 0
+  },
+  {
+   "seite": "N",
+   "geschoss": 0,
+   "typ": "fenster",
+   "pos_cm": 445,
+   "b_cm": 100,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "Fotos + Satellitenbild, geschaetzt",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "N",
+   "geschoss": 0,
+   "typ": "balkontuer",
+   "pos_cm": 800,
+   "b_cm": 110,
+   "h_cm": 230,
+   "bruestung_cm": 0,
+   "quelle": "Fotos + Satellitenbild, geschaetzt",
+   "rollladen": 0
+  },
+  {
+   "seite": "N",
+   "geschoss": 0,
+   "typ": "fenster",
+   "pos_cm": 995,
+   "b_cm": 100,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "Fotos + Satellitenbild, geschaetzt",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "N",
+   "geschoss": 0,
+   "typ": "balkontuer",
+   "pos_cm": 1350,
+   "b_cm": 110,
+   "h_cm": 230,
+   "bruestung_cm": 0,
+   "quelle": "Fotos + Satellitenbild, geschaetzt",
+   "rollladen": 0
+  },
+  {
+   "seite": "N",
+   "geschoss": 0,
+   "typ": "fenster",
+   "pos_cm": 1545,
+   "b_cm": 100,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "Fotos + Satellitenbild, geschaetzt",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "N",
+   "geschoss": 0,
+   "typ": "balkontuer",
+   "pos_cm": 1900,
+   "b_cm": 110,
+   "h_cm": 230,
+   "bruestung_cm": 0,
+   "quelle": "Fotos + Satellitenbild, geschaetzt",
+   "rollladen": 0
+  },
+  {
+   "seite": "N",
+   "geschoss": 0,
+   "typ": "fenster",
+   "pos_cm": 2095,
+   "b_cm": 100,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "Fotos + Satellitenbild, geschaetzt",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "S",
+   "geschoss": 0,
+   "typ": "fenster",
+   "pos_cm": 300,
+   "b_cm": 110,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "INFERIERT",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "S",
+   "geschoss": 0,
+   "typ": "fenster",
+   "pos_cm": 750,
+   "b_cm": 110,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "INFERIERT",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "S",
+   "geschoss": 0,
+   "typ": "fenster",
+   "pos_cm": 1150,
+   "b_cm": 110,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "INFERIERT",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "S",
+   "geschoss": 0,
+   "typ": "fenster",
+   "pos_cm": 2150,
+   "b_cm": 110,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "INFERIERT",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "S",
+   "geschoss": 0,
+   "typ": "balkontuer",
+   "pos_cm": 1700,
+   "b_cm": 150,
+   "h_cm": 230,
+   "bruestung_cm": 0,
+   "quelle": "Fotos + Satellitenbild, geschaetzt",
+   "rollladen": 0
+  },
+  {
+   "seite": "N",
+   "geschoss": 1,
+   "typ": "balkontuer",
+   "pos_cm": 250,
+   "b_cm": 110,
+   "h_cm": 230,
+   "bruestung_cm": 0,
+   "quelle": "Fotos + Satellitenbild, geschaetzt",
+   "rollladen": 0
+  },
+  {
+   "seite": "N",
+   "geschoss": 1,
+   "typ": "fenster",
+   "pos_cm": 445,
+   "b_cm": 100,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "Fotos + Satellitenbild, geschaetzt",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "N",
+   "geschoss": 1,
+   "typ": "balkontuer",
+   "pos_cm": 800,
+   "b_cm": 110,
+   "h_cm": 230,
+   "bruestung_cm": 0,
+   "quelle": "Fotos + Satellitenbild, geschaetzt",
+   "rollladen": 0
+  },
+  {
+   "seite": "N",
+   "geschoss": 1,
+   "typ": "fenster",
+   "pos_cm": 995,
+   "b_cm": 100,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "Fotos + Satellitenbild, geschaetzt",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "N",
+   "geschoss": 1,
+   "typ": "balkontuer",
+   "pos_cm": 1350,
+   "b_cm": 110,
+   "h_cm": 230,
+   "bruestung_cm": 0,
+   "quelle": "Fotos + Satellitenbild, geschaetzt",
+   "rollladen": 0
+  },
+  {
+   "seite": "N",
+   "geschoss": 1,
+   "typ": "fenster",
+   "pos_cm": 1545,
+   "b_cm": 100,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "Fotos + Satellitenbild, geschaetzt",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "N",
+   "geschoss": 1,
+   "typ": "balkontuer",
+   "pos_cm": 1900,
+   "b_cm": 110,
+   "h_cm": 230,
+   "bruestung_cm": 0,
+   "quelle": "Fotos + Satellitenbild, geschaetzt",
+   "rollladen": 0
+  },
+  {
+   "seite": "N",
+   "geschoss": 1,
+   "typ": "fenster",
+   "pos_cm": 2095,
+   "b_cm": 100,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "Fotos + Satellitenbild, geschaetzt",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "S",
+   "geschoss": 1,
+   "typ": "fenster",
+   "pos_cm": 300,
+   "b_cm": 110,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "INFERIERT",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "S",
+   "geschoss": 1,
+   "typ": "fenster",
+   "pos_cm": 750,
+   "b_cm": 110,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "INFERIERT",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "S",
+   "geschoss": 1,
+   "typ": "fenster",
+   "pos_cm": 1150,
+   "b_cm": 110,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "INFERIERT",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "S",
+   "geschoss": 1,
+   "typ": "fenster",
+   "pos_cm": 2150,
+   "b_cm": 110,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "INFERIERT",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "S",
+   "geschoss": 1,
+   "typ": "balkontuer",
+   "pos_cm": 1700,
+   "b_cm": 150,
+   "h_cm": 230,
+   "bruestung_cm": 0,
+   "quelle": "Fotos + Satellitenbild, geschaetzt",
+   "rollladen": 0
+  },
+  {
+   "seite": "N",
+   "geschoss": 2,
+   "typ": "balkontuer",
+   "pos_cm": 250,
+   "b_cm": 110,
+   "h_cm": 230,
+   "bruestung_cm": 0,
+   "quelle": "Fotos + Satellitenbild, geschaetzt",
+   "rollladen": 0
+  },
+  {
+   "seite": "N",
+   "geschoss": 2,
+   "typ": "fenster",
+   "pos_cm": 445,
+   "b_cm": 100,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "Fotos + Satellitenbild, geschaetzt",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "N",
+   "geschoss": 2,
+   "typ": "balkontuer",
+   "pos_cm": 800,
+   "b_cm": 110,
+   "h_cm": 230,
+   "bruestung_cm": 0,
+   "quelle": "Fotos + Satellitenbild, geschaetzt",
+   "rollladen": 0
+  },
+  {
+   "seite": "N",
+   "geschoss": 2,
+   "typ": "fenster",
+   "pos_cm": 995,
+   "b_cm": 100,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "Fotos + Satellitenbild, geschaetzt",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "N",
+   "geschoss": 2,
+   "typ": "balkontuer",
+   "pos_cm": 1350,
+   "b_cm": 110,
+   "h_cm": 230,
+   "bruestung_cm": 0,
+   "quelle": "Fotos + Satellitenbild, geschaetzt",
+   "rollladen": 0
+  },
+  {
+   "seite": "N",
+   "geschoss": 2,
+   "typ": "fenster",
+   "pos_cm": 1545,
+   "b_cm": 100,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "Fotos + Satellitenbild, geschaetzt",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "N",
+   "geschoss": 2,
+   "typ": "balkontuer",
+   "pos_cm": 1900,
+   "b_cm": 110,
+   "h_cm": 230,
+   "bruestung_cm": 0,
+   "quelle": "Fotos + Satellitenbild, geschaetzt",
+   "rollladen": 0
+  },
+  {
+   "seite": "N",
+   "geschoss": 2,
+   "typ": "fenster",
+   "pos_cm": 2095,
+   "b_cm": 100,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "Fotos + Satellitenbild, geschaetzt",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "S",
+   "geschoss": 2,
+   "typ": "fenster",
+   "pos_cm": 300,
+   "b_cm": 110,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "INFERIERT",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "S",
+   "geschoss": 2,
+   "typ": "fenster",
+   "pos_cm": 750,
+   "b_cm": 110,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "INFERIERT",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "S",
+   "geschoss": 2,
+   "typ": "fenster",
+   "pos_cm": 1150,
+   "b_cm": 110,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "INFERIERT",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "S",
+   "geschoss": 2,
+   "typ": "fenster",
+   "pos_cm": 2150,
+   "b_cm": 110,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "INFERIERT",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "S",
+   "geschoss": 2,
+   "typ": "balkontuer",
+   "pos_cm": 1700,
+   "b_cm": 150,
+   "h_cm": 230,
+   "bruestung_cm": 0,
+   "quelle": "Fotos + Satellitenbild, geschaetzt",
+   "rollladen": 0
+  },
+  {
+   "seite": "N",
+   "geschoss": 0,
+   "typ": "haustuer",
+   "pos_cm": 2350,
+   "b_cm": 110,
+   "h_cm": 220,
+   "bruestung_cm": 0,
+   "quelle": "Fotos + Satellitenbild, geschaetzt",
+   "rollladen": 0
+  }
+ ],
+ "balkone": [],
+ "materialien": {
+  "fassade": "Putz grau",
+  "dach": "Flachdach",
+  "fenster": "Alu anthrazit",
+  "tuer": "Alu anthrazit"
+ },
+ "sockel_material": "putz",
+ "fenster_teilung": {
+  "fluegel_ab_cm": 120
+ },
+ "gelaende": {
+  "ecken_cm": {
+   "SW": 0,
+   "NW": 0,
+   "SE": 0,
+   "NE": 0
+  },
+  "quelle": "eben"
+ },
+ "grundstueck": "M",
+ "treppe": true,
+ "treppe_x_cm": 1262,
+ "details": true,
+ "keller": {
+  "tiefe_cm": 250,
+  "tueren": [],
+  "fenster": [],
+  "tore": []
+ },
+ "loggien": [],
+ "anbau_garagen": [],
+ "baeume": [],
+ "front_seite": "S",
+ "giebeltueren": [],
+ "dg_ausbau": false
+}

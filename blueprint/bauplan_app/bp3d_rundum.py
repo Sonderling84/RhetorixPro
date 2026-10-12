@@ -84,7 +84,7 @@ K = [
     ('elev_west', 'Ansicht West (Seitenfassade)', cam('Ansicht W', (-60, D / 2, F / 2), ziel=(0, D / 2, F / 2), ortho=R * 1.2)),
     ('elev_ost', 'Ansicht Ost', cam('Ansicht O', (W + 60, D / 2, F / 2), ziel=(W, D / 2, F / 2), ortho=R * 1.2)),
     ('elev_nord', 'Ansicht Nord (Rueckseite)', cam('Ansicht N', (W / 2, D + 60, F / 2), ziel=(W / 2, D, F / 2), ortho=R * 1.2)),
-    ('drauf', 'Draufsicht (Dach + Roentgen)', cam('Drauf', (W / 2, D / 2, 80), ziel=(W / 2, D / 2 + 0.001, 0), ortho=R * 1.25)),
+    ('drauf', 'Draufsicht (Dach + Roentgen)', cam('Drauf', (W / 2, D / 2, 80), ziel=(W / 2, D / 2 + 0.001, 0), ortho=max(W, D * 4 / 3) * 1.12)   # 4:3-Bild: Hoehe darf nicht abgeschnitten werden),
 ]
 nur = [k for k in os.environ.get('BP3D_KAMERAS', '').split(',') if k]
 for key, titel, c in K:

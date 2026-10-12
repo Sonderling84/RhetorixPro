@@ -1,0 +1,362 @@
+{
+ "meta": {
+  "name": "Nordfluegel",
+  "kennung": "b268_nord",
+  "vorlage": "fotohaus",
+  "adresse": "B268 Nr. 9, Riegelsberg",
+  "fiktiv": false,
+  "materialien": {
+   "fassade": "Putz grau",
+   "dach": "Flachdach",
+   "fenster": "Alu anthrazit",
+   "tuer": "Alu anthrazit"
+  }
+ },
+ "breite_cm": 2600,
+ "tiefe_cm": 675,
+ "geschosse": 3,
+ "geschosshoehe_cm": 290,
+ "deckenstaerke_cm": 25,
+ "aussenwand_cm": 36,
+ "sockel_cm": 60,
+ "dach": {
+  "typ": "flach",
+  "attika_cm": 45,
+  "ueberstand_cm": 0
+ },
+ "oeffnungen": [
+  {
+   "seite": "N",
+   "geschoss": 0,
+   "typ": "fenster",
+   "pos_cm": 300,
+   "b_cm": 110,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "INFERIERT",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "N",
+   "geschoss": 0,
+   "typ": "fenster",
+   "pos_cm": 630,
+   "b_cm": 110,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "INFERIERT",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "N",
+   "geschoss": 0,
+   "typ": "fenster",
+   "pos_cm": 960,
+   "b_cm": 110,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "INFERIERT",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "N",
+   "geschoss": 0,
+   "typ": "fenster",
+   "pos_cm": 1290,
+   "b_cm": 110,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "INFERIERT",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "N",
+   "geschoss": 0,
+   "typ": "fenster",
+   "pos_cm": 1620,
+   "b_cm": 110,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "INFERIERT",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "N",
+   "geschoss": 0,
+   "typ": "fenster",
+   "pos_cm": 1950,
+   "b_cm": 110,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "INFERIERT",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "N",
+   "geschoss": 0,
+   "typ": "fenster",
+   "pos_cm": 2280,
+   "b_cm": 110,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "INFERIERT",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "W",
+   "geschoss": 0,
+   "typ": "balkontuer",
+   "pos_cm": 340,
+   "b_cm": 150,
+   "h_cm": 230,
+   "bruestung_cm": 0,
+   "quelle": "Fotos + Satellitenbild, geschaetzt",
+   "rollladen": 0
+  },
+  {
+   "seite": "E",
+   "geschoss": 0,
+   "typ": "fenster",
+   "pos_cm": 340,
+   "b_cm": 110,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "INFERIERT",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "N",
+   "geschoss": 1,
+   "typ": "fenster",
+   "pos_cm": 300,
+   "b_cm": 110,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "INFERIERT",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "N",
+   "geschoss": 1,
+   "typ": "fenster",
+   "pos_cm": 630,
+   "b_cm": 110,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "INFERIERT",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "N",
+   "geschoss": 1,
+   "typ": "fenster",
+   "pos_cm": 960,
+   "b_cm": 110,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "INFERIERT",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "N",
+   "geschoss": 1,
+   "typ": "fenster",
+   "pos_cm": 1290,
+   "b_cm": 110,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "INFERIERT",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "N",
+   "geschoss": 1,
+   "typ": "fenster",
+   "pos_cm": 1620,
+   "b_cm": 110,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "INFERIERT",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "N",
+   "geschoss": 1,
+   "typ": "fenster",
+   "pos_cm": 1950,
+   "b_cm": 110,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "INFERIERT",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "N",
+   "geschoss": 1,
+   "typ": "fenster",
+   "pos_cm": 2280,
+   "b_cm": 110,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "INFERIERT",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "W",
+   "geschoss": 1,
+   "typ": "balkontuer",
+   "pos_cm": 340,
+   "b_cm": 150,
+   "h_cm": 230,
+   "bruestung_cm": 0,
+   "quelle": "Fotos + Satellitenbild, geschaetzt",
+   "rollladen": 0
+  },
+  {
+   "seite": "E",
+   "geschoss": 1,
+   "typ": "fenster",
+   "pos_cm": 340,
+   "b_cm": 110,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "INFERIERT",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "N",
+   "geschoss": 2,
+   "typ": "fenster",
+   "pos_cm": 300,
+   "b_cm": 110,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "INFERIERT",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "N",
+   "geschoss": 2,
+   "typ": "fenster",
+   "pos_cm": 630,
+   "b_cm": 110,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "INFERIERT",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "N",
+   "geschoss": 2,
+   "typ": "fenster",
+   "pos_cm": 960,
+   "b_cm": 110,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "INFERIERT",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "N",
+   "geschoss": 2,
+   "typ": "fenster",
+   "pos_cm": 1290,
+   "b_cm": 110,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "INFERIERT",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "N",
+   "geschoss": 2,
+   "typ": "fenster",
+   "pos_cm": 1620,
+   "b_cm": 110,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "INFERIERT",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "N",
+   "geschoss": 2,
+   "typ": "fenster",
+   "pos_cm": 1950,
+   "b_cm": 110,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "INFERIERT",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "N",
+   "geschoss": 2,
+   "typ": "fenster",
+   "pos_cm": 2280,
+   "b_cm": 110,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "INFERIERT",
+   "rollladen": 0.6
+  },
+  {
+   "seite": "W",
+   "geschoss": 2,
+   "typ": "balkontuer",
+   "pos_cm": 340,
+   "b_cm": 150,
+   "h_cm": 230,
+   "bruestung_cm": 0,
+   "quelle": "Fotos + Satellitenbild, geschaetzt",
+   "rollladen": 0
+  },
+  {
+   "seite": "E",
+   "geschoss": 2,
+   "typ": "fenster",
+   "pos_cm": 340,
+   "b_cm": 110,
+   "h_cm": 140,
+   "bruestung_cm": 90,
+   "quelle": "INFERIERT",
+   "rollladen": 0.6
+  }
+ ],
+ "balkone": [],
+ "materialien": {
+  "fassade": "Putz grau",
+  "dach": "Flachdach",
+  "fenster": "Alu anthrazit",
+  "tuer": "Alu anthrazit"
+ },
+ "sockel_material": "putz",
+ "fenster_teilung": {
+  "fluegel_ab_cm": 120
+ },
+ "gelaende": {
+  "ecken_cm": {
+   "SW": 0,
+   "NW": 0,
+   "SE": 0,
+   "NE": 0
+  },
+  "quelle": "eben"
+ },
+ "grundstueck": "M",
+ "treppe": true,
+ "treppe_x_cm": 1300,
+ "details": true,
+ "keller": {
+  "tiefe_cm": 250,
+  "tueren": [],
+  "fenster": [],
+  "tore": []
+ },
+ "loggien": [],
+ "anbau_garagen": [],
+ "baeume": [],
+ "front_seite": "S",
+ "giebeltueren": [],
+ "dg_ausbau": false
+}
