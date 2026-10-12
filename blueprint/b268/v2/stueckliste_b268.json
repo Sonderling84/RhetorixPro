@@ -17,7 +17,7 @@
    "nr": 1,
    "id": "K1T01",
    "kat": "fundament",
-   "name": "Strassenhaus Bodenplatte Stueck 1 (um Kellertreppe)",
+   "name": "Vorderhaus Bodenplatte Stueck 1 (um Kellertreppe)",
    "box": [
     6,
     6,
@@ -32,7 +32,7 @@
    "nr": 2,
    "id": "K1T02",
    "kat": "wand",
-   "name": "Strassenhaus Suedwand EG",
+   "name": "Vorderhaus Suedwand EG",
    "geschoss": 0,
    "seite": "S",
    "along": [
@@ -53,7 +53,7 @@
    "nr": 3,
    "id": "K1T03",
    "kat": "wand",
-   "name": "Strassenhaus Nordwand EG",
+   "name": "Vorderhaus Nordwand EG",
    "geschoss": 0,
    "seite": "N",
    "along": [
@@ -74,7 +74,7 @@
    "nr": 4,
    "id": "K1T04",
    "kat": "wand",
-   "name": "Strassenhaus Westwand EG",
+   "name": "Vorderhaus Westwand EG",
    "geschoss": 0,
    "seite": "W",
    "along": [
@@ -95,7 +95,7 @@
    "nr": 5,
    "id": "K1T05",
    "kat": "wand",
-   "name": "Strassenhaus Ostwand EG",
+   "name": "Vorderhaus Ostwand EG",
    "geschoss": 0,
    "seite": "E",
    "along": [
@@ -116,7 +116,7 @@
    "nr": 6,
    "id": "K1T06",
    "kat": "wand",
-   "name": "Strassenhaus Suedwand 1.OG",
+   "name": "Vorderhaus Suedwand 1.OG",
    "geschoss": 1,
    "seite": "S",
    "along": [
@@ -137,7 +137,7 @@
    "nr": 7,
    "id": "K1T07",
    "kat": "wand",
-   "name": "Strassenhaus Nordwand 1.OG",
+   "name": "Vorderhaus Nordwand 1.OG",
    "geschoss": 1,
    "seite": "N",
    "along": [
@@ -158,7 +158,7 @@
    "nr": 8,
    "id": "K1T08",
    "kat": "wand",
-   "name": "Strassenhaus Westwand 1.OG",
+   "name": "Vorderhaus Westwand 1.OG",
    "geschoss": 1,
    "seite": "W",
    "along": [
@@ -179,7 +179,7 @@
    "nr": 9,
    "id": "K1T09",
    "kat": "wand",
-   "name": "Strassenhaus Ostwand 1.OG",
+   "name": "Vorderhaus Ostwand 1.OG",
    "geschoss": 1,
    "seite": "E",
    "along": [
@@ -200,7 +200,7 @@
    "nr": 10,
    "id": "K1T10",
    "kat": "wand",
-   "name": "Strassenhaus Suedwand 2.OG",
+   "name": "Vorderhaus Suedwand 2.OG",
    "geschoss": 2,
    "seite": "S",
    "along": [
@@ -221,7 +221,7 @@
    "nr": 11,
    "id": "K1T11",
    "kat": "wand",
-   "name": "Strassenhaus Nordwand 2.OG",
+   "name": "Vorderhaus Nordwand 2.OG",
    "geschoss": 2,
    "seite": "N",
    "along": [
@@ -242,7 +242,7 @@
    "nr": 12,
    "id": "K1T12",
    "kat": "wand",
-   "name": "Strassenhaus Westwand 2.OG",
+   "name": "Vorderhaus Westwand 2.OG",
    "geschoss": 2,
    "seite": "W",
    "along": [
@@ -263,7 +263,7 @@
    "nr": 13,
    "id": "K1T13",
    "kat": "wand",
-   "name": "Strassenhaus Ostwand 2.OG",
+   "name": "Vorderhaus Ostwand 2.OG",
    "geschoss": 2,
    "seite": "E",
    "along": [
@@ -284,7 +284,7 @@
    "nr": 14,
    "id": "K1T14",
    "kat": "decke",
-   "name": "Strassenhaus Decke ueber EG Stueck 1 (um Treppenloch)",
+   "name": "Vorderhaus Decke ueber EG Stueck 1 (um Treppenloch)",
    "box": [
     6,
     6,
@@ -299,7 +299,7 @@
    "nr": 15,
    "id": "K1T15",
    "kat": "decke",
-   "name": "Strassenhaus Decke ueber EG Stueck 2 (um Treppenloch)",
+   "name": "Vorderhaus Decke ueber EG Stueck 2 (um Treppenloch)",
    "box": [
     1766,
     6,
@@ -314,7 +314,7 @@
    "nr": 16,
    "id": "K1T16",
    "kat": "decke",
-   "name": "Strassenhaus Decke ueber EG Stueck 3 (um Treppenloch)",
+   "name": "Vorderhaus Decke ueber EG Stueck 3 (um Treppenloch)",
    "box": [
     1646,
     6,
@@ -329,7 +329,7 @@
    "nr": 17,
    "id": "K1T17",
    "kat": "decke",
-   "name": "Strassenhaus Decke ueber EG Stueck 4 (um Treppenloch)",
+   "name": "Vorderhaus Decke ueber EG Stueck 4 (um Treppenloch)",
    "box": [
     1646,
     838.0,
@@ -344,7 +344,7 @@
    "nr": 18,
    "id": "K1T18",
    "kat": "gelaender",
-   "name": "Strassenhaus Absturzsicherung Treppenloch Ost",
+   "name": "Vorderhaus Absturzsicherung Treppenloch Ost",
    "box": [
     1762,
     441.0,
@@ -359,7 +359,7 @@
    "nr": 19,
    "id": "K1T19",
    "kat": "gelaender",
-   "name": "Strassenhaus Absturzsicherung Treppenloch Nord",
+   "name": "Vorderhaus Absturzsicherung Treppenloch Nord",
    "box": [
     1646,
     834.0,
@@ -374,7 +374,7 @@
    "nr": 20,
    "id": "K1T20",
    "kat": "decke",
-   "name": "Strassenhaus Decke ueber 1.OG",
+   "name": "Vorderhaus Decke ueber 1.OG",
    "box": [
     6,
     6,
@@ -389,7 +389,7 @@
    "nr": 21,
    "id": "K1T21",
    "kat": "decke",
-   "name": "Strassenhaus Decke ueber 2.OG",
+   "name": "Vorderhaus Decke ueber 2.OG",
    "box": [
     6,
     6,
@@ -404,7 +404,7 @@
    "nr": 22,
    "id": "K1T22",
    "kat": "sockel",
-   "name": "Strassenhaus Sockelband Sued",
+   "name": "Vorderhaus Sockelband Sued",
    "box": [
     4,
     4,
@@ -419,7 +419,7 @@
    "nr": 23,
    "id": "K1T23",
    "kat": "sockel",
-   "name": "Strassenhaus Sockelband Nord -2-3302",
+   "name": "Vorderhaus Sockelband Nord -2-3302",
    "box": [
     4,
     1106,
@@ -434,7 +434,7 @@
    "nr": 24,
    "id": "K1T24",
    "kat": "sockel",
-   "name": "Strassenhaus Sockelband West",
+   "name": "Vorderhaus Sockelband West",
    "box": [
     4,
     6,
@@ -449,7 +449,7 @@
    "nr": 25,
    "id": "K1T25",
    "kat": "sockel",
-   "name": "Strassenhaus Sockelband Ost",
+   "name": "Vorderhaus Sockelband Ost",
    "box": [
     3306,
     6,
@@ -464,7 +464,7 @@
    "nr": 26,
    "id": "K1T26",
    "kat": "sockel",
-   "name": "Strassenhaus Kelleraussenwand Sued",
+   "name": "Vorderhaus Kelleraussenwand Sued",
    "box": [
     6,
     6,
@@ -479,7 +479,7 @@
    "nr": 27,
    "id": "K1T27",
    "kat": "sockel",
-   "name": "Strassenhaus Kelleraussenwand Nord",
+   "name": "Vorderhaus Kelleraussenwand Nord",
    "box": [
     6,
     1070,
@@ -494,7 +494,7 @@
    "nr": 28,
    "id": "K1T28",
    "kat": "sockel",
-   "name": "Strassenhaus Kelleraussenwand West",
+   "name": "Vorderhaus Kelleraussenwand West",
    "box": [
     6,
     42,
@@ -509,7 +509,7 @@
    "nr": 29,
    "id": "K1T29",
    "kat": "sockel",
-   "name": "Strassenhaus Kelleraussenwand Ost",
+   "name": "Vorderhaus Kelleraussenwand Ost",
    "box": [
     3270,
     42,
@@ -524,7 +524,7 @@
    "nr": 30,
    "id": "K1T30",
    "kat": "decke",
-   "name": "Strassenhaus Kellersohle",
+   "name": "Vorderhaus Kellersohle",
    "box": [
     6,
     6,
@@ -539,7 +539,7 @@
    "nr": 31,
    "id": "K1T31",
    "kat": "dach",
-   "name": "Strassenhaus Flachdach-Abdichtung",
+   "name": "Vorderhaus Flachdach-Abdichtung",
    "box": [
     6,
     6,
@@ -554,7 +554,7 @@
    "nr": 32,
    "id": "K1T32",
    "kat": "dach",
-   "name": "Strassenhaus Attika Sued",
+   "name": "Vorderhaus Attika Sued",
    "box": [
     6,
     6,
@@ -569,7 +569,7 @@
    "nr": 33,
    "id": "K1T33",
    "kat": "dach",
-   "name": "Strassenhaus Attika Nord",
+   "name": "Vorderhaus Attika Nord",
    "box": [
     6,
     1070,
@@ -584,7 +584,7 @@
    "nr": 34,
    "id": "K1T34",
    "kat": "dach",
-   "name": "Strassenhaus Attika West",
+   "name": "Vorderhaus Attika West",
    "box": [
     6,
     42,
@@ -599,7 +599,7 @@
    "nr": 35,
    "id": "K1T35",
    "kat": "dach",
-   "name": "Strassenhaus Attika Ost",
+   "name": "Vorderhaus Attika Ost",
    "box": [
     3270,
     42,
@@ -614,7 +614,7 @@
    "nr": 36,
    "id": "K1T36",
    "kat": "treppe",
-   "name": "Strassenhaus Stufe 1",
+   "name": "Vorderhaus Stufe 1",
    "box": [
     1656,
     922.0,
@@ -629,7 +629,7 @@
    "nr": 37,
    "id": "K1T37",
    "kat": "treppe",
-   "name": "Strassenhaus Stufe 2",
+   "name": "Vorderhaus Stufe 2",
    "box": [
     1656,
     894.0,
@@ -644,7 +644,7 @@
    "nr": 38,
    "id": "K1T38",
    "kat": "treppe",
-   "name": "Strassenhaus Stufe 3",
+   "name": "Vorderhaus Stufe 3",
    "box": [
     1656,
     866.0,
@@ -659,7 +659,7 @@
    "nr": 39,
    "id": "K1T39",
    "kat": "treppe",
-   "name": "Strassenhaus Stufe 4",
+   "name": "Vorderhaus Stufe 4",
    "box": [
     1656,
     838.0,
@@ -674,7 +674,7 @@
    "nr": 40,
    "id": "K1T40",
    "kat": "treppe",
-   "name": "Strassenhaus Stufe 5",
+   "name": "Vorderhaus Stufe 5",
    "box": [
     1656,
     810.0,
@@ -689,7 +689,7 @@
    "nr": 41,
    "id": "K1T41",
    "kat": "treppe",
-   "name": "Strassenhaus Stufe 6",
+   "name": "Vorderhaus Stufe 6",
    "box": [
     1656,
     782.0,
@@ -704,7 +704,7 @@
    "nr": 42,
    "id": "K1T42",
    "kat": "treppe",
-   "name": "Strassenhaus Stufe 7",
+   "name": "Vorderhaus Stufe 7",
    "box": [
     1656,
     754.0,
@@ -719,7 +719,7 @@
    "nr": 43,
    "id": "K1T43",
    "kat": "treppe",
-   "name": "Strassenhaus Stufe 8",
+   "name": "Vorderhaus Stufe 8",
    "box": [
     1656,
     726.0,
@@ -734,7 +734,7 @@
    "nr": 44,
    "id": "K1T44",
    "kat": "treppe",
-   "name": "Strassenhaus Stufe 9",
+   "name": "Vorderhaus Stufe 9",
    "box": [
     1656,
     698.0,
@@ -749,7 +749,7 @@
    "nr": 45,
    "id": "K1T45",
    "kat": "treppe",
-   "name": "Strassenhaus Stufe 10",
+   "name": "Vorderhaus Stufe 10",
    "box": [
     1656,
     670.0,
@@ -764,7 +764,7 @@
    "nr": 46,
    "id": "K1T46",
    "kat": "treppe",
-   "name": "Strassenhaus Stufe 11",
+   "name": "Vorderhaus Stufe 11",
    "box": [
     1656,
     642.0,
@@ -779,7 +779,7 @@
    "nr": 47,
    "id": "K1T47",
    "kat": "treppe",
-   "name": "Strassenhaus Stufe 12",
+   "name": "Vorderhaus Stufe 12",
    "box": [
     1656,
     614.0,
@@ -794,7 +794,7 @@
    "nr": 48,
    "id": "K1T48",
    "kat": "treppe",
-   "name": "Strassenhaus Stufe 13",
+   "name": "Vorderhaus Stufe 13",
    "box": [
     1656,
     586.0,
@@ -809,7 +809,7 @@
    "nr": 49,
    "id": "K1T49",
    "kat": "treppe",
-   "name": "Strassenhaus Stufe 14",
+   "name": "Vorderhaus Stufe 14",
    "box": [
     1656,
     558.0,
@@ -824,7 +824,7 @@
    "nr": 50,
    "id": "K1T50",
    "kat": "treppe",
-   "name": "Strassenhaus Stufe 15",
+   "name": "Vorderhaus Stufe 15",
    "box": [
     1656,
     530.0,
@@ -839,7 +839,7 @@
    "nr": 51,
    "id": "K1T51",
    "kat": "treppe",
-   "name": "Strassenhaus Stufe 16",
+   "name": "Vorderhaus Stufe 16",
    "box": [
     1656,
     502.0,
@@ -854,7 +854,7 @@
    "nr": 52,
    "id": "K1T52",
    "kat": "treppe",
-   "name": "Strassenhaus Stufe 17",
+   "name": "Vorderhaus Stufe 17",
    "box": [
     1656,
     474.0,
@@ -869,7 +869,7 @@
    "nr": 53,
    "id": "K1T53",
    "kat": "treppe",
-   "name": "Strassenhaus Stufe 18",
+   "name": "Vorderhaus Stufe 18",
    "box": [
     1656,
     446.0,
@@ -884,7 +884,7 @@
    "nr": 54,
    "id": "K1T54",
    "kat": "treppe",
-   "name": "Strassenhaus Treppen-Handlauf",
+   "name": "Vorderhaus Treppen-Handlauf",
    "box": [
     1754,
     446.0,
@@ -899,7 +899,7 @@
    "nr": 55,
    "id": "K1T55",
    "kat": "ausschnitt",
-   "name": "Strassenhaus Ausschnitt fuer Fenster S0-1 (160x140, BRH 90)",
+   "name": "Vorderhaus Ausschnitt fuer Fenster S0-1 (160x140, BRH 90)",
    "ziel": "K1T02",
    "box": [
     186.0,
@@ -916,7 +916,7 @@
    "nr": 56,
    "id": "K1T56",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen unten Fenster S0-1 (160x140, BRH 90)",
+   "name": "Vorderhaus Rahmen unten Fenster S0-1 (160x140, BRH 90)",
    "box": [
     186.0,
     20.0,
@@ -932,7 +932,7 @@
    "nr": 57,
    "id": "K1T57",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen oben Fenster S0-1 (160x140, BRH 90)",
+   "name": "Vorderhaus Rahmen oben Fenster S0-1 (160x140, BRH 90)",
    "box": [
     186.0,
     20.0,
@@ -948,7 +948,7 @@
    "nr": 58,
    "id": "K1T58",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen links Fenster S0-1 (160x140, BRH 90)",
+   "name": "Vorderhaus Rahmen links Fenster S0-1 (160x140, BRH 90)",
    "box": [
     186.0,
     20.0,
@@ -964,7 +964,7 @@
    "nr": 59,
    "id": "K1T59",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen rechts Fenster S0-1 (160x140, BRH 90)",
+   "name": "Vorderhaus Rahmen rechts Fenster S0-1 (160x140, BRH 90)",
    "box": [
     339.0,
     20.0,
@@ -980,7 +980,7 @@
    "nr": 60,
    "id": "K1T60",
    "kat": "rahmen",
-   "name": "Strassenhaus Pfosten 1 Fenster S0-1 (160x140, BRH 90)",
+   "name": "Vorderhaus Pfosten 1 Fenster S0-1 (160x140, BRH 90)",
    "box": [
     263.0,
     20.0,
@@ -996,7 +996,7 @@
    "nr": 61,
    "id": "K1T61",
    "kat": "glas",
-   "name": "Strassenhaus Glas Fenster S0-1 (160x140, BRH 90)",
+   "name": "Vorderhaus Glas Fenster S0-1 (160x140, BRH 90)",
    "box": [
     193.0,
     23.4,
@@ -1012,7 +1012,7 @@
    "nr": 62,
    "id": "K1T62",
    "kat": "detail",
-   "name": "Strassenhaus Rollladen 60 % Fenster S0-1 (160x140, BRH 90)",
+   "name": "Vorderhaus Rollladen 60 % Fenster S0-1 (160x140, BRH 90)",
    "box": [
     188.0,
     16.0,
@@ -1028,7 +1028,7 @@
    "nr": 63,
    "id": "K1T63",
    "kat": "detail",
-   "name": "Strassenhaus Fensterbank Fenster S0-1 (160x140, BRH 90)",
+   "name": "Vorderhaus Fensterbank Fenster S0-1 (160x140, BRH 90)",
    "box": [
     183.0,
     2,
@@ -1044,7 +1044,7 @@
    "nr": 64,
    "id": "K1T64",
    "kat": "innen",
-   "name": "Strassenhaus Innenraum Fenster S0-1 (160x140, BRH 90)",
+   "name": "Vorderhaus Innenraum Fenster S0-1 (160x140, BRH 90)",
    "box": [
     188.0,
     43,
@@ -1060,7 +1060,7 @@
    "nr": 65,
    "id": "K1T65",
    "kat": "ausschnitt",
-   "name": "Strassenhaus Ausschnitt fuer Fenster S0-2 (110x140, BRH 90)",
+   "name": "Vorderhaus Ausschnitt fuer Fenster S0-2 (110x140, BRH 90)",
    "ziel": "K1T02",
    "box": [
     501.0,
@@ -1077,7 +1077,7 @@
    "nr": 66,
    "id": "K1T66",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen unten Fenster S0-2 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen unten Fenster S0-2 (110x140, BRH 90)",
    "box": [
     501.0,
     20.0,
@@ -1093,7 +1093,7 @@
    "nr": 67,
    "id": "K1T67",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen oben Fenster S0-2 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen oben Fenster S0-2 (110x140, BRH 90)",
    "box": [
     501.0,
     20.0,
@@ -1109,7 +1109,7 @@
    "nr": 68,
    "id": "K1T68",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen links Fenster S0-2 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen links Fenster S0-2 (110x140, BRH 90)",
    "box": [
     501.0,
     20.0,
@@ -1125,7 +1125,7 @@
    "nr": 69,
    "id": "K1T69",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen rechts Fenster S0-2 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen rechts Fenster S0-2 (110x140, BRH 90)",
    "box": [
     604.0,
     20.0,
@@ -1141,7 +1141,7 @@
    "nr": 70,
    "id": "K1T70",
    "kat": "glas",
-   "name": "Strassenhaus Glas Fenster S0-2 (110x140, BRH 90)",
+   "name": "Vorderhaus Glas Fenster S0-2 (110x140, BRH 90)",
    "box": [
     508.0,
     23.4,
@@ -1157,7 +1157,7 @@
    "nr": 71,
    "id": "K1T71",
    "kat": "detail",
-   "name": "Strassenhaus Rollladen 60 % Fenster S0-2 (110x140, BRH 90)",
+   "name": "Vorderhaus Rollladen 60 % Fenster S0-2 (110x140, BRH 90)",
    "box": [
     503.0,
     16.0,
@@ -1173,7 +1173,7 @@
    "nr": 72,
    "id": "K1T72",
    "kat": "detail",
-   "name": "Strassenhaus Fensterbank Fenster S0-2 (110x140, BRH 90)",
+   "name": "Vorderhaus Fensterbank Fenster S0-2 (110x140, BRH 90)",
    "box": [
     498.0,
     2,
@@ -1189,7 +1189,7 @@
    "nr": 73,
    "id": "K1T73",
    "kat": "innen",
-   "name": "Strassenhaus Innenraum Fenster S0-2 (110x140, BRH 90)",
+   "name": "Vorderhaus Innenraum Fenster S0-2 (110x140, BRH 90)",
    "box": [
     503.0,
     43,
@@ -1205,7 +1205,7 @@
    "nr": 74,
    "id": "K1T74",
    "kat": "ausschnitt",
-   "name": "Strassenhaus Ausschnitt fuer Fenster S0-3 (110x140, BRH 90)",
+   "name": "Vorderhaus Ausschnitt fuer Fenster S0-3 (110x140, BRH 90)",
    "ziel": "K1T02",
    "box": [
     791.0,
@@ -1222,7 +1222,7 @@
    "nr": 75,
    "id": "K1T75",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen unten Fenster S0-3 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen unten Fenster S0-3 (110x140, BRH 90)",
    "box": [
     791.0,
     20.0,
@@ -1238,7 +1238,7 @@
    "nr": 76,
    "id": "K1T76",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen oben Fenster S0-3 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen oben Fenster S0-3 (110x140, BRH 90)",
    "box": [
     791.0,
     20.0,
@@ -1254,7 +1254,7 @@
    "nr": 77,
    "id": "K1T77",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen links Fenster S0-3 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen links Fenster S0-3 (110x140, BRH 90)",
    "box": [
     791.0,
     20.0,
@@ -1270,7 +1270,7 @@
    "nr": 78,
    "id": "K1T78",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen rechts Fenster S0-3 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen rechts Fenster S0-3 (110x140, BRH 90)",
    "box": [
     894.0,
     20.0,
@@ -1286,7 +1286,7 @@
    "nr": 79,
    "id": "K1T79",
    "kat": "glas",
-   "name": "Strassenhaus Glas Fenster S0-3 (110x140, BRH 90)",
+   "name": "Vorderhaus Glas Fenster S0-3 (110x140, BRH 90)",
    "box": [
     798.0,
     23.4,
@@ -1302,7 +1302,7 @@
    "nr": 80,
    "id": "K1T80",
    "kat": "detail",
-   "name": "Strassenhaus Rollladen 60 % Fenster S0-3 (110x140, BRH 90)",
+   "name": "Vorderhaus Rollladen 60 % Fenster S0-3 (110x140, BRH 90)",
    "box": [
     793.0,
     16.0,
@@ -1318,7 +1318,7 @@
    "nr": 81,
    "id": "K1T81",
    "kat": "detail",
-   "name": "Strassenhaus Fensterbank Fenster S0-3 (110x140, BRH 90)",
+   "name": "Vorderhaus Fensterbank Fenster S0-3 (110x140, BRH 90)",
    "box": [
     788.0,
     2,
@@ -1334,7 +1334,7 @@
    "nr": 82,
    "id": "K1T82",
    "kat": "innen",
-   "name": "Strassenhaus Innenraum Fenster S0-3 (110x140, BRH 90)",
+   "name": "Vorderhaus Innenraum Fenster S0-3 (110x140, BRH 90)",
    "box": [
     793.0,
     43,
@@ -1350,7 +1350,7 @@
    "nr": 83,
    "id": "K1T83",
    "kat": "ausschnitt",
-   "name": "Strassenhaus Ausschnitt fuer Fenster S0-4 (160x140, BRH 90)",
+   "name": "Vorderhaus Ausschnitt fuer Fenster S0-4 (160x140, BRH 90)",
    "ziel": "K1T02",
    "box": [
     1056.0,
@@ -1367,7 +1367,7 @@
    "nr": 84,
    "id": "K1T84",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen unten Fenster S0-4 (160x140, BRH 90)",
+   "name": "Vorderhaus Rahmen unten Fenster S0-4 (160x140, BRH 90)",
    "box": [
     1056.0,
     20.0,
@@ -1383,7 +1383,7 @@
    "nr": 85,
    "id": "K1T85",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen oben Fenster S0-4 (160x140, BRH 90)",
+   "name": "Vorderhaus Rahmen oben Fenster S0-4 (160x140, BRH 90)",
    "box": [
     1056.0,
     20.0,
@@ -1399,7 +1399,7 @@
    "nr": 86,
    "id": "K1T86",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen links Fenster S0-4 (160x140, BRH 90)",
+   "name": "Vorderhaus Rahmen links Fenster S0-4 (160x140, BRH 90)",
    "box": [
     1056.0,
     20.0,
@@ -1415,7 +1415,7 @@
    "nr": 87,
    "id": "K1T87",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen rechts Fenster S0-4 (160x140, BRH 90)",
+   "name": "Vorderhaus Rahmen rechts Fenster S0-4 (160x140, BRH 90)",
    "box": [
     1209.0,
     20.0,
@@ -1431,7 +1431,7 @@
    "nr": 88,
    "id": "K1T88",
    "kat": "rahmen",
-   "name": "Strassenhaus Pfosten 1 Fenster S0-4 (160x140, BRH 90)",
+   "name": "Vorderhaus Pfosten 1 Fenster S0-4 (160x140, BRH 90)",
    "box": [
     1133.0,
     20.0,
@@ -1447,7 +1447,7 @@
    "nr": 89,
    "id": "K1T89",
    "kat": "glas",
-   "name": "Strassenhaus Glas Fenster S0-4 (160x140, BRH 90)",
+   "name": "Vorderhaus Glas Fenster S0-4 (160x140, BRH 90)",
    "box": [
     1063.0,
     23.4,
@@ -1463,7 +1463,7 @@
    "nr": 90,
    "id": "K1T90",
    "kat": "detail",
-   "name": "Strassenhaus Rollladen 60 % Fenster S0-4 (160x140, BRH 90)",
+   "name": "Vorderhaus Rollladen 60 % Fenster S0-4 (160x140, BRH 90)",
    "box": [
     1058.0,
     16.0,
@@ -1479,7 +1479,7 @@
    "nr": 91,
    "id": "K1T91",
    "kat": "detail",
-   "name": "Strassenhaus Fensterbank Fenster S0-4 (160x140, BRH 90)",
+   "name": "Vorderhaus Fensterbank Fenster S0-4 (160x140, BRH 90)",
    "box": [
     1053.0,
     2,
@@ -1495,7 +1495,7 @@
    "nr": 92,
    "id": "K1T92",
    "kat": "innen",
-   "name": "Strassenhaus Innenraum Fenster S0-4 (160x140, BRH 90)",
+   "name": "Vorderhaus Innenraum Fenster S0-4 (160x140, BRH 90)",
    "box": [
     1058.0,
     43,
@@ -1511,7 +1511,7 @@
    "nr": 93,
    "id": "K1T93",
    "kat": "ausschnitt",
-   "name": "Strassenhaus Ausschnitt fuer Fenster S0-5 (55x120, BRH 100)",
+   "name": "Vorderhaus Ausschnitt fuer Fenster S0-5 (55x120, BRH 100)",
    "ziel": "K1T02",
    "box": [
     1398.5,
@@ -1528,7 +1528,7 @@
    "nr": 94,
    "id": "K1T94",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen unten Fenster S0-5 (55x120, BRH 100)",
+   "name": "Vorderhaus Rahmen unten Fenster S0-5 (55x120, BRH 100)",
    "box": [
     1398.5,
     20.0,
@@ -1544,7 +1544,7 @@
    "nr": 95,
    "id": "K1T95",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen oben Fenster S0-5 (55x120, BRH 100)",
+   "name": "Vorderhaus Rahmen oben Fenster S0-5 (55x120, BRH 100)",
    "box": [
     1398.5,
     20.0,
@@ -1560,7 +1560,7 @@
    "nr": 96,
    "id": "K1T96",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen links Fenster S0-5 (55x120, BRH 100)",
+   "name": "Vorderhaus Rahmen links Fenster S0-5 (55x120, BRH 100)",
    "box": [
     1398.5,
     20.0,
@@ -1576,7 +1576,7 @@
    "nr": 97,
    "id": "K1T97",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen rechts Fenster S0-5 (55x120, BRH 100)",
+   "name": "Vorderhaus Rahmen rechts Fenster S0-5 (55x120, BRH 100)",
    "box": [
     1446.5,
     20.0,
@@ -1592,7 +1592,7 @@
    "nr": 98,
    "id": "K1T98",
    "kat": "glas",
-   "name": "Strassenhaus Glas Fenster S0-5 (55x120, BRH 100)",
+   "name": "Vorderhaus Glas Fenster S0-5 (55x120, BRH 100)",
    "box": [
     1405.5,
     23.4,
@@ -1608,7 +1608,7 @@
    "nr": 99,
    "id": "K1T99",
    "kat": "detail",
-   "name": "Strassenhaus Rollladen 60 % Fenster S0-5 (55x120, BRH 100)",
+   "name": "Vorderhaus Rollladen 60 % Fenster S0-5 (55x120, BRH 100)",
    "box": [
     1400.5,
     16.0,
@@ -1624,7 +1624,7 @@
    "nr": 100,
    "id": "K1T100",
    "kat": "detail",
-   "name": "Strassenhaus Fensterbank Fenster S0-5 (55x120, BRH 100)",
+   "name": "Vorderhaus Fensterbank Fenster S0-5 (55x120, BRH 100)",
    "box": [
     1395.5,
     2,
@@ -1640,7 +1640,7 @@
    "nr": 101,
    "id": "K1T101",
    "kat": "innen",
-   "name": "Strassenhaus Innenraum Fenster S0-5 (55x120, BRH 100)",
+   "name": "Vorderhaus Innenraum Fenster S0-5 (55x120, BRH 100)",
    "box": [
     1400.5,
     43,
@@ -1656,7 +1656,7 @@
    "nr": 102,
    "id": "K1T102",
    "kat": "ausschnitt",
-   "name": "Strassenhaus Ausschnitt fuer Fenster S0-6 (110x140, BRH 90)",
+   "name": "Vorderhaus Ausschnitt fuer Fenster S0-6 (110x140, BRH 90)",
    "ziel": "K1T02",
    "box": [
     1661.0,
@@ -1673,7 +1673,7 @@
    "nr": 103,
    "id": "K1T103",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen unten Fenster S0-6 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen unten Fenster S0-6 (110x140, BRH 90)",
    "box": [
     1661.0,
     20.0,
@@ -1689,7 +1689,7 @@
    "nr": 104,
    "id": "K1T104",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen oben Fenster S0-6 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen oben Fenster S0-6 (110x140, BRH 90)",
    "box": [
     1661.0,
     20.0,
@@ -1705,7 +1705,7 @@
    "nr": 105,
    "id": "K1T105",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen links Fenster S0-6 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen links Fenster S0-6 (110x140, BRH 90)",
    "box": [
     1661.0,
     20.0,
@@ -1721,7 +1721,7 @@
    "nr": 106,
    "id": "K1T106",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen rechts Fenster S0-6 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen rechts Fenster S0-6 (110x140, BRH 90)",
    "box": [
     1764.0,
     20.0,
@@ -1737,7 +1737,7 @@
    "nr": 107,
    "id": "K1T107",
    "kat": "glas",
-   "name": "Strassenhaus Glas Fenster S0-6 (110x140, BRH 90)",
+   "name": "Vorderhaus Glas Fenster S0-6 (110x140, BRH 90)",
    "box": [
     1668.0,
     23.4,
@@ -1753,7 +1753,7 @@
    "nr": 108,
    "id": "K1T108",
    "kat": "detail",
-   "name": "Strassenhaus Rollladen 60 % Fenster S0-6 (110x140, BRH 90)",
+   "name": "Vorderhaus Rollladen 60 % Fenster S0-6 (110x140, BRH 90)",
    "box": [
     1663.0,
     16.0,
@@ -1769,7 +1769,7 @@
    "nr": 109,
    "id": "K1T109",
    "kat": "detail",
-   "name": "Strassenhaus Fensterbank Fenster S0-6 (110x140, BRH 90)",
+   "name": "Vorderhaus Fensterbank Fenster S0-6 (110x140, BRH 90)",
    "box": [
     1658.0,
     2,
@@ -1785,7 +1785,7 @@
    "nr": 110,
    "id": "K1T110",
    "kat": "innen",
-   "name": "Strassenhaus Innenraum Fenster S0-6 (110x140, BRH 90)",
+   "name": "Vorderhaus Innenraum Fenster S0-6 (110x140, BRH 90)",
    "box": [
     1663.0,
     43,
@@ -1801,7 +1801,7 @@
    "nr": 111,
    "id": "K1T111",
    "kat": "ausschnitt",
-   "name": "Strassenhaus Ausschnitt fuer Fenster S0-7 (160x140, BRH 90)",
+   "name": "Vorderhaus Ausschnitt fuer Fenster S0-7 (160x140, BRH 90)",
    "ziel": "K1T02",
    "box": [
     1926.0,
@@ -1818,7 +1818,7 @@
    "nr": 112,
    "id": "K1T112",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen unten Fenster S0-7 (160x140, BRH 90)",
+   "name": "Vorderhaus Rahmen unten Fenster S0-7 (160x140, BRH 90)",
    "box": [
     1926.0,
     20.0,
@@ -1834,7 +1834,7 @@
    "nr": 113,
    "id": "K1T113",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen oben Fenster S0-7 (160x140, BRH 90)",
+   "name": "Vorderhaus Rahmen oben Fenster S0-7 (160x140, BRH 90)",
    "box": [
     1926.0,
     20.0,
@@ -1850,7 +1850,7 @@
    "nr": 114,
    "id": "K1T114",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen links Fenster S0-7 (160x140, BRH 90)",
+   "name": "Vorderhaus Rahmen links Fenster S0-7 (160x140, BRH 90)",
    "box": [
     1926.0,
     20.0,
@@ -1866,7 +1866,7 @@
    "nr": 115,
    "id": "K1T115",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen rechts Fenster S0-7 (160x140, BRH 90)",
+   "name": "Vorderhaus Rahmen rechts Fenster S0-7 (160x140, BRH 90)",
    "box": [
     2079.0,
     20.0,
@@ -1882,7 +1882,7 @@
    "nr": 116,
    "id": "K1T116",
    "kat": "rahmen",
-   "name": "Strassenhaus Pfosten 1 Fenster S0-7 (160x140, BRH 90)",
+   "name": "Vorderhaus Pfosten 1 Fenster S0-7 (160x140, BRH 90)",
    "box": [
     2003.0,
     20.0,
@@ -1898,7 +1898,7 @@
    "nr": 117,
    "id": "K1T117",
    "kat": "glas",
-   "name": "Strassenhaus Glas Fenster S0-7 (160x140, BRH 90)",
+   "name": "Vorderhaus Glas Fenster S0-7 (160x140, BRH 90)",
    "box": [
     1933.0,
     23.4,
@@ -1914,7 +1914,7 @@
    "nr": 118,
    "id": "K1T118",
    "kat": "detail",
-   "name": "Strassenhaus Rollladen 60 % Fenster S0-7 (160x140, BRH 90)",
+   "name": "Vorderhaus Rollladen 60 % Fenster S0-7 (160x140, BRH 90)",
    "box": [
     1928.0,
     16.0,
@@ -1930,7 +1930,7 @@
    "nr": 119,
    "id": "K1T119",
    "kat": "detail",
-   "name": "Strassenhaus Fensterbank Fenster S0-7 (160x140, BRH 90)",
+   "name": "Vorderhaus Fensterbank Fenster S0-7 (160x140, BRH 90)",
    "box": [
     1923.0,
     2,
@@ -1946,7 +1946,7 @@
    "nr": 120,
    "id": "K1T120",
    "kat": "innen",
-   "name": "Strassenhaus Innenraum Fenster S0-7 (160x140, BRH 90)",
+   "name": "Vorderhaus Innenraum Fenster S0-7 (160x140, BRH 90)",
    "box": [
     1928.0,
     43,
@@ -1962,7 +1962,7 @@
    "nr": 121,
    "id": "K1T121",
    "kat": "ausschnitt",
-   "name": "Strassenhaus Ausschnitt fuer Fenster S0-8 (110x140, BRH 90)",
+   "name": "Vorderhaus Ausschnitt fuer Fenster S0-8 (110x140, BRH 90)",
    "ziel": "K1T02",
    "box": [
     2241.0,
@@ -1979,7 +1979,7 @@
    "nr": 122,
    "id": "K1T122",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen unten Fenster S0-8 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen unten Fenster S0-8 (110x140, BRH 90)",
    "box": [
     2241.0,
     20.0,
@@ -1995,7 +1995,7 @@
    "nr": 123,
    "id": "K1T123",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen oben Fenster S0-8 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen oben Fenster S0-8 (110x140, BRH 90)",
    "box": [
     2241.0,
     20.0,
@@ -2011,7 +2011,7 @@
    "nr": 124,
    "id": "K1T124",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen links Fenster S0-8 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen links Fenster S0-8 (110x140, BRH 90)",
    "box": [
     2241.0,
     20.0,
@@ -2027,7 +2027,7 @@
    "nr": 125,
    "id": "K1T125",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen rechts Fenster S0-8 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen rechts Fenster S0-8 (110x140, BRH 90)",
    "box": [
     2344.0,
     20.0,
@@ -2043,7 +2043,7 @@
    "nr": 126,
    "id": "K1T126",
    "kat": "glas",
-   "name": "Strassenhaus Glas Fenster S0-8 (110x140, BRH 90)",
+   "name": "Vorderhaus Glas Fenster S0-8 (110x140, BRH 90)",
    "box": [
     2248.0,
     23.4,
@@ -2059,7 +2059,7 @@
    "nr": 127,
    "id": "K1T127",
    "kat": "detail",
-   "name": "Strassenhaus Rollladen 60 % Fenster S0-8 (110x140, BRH 90)",
+   "name": "Vorderhaus Rollladen 60 % Fenster S0-8 (110x140, BRH 90)",
    "box": [
     2243.0,
     16.0,
@@ -2075,7 +2075,7 @@
    "nr": 128,
    "id": "K1T128",
    "kat": "detail",
-   "name": "Strassenhaus Fensterbank Fenster S0-8 (110x140, BRH 90)",
+   "name": "Vorderhaus Fensterbank Fenster S0-8 (110x140, BRH 90)",
    "box": [
     2238.0,
     2,
@@ -2091,7 +2091,7 @@
    "nr": 129,
    "id": "K1T129",
    "kat": "innen",
-   "name": "Strassenhaus Innenraum Fenster S0-8 (110x140, BRH 90)",
+   "name": "Vorderhaus Innenraum Fenster S0-8 (110x140, BRH 90)",
    "box": [
     2243.0,
     43,
@@ -2107,7 +2107,7 @@
    "nr": 130,
    "id": "K1T130",
    "kat": "ausschnitt",
-   "name": "Strassenhaus Ausschnitt fuer Fenster S0-9 (110x140, BRH 90)",
+   "name": "Vorderhaus Ausschnitt fuer Fenster S0-9 (110x140, BRH 90)",
    "ziel": "K1T02",
    "box": [
     2531.0,
@@ -2124,7 +2124,7 @@
    "nr": 131,
    "id": "K1T131",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen unten Fenster S0-9 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen unten Fenster S0-9 (110x140, BRH 90)",
    "box": [
     2531.0,
     20.0,
@@ -2140,7 +2140,7 @@
    "nr": 132,
    "id": "K1T132",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen oben Fenster S0-9 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen oben Fenster S0-9 (110x140, BRH 90)",
    "box": [
     2531.0,
     20.0,
@@ -2156,7 +2156,7 @@
    "nr": 133,
    "id": "K1T133",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen links Fenster S0-9 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen links Fenster S0-9 (110x140, BRH 90)",
    "box": [
     2531.0,
     20.0,
@@ -2172,7 +2172,7 @@
    "nr": 134,
    "id": "K1T134",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen rechts Fenster S0-9 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen rechts Fenster S0-9 (110x140, BRH 90)",
    "box": [
     2634.0,
     20.0,
@@ -2188,7 +2188,7 @@
    "nr": 135,
    "id": "K1T135",
    "kat": "glas",
-   "name": "Strassenhaus Glas Fenster S0-9 (110x140, BRH 90)",
+   "name": "Vorderhaus Glas Fenster S0-9 (110x140, BRH 90)",
    "box": [
     2538.0,
     23.4,
@@ -2204,7 +2204,7 @@
    "nr": 136,
    "id": "K1T136",
    "kat": "detail",
-   "name": "Strassenhaus Rollladen 60 % Fenster S0-9 (110x140, BRH 90)",
+   "name": "Vorderhaus Rollladen 60 % Fenster S0-9 (110x140, BRH 90)",
    "box": [
     2533.0,
     16.0,
@@ -2220,7 +2220,7 @@
    "nr": 137,
    "id": "K1T137",
    "kat": "detail",
-   "name": "Strassenhaus Fensterbank Fenster S0-9 (110x140, BRH 90)",
+   "name": "Vorderhaus Fensterbank Fenster S0-9 (110x140, BRH 90)",
    "box": [
     2528.0,
     2,
@@ -2236,7 +2236,7 @@
    "nr": 138,
    "id": "K1T138",
    "kat": "innen",
-   "name": "Strassenhaus Innenraum Fenster S0-9 (110x140, BRH 90)",
+   "name": "Vorderhaus Innenraum Fenster S0-9 (110x140, BRH 90)",
    "box": [
     2533.0,
     43,
@@ -2252,7 +2252,7 @@
    "nr": 139,
    "id": "K1T139",
    "kat": "ausschnitt",
-   "name": "Strassenhaus Ausschnitt fuer Fenster S0-10 (160x140, BRH 90)",
+   "name": "Vorderhaus Ausschnitt fuer Fenster S0-10 (160x140, BRH 90)",
    "ziel": "K1T02",
    "box": [
     2796.0,
@@ -2269,7 +2269,7 @@
    "nr": 140,
    "id": "K1T140",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen unten Fenster S0-10 (160x140, BRH 90)",
+   "name": "Vorderhaus Rahmen unten Fenster S0-10 (160x140, BRH 90)",
    "box": [
     2796.0,
     20.0,
@@ -2285,7 +2285,7 @@
    "nr": 141,
    "id": "K1T141",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen oben Fenster S0-10 (160x140, BRH 90)",
+   "name": "Vorderhaus Rahmen oben Fenster S0-10 (160x140, BRH 90)",
    "box": [
     2796.0,
     20.0,
@@ -2301,7 +2301,7 @@
    "nr": 142,
    "id": "K1T142",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen links Fenster S0-10 (160x140, BRH 90)",
+   "name": "Vorderhaus Rahmen links Fenster S0-10 (160x140, BRH 90)",
    "box": [
     2796.0,
     20.0,
@@ -2317,7 +2317,7 @@
    "nr": 143,
    "id": "K1T143",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen rechts Fenster S0-10 (160x140, BRH 90)",
+   "name": "Vorderhaus Rahmen rechts Fenster S0-10 (160x140, BRH 90)",
    "box": [
     2949.0,
     20.0,
@@ -2333,7 +2333,7 @@
    "nr": 144,
    "id": "K1T144",
    "kat": "rahmen",
-   "name": "Strassenhaus Pfosten 1 Fenster S0-10 (160x140, BRH 90)",
+   "name": "Vorderhaus Pfosten 1 Fenster S0-10 (160x140, BRH 90)",
    "box": [
     2873.0,
     20.0,
@@ -2349,7 +2349,7 @@
    "nr": 145,
    "id": "K1T145",
    "kat": "glas",
-   "name": "Strassenhaus Glas Fenster S0-10 (160x140, BRH 90)",
+   "name": "Vorderhaus Glas Fenster S0-10 (160x140, BRH 90)",
    "box": [
     2803.0,
     23.4,
@@ -2365,7 +2365,7 @@
    "nr": 146,
    "id": "K1T146",
    "kat": "detail",
-   "name": "Strassenhaus Rollladen 60 % Fenster S0-10 (160x140, BRH 90)",
+   "name": "Vorderhaus Rollladen 60 % Fenster S0-10 (160x140, BRH 90)",
    "box": [
     2798.0,
     16.0,
@@ -2381,7 +2381,7 @@
    "nr": 147,
    "id": "K1T147",
    "kat": "detail",
-   "name": "Strassenhaus Fensterbank Fenster S0-10 (160x140, BRH 90)",
+   "name": "Vorderhaus Fensterbank Fenster S0-10 (160x140, BRH 90)",
    "box": [
     2793.0,
     2,
@@ -2397,7 +2397,7 @@
    "nr": 148,
    "id": "K1T148",
    "kat": "innen",
-   "name": "Strassenhaus Innenraum Fenster S0-10 (160x140, BRH 90)",
+   "name": "Vorderhaus Innenraum Fenster S0-10 (160x140, BRH 90)",
    "box": [
     2798.0,
     43,
@@ -2413,7 +2413,7 @@
    "nr": 149,
    "id": "K1T149",
    "kat": "ausschnitt",
-   "name": "Strassenhaus Ausschnitt fuer Fenster S0-11 (110x140, BRH 90)",
+   "name": "Vorderhaus Ausschnitt fuer Fenster S0-11 (110x140, BRH 90)",
    "ziel": "K1T02",
    "box": [
     3111.0,
@@ -2430,7 +2430,7 @@
    "nr": 150,
    "id": "K1T150",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen unten Fenster S0-11 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen unten Fenster S0-11 (110x140, BRH 90)",
    "box": [
     3111.0,
     20.0,
@@ -2446,7 +2446,7 @@
    "nr": 151,
    "id": "K1T151",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen oben Fenster S0-11 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen oben Fenster S0-11 (110x140, BRH 90)",
    "box": [
     3111.0,
     20.0,
@@ -2462,7 +2462,7 @@
    "nr": 152,
    "id": "K1T152",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen links Fenster S0-11 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen links Fenster S0-11 (110x140, BRH 90)",
    "box": [
     3111.0,
     20.0,
@@ -2478,7 +2478,7 @@
    "nr": 153,
    "id": "K1T153",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen rechts Fenster S0-11 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen rechts Fenster S0-11 (110x140, BRH 90)",
    "box": [
     3214.0,
     20.0,
@@ -2494,7 +2494,7 @@
    "nr": 154,
    "id": "K1T154",
    "kat": "glas",
-   "name": "Strassenhaus Glas Fenster S0-11 (110x140, BRH 90)",
+   "name": "Vorderhaus Glas Fenster S0-11 (110x140, BRH 90)",
    "box": [
     3118.0,
     23.4,
@@ -2510,7 +2510,7 @@
    "nr": 155,
    "id": "K1T155",
    "kat": "detail",
-   "name": "Strassenhaus Rollladen 60 % Fenster S0-11 (110x140, BRH 90)",
+   "name": "Vorderhaus Rollladen 60 % Fenster S0-11 (110x140, BRH 90)",
    "box": [
     3113.0,
     16.0,
@@ -2526,7 +2526,7 @@
    "nr": 156,
    "id": "K1T156",
    "kat": "detail",
-   "name": "Strassenhaus Fensterbank Fenster S0-11 (110x140, BRH 90)",
+   "name": "Vorderhaus Fensterbank Fenster S0-11 (110x140, BRH 90)",
    "box": [
     3108.0,
     2,
@@ -2542,7 +2542,7 @@
    "nr": 157,
    "id": "K1T157",
    "kat": "innen",
-   "name": "Strassenhaus Innenraum Fenster S0-11 (110x140, BRH 90)",
+   "name": "Vorderhaus Innenraum Fenster S0-11 (110x140, BRH 90)",
    "box": [
     3113.0,
     43,
@@ -2558,7 +2558,7 @@
    "nr": 158,
    "id": "K1T158",
    "kat": "ausschnitt",
-   "name": "Strassenhaus Ausschnitt fuer Fenster N0-12 (110x140, BRH 90)",
+   "name": "Vorderhaus Ausschnitt fuer Fenster N0-12 (110x140, BRH 90)",
    "ziel": "K1T03",
    "box": [
     271.0,
@@ -2575,7 +2575,7 @@
    "nr": 159,
    "id": "K1T159",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen unten Fenster N0-12 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen unten Fenster N0-12 (110x140, BRH 90)",
    "box": [
     271.0,
     1084.0,
@@ -2591,7 +2591,7 @@
    "nr": 160,
    "id": "K1T160",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen oben Fenster N0-12 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen oben Fenster N0-12 (110x140, BRH 90)",
    "box": [
     271.0,
     1084.0,
@@ -2607,7 +2607,7 @@
    "nr": 161,
    "id": "K1T161",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen links Fenster N0-12 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen links Fenster N0-12 (110x140, BRH 90)",
    "box": [
     271.0,
     1084.0,
@@ -2623,7 +2623,7 @@
    "nr": 162,
    "id": "K1T162",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen rechts Fenster N0-12 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen rechts Fenster N0-12 (110x140, BRH 90)",
    "box": [
     374.0,
     1084.0,
@@ -2639,7 +2639,7 @@
    "nr": 163,
    "id": "K1T163",
    "kat": "glas",
-   "name": "Strassenhaus Glas Fenster N0-12 (110x140, BRH 90)",
+   "name": "Vorderhaus Glas Fenster N0-12 (110x140, BRH 90)",
    "box": [
     278.0,
     1087.4,
@@ -2655,7 +2655,7 @@
    "nr": 164,
    "id": "K1T164",
    "kat": "detail",
-   "name": "Strassenhaus Rollladen 60 % Fenster N0-12 (110x140, BRH 90)",
+   "name": "Vorderhaus Rollladen 60 % Fenster N0-12 (110x140, BRH 90)",
    "box": [
     273.0,
     1094.0,
@@ -2671,7 +2671,7 @@
    "nr": 165,
    "id": "K1T165",
    "kat": "detail",
-   "name": "Strassenhaus Fensterbank Fenster N0-12 (110x140, BRH 90)",
+   "name": "Vorderhaus Fensterbank Fenster N0-12 (110x140, BRH 90)",
    "box": [
     268.0,
     1092.0,
@@ -2687,7 +2687,7 @@
    "nr": 166,
    "id": "K1T166",
    "kat": "innen",
-   "name": "Strassenhaus Innenraum Fenster N0-12 (110x140, BRH 90)",
+   "name": "Vorderhaus Innenraum Fenster N0-12 (110x140, BRH 90)",
    "box": [
     273.0,
     990,
@@ -2703,7 +2703,7 @@
    "nr": 167,
    "id": "K1T167",
    "kat": "ausschnitt",
-   "name": "Strassenhaus Ausschnitt fuer Fenster N0-13 (110x140, BRH 90)",
+   "name": "Vorderhaus Ausschnitt fuer Fenster N0-13 (110x140, BRH 90)",
    "ziel": "K1T03",
    "box": [
     711.0,
@@ -2720,7 +2720,7 @@
    "nr": 168,
    "id": "K1T168",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen unten Fenster N0-13 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen unten Fenster N0-13 (110x140, BRH 90)",
    "box": [
     711.0,
     1084.0,
@@ -2736,7 +2736,7 @@
    "nr": 169,
    "id": "K1T169",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen oben Fenster N0-13 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen oben Fenster N0-13 (110x140, BRH 90)",
    "box": [
     711.0,
     1084.0,
@@ -2752,7 +2752,7 @@
    "nr": 170,
    "id": "K1T170",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen links Fenster N0-13 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen links Fenster N0-13 (110x140, BRH 90)",
    "box": [
     711.0,
     1084.0,
@@ -2768,7 +2768,7 @@
    "nr": 171,
    "id": "K1T171",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen rechts Fenster N0-13 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen rechts Fenster N0-13 (110x140, BRH 90)",
    "box": [
     814.0,
     1084.0,
@@ -2784,7 +2784,7 @@
    "nr": 172,
    "id": "K1T172",
    "kat": "glas",
-   "name": "Strassenhaus Glas Fenster N0-13 (110x140, BRH 90)",
+   "name": "Vorderhaus Glas Fenster N0-13 (110x140, BRH 90)",
    "box": [
     718.0,
     1087.4,
@@ -2800,7 +2800,7 @@
    "nr": 173,
    "id": "K1T173",
    "kat": "detail",
-   "name": "Strassenhaus Rollladen 60 % Fenster N0-13 (110x140, BRH 90)",
+   "name": "Vorderhaus Rollladen 60 % Fenster N0-13 (110x140, BRH 90)",
    "box": [
     713.0,
     1094.0,
@@ -2816,7 +2816,7 @@
    "nr": 174,
    "id": "K1T174",
    "kat": "detail",
-   "name": "Strassenhaus Fensterbank Fenster N0-13 (110x140, BRH 90)",
+   "name": "Vorderhaus Fensterbank Fenster N0-13 (110x140, BRH 90)",
    "box": [
     708.0,
     1092.0,
@@ -2832,7 +2832,7 @@
    "nr": 175,
    "id": "K1T175",
    "kat": "innen",
-   "name": "Strassenhaus Innenraum Fenster N0-13 (110x140, BRH 90)",
+   "name": "Vorderhaus Innenraum Fenster N0-13 (110x140, BRH 90)",
    "box": [
     713.0,
     990,
@@ -2848,7 +2848,7 @@
    "nr": 176,
    "id": "K1T176",
    "kat": "ausschnitt",
-   "name": "Strassenhaus Ausschnitt fuer Fenster N0-14 (110x140, BRH 90)",
+   "name": "Vorderhaus Ausschnitt fuer Fenster N0-14 (110x140, BRH 90)",
    "ziel": "K1T03",
    "box": [
     1051.0,
@@ -2865,7 +2865,7 @@
    "nr": 177,
    "id": "K1T177",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen unten Fenster N0-14 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen unten Fenster N0-14 (110x140, BRH 90)",
    "box": [
     1051.0,
     1084.0,
@@ -2881,7 +2881,7 @@
    "nr": 178,
    "id": "K1T178",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen oben Fenster N0-14 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen oben Fenster N0-14 (110x140, BRH 90)",
    "box": [
     1051.0,
     1084.0,
@@ -2897,7 +2897,7 @@
    "nr": 179,
    "id": "K1T179",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen links Fenster N0-14 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen links Fenster N0-14 (110x140, BRH 90)",
    "box": [
     1051.0,
     1084.0,
@@ -2913,7 +2913,7 @@
    "nr": 180,
    "id": "K1T180",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen rechts Fenster N0-14 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen rechts Fenster N0-14 (110x140, BRH 90)",
    "box": [
     1154.0,
     1084.0,
@@ -2929,7 +2929,7 @@
    "nr": 181,
    "id": "K1T181",
    "kat": "glas",
-   "name": "Strassenhaus Glas Fenster N0-14 (110x140, BRH 90)",
+   "name": "Vorderhaus Glas Fenster N0-14 (110x140, BRH 90)",
    "box": [
     1058.0,
     1087.4,
@@ -2945,7 +2945,7 @@
    "nr": 182,
    "id": "K1T182",
    "kat": "detail",
-   "name": "Strassenhaus Rollladen 60 % Fenster N0-14 (110x140, BRH 90)",
+   "name": "Vorderhaus Rollladen 60 % Fenster N0-14 (110x140, BRH 90)",
    "box": [
     1053.0,
     1094.0,
@@ -2961,7 +2961,7 @@
    "nr": 183,
    "id": "K1T183",
    "kat": "detail",
-   "name": "Strassenhaus Fensterbank Fenster N0-14 (110x140, BRH 90)",
+   "name": "Vorderhaus Fensterbank Fenster N0-14 (110x140, BRH 90)",
    "box": [
     1048.0,
     1092.0,
@@ -2977,7 +2977,7 @@
    "nr": 184,
    "id": "K1T184",
    "kat": "innen",
-   "name": "Strassenhaus Innenraum Fenster N0-14 (110x140, BRH 90)",
+   "name": "Vorderhaus Innenraum Fenster N0-14 (110x140, BRH 90)",
    "box": [
     1053.0,
     990,
@@ -2993,7 +2993,7 @@
    "nr": 185,
    "id": "K1T185",
    "kat": "ausschnitt",
-   "name": "Strassenhaus Ausschnitt fuer Fenster W0-15 (60x90, BRH 120)",
+   "name": "Vorderhaus Ausschnitt fuer Fenster W0-15 (60x90, BRH 120)",
    "ziel": "K1T04",
    "box": [
     0,
@@ -3010,7 +3010,7 @@
    "nr": 186,
    "id": "K1T186",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen unten Fenster W0-15 (60x90, BRH 120)",
+   "name": "Vorderhaus Rahmen unten Fenster W0-15 (60x90, BRH 120)",
    "box": [
     20.0,
     306.0,
@@ -3026,7 +3026,7 @@
    "nr": 187,
    "id": "K1T187",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen oben Fenster W0-15 (60x90, BRH 120)",
+   "name": "Vorderhaus Rahmen oben Fenster W0-15 (60x90, BRH 120)",
    "box": [
     20.0,
     306.0,
@@ -3042,7 +3042,7 @@
    "nr": 188,
    "id": "K1T188",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen links Fenster W0-15 (60x90, BRH 120)",
+   "name": "Vorderhaus Rahmen links Fenster W0-15 (60x90, BRH 120)",
    "box": [
     20.0,
     306.0,
@@ -3058,7 +3058,7 @@
    "nr": 189,
    "id": "K1T189",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen rechts Fenster W0-15 (60x90, BRH 120)",
+   "name": "Vorderhaus Rahmen rechts Fenster W0-15 (60x90, BRH 120)",
    "box": [
     20.0,
     359.0,
@@ -3074,7 +3074,7 @@
    "nr": 190,
    "id": "K1T190",
    "kat": "glas",
-   "name": "Strassenhaus Glas Fenster W0-15 (60x90, BRH 120)",
+   "name": "Vorderhaus Glas Fenster W0-15 (60x90, BRH 120)",
    "box": [
     23.40000000000009,
     313.0,
@@ -3090,7 +3090,7 @@
    "nr": 191,
    "id": "K1T191",
    "kat": "detail",
-   "name": "Strassenhaus Rollladen 60 % Fenster W0-15 (60x90, BRH 120)",
+   "name": "Vorderhaus Rollladen 60 % Fenster W0-15 (60x90, BRH 120)",
    "box": [
     16.0,
     308.0,
@@ -3106,7 +3106,7 @@
    "nr": 192,
    "id": "K1T192",
    "kat": "detail",
-   "name": "Strassenhaus Fensterbank Fenster W0-15 (60x90, BRH 120)",
+   "name": "Vorderhaus Fensterbank Fenster W0-15 (60x90, BRH 120)",
    "box": [
     2,
     303.0,
@@ -3122,7 +3122,7 @@
    "nr": 193,
    "id": "K1T193",
    "kat": "innen",
-   "name": "Strassenhaus Innenraum Fenster W0-15 (60x90, BRH 120)",
+   "name": "Vorderhaus Innenraum Fenster W0-15 (60x90, BRH 120)",
    "box": [
     43,
     308.0,
@@ -3138,7 +3138,7 @@
    "nr": 194,
    "id": "K1T194",
    "kat": "ausschnitt",
-   "name": "Strassenhaus Ausschnitt fuer Fenster W0-16 (60x90, BRH 120)",
+   "name": "Vorderhaus Ausschnitt fuer Fenster W0-16 (60x90, BRH 120)",
    "ziel": "K1T04",
    "box": [
     0,
@@ -3155,7 +3155,7 @@
    "nr": 195,
    "id": "K1T195",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen unten Fenster W0-16 (60x90, BRH 120)",
+   "name": "Vorderhaus Rahmen unten Fenster W0-16 (60x90, BRH 120)",
    "box": [
     20.0,
     736.0,
@@ -3171,7 +3171,7 @@
    "nr": 196,
    "id": "K1T196",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen oben Fenster W0-16 (60x90, BRH 120)",
+   "name": "Vorderhaus Rahmen oben Fenster W0-16 (60x90, BRH 120)",
    "box": [
     20.0,
     736.0,
@@ -3187,7 +3187,7 @@
    "nr": 197,
    "id": "K1T197",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen links Fenster W0-16 (60x90, BRH 120)",
+   "name": "Vorderhaus Rahmen links Fenster W0-16 (60x90, BRH 120)",
    "box": [
     20.0,
     736.0,
@@ -3203,7 +3203,7 @@
    "nr": 198,
    "id": "K1T198",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen rechts Fenster W0-16 (60x90, BRH 120)",
+   "name": "Vorderhaus Rahmen rechts Fenster W0-16 (60x90, BRH 120)",
    "box": [
     20.0,
     789.0,
@@ -3219,7 +3219,7 @@
    "nr": 199,
    "id": "K1T199",
    "kat": "glas",
-   "name": "Strassenhaus Glas Fenster W0-16 (60x90, BRH 120)",
+   "name": "Vorderhaus Glas Fenster W0-16 (60x90, BRH 120)",
    "box": [
     23.40000000000009,
     743.0,
@@ -3235,7 +3235,7 @@
    "nr": 200,
    "id": "K1T200",
    "kat": "detail",
-   "name": "Strassenhaus Rollladen 60 % Fenster W0-16 (60x90, BRH 120)",
+   "name": "Vorderhaus Rollladen 60 % Fenster W0-16 (60x90, BRH 120)",
    "box": [
     16.0,
     738.0,
@@ -3251,7 +3251,7 @@
    "nr": 201,
    "id": "K1T201",
    "kat": "detail",
-   "name": "Strassenhaus Fensterbank Fenster W0-16 (60x90, BRH 120)",
+   "name": "Vorderhaus Fensterbank Fenster W0-16 (60x90, BRH 120)",
    "box": [
     2,
     733.0,
@@ -3267,7 +3267,7 @@
    "nr": 202,
    "id": "K1T202",
    "kat": "innen",
-   "name": "Strassenhaus Innenraum Fenster W0-16 (60x90, BRH 120)",
+   "name": "Vorderhaus Innenraum Fenster W0-16 (60x90, BRH 120)",
    "box": [
     43,
     738.0,
@@ -3283,7 +3283,7 @@
    "nr": 203,
    "id": "K1T203",
    "kat": "ausschnitt",
-   "name": "Strassenhaus Ausschnitt fuer Fenster E0-17 (110x140, BRH 90)",
+   "name": "Vorderhaus Ausschnitt fuer Fenster E0-17 (110x140, BRH 90)",
    "ziel": "K1T05",
    "box": [
     3264,
@@ -3300,7 +3300,7 @@
    "nr": 204,
    "id": "K1T204",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen unten Fenster E0-17 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen unten Fenster E0-17 (110x140, BRH 90)",
    "box": [
     3284.0,
     281.0,
@@ -3316,7 +3316,7 @@
    "nr": 205,
    "id": "K1T205",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen oben Fenster E0-17 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen oben Fenster E0-17 (110x140, BRH 90)",
    "box": [
     3284.0,
     281.0,
@@ -3332,7 +3332,7 @@
    "nr": 206,
    "id": "K1T206",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen links Fenster E0-17 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen links Fenster E0-17 (110x140, BRH 90)",
    "box": [
     3284.0,
     281.0,
@@ -3348,7 +3348,7 @@
    "nr": 207,
    "id": "K1T207",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen rechts Fenster E0-17 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen rechts Fenster E0-17 (110x140, BRH 90)",
    "box": [
     3284.0,
     384.0,
@@ -3364,7 +3364,7 @@
    "nr": 208,
    "id": "K1T208",
    "kat": "glas",
-   "name": "Strassenhaus Glas Fenster E0-17 (110x140, BRH 90)",
+   "name": "Vorderhaus Glas Fenster E0-17 (110x140, BRH 90)",
    "box": [
     3287.3999999999996,
     288.0,
@@ -3380,7 +3380,7 @@
    "nr": 209,
    "id": "K1T209",
    "kat": "detail",
-   "name": "Strassenhaus Rollladen 60 % Fenster E0-17 (110x140, BRH 90)",
+   "name": "Vorderhaus Rollladen 60 % Fenster E0-17 (110x140, BRH 90)",
    "box": [
     3294.0,
     283.0,
@@ -3396,7 +3396,7 @@
    "nr": 210,
    "id": "K1T210",
    "kat": "detail",
-   "name": "Strassenhaus Fensterbank Fenster E0-17 (110x140, BRH 90)",
+   "name": "Vorderhaus Fensterbank Fenster E0-17 (110x140, BRH 90)",
    "box": [
     3292.0,
     278.0,
@@ -3412,7 +3412,7 @@
    "nr": 211,
    "id": "K1T211",
    "kat": "innen",
-   "name": "Strassenhaus Innenraum Fenster E0-17 (110x140, BRH 90)",
+   "name": "Vorderhaus Innenraum Fenster E0-17 (110x140, BRH 90)",
    "box": [
     3190,
     283.0,
@@ -3428,7 +3428,7 @@
    "nr": 212,
    "id": "K1T212",
    "kat": "ausschnitt",
-   "name": "Strassenhaus Ausschnitt fuer Fenster E0-18 (110x140, BRH 90)",
+   "name": "Vorderhaus Ausschnitt fuer Fenster E0-18 (110x140, BRH 90)",
    "ziel": "K1T05",
    "box": [
     3264,
@@ -3445,7 +3445,7 @@
    "nr": 213,
    "id": "K1T213",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen unten Fenster E0-18 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen unten Fenster E0-18 (110x140, BRH 90)",
    "box": [
     3284.0,
     711.0,
@@ -3461,7 +3461,7 @@
    "nr": 214,
    "id": "K1T214",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen oben Fenster E0-18 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen oben Fenster E0-18 (110x140, BRH 90)",
    "box": [
     3284.0,
     711.0,
@@ -3477,7 +3477,7 @@
    "nr": 215,
    "id": "K1T215",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen links Fenster E0-18 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen links Fenster E0-18 (110x140, BRH 90)",
    "box": [
     3284.0,
     711.0,
@@ -3493,7 +3493,7 @@
    "nr": 216,
    "id": "K1T216",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen rechts Fenster E0-18 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen rechts Fenster E0-18 (110x140, BRH 90)",
    "box": [
     3284.0,
     814.0,
@@ -3509,7 +3509,7 @@
    "nr": 217,
    "id": "K1T217",
    "kat": "glas",
-   "name": "Strassenhaus Glas Fenster E0-18 (110x140, BRH 90)",
+   "name": "Vorderhaus Glas Fenster E0-18 (110x140, BRH 90)",
    "box": [
     3287.3999999999996,
     718.0,
@@ -3525,7 +3525,7 @@
    "nr": 218,
    "id": "K1T218",
    "kat": "detail",
-   "name": "Strassenhaus Rollladen 60 % Fenster E0-18 (110x140, BRH 90)",
+   "name": "Vorderhaus Rollladen 60 % Fenster E0-18 (110x140, BRH 90)",
    "box": [
     3294.0,
     713.0,
@@ -3541,7 +3541,7 @@
    "nr": 219,
    "id": "K1T219",
    "kat": "detail",
-   "name": "Strassenhaus Fensterbank Fenster E0-18 (110x140, BRH 90)",
+   "name": "Vorderhaus Fensterbank Fenster E0-18 (110x140, BRH 90)",
    "box": [
     3292.0,
     708.0,
@@ -3557,7 +3557,7 @@
    "nr": 220,
    "id": "K1T220",
    "kat": "innen",
-   "name": "Strassenhaus Innenraum Fenster E0-18 (110x140, BRH 90)",
+   "name": "Vorderhaus Innenraum Fenster E0-18 (110x140, BRH 90)",
    "box": [
     3190,
     713.0,
@@ -3573,7 +3573,7 @@
    "nr": 221,
    "id": "K1T221",
    "kat": "ausschnitt",
-   "name": "Strassenhaus Ausschnitt fuer Fenster S1-19 (160x140, BRH 90)",
+   "name": "Vorderhaus Ausschnitt fuer Fenster S1-19 (160x140, BRH 90)",
    "ziel": "K1T06",
    "box": [
     186.0,
@@ -3590,7 +3590,7 @@
    "nr": 222,
    "id": "K1T222",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen unten Fenster S1-19 (160x140, BRH 90)",
+   "name": "Vorderhaus Rahmen unten Fenster S1-19 (160x140, BRH 90)",
    "box": [
     186.0,
     20.0,
@@ -3606,7 +3606,7 @@
    "nr": 223,
    "id": "K1T223",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen oben Fenster S1-19 (160x140, BRH 90)",
+   "name": "Vorderhaus Rahmen oben Fenster S1-19 (160x140, BRH 90)",
    "box": [
     186.0,
     20.0,
@@ -3622,7 +3622,7 @@
    "nr": 224,
    "id": "K1T224",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen links Fenster S1-19 (160x140, BRH 90)",
+   "name": "Vorderhaus Rahmen links Fenster S1-19 (160x140, BRH 90)",
    "box": [
     186.0,
     20.0,
@@ -3638,7 +3638,7 @@
    "nr": 225,
    "id": "K1T225",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen rechts Fenster S1-19 (160x140, BRH 90)",
+   "name": "Vorderhaus Rahmen rechts Fenster S1-19 (160x140, BRH 90)",
    "box": [
     339.0,
     20.0,
@@ -3654,7 +3654,7 @@
    "nr": 226,
    "id": "K1T226",
    "kat": "rahmen",
-   "name": "Strassenhaus Pfosten 1 Fenster S1-19 (160x140, BRH 90)",
+   "name": "Vorderhaus Pfosten 1 Fenster S1-19 (160x140, BRH 90)",
    "box": [
     263.0,
     20.0,
@@ -3670,7 +3670,7 @@
    "nr": 227,
    "id": "K1T227",
    "kat": "glas",
-   "name": "Strassenhaus Glas Fenster S1-19 (160x140, BRH 90)",
+   "name": "Vorderhaus Glas Fenster S1-19 (160x140, BRH 90)",
    "box": [
     193.0,
     23.4,
@@ -3686,7 +3686,7 @@
    "nr": 228,
    "id": "K1T228",
    "kat": "detail",
-   "name": "Strassenhaus Rollladen 60 % Fenster S1-19 (160x140, BRH 90)",
+   "name": "Vorderhaus Rollladen 60 % Fenster S1-19 (160x140, BRH 90)",
    "box": [
     188.0,
     16.0,
@@ -3702,7 +3702,7 @@
    "nr": 229,
    "id": "K1T229",
    "kat": "detail",
-   "name": "Strassenhaus Fensterbank Fenster S1-19 (160x140, BRH 90)",
+   "name": "Vorderhaus Fensterbank Fenster S1-19 (160x140, BRH 90)",
    "box": [
     183.0,
     2,
@@ -3718,7 +3718,7 @@
    "nr": 230,
    "id": "K1T230",
    "kat": "innen",
-   "name": "Strassenhaus Innenraum Fenster S1-19 (160x140, BRH 90)",
+   "name": "Vorderhaus Innenraum Fenster S1-19 (160x140, BRH 90)",
    "box": [
     188.0,
     43,
@@ -3734,7 +3734,7 @@
    "nr": 231,
    "id": "K1T231",
    "kat": "ausschnitt",
-   "name": "Strassenhaus Ausschnitt fuer Fenster S1-20 (110x140, BRH 90)",
+   "name": "Vorderhaus Ausschnitt fuer Fenster S1-20 (110x140, BRH 90)",
    "ziel": "K1T06",
    "box": [
     501.0,
@@ -3751,7 +3751,7 @@
    "nr": 232,
    "id": "K1T232",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen unten Fenster S1-20 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen unten Fenster S1-20 (110x140, BRH 90)",
    "box": [
     501.0,
     20.0,
@@ -3767,7 +3767,7 @@
    "nr": 233,
    "id": "K1T233",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen oben Fenster S1-20 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen oben Fenster S1-20 (110x140, BRH 90)",
    "box": [
     501.0,
     20.0,
@@ -3783,7 +3783,7 @@
    "nr": 234,
    "id": "K1T234",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen links Fenster S1-20 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen links Fenster S1-20 (110x140, BRH 90)",
    "box": [
     501.0,
     20.0,
@@ -3799,7 +3799,7 @@
    "nr": 235,
    "id": "K1T235",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen rechts Fenster S1-20 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen rechts Fenster S1-20 (110x140, BRH 90)",
    "box": [
     604.0,
     20.0,
@@ -3815,7 +3815,7 @@
    "nr": 236,
    "id": "K1T236",
    "kat": "glas",
-   "name": "Strassenhaus Glas Fenster S1-20 (110x140, BRH 90)",
+   "name": "Vorderhaus Glas Fenster S1-20 (110x140, BRH 90)",
    "box": [
     508.0,
     23.4,
@@ -3831,7 +3831,7 @@
    "nr": 237,
    "id": "K1T237",
    "kat": "detail",
-   "name": "Strassenhaus Rollladen 60 % Fenster S1-20 (110x140, BRH 90)",
+   "name": "Vorderhaus Rollladen 60 % Fenster S1-20 (110x140, BRH 90)",
    "box": [
     503.0,
     16.0,
@@ -3847,7 +3847,7 @@
    "nr": 238,
    "id": "K1T238",
    "kat": "detail",
-   "name": "Strassenhaus Fensterbank Fenster S1-20 (110x140, BRH 90)",
+   "name": "Vorderhaus Fensterbank Fenster S1-20 (110x140, BRH 90)",
    "box": [
     498.0,
     2,
@@ -3863,7 +3863,7 @@
    "nr": 239,
    "id": "K1T239",
    "kat": "innen",
-   "name": "Strassenhaus Innenraum Fenster S1-20 (110x140, BRH 90)",
+   "name": "Vorderhaus Innenraum Fenster S1-20 (110x140, BRH 90)",
    "box": [
     503.0,
     43,
@@ -3879,7 +3879,7 @@
    "nr": 240,
    "id": "K1T240",
    "kat": "ausschnitt",
-   "name": "Strassenhaus Ausschnitt fuer Fenster S1-21 (110x140, BRH 90)",
+   "name": "Vorderhaus Ausschnitt fuer Fenster S1-21 (110x140, BRH 90)",
    "ziel": "K1T06",
    "box": [
     791.0,
@@ -3896,7 +3896,7 @@
    "nr": 241,
    "id": "K1T241",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen unten Fenster S1-21 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen unten Fenster S1-21 (110x140, BRH 90)",
    "box": [
     791.0,
     20.0,
@@ -3912,7 +3912,7 @@
    "nr": 242,
    "id": "K1T242",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen oben Fenster S1-21 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen oben Fenster S1-21 (110x140, BRH 90)",
    "box": [
     791.0,
     20.0,
@@ -3928,7 +3928,7 @@
    "nr": 243,
    "id": "K1T243",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen links Fenster S1-21 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen links Fenster S1-21 (110x140, BRH 90)",
    "box": [
     791.0,
     20.0,
@@ -3944,7 +3944,7 @@
    "nr": 244,
    "id": "K1T244",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen rechts Fenster S1-21 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen rechts Fenster S1-21 (110x140, BRH 90)",
    "box": [
     894.0,
     20.0,
@@ -3960,7 +3960,7 @@
    "nr": 245,
    "id": "K1T245",
    "kat": "glas",
-   "name": "Strassenhaus Glas Fenster S1-21 (110x140, BRH 90)",
+   "name": "Vorderhaus Glas Fenster S1-21 (110x140, BRH 90)",
    "box": [
     798.0,
     23.4,
@@ -3976,7 +3976,7 @@
    "nr": 246,
    "id": "K1T246",
    "kat": "detail",
-   "name": "Strassenhaus Rollladen 60 % Fenster S1-21 (110x140, BRH 90)",
+   "name": "Vorderhaus Rollladen 60 % Fenster S1-21 (110x140, BRH 90)",
    "box": [
     793.0,
     16.0,
@@ -3992,7 +3992,7 @@
    "nr": 247,
    "id": "K1T247",
    "kat": "detail",
-   "name": "Strassenhaus Fensterbank Fenster S1-21 (110x140, BRH 90)",
+   "name": "Vorderhaus Fensterbank Fenster S1-21 (110x140, BRH 90)",
    "box": [
     788.0,
     2,
@@ -4008,7 +4008,7 @@
    "nr": 248,
    "id": "K1T248",
    "kat": "innen",
-   "name": "Strassenhaus Innenraum Fenster S1-21 (110x140, BRH 90)",
+   "name": "Vorderhaus Innenraum Fenster S1-21 (110x140, BRH 90)",
    "box": [
     793.0,
     43,
@@ -4024,7 +4024,7 @@
    "nr": 249,
    "id": "K1T249",
    "kat": "ausschnitt",
-   "name": "Strassenhaus Ausschnitt fuer Fenster S1-22 (160x140, BRH 90)",
+   "name": "Vorderhaus Ausschnitt fuer Fenster S1-22 (160x140, BRH 90)",
    "ziel": "K1T06",
    "box": [
     1056.0,
@@ -4041,7 +4041,7 @@
    "nr": 250,
    "id": "K1T250",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen unten Fenster S1-22 (160x140, BRH 90)",
+   "name": "Vorderhaus Rahmen unten Fenster S1-22 (160x140, BRH 90)",
    "box": [
     1056.0,
     20.0,
@@ -4057,7 +4057,7 @@
    "nr": 251,
    "id": "K1T251",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen oben Fenster S1-22 (160x140, BRH 90)",
+   "name": "Vorderhaus Rahmen oben Fenster S1-22 (160x140, BRH 90)",
    "box": [
     1056.0,
     20.0,
@@ -4073,7 +4073,7 @@
    "nr": 252,
    "id": "K1T252",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen links Fenster S1-22 (160x140, BRH 90)",
+   "name": "Vorderhaus Rahmen links Fenster S1-22 (160x140, BRH 90)",
    "box": [
     1056.0,
     20.0,
@@ -4089,7 +4089,7 @@
    "nr": 253,
    "id": "K1T253",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen rechts Fenster S1-22 (160x140, BRH 90)",
+   "name": "Vorderhaus Rahmen rechts Fenster S1-22 (160x140, BRH 90)",
    "box": [
     1209.0,
     20.0,
@@ -4105,7 +4105,7 @@
    "nr": 254,
    "id": "K1T254",
    "kat": "rahmen",
-   "name": "Strassenhaus Pfosten 1 Fenster S1-22 (160x140, BRH 90)",
+   "name": "Vorderhaus Pfosten 1 Fenster S1-22 (160x140, BRH 90)",
    "box": [
     1133.0,
     20.0,
@@ -4121,7 +4121,7 @@
    "nr": 255,
    "id": "K1T255",
    "kat": "glas",
-   "name": "Strassenhaus Glas Fenster S1-22 (160x140, BRH 90)",
+   "name": "Vorderhaus Glas Fenster S1-22 (160x140, BRH 90)",
    "box": [
     1063.0,
     23.4,
@@ -4137,7 +4137,7 @@
    "nr": 256,
    "id": "K1T256",
    "kat": "detail",
-   "name": "Strassenhaus Rollladen 60 % Fenster S1-22 (160x140, BRH 90)",
+   "name": "Vorderhaus Rollladen 60 % Fenster S1-22 (160x140, BRH 90)",
    "box": [
     1058.0,
     16.0,
@@ -4153,7 +4153,7 @@
    "nr": 257,
    "id": "K1T257",
    "kat": "detail",
-   "name": "Strassenhaus Fensterbank Fenster S1-22 (160x140, BRH 90)",
+   "name": "Vorderhaus Fensterbank Fenster S1-22 (160x140, BRH 90)",
    "box": [
     1053.0,
     2,
@@ -4169,7 +4169,7 @@
    "nr": 258,
    "id": "K1T258",
    "kat": "innen",
-   "name": "Strassenhaus Innenraum Fenster S1-22 (160x140, BRH 90)",
+   "name": "Vorderhaus Innenraum Fenster S1-22 (160x140, BRH 90)",
    "box": [
     1058.0,
     43,
@@ -4185,7 +4185,7 @@
    "nr": 259,
    "id": "K1T259",
    "kat": "ausschnitt",
-   "name": "Strassenhaus Ausschnitt fuer Fenster S1-23 (55x120, BRH 100)",
+   "name": "Vorderhaus Ausschnitt fuer Fenster S1-23 (55x120, BRH 100)",
    "ziel": "K1T06",
    "box": [
     1398.5,
@@ -4202,7 +4202,7 @@
    "nr": 260,
    "id": "K1T260",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen unten Fenster S1-23 (55x120, BRH 100)",
+   "name": "Vorderhaus Rahmen unten Fenster S1-23 (55x120, BRH 100)",
    "box": [
     1398.5,
     20.0,
@@ -4218,7 +4218,7 @@
    "nr": 261,
    "id": "K1T261",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen oben Fenster S1-23 (55x120, BRH 100)",
+   "name": "Vorderhaus Rahmen oben Fenster S1-23 (55x120, BRH 100)",
    "box": [
     1398.5,
     20.0,
@@ -4234,7 +4234,7 @@
    "nr": 262,
    "id": "K1T262",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen links Fenster S1-23 (55x120, BRH 100)",
+   "name": "Vorderhaus Rahmen links Fenster S1-23 (55x120, BRH 100)",
    "box": [
     1398.5,
     20.0,
@@ -4250,7 +4250,7 @@
    "nr": 263,
    "id": "K1T263",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen rechts Fenster S1-23 (55x120, BRH 100)",
+   "name": "Vorderhaus Rahmen rechts Fenster S1-23 (55x120, BRH 100)",
    "box": [
     1446.5,
     20.0,
@@ -4266,7 +4266,7 @@
    "nr": 264,
    "id": "K1T264",
    "kat": "glas",
-   "name": "Strassenhaus Glas Fenster S1-23 (55x120, BRH 100)",
+   "name": "Vorderhaus Glas Fenster S1-23 (55x120, BRH 100)",
    "box": [
     1405.5,
     23.4,
@@ -4282,7 +4282,7 @@
    "nr": 265,
    "id": "K1T265",
    "kat": "detail",
-   "name": "Strassenhaus Rollladen 60 % Fenster S1-23 (55x120, BRH 100)",
+   "name": "Vorderhaus Rollladen 60 % Fenster S1-23 (55x120, BRH 100)",
    "box": [
     1400.5,
     16.0,
@@ -4298,7 +4298,7 @@
    "nr": 266,
    "id": "K1T266",
    "kat": "detail",
-   "name": "Strassenhaus Fensterbank Fenster S1-23 (55x120, BRH 100)",
+   "name": "Vorderhaus Fensterbank Fenster S1-23 (55x120, BRH 100)",
    "box": [
     1395.5,
     2,
@@ -4314,7 +4314,7 @@
    "nr": 267,
    "id": "K1T267",
    "kat": "innen",
-   "name": "Strassenhaus Innenraum Fenster S1-23 (55x120, BRH 100)",
+   "name": "Vorderhaus Innenraum Fenster S1-23 (55x120, BRH 100)",
    "box": [
     1400.5,
     43,
@@ -4330,7 +4330,7 @@
    "nr": 268,
    "id": "K1T268",
    "kat": "ausschnitt",
-   "name": "Strassenhaus Ausschnitt fuer Fenster S1-24 (110x140, BRH 90)",
+   "name": "Vorderhaus Ausschnitt fuer Fenster S1-24 (110x140, BRH 90)",
    "ziel": "K1T06",
    "box": [
     1661.0,
@@ -4347,7 +4347,7 @@
    "nr": 269,
    "id": "K1T269",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen unten Fenster S1-24 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen unten Fenster S1-24 (110x140, BRH 90)",
    "box": [
     1661.0,
     20.0,
@@ -4363,7 +4363,7 @@
    "nr": 270,
    "id": "K1T270",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen oben Fenster S1-24 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen oben Fenster S1-24 (110x140, BRH 90)",
    "box": [
     1661.0,
     20.0,
@@ -4379,7 +4379,7 @@
    "nr": 271,
    "id": "K1T271",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen links Fenster S1-24 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen links Fenster S1-24 (110x140, BRH 90)",
    "box": [
     1661.0,
     20.0,
@@ -4395,7 +4395,7 @@
    "nr": 272,
    "id": "K1T272",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen rechts Fenster S1-24 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen rechts Fenster S1-24 (110x140, BRH 90)",
    "box": [
     1764.0,
     20.0,
@@ -4411,7 +4411,7 @@
    "nr": 273,
    "id": "K1T273",
    "kat": "glas",
-   "name": "Strassenhaus Glas Fenster S1-24 (110x140, BRH 90)",
+   "name": "Vorderhaus Glas Fenster S1-24 (110x140, BRH 90)",
    "box": [
     1668.0,
     23.4,
@@ -4427,7 +4427,7 @@
    "nr": 274,
    "id": "K1T274",
    "kat": "detail",
-   "name": "Strassenhaus Rollladen 60 % Fenster S1-24 (110x140, BRH 90)",
+   "name": "Vorderhaus Rollladen 60 % Fenster S1-24 (110x140, BRH 90)",
    "box": [
     1663.0,
     16.0,
@@ -4443,7 +4443,7 @@
    "nr": 275,
    "id": "K1T275",
    "kat": "detail",
-   "name": "Strassenhaus Fensterbank Fenster S1-24 (110x140, BRH 90)",
+   "name": "Vorderhaus Fensterbank Fenster S1-24 (110x140, BRH 90)",
    "box": [
     1658.0,
     2,
@@ -4459,7 +4459,7 @@
    "nr": 276,
    "id": "K1T276",
    "kat": "innen",
-   "name": "Strassenhaus Innenraum Fenster S1-24 (110x140, BRH 90)",
+   "name": "Vorderhaus Innenraum Fenster S1-24 (110x140, BRH 90)",
    "box": [
     1663.0,
     43,
@@ -4475,7 +4475,7 @@
    "nr": 277,
    "id": "K1T277",
    "kat": "ausschnitt",
-   "name": "Strassenhaus Ausschnitt fuer Fenster S1-25 (160x140, BRH 90)",
+   "name": "Vorderhaus Ausschnitt fuer Fenster S1-25 (160x140, BRH 90)",
    "ziel": "K1T06",
    "box": [
     1926.0,
@@ -4492,7 +4492,7 @@
    "nr": 278,
    "id": "K1T278",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen unten Fenster S1-25 (160x140, BRH 90)",
+   "name": "Vorderhaus Rahmen unten Fenster S1-25 (160x140, BRH 90)",
    "box": [
     1926.0,
     20.0,
@@ -4508,7 +4508,7 @@
    "nr": 279,
    "id": "K1T279",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen oben Fenster S1-25 (160x140, BRH 90)",
+   "name": "Vorderhaus Rahmen oben Fenster S1-25 (160x140, BRH 90)",
    "box": [
     1926.0,
     20.0,
@@ -4524,7 +4524,7 @@
    "nr": 280,
    "id": "K1T280",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen links Fenster S1-25 (160x140, BRH 90)",
+   "name": "Vorderhaus Rahmen links Fenster S1-25 (160x140, BRH 90)",
    "box": [
     1926.0,
     20.0,
@@ -4540,7 +4540,7 @@
    "nr": 281,
    "id": "K1T281",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen rechts Fenster S1-25 (160x140, BRH 90)",
+   "name": "Vorderhaus Rahmen rechts Fenster S1-25 (160x140, BRH 90)",
    "box": [
     2079.0,
     20.0,
@@ -4556,7 +4556,7 @@
    "nr": 282,
    "id": "K1T282",
    "kat": "rahmen",
-   "name": "Strassenhaus Pfosten 1 Fenster S1-25 (160x140, BRH 90)",
+   "name": "Vorderhaus Pfosten 1 Fenster S1-25 (160x140, BRH 90)",
    "box": [
     2003.0,
     20.0,
@@ -4572,7 +4572,7 @@
    "nr": 283,
    "id": "K1T283",
    "kat": "glas",
-   "name": "Strassenhaus Glas Fenster S1-25 (160x140, BRH 90)",
+   "name": "Vorderhaus Glas Fenster S1-25 (160x140, BRH 90)",
    "box": [
     1933.0,
     23.4,
@@ -4588,7 +4588,7 @@
    "nr": 284,
    "id": "K1T284",
    "kat": "detail",
-   "name": "Strassenhaus Rollladen 60 % Fenster S1-25 (160x140, BRH 90)",
+   "name": "Vorderhaus Rollladen 60 % Fenster S1-25 (160x140, BRH 90)",
    "box": [
     1928.0,
     16.0,
@@ -4604,7 +4604,7 @@
    "nr": 285,
    "id": "K1T285",
    "kat": "detail",
-   "name": "Strassenhaus Fensterbank Fenster S1-25 (160x140, BRH 90)",
+   "name": "Vorderhaus Fensterbank Fenster S1-25 (160x140, BRH 90)",
    "box": [
     1923.0,
     2,
@@ -4620,7 +4620,7 @@
    "nr": 286,
    "id": "K1T286",
    "kat": "innen",
-   "name": "Strassenhaus Innenraum Fenster S1-25 (160x140, BRH 90)",
+   "name": "Vorderhaus Innenraum Fenster S1-25 (160x140, BRH 90)",
    "box": [
     1928.0,
     43,
@@ -4636,7 +4636,7 @@
    "nr": 287,
    "id": "K1T287",
    "kat": "ausschnitt",
-   "name": "Strassenhaus Ausschnitt fuer Fenster S1-26 (110x140, BRH 90)",
+   "name": "Vorderhaus Ausschnitt fuer Fenster S1-26 (110x140, BRH 90)",
    "ziel": "K1T06",
    "box": [
     2241.0,
@@ -4653,7 +4653,7 @@
    "nr": 288,
    "id": "K1T288",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen unten Fenster S1-26 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen unten Fenster S1-26 (110x140, BRH 90)",
    "box": [
     2241.0,
     20.0,
@@ -4669,7 +4669,7 @@
    "nr": 289,
    "id": "K1T289",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen oben Fenster S1-26 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen oben Fenster S1-26 (110x140, BRH 90)",
    "box": [
     2241.0,
     20.0,
@@ -4685,7 +4685,7 @@
    "nr": 290,
    "id": "K1T290",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen links Fenster S1-26 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen links Fenster S1-26 (110x140, BRH 90)",
    "box": [
     2241.0,
     20.0,
@@ -4701,7 +4701,7 @@
    "nr": 291,
    "id": "K1T291",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen rechts Fenster S1-26 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen rechts Fenster S1-26 (110x140, BRH 90)",
    "box": [
     2344.0,
     20.0,
@@ -4717,7 +4717,7 @@
    "nr": 292,
    "id": "K1T292",
    "kat": "glas",
-   "name": "Strassenhaus Glas Fenster S1-26 (110x140, BRH 90)",
+   "name": "Vorderhaus Glas Fenster S1-26 (110x140, BRH 90)",
    "box": [
     2248.0,
     23.4,
@@ -4733,7 +4733,7 @@
    "nr": 293,
    "id": "K1T293",
    "kat": "detail",
-   "name": "Strassenhaus Rollladen 60 % Fenster S1-26 (110x140, BRH 90)",
+   "name": "Vorderhaus Rollladen 60 % Fenster S1-26 (110x140, BRH 90)",
    "box": [
     2243.0,
     16.0,
@@ -4749,7 +4749,7 @@
    "nr": 294,
    "id": "K1T294",
    "kat": "detail",
-   "name": "Strassenhaus Fensterbank Fenster S1-26 (110x140, BRH 90)",
+   "name": "Vorderhaus Fensterbank Fenster S1-26 (110x140, BRH 90)",
    "box": [
     2238.0,
     2,
@@ -4765,7 +4765,7 @@
    "nr": 295,
    "id": "K1T295",
    "kat": "innen",
-   "name": "Strassenhaus Innenraum Fenster S1-26 (110x140, BRH 90)",
+   "name": "Vorderhaus Innenraum Fenster S1-26 (110x140, BRH 90)",
    "box": [
     2243.0,
     43,
@@ -4781,7 +4781,7 @@
    "nr": 296,
    "id": "K1T296",
    "kat": "ausschnitt",
-   "name": "Strassenhaus Ausschnitt fuer Fenster S1-27 (110x140, BRH 90)",
+   "name": "Vorderhaus Ausschnitt fuer Fenster S1-27 (110x140, BRH 90)",
    "ziel": "K1T06",
    "box": [
     2531.0,
@@ -4798,7 +4798,7 @@
    "nr": 297,
    "id": "K1T297",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen unten Fenster S1-27 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen unten Fenster S1-27 (110x140, BRH 90)",
    "box": [
     2531.0,
     20.0,
@@ -4814,7 +4814,7 @@
    "nr": 298,
    "id": "K1T298",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen oben Fenster S1-27 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen oben Fenster S1-27 (110x140, BRH 90)",
    "box": [
     2531.0,
     20.0,
@@ -4830,7 +4830,7 @@
    "nr": 299,
    "id": "K1T299",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen links Fenster S1-27 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen links Fenster S1-27 (110x140, BRH 90)",
    "box": [
     2531.0,
     20.0,
@@ -4846,7 +4846,7 @@
    "nr": 300,
    "id": "K1T300",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen rechts Fenster S1-27 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen rechts Fenster S1-27 (110x140, BRH 90)",
    "box": [
     2634.0,
     20.0,
@@ -4862,7 +4862,7 @@
    "nr": 301,
    "id": "K1T301",
    "kat": "glas",
-   "name": "Strassenhaus Glas Fenster S1-27 (110x140, BRH 90)",
+   "name": "Vorderhaus Glas Fenster S1-27 (110x140, BRH 90)",
    "box": [
     2538.0,
     23.4,
@@ -4878,7 +4878,7 @@
    "nr": 302,
    "id": "K1T302",
    "kat": "detail",
-   "name": "Strassenhaus Rollladen 60 % Fenster S1-27 (110x140, BRH 90)",
+   "name": "Vorderhaus Rollladen 60 % Fenster S1-27 (110x140, BRH 90)",
    "box": [
     2533.0,
     16.0,
@@ -4894,7 +4894,7 @@
    "nr": 303,
    "id": "K1T303",
    "kat": "detail",
-   "name": "Strassenhaus Fensterbank Fenster S1-27 (110x140, BRH 90)",
+   "name": "Vorderhaus Fensterbank Fenster S1-27 (110x140, BRH 90)",
    "box": [
     2528.0,
     2,
@@ -4910,7 +4910,7 @@
    "nr": 304,
    "id": "K1T304",
    "kat": "innen",
-   "name": "Strassenhaus Innenraum Fenster S1-27 (110x140, BRH 90)",
+   "name": "Vorderhaus Innenraum Fenster S1-27 (110x140, BRH 90)",
    "box": [
     2533.0,
     43,
@@ -4926,7 +4926,7 @@
    "nr": 305,
    "id": "K1T305",
    "kat": "ausschnitt",
-   "name": "Strassenhaus Ausschnitt fuer Fenster S1-28 (160x140, BRH 90)",
+   "name": "Vorderhaus Ausschnitt fuer Fenster S1-28 (160x140, BRH 90)",
    "ziel": "K1T06",
    "box": [
     2796.0,
@@ -4943,7 +4943,7 @@
    "nr": 306,
    "id": "K1T306",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen unten Fenster S1-28 (160x140, BRH 90)",
+   "name": "Vorderhaus Rahmen unten Fenster S1-28 (160x140, BRH 90)",
    "box": [
     2796.0,
     20.0,
@@ -4959,7 +4959,7 @@
    "nr": 307,
    "id": "K1T307",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen oben Fenster S1-28 (160x140, BRH 90)",
+   "name": "Vorderhaus Rahmen oben Fenster S1-28 (160x140, BRH 90)",
    "box": [
     2796.0,
     20.0,
@@ -4975,7 +4975,7 @@
    "nr": 308,
    "id": "K1T308",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen links Fenster S1-28 (160x140, BRH 90)",
+   "name": "Vorderhaus Rahmen links Fenster S1-28 (160x140, BRH 90)",
    "box": [
     2796.0,
     20.0,
@@ -4991,7 +4991,7 @@
    "nr": 309,
    "id": "K1T309",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen rechts Fenster S1-28 (160x140, BRH 90)",
+   "name": "Vorderhaus Rahmen rechts Fenster S1-28 (160x140, BRH 90)",
    "box": [
     2949.0,
     20.0,
@@ -5007,7 +5007,7 @@
    "nr": 310,
    "id": "K1T310",
    "kat": "rahmen",
-   "name": "Strassenhaus Pfosten 1 Fenster S1-28 (160x140, BRH 90)",
+   "name": "Vorderhaus Pfosten 1 Fenster S1-28 (160x140, BRH 90)",
    "box": [
     2873.0,
     20.0,
@@ -5023,7 +5023,7 @@
    "nr": 311,
    "id": "K1T311",
    "kat": "glas",
-   "name": "Strassenhaus Glas Fenster S1-28 (160x140, BRH 90)",
+   "name": "Vorderhaus Glas Fenster S1-28 (160x140, BRH 90)",
    "box": [
     2803.0,
     23.4,
@@ -5039,7 +5039,7 @@
    "nr": 312,
    "id": "K1T312",
    "kat": "detail",
-   "name": "Strassenhaus Rollladen 60 % Fenster S1-28 (160x140, BRH 90)",
+   "name": "Vorderhaus Rollladen 60 % Fenster S1-28 (160x140, BRH 90)",
    "box": [
     2798.0,
     16.0,
@@ -5055,7 +5055,7 @@
    "nr": 313,
    "id": "K1T313",
    "kat": "detail",
-   "name": "Strassenhaus Fensterbank Fenster S1-28 (160x140, BRH 90)",
+   "name": "Vorderhaus Fensterbank Fenster S1-28 (160x140, BRH 90)",
    "box": [
     2793.0,
     2,
@@ -5071,7 +5071,7 @@
    "nr": 314,
    "id": "K1T314",
    "kat": "innen",
-   "name": "Strassenhaus Innenraum Fenster S1-28 (160x140, BRH 90)",
+   "name": "Vorderhaus Innenraum Fenster S1-28 (160x140, BRH 90)",
    "box": [
     2798.0,
     43,
@@ -5087,7 +5087,7 @@
    "nr": 315,
    "id": "K1T315",
    "kat": "ausschnitt",
-   "name": "Strassenhaus Ausschnitt fuer Fenster S1-29 (110x140, BRH 90)",
+   "name": "Vorderhaus Ausschnitt fuer Fenster S1-29 (110x140, BRH 90)",
    "ziel": "K1T06",
    "box": [
     3111.0,
@@ -5104,7 +5104,7 @@
    "nr": 316,
    "id": "K1T316",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen unten Fenster S1-29 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen unten Fenster S1-29 (110x140, BRH 90)",
    "box": [
     3111.0,
     20.0,
@@ -5120,7 +5120,7 @@
    "nr": 317,
    "id": "K1T317",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen oben Fenster S1-29 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen oben Fenster S1-29 (110x140, BRH 90)",
    "box": [
     3111.0,
     20.0,
@@ -5136,7 +5136,7 @@
    "nr": 318,
    "id": "K1T318",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen links Fenster S1-29 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen links Fenster S1-29 (110x140, BRH 90)",
    "box": [
     3111.0,
     20.0,
@@ -5152,7 +5152,7 @@
    "nr": 319,
    "id": "K1T319",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen rechts Fenster S1-29 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen rechts Fenster S1-29 (110x140, BRH 90)",
    "box": [
     3214.0,
     20.0,
@@ -5168,7 +5168,7 @@
    "nr": 320,
    "id": "K1T320",
    "kat": "glas",
-   "name": "Strassenhaus Glas Fenster S1-29 (110x140, BRH 90)",
+   "name": "Vorderhaus Glas Fenster S1-29 (110x140, BRH 90)",
    "box": [
     3118.0,
     23.4,
@@ -5184,7 +5184,7 @@
    "nr": 321,
    "id": "K1T321",
    "kat": "detail",
-   "name": "Strassenhaus Rollladen 60 % Fenster S1-29 (110x140, BRH 90)",
+   "name": "Vorderhaus Rollladen 60 % Fenster S1-29 (110x140, BRH 90)",
    "box": [
     3113.0,
     16.0,
@@ -5200,7 +5200,7 @@
    "nr": 322,
    "id": "K1T322",
    "kat": "detail",
-   "name": "Strassenhaus Fensterbank Fenster S1-29 (110x140, BRH 90)",
+   "name": "Vorderhaus Fensterbank Fenster S1-29 (110x140, BRH 90)",
    "box": [
     3108.0,
     2,
@@ -5216,7 +5216,7 @@
    "nr": 323,
    "id": "K1T323",
    "kat": "innen",
-   "name": "Strassenhaus Innenraum Fenster S1-29 (110x140, BRH 90)",
+   "name": "Vorderhaus Innenraum Fenster S1-29 (110x140, BRH 90)",
    "box": [
     3113.0,
     43,
@@ -5232,7 +5232,7 @@
    "nr": 324,
    "id": "K1T324",
    "kat": "ausschnitt",
-   "name": "Strassenhaus Ausschnitt fuer Fenster N1-30 (110x140, BRH 90)",
+   "name": "Vorderhaus Ausschnitt fuer Fenster N1-30 (110x140, BRH 90)",
    "ziel": "K1T07",
    "box": [
     271.0,
@@ -5249,7 +5249,7 @@
    "nr": 325,
    "id": "K1T325",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen unten Fenster N1-30 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen unten Fenster N1-30 (110x140, BRH 90)",
    "box": [
     271.0,
     1084.0,
@@ -5265,7 +5265,7 @@
    "nr": 326,
    "id": "K1T326",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen oben Fenster N1-30 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen oben Fenster N1-30 (110x140, BRH 90)",
    "box": [
     271.0,
     1084.0,
@@ -5281,7 +5281,7 @@
    "nr": 327,
    "id": "K1T327",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen links Fenster N1-30 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen links Fenster N1-30 (110x140, BRH 90)",
    "box": [
     271.0,
     1084.0,
@@ -5297,7 +5297,7 @@
    "nr": 328,
    "id": "K1T328",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen rechts Fenster N1-30 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen rechts Fenster N1-30 (110x140, BRH 90)",
    "box": [
     374.0,
     1084.0,
@@ -5313,7 +5313,7 @@
    "nr": 329,
    "id": "K1T329",
    "kat": "glas",
-   "name": "Strassenhaus Glas Fenster N1-30 (110x140, BRH 90)",
+   "name": "Vorderhaus Glas Fenster N1-30 (110x140, BRH 90)",
    "box": [
     278.0,
     1087.4,
@@ -5329,7 +5329,7 @@
    "nr": 330,
    "id": "K1T330",
    "kat": "detail",
-   "name": "Strassenhaus Rollladen 60 % Fenster N1-30 (110x140, BRH 90)",
+   "name": "Vorderhaus Rollladen 60 % Fenster N1-30 (110x140, BRH 90)",
    "box": [
     273.0,
     1094.0,
@@ -5345,7 +5345,7 @@
    "nr": 331,
    "id": "K1T331",
    "kat": "detail",
-   "name": "Strassenhaus Fensterbank Fenster N1-30 (110x140, BRH 90)",
+   "name": "Vorderhaus Fensterbank Fenster N1-30 (110x140, BRH 90)",
    "box": [
     268.0,
     1092.0,
@@ -5361,7 +5361,7 @@
    "nr": 332,
    "id": "K1T332",
    "kat": "innen",
-   "name": "Strassenhaus Innenraum Fenster N1-30 (110x140, BRH 90)",
+   "name": "Vorderhaus Innenraum Fenster N1-30 (110x140, BRH 90)",
    "box": [
     273.0,
     990,
@@ -5377,7 +5377,7 @@
    "nr": 333,
    "id": "K1T333",
    "kat": "ausschnitt",
-   "name": "Strassenhaus Ausschnitt fuer Fenster N1-31 (110x140, BRH 90)",
+   "name": "Vorderhaus Ausschnitt fuer Fenster N1-31 (110x140, BRH 90)",
    "ziel": "K1T07",
    "box": [
     711.0,
@@ -5394,7 +5394,7 @@
    "nr": 334,
    "id": "K1T334",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen unten Fenster N1-31 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen unten Fenster N1-31 (110x140, BRH 90)",
    "box": [
     711.0,
     1084.0,
@@ -5410,7 +5410,7 @@
    "nr": 335,
    "id": "K1T335",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen oben Fenster N1-31 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen oben Fenster N1-31 (110x140, BRH 90)",
    "box": [
     711.0,
     1084.0,
@@ -5426,7 +5426,7 @@
    "nr": 336,
    "id": "K1T336",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen links Fenster N1-31 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen links Fenster N1-31 (110x140, BRH 90)",
    "box": [
     711.0,
     1084.0,
@@ -5442,7 +5442,7 @@
    "nr": 337,
    "id": "K1T337",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen rechts Fenster N1-31 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen rechts Fenster N1-31 (110x140, BRH 90)",
    "box": [
     814.0,
     1084.0,
@@ -5458,7 +5458,7 @@
    "nr": 338,
    "id": "K1T338",
    "kat": "glas",
-   "name": "Strassenhaus Glas Fenster N1-31 (110x140, BRH 90)",
+   "name": "Vorderhaus Glas Fenster N1-31 (110x140, BRH 90)",
    "box": [
     718.0,
     1087.4,
@@ -5474,7 +5474,7 @@
    "nr": 339,
    "id": "K1T339",
    "kat": "detail",
-   "name": "Strassenhaus Rollladen 60 % Fenster N1-31 (110x140, BRH 90)",
+   "name": "Vorderhaus Rollladen 60 % Fenster N1-31 (110x140, BRH 90)",
    "box": [
     713.0,
     1094.0,
@@ -5490,7 +5490,7 @@
    "nr": 340,
    "id": "K1T340",
    "kat": "detail",
-   "name": "Strassenhaus Fensterbank Fenster N1-31 (110x140, BRH 90)",
+   "name": "Vorderhaus Fensterbank Fenster N1-31 (110x140, BRH 90)",
    "box": [
     708.0,
     1092.0,
@@ -5506,7 +5506,7 @@
    "nr": 341,
    "id": "K1T341",
    "kat": "innen",
-   "name": "Strassenhaus Innenraum Fenster N1-31 (110x140, BRH 90)",
+   "name": "Vorderhaus Innenraum Fenster N1-31 (110x140, BRH 90)",
    "box": [
     713.0,
     990,
@@ -5522,7 +5522,7 @@
    "nr": 342,
    "id": "K1T342",
    "kat": "ausschnitt",
-   "name": "Strassenhaus Ausschnitt fuer Fenster N1-32 (110x140, BRH 90)",
+   "name": "Vorderhaus Ausschnitt fuer Fenster N1-32 (110x140, BRH 90)",
    "ziel": "K1T07",
    "box": [
     1051.0,
@@ -5539,7 +5539,7 @@
    "nr": 343,
    "id": "K1T343",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen unten Fenster N1-32 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen unten Fenster N1-32 (110x140, BRH 90)",
    "box": [
     1051.0,
     1084.0,
@@ -5555,7 +5555,7 @@
    "nr": 344,
    "id": "K1T344",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen oben Fenster N1-32 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen oben Fenster N1-32 (110x140, BRH 90)",
    "box": [
     1051.0,
     1084.0,
@@ -5571,7 +5571,7 @@
    "nr": 345,
    "id": "K1T345",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen links Fenster N1-32 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen links Fenster N1-32 (110x140, BRH 90)",
    "box": [
     1051.0,
     1084.0,
@@ -5587,7 +5587,7 @@
    "nr": 346,
    "id": "K1T346",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen rechts Fenster N1-32 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen rechts Fenster N1-32 (110x140, BRH 90)",
    "box": [
     1154.0,
     1084.0,
@@ -5603,7 +5603,7 @@
    "nr": 347,
    "id": "K1T347",
    "kat": "glas",
-   "name": "Strassenhaus Glas Fenster N1-32 (110x140, BRH 90)",
+   "name": "Vorderhaus Glas Fenster N1-32 (110x140, BRH 90)",
    "box": [
     1058.0,
     1087.4,
@@ -5619,7 +5619,7 @@
    "nr": 348,
    "id": "K1T348",
    "kat": "detail",
-   "name": "Strassenhaus Rollladen 60 % Fenster N1-32 (110x140, BRH 90)",
+   "name": "Vorderhaus Rollladen 60 % Fenster N1-32 (110x140, BRH 90)",
    "box": [
     1053.0,
     1094.0,
@@ -5635,7 +5635,7 @@
    "nr": 349,
    "id": "K1T349",
    "kat": "detail",
-   "name": "Strassenhaus Fensterbank Fenster N1-32 (110x140, BRH 90)",
+   "name": "Vorderhaus Fensterbank Fenster N1-32 (110x140, BRH 90)",
    "box": [
     1048.0,
     1092.0,
@@ -5651,7 +5651,7 @@
    "nr": 350,
    "id": "K1T350",
    "kat": "innen",
-   "name": "Strassenhaus Innenraum Fenster N1-32 (110x140, BRH 90)",
+   "name": "Vorderhaus Innenraum Fenster N1-32 (110x140, BRH 90)",
    "box": [
     1053.0,
     990,
@@ -5667,7 +5667,7 @@
    "nr": 351,
    "id": "K1T351",
    "kat": "ausschnitt",
-   "name": "Strassenhaus Ausschnitt fuer Fenster W1-33 (60x90, BRH 120)",
+   "name": "Vorderhaus Ausschnitt fuer Fenster W1-33 (60x90, BRH 120)",
    "ziel": "K1T08",
    "box": [
     0,
@@ -5684,7 +5684,7 @@
    "nr": 352,
    "id": "K1T352",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen unten Fenster W1-33 (60x90, BRH 120)",
+   "name": "Vorderhaus Rahmen unten Fenster W1-33 (60x90, BRH 120)",
    "box": [
     20.0,
     306.0,
@@ -5700,7 +5700,7 @@
    "nr": 353,
    "id": "K1T353",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen oben Fenster W1-33 (60x90, BRH 120)",
+   "name": "Vorderhaus Rahmen oben Fenster W1-33 (60x90, BRH 120)",
    "box": [
     20.0,
     306.0,
@@ -5716,7 +5716,7 @@
    "nr": 354,
    "id": "K1T354",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen links Fenster W1-33 (60x90, BRH 120)",
+   "name": "Vorderhaus Rahmen links Fenster W1-33 (60x90, BRH 120)",
    "box": [
     20.0,
     306.0,
@@ -5732,7 +5732,7 @@
    "nr": 355,
    "id": "K1T355",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen rechts Fenster W1-33 (60x90, BRH 120)",
+   "name": "Vorderhaus Rahmen rechts Fenster W1-33 (60x90, BRH 120)",
    "box": [
     20.0,
     359.0,
@@ -5748,7 +5748,7 @@
    "nr": 356,
    "id": "K1T356",
    "kat": "glas",
-   "name": "Strassenhaus Glas Fenster W1-33 (60x90, BRH 120)",
+   "name": "Vorderhaus Glas Fenster W1-33 (60x90, BRH 120)",
    "box": [
     23.40000000000009,
     313.0,
@@ -5764,7 +5764,7 @@
    "nr": 357,
    "id": "K1T357",
    "kat": "detail",
-   "name": "Strassenhaus Rollladen 60 % Fenster W1-33 (60x90, BRH 120)",
+   "name": "Vorderhaus Rollladen 60 % Fenster W1-33 (60x90, BRH 120)",
    "box": [
     16.0,
     308.0,
@@ -5780,7 +5780,7 @@
    "nr": 358,
    "id": "K1T358",
    "kat": "detail",
-   "name": "Strassenhaus Fensterbank Fenster W1-33 (60x90, BRH 120)",
+   "name": "Vorderhaus Fensterbank Fenster W1-33 (60x90, BRH 120)",
    "box": [
     2,
     303.0,
@@ -5796,7 +5796,7 @@
    "nr": 359,
    "id": "K1T359",
    "kat": "innen",
-   "name": "Strassenhaus Innenraum Fenster W1-33 (60x90, BRH 120)",
+   "name": "Vorderhaus Innenraum Fenster W1-33 (60x90, BRH 120)",
    "box": [
     43,
     308.0,
@@ -5812,7 +5812,7 @@
    "nr": 360,
    "id": "K1T360",
    "kat": "ausschnitt",
-   "name": "Strassenhaus Ausschnitt fuer Fenster W1-34 (60x90, BRH 120)",
+   "name": "Vorderhaus Ausschnitt fuer Fenster W1-34 (60x90, BRH 120)",
    "ziel": "K1T08",
    "box": [
     0,
@@ -5829,7 +5829,7 @@
    "nr": 361,
    "id": "K1T361",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen unten Fenster W1-34 (60x90, BRH 120)",
+   "name": "Vorderhaus Rahmen unten Fenster W1-34 (60x90, BRH 120)",
    "box": [
     20.0,
     736.0,
@@ -5845,7 +5845,7 @@
    "nr": 362,
    "id": "K1T362",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen oben Fenster W1-34 (60x90, BRH 120)",
+   "name": "Vorderhaus Rahmen oben Fenster W1-34 (60x90, BRH 120)",
    "box": [
     20.0,
     736.0,
@@ -5861,7 +5861,7 @@
    "nr": 363,
    "id": "K1T363",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen links Fenster W1-34 (60x90, BRH 120)",
+   "name": "Vorderhaus Rahmen links Fenster W1-34 (60x90, BRH 120)",
    "box": [
     20.0,
     736.0,
@@ -5877,7 +5877,7 @@
    "nr": 364,
    "id": "K1T364",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen rechts Fenster W1-34 (60x90, BRH 120)",
+   "name": "Vorderhaus Rahmen rechts Fenster W1-34 (60x90, BRH 120)",
    "box": [
     20.0,
     789.0,
@@ -5893,7 +5893,7 @@
    "nr": 365,
    "id": "K1T365",
    "kat": "glas",
-   "name": "Strassenhaus Glas Fenster W1-34 (60x90, BRH 120)",
+   "name": "Vorderhaus Glas Fenster W1-34 (60x90, BRH 120)",
    "box": [
     23.40000000000009,
     743.0,
@@ -5909,7 +5909,7 @@
    "nr": 366,
    "id": "K1T366",
    "kat": "detail",
-   "name": "Strassenhaus Rollladen 60 % Fenster W1-34 (60x90, BRH 120)",
+   "name": "Vorderhaus Rollladen 60 % Fenster W1-34 (60x90, BRH 120)",
    "box": [
     16.0,
     738.0,
@@ -5925,7 +5925,7 @@
    "nr": 367,
    "id": "K1T367",
    "kat": "detail",
-   "name": "Strassenhaus Fensterbank Fenster W1-34 (60x90, BRH 120)",
+   "name": "Vorderhaus Fensterbank Fenster W1-34 (60x90, BRH 120)",
    "box": [
     2,
     733.0,
@@ -5941,7 +5941,7 @@
    "nr": 368,
    "id": "K1T368",
    "kat": "innen",
-   "name": "Strassenhaus Innenraum Fenster W1-34 (60x90, BRH 120)",
+   "name": "Vorderhaus Innenraum Fenster W1-34 (60x90, BRH 120)",
    "box": [
     43,
     738.0,
@@ -5957,7 +5957,7 @@
    "nr": 369,
    "id": "K1T369",
    "kat": "ausschnitt",
-   "name": "Strassenhaus Ausschnitt fuer Fenster E1-35 (110x140, BRH 90)",
+   "name": "Vorderhaus Ausschnitt fuer Fenster E1-35 (110x140, BRH 90)",
    "ziel": "K1T09",
    "box": [
     3264,
@@ -5974,7 +5974,7 @@
    "nr": 370,
    "id": "K1T370",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen unten Fenster E1-35 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen unten Fenster E1-35 (110x140, BRH 90)",
    "box": [
     3284.0,
     281.0,
@@ -5990,7 +5990,7 @@
    "nr": 371,
    "id": "K1T371",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen oben Fenster E1-35 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen oben Fenster E1-35 (110x140, BRH 90)",
    "box": [
     3284.0,
     281.0,
@@ -6006,7 +6006,7 @@
    "nr": 372,
    "id": "K1T372",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen links Fenster E1-35 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen links Fenster E1-35 (110x140, BRH 90)",
    "box": [
     3284.0,
     281.0,
@@ -6022,7 +6022,7 @@
    "nr": 373,
    "id": "K1T373",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen rechts Fenster E1-35 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen rechts Fenster E1-35 (110x140, BRH 90)",
    "box": [
     3284.0,
     384.0,
@@ -6038,7 +6038,7 @@
    "nr": 374,
    "id": "K1T374",
    "kat": "glas",
-   "name": "Strassenhaus Glas Fenster E1-35 (110x140, BRH 90)",
+   "name": "Vorderhaus Glas Fenster E1-35 (110x140, BRH 90)",
    "box": [
     3287.3999999999996,
     288.0,
@@ -6054,7 +6054,7 @@
    "nr": 375,
    "id": "K1T375",
    "kat": "detail",
-   "name": "Strassenhaus Rollladen 60 % Fenster E1-35 (110x140, BRH 90)",
+   "name": "Vorderhaus Rollladen 60 % Fenster E1-35 (110x140, BRH 90)",
    "box": [
     3294.0,
     283.0,
@@ -6070,7 +6070,7 @@
    "nr": 376,
    "id": "K1T376",
    "kat": "detail",
-   "name": "Strassenhaus Fensterbank Fenster E1-35 (110x140, BRH 90)",
+   "name": "Vorderhaus Fensterbank Fenster E1-35 (110x140, BRH 90)",
    "box": [
     3292.0,
     278.0,
@@ -6086,7 +6086,7 @@
    "nr": 377,
    "id": "K1T377",
    "kat": "innen",
-   "name": "Strassenhaus Innenraum Fenster E1-35 (110x140, BRH 90)",
+   "name": "Vorderhaus Innenraum Fenster E1-35 (110x140, BRH 90)",
    "box": [
     3190,
     283.0,
@@ -6102,7 +6102,7 @@
    "nr": 378,
    "id": "K1T378",
    "kat": "ausschnitt",
-   "name": "Strassenhaus Ausschnitt fuer Fenster E1-36 (110x140, BRH 90)",
+   "name": "Vorderhaus Ausschnitt fuer Fenster E1-36 (110x140, BRH 90)",
    "ziel": "K1T09",
    "box": [
     3264,
@@ -6119,7 +6119,7 @@
    "nr": 379,
    "id": "K1T379",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen unten Fenster E1-36 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen unten Fenster E1-36 (110x140, BRH 90)",
    "box": [
     3284.0,
     711.0,
@@ -6135,7 +6135,7 @@
    "nr": 380,
    "id": "K1T380",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen oben Fenster E1-36 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen oben Fenster E1-36 (110x140, BRH 90)",
    "box": [
     3284.0,
     711.0,
@@ -6151,7 +6151,7 @@
    "nr": 381,
    "id": "K1T381",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen links Fenster E1-36 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen links Fenster E1-36 (110x140, BRH 90)",
    "box": [
     3284.0,
     711.0,
@@ -6167,7 +6167,7 @@
    "nr": 382,
    "id": "K1T382",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen rechts Fenster E1-36 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen rechts Fenster E1-36 (110x140, BRH 90)",
    "box": [
     3284.0,
     814.0,
@@ -6183,7 +6183,7 @@
    "nr": 383,
    "id": "K1T383",
    "kat": "glas",
-   "name": "Strassenhaus Glas Fenster E1-36 (110x140, BRH 90)",
+   "name": "Vorderhaus Glas Fenster E1-36 (110x140, BRH 90)",
    "box": [
     3287.3999999999996,
     718.0,
@@ -6199,7 +6199,7 @@
    "nr": 384,
    "id": "K1T384",
    "kat": "detail",
-   "name": "Strassenhaus Rollladen 60 % Fenster E1-36 (110x140, BRH 90)",
+   "name": "Vorderhaus Rollladen 60 % Fenster E1-36 (110x140, BRH 90)",
    "box": [
     3294.0,
     713.0,
@@ -6215,7 +6215,7 @@
    "nr": 385,
    "id": "K1T385",
    "kat": "detail",
-   "name": "Strassenhaus Fensterbank Fenster E1-36 (110x140, BRH 90)",
+   "name": "Vorderhaus Fensterbank Fenster E1-36 (110x140, BRH 90)",
    "box": [
     3292.0,
     708.0,
@@ -6231,7 +6231,7 @@
    "nr": 386,
    "id": "K1T386",
    "kat": "innen",
-   "name": "Strassenhaus Innenraum Fenster E1-36 (110x140, BRH 90)",
+   "name": "Vorderhaus Innenraum Fenster E1-36 (110x140, BRH 90)",
    "box": [
     3190,
     713.0,
@@ -6247,7 +6247,7 @@
    "nr": 387,
    "id": "K1T387",
    "kat": "ausschnitt",
-   "name": "Strassenhaus Ausschnitt fuer Fenster S2-37 (160x140, BRH 90)",
+   "name": "Vorderhaus Ausschnitt fuer Fenster S2-37 (160x140, BRH 90)",
    "ziel": "K1T10",
    "box": [
     186.0,
@@ -6264,7 +6264,7 @@
    "nr": 388,
    "id": "K1T388",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen unten Fenster S2-37 (160x140, BRH 90)",
+   "name": "Vorderhaus Rahmen unten Fenster S2-37 (160x140, BRH 90)",
    "box": [
     186.0,
     20.0,
@@ -6280,7 +6280,7 @@
    "nr": 389,
    "id": "K1T389",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen oben Fenster S2-37 (160x140, BRH 90)",
+   "name": "Vorderhaus Rahmen oben Fenster S2-37 (160x140, BRH 90)",
    "box": [
     186.0,
     20.0,
@@ -6296,7 +6296,7 @@
    "nr": 390,
    "id": "K1T390",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen links Fenster S2-37 (160x140, BRH 90)",
+   "name": "Vorderhaus Rahmen links Fenster S2-37 (160x140, BRH 90)",
    "box": [
     186.0,
     20.0,
@@ -6312,7 +6312,7 @@
    "nr": 391,
    "id": "K1T391",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen rechts Fenster S2-37 (160x140, BRH 90)",
+   "name": "Vorderhaus Rahmen rechts Fenster S2-37 (160x140, BRH 90)",
    "box": [
     339.0,
     20.0,
@@ -6328,7 +6328,7 @@
    "nr": 392,
    "id": "K1T392",
    "kat": "rahmen",
-   "name": "Strassenhaus Pfosten 1 Fenster S2-37 (160x140, BRH 90)",
+   "name": "Vorderhaus Pfosten 1 Fenster S2-37 (160x140, BRH 90)",
    "box": [
     263.0,
     20.0,
@@ -6344,7 +6344,7 @@
    "nr": 393,
    "id": "K1T393",
    "kat": "glas",
-   "name": "Strassenhaus Glas Fenster S2-37 (160x140, BRH 90)",
+   "name": "Vorderhaus Glas Fenster S2-37 (160x140, BRH 90)",
    "box": [
     193.0,
     23.4,
@@ -6360,7 +6360,7 @@
    "nr": 394,
    "id": "K1T394",
    "kat": "detail",
-   "name": "Strassenhaus Rollladen 60 % Fenster S2-37 (160x140, BRH 90)",
+   "name": "Vorderhaus Rollladen 60 % Fenster S2-37 (160x140, BRH 90)",
    "box": [
     188.0,
     16.0,
@@ -6376,7 +6376,7 @@
    "nr": 395,
    "id": "K1T395",
    "kat": "detail",
-   "name": "Strassenhaus Fensterbank Fenster S2-37 (160x140, BRH 90)",
+   "name": "Vorderhaus Fensterbank Fenster S2-37 (160x140, BRH 90)",
    "box": [
     183.0,
     2,
@@ -6392,7 +6392,7 @@
    "nr": 396,
    "id": "K1T396",
    "kat": "innen",
-   "name": "Strassenhaus Innenraum Fenster S2-37 (160x140, BRH 90)",
+   "name": "Vorderhaus Innenraum Fenster S2-37 (160x140, BRH 90)",
    "box": [
     188.0,
     43,
@@ -6408,7 +6408,7 @@
    "nr": 397,
    "id": "K1T397",
    "kat": "ausschnitt",
-   "name": "Strassenhaus Ausschnitt fuer Fenster S2-38 (110x140, BRH 90)",
+   "name": "Vorderhaus Ausschnitt fuer Fenster S2-38 (110x140, BRH 90)",
    "ziel": "K1T10",
    "box": [
     501.0,
@@ -6425,7 +6425,7 @@
    "nr": 398,
    "id": "K1T398",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen unten Fenster S2-38 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen unten Fenster S2-38 (110x140, BRH 90)",
    "box": [
     501.0,
     20.0,
@@ -6441,7 +6441,7 @@
    "nr": 399,
    "id": "K1T399",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen oben Fenster S2-38 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen oben Fenster S2-38 (110x140, BRH 90)",
    "box": [
     501.0,
     20.0,
@@ -6457,7 +6457,7 @@
    "nr": 400,
    "id": "K1T400",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen links Fenster S2-38 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen links Fenster S2-38 (110x140, BRH 90)",
    "box": [
     501.0,
     20.0,
@@ -6473,7 +6473,7 @@
    "nr": 401,
    "id": "K1T401",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen rechts Fenster S2-38 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen rechts Fenster S2-38 (110x140, BRH 90)",
    "box": [
     604.0,
     20.0,
@@ -6489,7 +6489,7 @@
    "nr": 402,
    "id": "K1T402",
    "kat": "glas",
-   "name": "Strassenhaus Glas Fenster S2-38 (110x140, BRH 90)",
+   "name": "Vorderhaus Glas Fenster S2-38 (110x140, BRH 90)",
    "box": [
     508.0,
     23.4,
@@ -6505,7 +6505,7 @@
    "nr": 403,
    "id": "K1T403",
    "kat": "detail",
-   "name": "Strassenhaus Rollladen 60 % Fenster S2-38 (110x140, BRH 90)",
+   "name": "Vorderhaus Rollladen 60 % Fenster S2-38 (110x140, BRH 90)",
    "box": [
     503.0,
     16.0,
@@ -6521,7 +6521,7 @@
    "nr": 404,
    "id": "K1T404",
    "kat": "detail",
-   "name": "Strassenhaus Fensterbank Fenster S2-38 (110x140, BRH 90)",
+   "name": "Vorderhaus Fensterbank Fenster S2-38 (110x140, BRH 90)",
    "box": [
     498.0,
     2,
@@ -6537,7 +6537,7 @@
    "nr": 405,
    "id": "K1T405",
    "kat": "innen",
-   "name": "Strassenhaus Innenraum Fenster S2-38 (110x140, BRH 90)",
+   "name": "Vorderhaus Innenraum Fenster S2-38 (110x140, BRH 90)",
    "box": [
     503.0,
     43,
@@ -6553,7 +6553,7 @@
    "nr": 406,
    "id": "K1T406",
    "kat": "ausschnitt",
-   "name": "Strassenhaus Ausschnitt fuer Fenster S2-39 (110x140, BRH 90)",
+   "name": "Vorderhaus Ausschnitt fuer Fenster S2-39 (110x140, BRH 90)",
    "ziel": "K1T10",
    "box": [
     791.0,
@@ -6570,7 +6570,7 @@
    "nr": 407,
    "id": "K1T407",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen unten Fenster S2-39 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen unten Fenster S2-39 (110x140, BRH 90)",
    "box": [
     791.0,
     20.0,
@@ -6586,7 +6586,7 @@
    "nr": 408,
    "id": "K1T408",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen oben Fenster S2-39 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen oben Fenster S2-39 (110x140, BRH 90)",
    "box": [
     791.0,
     20.0,
@@ -6602,7 +6602,7 @@
    "nr": 409,
    "id": "K1T409",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen links Fenster S2-39 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen links Fenster S2-39 (110x140, BRH 90)",
    "box": [
     791.0,
     20.0,
@@ -6618,7 +6618,7 @@
    "nr": 410,
    "id": "K1T410",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen rechts Fenster S2-39 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen rechts Fenster S2-39 (110x140, BRH 90)",
    "box": [
     894.0,
     20.0,
@@ -6634,7 +6634,7 @@
    "nr": 411,
    "id": "K1T411",
    "kat": "glas",
-   "name": "Strassenhaus Glas Fenster S2-39 (110x140, BRH 90)",
+   "name": "Vorderhaus Glas Fenster S2-39 (110x140, BRH 90)",
    "box": [
     798.0,
     23.4,
@@ -6650,7 +6650,7 @@
    "nr": 412,
    "id": "K1T412",
    "kat": "detail",
-   "name": "Strassenhaus Rollladen 60 % Fenster S2-39 (110x140, BRH 90)",
+   "name": "Vorderhaus Rollladen 60 % Fenster S2-39 (110x140, BRH 90)",
    "box": [
     793.0,
     16.0,
@@ -6666,7 +6666,7 @@
    "nr": 413,
    "id": "K1T413",
    "kat": "detail",
-   "name": "Strassenhaus Fensterbank Fenster S2-39 (110x140, BRH 90)",
+   "name": "Vorderhaus Fensterbank Fenster S2-39 (110x140, BRH 90)",
    "box": [
     788.0,
     2,
@@ -6682,7 +6682,7 @@
    "nr": 414,
    "id": "K1T414",
    "kat": "innen",
-   "name": "Strassenhaus Innenraum Fenster S2-39 (110x140, BRH 90)",
+   "name": "Vorderhaus Innenraum Fenster S2-39 (110x140, BRH 90)",
    "box": [
     793.0,
     43,
@@ -6698,7 +6698,7 @@
    "nr": 415,
    "id": "K1T415",
    "kat": "ausschnitt",
-   "name": "Strassenhaus Ausschnitt fuer Fenster S2-40 (160x140, BRH 90)",
+   "name": "Vorderhaus Ausschnitt fuer Fenster S2-40 (160x140, BRH 90)",
    "ziel": "K1T10",
    "box": [
     1056.0,
@@ -6715,7 +6715,7 @@
    "nr": 416,
    "id": "K1T416",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen unten Fenster S2-40 (160x140, BRH 90)",
+   "name": "Vorderhaus Rahmen unten Fenster S2-40 (160x140, BRH 90)",
    "box": [
     1056.0,
     20.0,
@@ -6731,7 +6731,7 @@
    "nr": 417,
    "id": "K1T417",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen oben Fenster S2-40 (160x140, BRH 90)",
+   "name": "Vorderhaus Rahmen oben Fenster S2-40 (160x140, BRH 90)",
    "box": [
     1056.0,
     20.0,
@@ -6747,7 +6747,7 @@
    "nr": 418,
    "id": "K1T418",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen links Fenster S2-40 (160x140, BRH 90)",
+   "name": "Vorderhaus Rahmen links Fenster S2-40 (160x140, BRH 90)",
    "box": [
     1056.0,
     20.0,
@@ -6763,7 +6763,7 @@
    "nr": 419,
    "id": "K1T419",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen rechts Fenster S2-40 (160x140, BRH 90)",
+   "name": "Vorderhaus Rahmen rechts Fenster S2-40 (160x140, BRH 90)",
    "box": [
     1209.0,
     20.0,
@@ -6779,7 +6779,7 @@
    "nr": 420,
    "id": "K1T420",
    "kat": "rahmen",
-   "name": "Strassenhaus Pfosten 1 Fenster S2-40 (160x140, BRH 90)",
+   "name": "Vorderhaus Pfosten 1 Fenster S2-40 (160x140, BRH 90)",
    "box": [
     1133.0,
     20.0,
@@ -6795,7 +6795,7 @@
    "nr": 421,
    "id": "K1T421",
    "kat": "glas",
-   "name": "Strassenhaus Glas Fenster S2-40 (160x140, BRH 90)",
+   "name": "Vorderhaus Glas Fenster S2-40 (160x140, BRH 90)",
    "box": [
     1063.0,
     23.4,
@@ -6811,7 +6811,7 @@
    "nr": 422,
    "id": "K1T422",
    "kat": "detail",
-   "name": "Strassenhaus Rollladen 60 % Fenster S2-40 (160x140, BRH 90)",
+   "name": "Vorderhaus Rollladen 60 % Fenster S2-40 (160x140, BRH 90)",
    "box": [
     1058.0,
     16.0,
@@ -6827,7 +6827,7 @@
    "nr": 423,
    "id": "K1T423",
    "kat": "detail",
-   "name": "Strassenhaus Fensterbank Fenster S2-40 (160x140, BRH 90)",
+   "name": "Vorderhaus Fensterbank Fenster S2-40 (160x140, BRH 90)",
    "box": [
     1053.0,
     2,
@@ -6843,7 +6843,7 @@
    "nr": 424,
    "id": "K1T424",
    "kat": "innen",
-   "name": "Strassenhaus Innenraum Fenster S2-40 (160x140, BRH 90)",
+   "name": "Vorderhaus Innenraum Fenster S2-40 (160x140, BRH 90)",
    "box": [
     1058.0,
     43,
@@ -6859,7 +6859,7 @@
    "nr": 425,
    "id": "K1T425",
    "kat": "ausschnitt",
-   "name": "Strassenhaus Ausschnitt fuer Fenster S2-41 (55x120, BRH 100)",
+   "name": "Vorderhaus Ausschnitt fuer Fenster S2-41 (55x120, BRH 100)",
    "ziel": "K1T10",
    "box": [
     1398.5,
@@ -6876,7 +6876,7 @@
    "nr": 426,
    "id": "K1T426",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen unten Fenster S2-41 (55x120, BRH 100)",
+   "name": "Vorderhaus Rahmen unten Fenster S2-41 (55x120, BRH 100)",
    "box": [
     1398.5,
     20.0,
@@ -6892,7 +6892,7 @@
    "nr": 427,
    "id": "K1T427",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen oben Fenster S2-41 (55x120, BRH 100)",
+   "name": "Vorderhaus Rahmen oben Fenster S2-41 (55x120, BRH 100)",
    "box": [
     1398.5,
     20.0,
@@ -6908,7 +6908,7 @@
    "nr": 428,
    "id": "K1T428",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen links Fenster S2-41 (55x120, BRH 100)",
+   "name": "Vorderhaus Rahmen links Fenster S2-41 (55x120, BRH 100)",
    "box": [
     1398.5,
     20.0,
@@ -6924,7 +6924,7 @@
    "nr": 429,
    "id": "K1T429",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen rechts Fenster S2-41 (55x120, BRH 100)",
+   "name": "Vorderhaus Rahmen rechts Fenster S2-41 (55x120, BRH 100)",
    "box": [
     1446.5,
     20.0,
@@ -6940,7 +6940,7 @@
    "nr": 430,
    "id": "K1T430",
    "kat": "glas",
-   "name": "Strassenhaus Glas Fenster S2-41 (55x120, BRH 100)",
+   "name": "Vorderhaus Glas Fenster S2-41 (55x120, BRH 100)",
    "box": [
     1405.5,
     23.4,
@@ -6956,7 +6956,7 @@
    "nr": 431,
    "id": "K1T431",
    "kat": "detail",
-   "name": "Strassenhaus Rollladen 60 % Fenster S2-41 (55x120, BRH 100)",
+   "name": "Vorderhaus Rollladen 60 % Fenster S2-41 (55x120, BRH 100)",
    "box": [
     1400.5,
     16.0,
@@ -6972,7 +6972,7 @@
    "nr": 432,
    "id": "K1T432",
    "kat": "detail",
-   "name": "Strassenhaus Fensterbank Fenster S2-41 (55x120, BRH 100)",
+   "name": "Vorderhaus Fensterbank Fenster S2-41 (55x120, BRH 100)",
    "box": [
     1395.5,
     2,
@@ -6988,7 +6988,7 @@
    "nr": 433,
    "id": "K1T433",
    "kat": "innen",
-   "name": "Strassenhaus Innenraum Fenster S2-41 (55x120, BRH 100)",
+   "name": "Vorderhaus Innenraum Fenster S2-41 (55x120, BRH 100)",
    "box": [
     1400.5,
     43,
@@ -7004,7 +7004,7 @@
    "nr": 434,
    "id": "K1T434",
    "kat": "ausschnitt",
-   "name": "Strassenhaus Ausschnitt fuer Fenster S2-42 (110x140, BRH 90)",
+   "name": "Vorderhaus Ausschnitt fuer Fenster S2-42 (110x140, BRH 90)",
    "ziel": "K1T10",
    "box": [
     1661.0,
@@ -7021,7 +7021,7 @@
    "nr": 435,
    "id": "K1T435",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen unten Fenster S2-42 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen unten Fenster S2-42 (110x140, BRH 90)",
    "box": [
     1661.0,
     20.0,
@@ -7037,7 +7037,7 @@
    "nr": 436,
    "id": "K1T436",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen oben Fenster S2-42 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen oben Fenster S2-42 (110x140, BRH 90)",
    "box": [
     1661.0,
     20.0,
@@ -7053,7 +7053,7 @@
    "nr": 437,
    "id": "K1T437",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen links Fenster S2-42 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen links Fenster S2-42 (110x140, BRH 90)",
    "box": [
     1661.0,
     20.0,
@@ -7069,7 +7069,7 @@
    "nr": 438,
    "id": "K1T438",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen rechts Fenster S2-42 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen rechts Fenster S2-42 (110x140, BRH 90)",
    "box": [
     1764.0,
     20.0,
@@ -7085,7 +7085,7 @@
    "nr": 439,
    "id": "K1T439",
    "kat": "glas",
-   "name": "Strassenhaus Glas Fenster S2-42 (110x140, BRH 90)",
+   "name": "Vorderhaus Glas Fenster S2-42 (110x140, BRH 90)",
    "box": [
     1668.0,
     23.4,
@@ -7101,7 +7101,7 @@
    "nr": 440,
    "id": "K1T440",
    "kat": "detail",
-   "name": "Strassenhaus Rollladen 60 % Fenster S2-42 (110x140, BRH 90)",
+   "name": "Vorderhaus Rollladen 60 % Fenster S2-42 (110x140, BRH 90)",
    "box": [
     1663.0,
     16.0,
@@ -7117,7 +7117,7 @@
    "nr": 441,
    "id": "K1T441",
    "kat": "detail",
-   "name": "Strassenhaus Fensterbank Fenster S2-42 (110x140, BRH 90)",
+   "name": "Vorderhaus Fensterbank Fenster S2-42 (110x140, BRH 90)",
    "box": [
     1658.0,
     2,
@@ -7133,7 +7133,7 @@
    "nr": 442,
    "id": "K1T442",
    "kat": "innen",
-   "name": "Strassenhaus Innenraum Fenster S2-42 (110x140, BRH 90)",
+   "name": "Vorderhaus Innenraum Fenster S2-42 (110x140, BRH 90)",
    "box": [
     1663.0,
     43,
@@ -7149,7 +7149,7 @@
    "nr": 443,
    "id": "K1T443",
    "kat": "ausschnitt",
-   "name": "Strassenhaus Ausschnitt fuer Fenster S2-43 (160x140, BRH 90)",
+   "name": "Vorderhaus Ausschnitt fuer Fenster S2-43 (160x140, BRH 90)",
    "ziel": "K1T10",
    "box": [
     1926.0,
@@ -7166,7 +7166,7 @@
    "nr": 444,
    "id": "K1T444",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen unten Fenster S2-43 (160x140, BRH 90)",
+   "name": "Vorderhaus Rahmen unten Fenster S2-43 (160x140, BRH 90)",
    "box": [
     1926.0,
     20.0,
@@ -7182,7 +7182,7 @@
    "nr": 445,
    "id": "K1T445",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen oben Fenster S2-43 (160x140, BRH 90)",
+   "name": "Vorderhaus Rahmen oben Fenster S2-43 (160x140, BRH 90)",
    "box": [
     1926.0,
     20.0,
@@ -7198,7 +7198,7 @@
    "nr": 446,
    "id": "K1T446",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen links Fenster S2-43 (160x140, BRH 90)",
+   "name": "Vorderhaus Rahmen links Fenster S2-43 (160x140, BRH 90)",
    "box": [
     1926.0,
     20.0,
@@ -7214,7 +7214,7 @@
    "nr": 447,
    "id": "K1T447",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen rechts Fenster S2-43 (160x140, BRH 90)",
+   "name": "Vorderhaus Rahmen rechts Fenster S2-43 (160x140, BRH 90)",
    "box": [
     2079.0,
     20.0,
@@ -7230,7 +7230,7 @@
    "nr": 448,
    "id": "K1T448",
    "kat": "rahmen",
-   "name": "Strassenhaus Pfosten 1 Fenster S2-43 (160x140, BRH 90)",
+   "name": "Vorderhaus Pfosten 1 Fenster S2-43 (160x140, BRH 90)",
    "box": [
     2003.0,
     20.0,
@@ -7246,7 +7246,7 @@
    "nr": 449,
    "id": "K1T449",
    "kat": "glas",
-   "name": "Strassenhaus Glas Fenster S2-43 (160x140, BRH 90)",
+   "name": "Vorderhaus Glas Fenster S2-43 (160x140, BRH 90)",
    "box": [
     1933.0,
     23.4,
@@ -7262,7 +7262,7 @@
    "nr": 450,
    "id": "K1T450",
    "kat": "detail",
-   "name": "Strassenhaus Rollladen 60 % Fenster S2-43 (160x140, BRH 90)",
+   "name": "Vorderhaus Rollladen 60 % Fenster S2-43 (160x140, BRH 90)",
    "box": [
     1928.0,
     16.0,
@@ -7278,7 +7278,7 @@
    "nr": 451,
    "id": "K1T451",
    "kat": "detail",
-   "name": "Strassenhaus Fensterbank Fenster S2-43 (160x140, BRH 90)",
+   "name": "Vorderhaus Fensterbank Fenster S2-43 (160x140, BRH 90)",
    "box": [
     1923.0,
     2,
@@ -7294,7 +7294,7 @@
    "nr": 452,
    "id": "K1T452",
    "kat": "innen",
-   "name": "Strassenhaus Innenraum Fenster S2-43 (160x140, BRH 90)",
+   "name": "Vorderhaus Innenraum Fenster S2-43 (160x140, BRH 90)",
    "box": [
     1928.0,
     43,
@@ -7310,7 +7310,7 @@
    "nr": 453,
    "id": "K1T453",
    "kat": "ausschnitt",
-   "name": "Strassenhaus Ausschnitt fuer Fenster S2-44 (110x140, BRH 90)",
+   "name": "Vorderhaus Ausschnitt fuer Fenster S2-44 (110x140, BRH 90)",
    "ziel": "K1T10",
    "box": [
     2241.0,
@@ -7327,7 +7327,7 @@
    "nr": 454,
    "id": "K1T454",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen unten Fenster S2-44 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen unten Fenster S2-44 (110x140, BRH 90)",
    "box": [
     2241.0,
     20.0,
@@ -7343,7 +7343,7 @@
    "nr": 455,
    "id": "K1T455",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen oben Fenster S2-44 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen oben Fenster S2-44 (110x140, BRH 90)",
    "box": [
     2241.0,
     20.0,
@@ -7359,7 +7359,7 @@
    "nr": 456,
    "id": "K1T456",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen links Fenster S2-44 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen links Fenster S2-44 (110x140, BRH 90)",
    "box": [
     2241.0,
     20.0,
@@ -7375,7 +7375,7 @@
    "nr": 457,
    "id": "K1T457",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen rechts Fenster S2-44 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen rechts Fenster S2-44 (110x140, BRH 90)",
    "box": [
     2344.0,
     20.0,
@@ -7391,7 +7391,7 @@
    "nr": 458,
    "id": "K1T458",
    "kat": "glas",
-   "name": "Strassenhaus Glas Fenster S2-44 (110x140, BRH 90)",
+   "name": "Vorderhaus Glas Fenster S2-44 (110x140, BRH 90)",
    "box": [
     2248.0,
     23.4,
@@ -7407,7 +7407,7 @@
    "nr": 459,
    "id": "K1T459",
    "kat": "detail",
-   "name": "Strassenhaus Rollladen 60 % Fenster S2-44 (110x140, BRH 90)",
+   "name": "Vorderhaus Rollladen 60 % Fenster S2-44 (110x140, BRH 90)",
    "box": [
     2243.0,
     16.0,
@@ -7423,7 +7423,7 @@
    "nr": 460,
    "id": "K1T460",
    "kat": "detail",
-   "name": "Strassenhaus Fensterbank Fenster S2-44 (110x140, BRH 90)",
+   "name": "Vorderhaus Fensterbank Fenster S2-44 (110x140, BRH 90)",
    "box": [
     2238.0,
     2,
@@ -7439,7 +7439,7 @@
    "nr": 461,
    "id": "K1T461",
    "kat": "innen",
-   "name": "Strassenhaus Innenraum Fenster S2-44 (110x140, BRH 90)",
+   "name": "Vorderhaus Innenraum Fenster S2-44 (110x140, BRH 90)",
    "box": [
     2243.0,
     43,
@@ -7455,7 +7455,7 @@
    "nr": 462,
    "id": "K1T462",
    "kat": "ausschnitt",
-   "name": "Strassenhaus Ausschnitt fuer Fenster S2-45 (110x140, BRH 90)",
+   "name": "Vorderhaus Ausschnitt fuer Fenster S2-45 (110x140, BRH 90)",
    "ziel": "K1T10",
    "box": [
     2531.0,
@@ -7472,7 +7472,7 @@
    "nr": 463,
    "id": "K1T463",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen unten Fenster S2-45 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen unten Fenster S2-45 (110x140, BRH 90)",
    "box": [
     2531.0,
     20.0,
@@ -7488,7 +7488,7 @@
    "nr": 464,
    "id": "K1T464",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen oben Fenster S2-45 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen oben Fenster S2-45 (110x140, BRH 90)",
    "box": [
     2531.0,
     20.0,
@@ -7504,7 +7504,7 @@
    "nr": 465,
    "id": "K1T465",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen links Fenster S2-45 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen links Fenster S2-45 (110x140, BRH 90)",
    "box": [
     2531.0,
     20.0,
@@ -7520,7 +7520,7 @@
    "nr": 466,
    "id": "K1T466",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen rechts Fenster S2-45 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen rechts Fenster S2-45 (110x140, BRH 90)",
    "box": [
     2634.0,
     20.0,
@@ -7536,7 +7536,7 @@
    "nr": 467,
    "id": "K1T467",
    "kat": "glas",
-   "name": "Strassenhaus Glas Fenster S2-45 (110x140, BRH 90)",
+   "name": "Vorderhaus Glas Fenster S2-45 (110x140, BRH 90)",
    "box": [
     2538.0,
     23.4,
@@ -7552,7 +7552,7 @@
    "nr": 468,
    "id": "K1T468",
    "kat": "detail",
-   "name": "Strassenhaus Rollladen 60 % Fenster S2-45 (110x140, BRH 90)",
+   "name": "Vorderhaus Rollladen 60 % Fenster S2-45 (110x140, BRH 90)",
    "box": [
     2533.0,
     16.0,
@@ -7568,7 +7568,7 @@
    "nr": 469,
    "id": "K1T469",
    "kat": "detail",
-   "name": "Strassenhaus Fensterbank Fenster S2-45 (110x140, BRH 90)",
+   "name": "Vorderhaus Fensterbank Fenster S2-45 (110x140, BRH 90)",
    "box": [
     2528.0,
     2,
@@ -7584,7 +7584,7 @@
    "nr": 470,
    "id": "K1T470",
    "kat": "innen",
-   "name": "Strassenhaus Innenraum Fenster S2-45 (110x140, BRH 90)",
+   "name": "Vorderhaus Innenraum Fenster S2-45 (110x140, BRH 90)",
    "box": [
     2533.0,
     43,
@@ -7600,7 +7600,7 @@
    "nr": 471,
    "id": "K1T471",
    "kat": "ausschnitt",
-   "name": "Strassenhaus Ausschnitt fuer Fenster S2-46 (160x140, BRH 90)",
+   "name": "Vorderhaus Ausschnitt fuer Fenster S2-46 (160x140, BRH 90)",
    "ziel": "K1T10",
    "box": [
     2796.0,
@@ -7617,7 +7617,7 @@
    "nr": 472,
    "id": "K1T472",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen unten Fenster S2-46 (160x140, BRH 90)",
+   "name": "Vorderhaus Rahmen unten Fenster S2-46 (160x140, BRH 90)",
    "box": [
     2796.0,
     20.0,
@@ -7633,7 +7633,7 @@
    "nr": 473,
    "id": "K1T473",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen oben Fenster S2-46 (160x140, BRH 90)",
+   "name": "Vorderhaus Rahmen oben Fenster S2-46 (160x140, BRH 90)",
    "box": [
     2796.0,
     20.0,
@@ -7649,7 +7649,7 @@
    "nr": 474,
    "id": "K1T474",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen links Fenster S2-46 (160x140, BRH 90)",
+   "name": "Vorderhaus Rahmen links Fenster S2-46 (160x140, BRH 90)",
    "box": [
     2796.0,
     20.0,
@@ -7665,7 +7665,7 @@
    "nr": 475,
    "id": "K1T475",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen rechts Fenster S2-46 (160x140, BRH 90)",
+   "name": "Vorderhaus Rahmen rechts Fenster S2-46 (160x140, BRH 90)",
    "box": [
     2949.0,
     20.0,
@@ -7681,7 +7681,7 @@
    "nr": 476,
    "id": "K1T476",
    "kat": "rahmen",
-   "name": "Strassenhaus Pfosten 1 Fenster S2-46 (160x140, BRH 90)",
+   "name": "Vorderhaus Pfosten 1 Fenster S2-46 (160x140, BRH 90)",
    "box": [
     2873.0,
     20.0,
@@ -7697,7 +7697,7 @@
    "nr": 477,
    "id": "K1T477",
    "kat": "glas",
-   "name": "Strassenhaus Glas Fenster S2-46 (160x140, BRH 90)",
+   "name": "Vorderhaus Glas Fenster S2-46 (160x140, BRH 90)",
    "box": [
     2803.0,
     23.4,
@@ -7713,7 +7713,7 @@
    "nr": 478,
    "id": "K1T478",
    "kat": "detail",
-   "name": "Strassenhaus Rollladen 60 % Fenster S2-46 (160x140, BRH 90)",
+   "name": "Vorderhaus Rollladen 60 % Fenster S2-46 (160x140, BRH 90)",
    "box": [
     2798.0,
     16.0,
@@ -7729,7 +7729,7 @@
    "nr": 479,
    "id": "K1T479",
    "kat": "detail",
-   "name": "Strassenhaus Fensterbank Fenster S2-46 (160x140, BRH 90)",
+   "name": "Vorderhaus Fensterbank Fenster S2-46 (160x140, BRH 90)",
    "box": [
     2793.0,
     2,
@@ -7745,7 +7745,7 @@
    "nr": 480,
    "id": "K1T480",
    "kat": "innen",
-   "name": "Strassenhaus Innenraum Fenster S2-46 (160x140, BRH 90)",
+   "name": "Vorderhaus Innenraum Fenster S2-46 (160x140, BRH 90)",
    "box": [
     2798.0,
     43,
@@ -7761,7 +7761,7 @@
    "nr": 481,
    "id": "K1T481",
    "kat": "ausschnitt",
-   "name": "Strassenhaus Ausschnitt fuer Fenster S2-47 (110x140, BRH 90)",
+   "name": "Vorderhaus Ausschnitt fuer Fenster S2-47 (110x140, BRH 90)",
    "ziel": "K1T10",
    "box": [
     3111.0,
@@ -7778,7 +7778,7 @@
    "nr": 482,
    "id": "K1T482",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen unten Fenster S2-47 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen unten Fenster S2-47 (110x140, BRH 90)",
    "box": [
     3111.0,
     20.0,
@@ -7794,7 +7794,7 @@
    "nr": 483,
    "id": "K1T483",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen oben Fenster S2-47 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen oben Fenster S2-47 (110x140, BRH 90)",
    "box": [
     3111.0,
     20.0,
@@ -7810,7 +7810,7 @@
    "nr": 484,
    "id": "K1T484",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen links Fenster S2-47 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen links Fenster S2-47 (110x140, BRH 90)",
    "box": [
     3111.0,
     20.0,
@@ -7826,7 +7826,7 @@
    "nr": 485,
    "id": "K1T485",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen rechts Fenster S2-47 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen rechts Fenster S2-47 (110x140, BRH 90)",
    "box": [
     3214.0,
     20.0,
@@ -7842,7 +7842,7 @@
    "nr": 486,
    "id": "K1T486",
    "kat": "glas",
-   "name": "Strassenhaus Glas Fenster S2-47 (110x140, BRH 90)",
+   "name": "Vorderhaus Glas Fenster S2-47 (110x140, BRH 90)",
    "box": [
     3118.0,
     23.4,
@@ -7858,7 +7858,7 @@
    "nr": 487,
    "id": "K1T487",
    "kat": "detail",
-   "name": "Strassenhaus Rollladen 60 % Fenster S2-47 (110x140, BRH 90)",
+   "name": "Vorderhaus Rollladen 60 % Fenster S2-47 (110x140, BRH 90)",
    "box": [
     3113.0,
     16.0,
@@ -7874,7 +7874,7 @@
    "nr": 488,
    "id": "K1T488",
    "kat": "detail",
-   "name": "Strassenhaus Fensterbank Fenster S2-47 (110x140, BRH 90)",
+   "name": "Vorderhaus Fensterbank Fenster S2-47 (110x140, BRH 90)",
    "box": [
     3108.0,
     2,
@@ -7890,7 +7890,7 @@
    "nr": 489,
    "id": "K1T489",
    "kat": "innen",
-   "name": "Strassenhaus Innenraum Fenster S2-47 (110x140, BRH 90)",
+   "name": "Vorderhaus Innenraum Fenster S2-47 (110x140, BRH 90)",
    "box": [
     3113.0,
     43,
@@ -7906,7 +7906,7 @@
    "nr": 490,
    "id": "K1T490",
    "kat": "ausschnitt",
-   "name": "Strassenhaus Ausschnitt fuer Fenster N2-48 (110x140, BRH 90)",
+   "name": "Vorderhaus Ausschnitt fuer Fenster N2-48 (110x140, BRH 90)",
    "ziel": "K1T11",
    "box": [
     271.0,
@@ -7923,7 +7923,7 @@
    "nr": 491,
    "id": "K1T491",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen unten Fenster N2-48 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen unten Fenster N2-48 (110x140, BRH 90)",
    "box": [
     271.0,
     1084.0,
@@ -7939,7 +7939,7 @@
    "nr": 492,
    "id": "K1T492",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen oben Fenster N2-48 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen oben Fenster N2-48 (110x140, BRH 90)",
    "box": [
     271.0,
     1084.0,
@@ -7955,7 +7955,7 @@
    "nr": 493,
    "id": "K1T493",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen links Fenster N2-48 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen links Fenster N2-48 (110x140, BRH 90)",
    "box": [
     271.0,
     1084.0,
@@ -7971,7 +7971,7 @@
    "nr": 494,
    "id": "K1T494",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen rechts Fenster N2-48 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen rechts Fenster N2-48 (110x140, BRH 90)",
    "box": [
     374.0,
     1084.0,
@@ -7987,7 +7987,7 @@
    "nr": 495,
    "id": "K1T495",
    "kat": "glas",
-   "name": "Strassenhaus Glas Fenster N2-48 (110x140, BRH 90)",
+   "name": "Vorderhaus Glas Fenster N2-48 (110x140, BRH 90)",
    "box": [
     278.0,
     1087.4,
@@ -8003,7 +8003,7 @@
    "nr": 496,
    "id": "K1T496",
    "kat": "detail",
-   "name": "Strassenhaus Rollladen 60 % Fenster N2-48 (110x140, BRH 90)",
+   "name": "Vorderhaus Rollladen 60 % Fenster N2-48 (110x140, BRH 90)",
    "box": [
     273.0,
     1094.0,
@@ -8019,7 +8019,7 @@
    "nr": 497,
    "id": "K1T497",
    "kat": "detail",
-   "name": "Strassenhaus Fensterbank Fenster N2-48 (110x140, BRH 90)",
+   "name": "Vorderhaus Fensterbank Fenster N2-48 (110x140, BRH 90)",
    "box": [
     268.0,
     1092.0,
@@ -8035,7 +8035,7 @@
    "nr": 498,
    "id": "K1T498",
    "kat": "innen",
-   "name": "Strassenhaus Innenraum Fenster N2-48 (110x140, BRH 90)",
+   "name": "Vorderhaus Innenraum Fenster N2-48 (110x140, BRH 90)",
    "box": [
     273.0,
     990,
@@ -8051,7 +8051,7 @@
    "nr": 499,
    "id": "K1T499",
    "kat": "ausschnitt",
-   "name": "Strassenhaus Ausschnitt fuer Fenster N2-49 (110x140, BRH 90)",
+   "name": "Vorderhaus Ausschnitt fuer Fenster N2-49 (110x140, BRH 90)",
    "ziel": "K1T11",
    "box": [
     711.0,
@@ -8068,7 +8068,7 @@
    "nr": 500,
    "id": "K1T500",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen unten Fenster N2-49 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen unten Fenster N2-49 (110x140, BRH 90)",
    "box": [
     711.0,
     1084.0,
@@ -8084,7 +8084,7 @@
    "nr": 501,
    "id": "K1T501",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen oben Fenster N2-49 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen oben Fenster N2-49 (110x140, BRH 90)",
    "box": [
     711.0,
     1084.0,
@@ -8100,7 +8100,7 @@
    "nr": 502,
    "id": "K1T502",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen links Fenster N2-49 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen links Fenster N2-49 (110x140, BRH 90)",
    "box": [
     711.0,
     1084.0,
@@ -8116,7 +8116,7 @@
    "nr": 503,
    "id": "K1T503",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen rechts Fenster N2-49 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen rechts Fenster N2-49 (110x140, BRH 90)",
    "box": [
     814.0,
     1084.0,
@@ -8132,7 +8132,7 @@
    "nr": 504,
    "id": "K1T504",
    "kat": "glas",
-   "name": "Strassenhaus Glas Fenster N2-49 (110x140, BRH 90)",
+   "name": "Vorderhaus Glas Fenster N2-49 (110x140, BRH 90)",
    "box": [
     718.0,
     1087.4,
@@ -8148,7 +8148,7 @@
    "nr": 505,
    "id": "K1T505",
    "kat": "detail",
-   "name": "Strassenhaus Rollladen 60 % Fenster N2-49 (110x140, BRH 90)",
+   "name": "Vorderhaus Rollladen 60 % Fenster N2-49 (110x140, BRH 90)",
    "box": [
     713.0,
     1094.0,
@@ -8164,7 +8164,7 @@
    "nr": 506,
    "id": "K1T506",
    "kat": "detail",
-   "name": "Strassenhaus Fensterbank Fenster N2-49 (110x140, BRH 90)",
+   "name": "Vorderhaus Fensterbank Fenster N2-49 (110x140, BRH 90)",
    "box": [
     708.0,
     1092.0,
@@ -8180,7 +8180,7 @@
    "nr": 507,
    "id": "K1T507",
    "kat": "innen",
-   "name": "Strassenhaus Innenraum Fenster N2-49 (110x140, BRH 90)",
+   "name": "Vorderhaus Innenraum Fenster N2-49 (110x140, BRH 90)",
    "box": [
     713.0,
     990,
@@ -8196,7 +8196,7 @@
    "nr": 508,
    "id": "K1T508",
    "kat": "ausschnitt",
-   "name": "Strassenhaus Ausschnitt fuer Fenster N2-50 (110x140, BRH 90)",
+   "name": "Vorderhaus Ausschnitt fuer Fenster N2-50 (110x140, BRH 90)",
    "ziel": "K1T11",
    "box": [
     1051.0,
@@ -8213,7 +8213,7 @@
    "nr": 509,
    "id": "K1T509",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen unten Fenster N2-50 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen unten Fenster N2-50 (110x140, BRH 90)",
    "box": [
     1051.0,
     1084.0,
@@ -8229,7 +8229,7 @@
    "nr": 510,
    "id": "K1T510",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen oben Fenster N2-50 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen oben Fenster N2-50 (110x140, BRH 90)",
    "box": [
     1051.0,
     1084.0,
@@ -8245,7 +8245,7 @@
    "nr": 511,
    "id": "K1T511",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen links Fenster N2-50 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen links Fenster N2-50 (110x140, BRH 90)",
    "box": [
     1051.0,
     1084.0,
@@ -8261,7 +8261,7 @@
    "nr": 512,
    "id": "K1T512",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen rechts Fenster N2-50 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen rechts Fenster N2-50 (110x140, BRH 90)",
    "box": [
     1154.0,
     1084.0,
@@ -8277,7 +8277,7 @@
    "nr": 513,
    "id": "K1T513",
    "kat": "glas",
-   "name": "Strassenhaus Glas Fenster N2-50 (110x140, BRH 90)",
+   "name": "Vorderhaus Glas Fenster N2-50 (110x140, BRH 90)",
    "box": [
     1058.0,
     1087.4,
@@ -8293,7 +8293,7 @@
    "nr": 514,
    "id": "K1T514",
    "kat": "detail",
-   "name": "Strassenhaus Rollladen 60 % Fenster N2-50 (110x140, BRH 90)",
+   "name": "Vorderhaus Rollladen 60 % Fenster N2-50 (110x140, BRH 90)",
    "box": [
     1053.0,
     1094.0,
@@ -8309,7 +8309,7 @@
    "nr": 515,
    "id": "K1T515",
    "kat": "detail",
-   "name": "Strassenhaus Fensterbank Fenster N2-50 (110x140, BRH 90)",
+   "name": "Vorderhaus Fensterbank Fenster N2-50 (110x140, BRH 90)",
    "box": [
     1048.0,
     1092.0,
@@ -8325,7 +8325,7 @@
    "nr": 516,
    "id": "K1T516",
    "kat": "innen",
-   "name": "Strassenhaus Innenraum Fenster N2-50 (110x140, BRH 90)",
+   "name": "Vorderhaus Innenraum Fenster N2-50 (110x140, BRH 90)",
    "box": [
     1053.0,
     990,
@@ -8341,7 +8341,7 @@
    "nr": 517,
    "id": "K1T517",
    "kat": "ausschnitt",
-   "name": "Strassenhaus Ausschnitt fuer Fenster W2-51 (60x90, BRH 120)",
+   "name": "Vorderhaus Ausschnitt fuer Fenster W2-51 (60x90, BRH 120)",
    "ziel": "K1T12",
    "box": [
     0,
@@ -8358,7 +8358,7 @@
    "nr": 518,
    "id": "K1T518",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen unten Fenster W2-51 (60x90, BRH 120)",
+   "name": "Vorderhaus Rahmen unten Fenster W2-51 (60x90, BRH 120)",
    "box": [
     20.0,
     306.0,
@@ -8374,7 +8374,7 @@
    "nr": 519,
    "id": "K1T519",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen oben Fenster W2-51 (60x90, BRH 120)",
+   "name": "Vorderhaus Rahmen oben Fenster W2-51 (60x90, BRH 120)",
    "box": [
     20.0,
     306.0,
@@ -8390,7 +8390,7 @@
    "nr": 520,
    "id": "K1T520",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen links Fenster W2-51 (60x90, BRH 120)",
+   "name": "Vorderhaus Rahmen links Fenster W2-51 (60x90, BRH 120)",
    "box": [
     20.0,
     306.0,
@@ -8406,7 +8406,7 @@
    "nr": 521,
    "id": "K1T521",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen rechts Fenster W2-51 (60x90, BRH 120)",
+   "name": "Vorderhaus Rahmen rechts Fenster W2-51 (60x90, BRH 120)",
    "box": [
     20.0,
     359.0,
@@ -8422,7 +8422,7 @@
    "nr": 522,
    "id": "K1T522",
    "kat": "glas",
-   "name": "Strassenhaus Glas Fenster W2-51 (60x90, BRH 120)",
+   "name": "Vorderhaus Glas Fenster W2-51 (60x90, BRH 120)",
    "box": [
     23.40000000000009,
     313.0,
@@ -8438,7 +8438,7 @@
    "nr": 523,
    "id": "K1T523",
    "kat": "detail",
-   "name": "Strassenhaus Rollladen 60 % Fenster W2-51 (60x90, BRH 120)",
+   "name": "Vorderhaus Rollladen 60 % Fenster W2-51 (60x90, BRH 120)",
    "box": [
     16.0,
     308.0,
@@ -8454,7 +8454,7 @@
    "nr": 524,
    "id": "K1T524",
    "kat": "detail",
-   "name": "Strassenhaus Fensterbank Fenster W2-51 (60x90, BRH 120)",
+   "name": "Vorderhaus Fensterbank Fenster W2-51 (60x90, BRH 120)",
    "box": [
     2,
     303.0,
@@ -8470,7 +8470,7 @@
    "nr": 525,
    "id": "K1T525",
    "kat": "innen",
-   "name": "Strassenhaus Innenraum Fenster W2-51 (60x90, BRH 120)",
+   "name": "Vorderhaus Innenraum Fenster W2-51 (60x90, BRH 120)",
    "box": [
     43,
     308.0,
@@ -8486,7 +8486,7 @@
    "nr": 526,
    "id": "K1T526",
    "kat": "ausschnitt",
-   "name": "Strassenhaus Ausschnitt fuer Fenster W2-52 (60x90, BRH 120)",
+   "name": "Vorderhaus Ausschnitt fuer Fenster W2-52 (60x90, BRH 120)",
    "ziel": "K1T12",
    "box": [
     0,
@@ -8503,7 +8503,7 @@
    "nr": 527,
    "id": "K1T527",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen unten Fenster W2-52 (60x90, BRH 120)",
+   "name": "Vorderhaus Rahmen unten Fenster W2-52 (60x90, BRH 120)",
    "box": [
     20.0,
     736.0,
@@ -8519,7 +8519,7 @@
    "nr": 528,
    "id": "K1T528",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen oben Fenster W2-52 (60x90, BRH 120)",
+   "name": "Vorderhaus Rahmen oben Fenster W2-52 (60x90, BRH 120)",
    "box": [
     20.0,
     736.0,
@@ -8535,7 +8535,7 @@
    "nr": 529,
    "id": "K1T529",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen links Fenster W2-52 (60x90, BRH 120)",
+   "name": "Vorderhaus Rahmen links Fenster W2-52 (60x90, BRH 120)",
    "box": [
     20.0,
     736.0,
@@ -8551,7 +8551,7 @@
    "nr": 530,
    "id": "K1T530",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen rechts Fenster W2-52 (60x90, BRH 120)",
+   "name": "Vorderhaus Rahmen rechts Fenster W2-52 (60x90, BRH 120)",
    "box": [
     20.0,
     789.0,
@@ -8567,7 +8567,7 @@
    "nr": 531,
    "id": "K1T531",
    "kat": "glas",
-   "name": "Strassenhaus Glas Fenster W2-52 (60x90, BRH 120)",
+   "name": "Vorderhaus Glas Fenster W2-52 (60x90, BRH 120)",
    "box": [
     23.40000000000009,
     743.0,
@@ -8583,7 +8583,7 @@
    "nr": 532,
    "id": "K1T532",
    "kat": "detail",
-   "name": "Strassenhaus Rollladen 60 % Fenster W2-52 (60x90, BRH 120)",
+   "name": "Vorderhaus Rollladen 60 % Fenster W2-52 (60x90, BRH 120)",
    "box": [
     16.0,
     738.0,
@@ -8599,7 +8599,7 @@
    "nr": 533,
    "id": "K1T533",
    "kat": "detail",
-   "name": "Strassenhaus Fensterbank Fenster W2-52 (60x90, BRH 120)",
+   "name": "Vorderhaus Fensterbank Fenster W2-52 (60x90, BRH 120)",
    "box": [
     2,
     733.0,
@@ -8615,7 +8615,7 @@
    "nr": 534,
    "id": "K1T534",
    "kat": "innen",
-   "name": "Strassenhaus Innenraum Fenster W2-52 (60x90, BRH 120)",
+   "name": "Vorderhaus Innenraum Fenster W2-52 (60x90, BRH 120)",
    "box": [
     43,
     738.0,
@@ -8631,7 +8631,7 @@
    "nr": 535,
    "id": "K1T535",
    "kat": "ausschnitt",
-   "name": "Strassenhaus Ausschnitt fuer Fenster E2-53 (110x140, BRH 90)",
+   "name": "Vorderhaus Ausschnitt fuer Fenster E2-53 (110x140, BRH 90)",
    "ziel": "K1T13",
    "box": [
     3264,
@@ -8648,7 +8648,7 @@
    "nr": 536,
    "id": "K1T536",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen unten Fenster E2-53 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen unten Fenster E2-53 (110x140, BRH 90)",
    "box": [
     3284.0,
     281.0,
@@ -8664,7 +8664,7 @@
    "nr": 537,
    "id": "K1T537",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen oben Fenster E2-53 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen oben Fenster E2-53 (110x140, BRH 90)",
    "box": [
     3284.0,
     281.0,
@@ -8680,7 +8680,7 @@
    "nr": 538,
    "id": "K1T538",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen links Fenster E2-53 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen links Fenster E2-53 (110x140, BRH 90)",
    "box": [
     3284.0,
     281.0,
@@ -8696,7 +8696,7 @@
    "nr": 539,
    "id": "K1T539",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen rechts Fenster E2-53 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen rechts Fenster E2-53 (110x140, BRH 90)",
    "box": [
     3284.0,
     384.0,
@@ -8712,7 +8712,7 @@
    "nr": 540,
    "id": "K1T540",
    "kat": "glas",
-   "name": "Strassenhaus Glas Fenster E2-53 (110x140, BRH 90)",
+   "name": "Vorderhaus Glas Fenster E2-53 (110x140, BRH 90)",
    "box": [
     3287.3999999999996,
     288.0,
@@ -8728,7 +8728,7 @@
    "nr": 541,
    "id": "K1T541",
    "kat": "detail",
-   "name": "Strassenhaus Rollladen 60 % Fenster E2-53 (110x140, BRH 90)",
+   "name": "Vorderhaus Rollladen 60 % Fenster E2-53 (110x140, BRH 90)",
    "box": [
     3294.0,
     283.0,
@@ -8744,7 +8744,7 @@
    "nr": 542,
    "id": "K1T542",
    "kat": "detail",
-   "name": "Strassenhaus Fensterbank Fenster E2-53 (110x140, BRH 90)",
+   "name": "Vorderhaus Fensterbank Fenster E2-53 (110x140, BRH 90)",
    "box": [
     3292.0,
     278.0,
@@ -8760,7 +8760,7 @@
    "nr": 543,
    "id": "K1T543",
    "kat": "innen",
-   "name": "Strassenhaus Innenraum Fenster E2-53 (110x140, BRH 90)",
+   "name": "Vorderhaus Innenraum Fenster E2-53 (110x140, BRH 90)",
    "box": [
     3190,
     283.0,
@@ -8776,7 +8776,7 @@
    "nr": 544,
    "id": "K1T544",
    "kat": "ausschnitt",
-   "name": "Strassenhaus Ausschnitt fuer Fenster E2-54 (110x140, BRH 90)",
+   "name": "Vorderhaus Ausschnitt fuer Fenster E2-54 (110x140, BRH 90)",
    "ziel": "K1T13",
    "box": [
     3264,
@@ -8793,7 +8793,7 @@
    "nr": 545,
    "id": "K1T545",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen unten Fenster E2-54 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen unten Fenster E2-54 (110x140, BRH 90)",
    "box": [
     3284.0,
     711.0,
@@ -8809,7 +8809,7 @@
    "nr": 546,
    "id": "K1T546",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen oben Fenster E2-54 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen oben Fenster E2-54 (110x140, BRH 90)",
    "box": [
     3284.0,
     711.0,
@@ -8825,7 +8825,7 @@
    "nr": 547,
    "id": "K1T547",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen links Fenster E2-54 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen links Fenster E2-54 (110x140, BRH 90)",
    "box": [
     3284.0,
     711.0,
@@ -8841,7 +8841,7 @@
    "nr": 548,
    "id": "K1T548",
    "kat": "rahmen",
-   "name": "Strassenhaus Rahmen rechts Fenster E2-54 (110x140, BRH 90)",
+   "name": "Vorderhaus Rahmen rechts Fenster E2-54 (110x140, BRH 90)",
    "box": [
     3284.0,
     814.0,
@@ -8857,7 +8857,7 @@
    "nr": 549,
    "id": "K1T549",
    "kat": "glas",
-   "name": "Strassenhaus Glas Fenster E2-54 (110x140, BRH 90)",
+   "name": "Vorderhaus Glas Fenster E2-54 (110x140, BRH 90)",
    "box": [
     3287.3999999999996,
     718.0,
@@ -8873,7 +8873,7 @@
    "nr": 550,
    "id": "K1T550",
    "kat": "detail",
-   "name": "Strassenhaus Rollladen 60 % Fenster E2-54 (110x140, BRH 90)",
+   "name": "Vorderhaus Rollladen 60 % Fenster E2-54 (110x140, BRH 90)",
    "box": [
     3294.0,
     713.0,
@@ -8889,7 +8889,7 @@
    "nr": 551,
    "id": "K1T551",
    "kat": "detail",
-   "name": "Strassenhaus Fensterbank Fenster E2-54 (110x140, BRH 90)",
+   "name": "Vorderhaus Fensterbank Fenster E2-54 (110x140, BRH 90)",
    "box": [
     3292.0,
     708.0,
@@ -8905,7 +8905,7 @@
    "nr": 552,
    "id": "K1T552",
    "kat": "innen",
-   "name": "Strassenhaus Innenraum Fenster E2-54 (110x140, BRH 90)",
+   "name": "Vorderhaus Innenraum Fenster E2-54 (110x140, BRH 90)",
    "box": [
     3190,
     713.0,
@@ -8921,7 +8921,7 @@
    "nr": 553,
    "id": "K1T553",
    "kat": "ausschnitt",
-   "name": "Strassenhaus Ausschnitt fuer Haustuer W0-55 (110x220, BRH 0)",
+   "name": "Vorderhaus Ausschnitt fuer Haustuer W0-55 (110x220, BRH 0)",
    "ziel": "K1T04",
    "box": [
     0,
@@ -8938,7 +8938,7 @@
    "nr": 554,
    "id": "K1T554",
    "kat": "tuer",
-   "name": "Strassenhaus Tuerblatt Haustuer W0-55 (110x220, BRH 0)",
+   "name": "Vorderhaus Tuerblatt Haustuer W0-55 (110x220, BRH 0)",
    "box": [
     21.5,
     501.0,
@@ -8954,7 +8954,7 @@
    "nr": 555,
    "id": "K1T555",
    "kat": "rahmen",
-   "name": "Strassenhaus Zarge links Haustuer W0-55 (110x220, BRH 0)",
+   "name": "Vorderhaus Zarge links Haustuer W0-55 (110x220, BRH 0)",
    "box": [
     20.0,
     501.0,
@@ -8970,7 +8970,7 @@
    "nr": 556,
    "id": "K1T556",
    "kat": "rahmen",
-   "name": "Strassenhaus Zarge rechts Haustuer W0-55 (110x220, BRH 0)",
+   "name": "Vorderhaus Zarge rechts Haustuer W0-55 (110x220, BRH 0)",
    "box": [
     20.0,
     606.0,
@@ -8986,7 +8986,7 @@
    "nr": 557,
    "id": "K1T557",
    "kat": "rahmen",
-   "name": "Strassenhaus Zarge oben Haustuer W0-55 (110x220, BRH 0)",
+   "name": "Vorderhaus Zarge oben Haustuer W0-55 (110x220, BRH 0)",
    "box": [
     20.0,
     501.0,
@@ -9002,7 +9002,7 @@
    "nr": 571,
    "id": "K1T571",
    "kat": "kamera",
-   "name": "Strassenhaus Kamera Front (3/4 von Suedwest, im Grundstueck, Augenhoehe)",
+   "name": "Vorderhaus Kamera Front (3/4 von Suedwest, im Grundstueck, Augenhoehe)",
    "pos": [
     -404,
     -1264,
@@ -9019,7 +9019,7 @@
    "nr": 572,
    "id": "K1T572",
    "kat": "kamera",
-   "name": "Strassenhaus Kamera Rueck (3/4 von Nordost, im Grundstueck)",
+   "name": "Vorderhaus Kamera Rueck (3/4 von Nordost, im Grundstueck)",
    "pos": [
     3716,
     1996,
@@ -9036,7 +9036,7 @@
    "nr": 573,
    "id": "K1T573",
    "kat": "kamera",
-   "name": "Strassenhaus Kamera Ansicht Sued (orthografisch, Elevation)",
+   "name": "Vorderhaus Kamera Ansicht Sued (orthografisch, Elevation)",
    "pos": [
     1656.0,
     -2994,
@@ -9053,7 +9053,7 @@
    "nr": 574,
    "id": "K1T574",
    "kat": "kamera",
-   "name": "Strassenhaus Kamera Ansicht Nord (orthografisch, Elevation)",
+   "name": "Vorderhaus Kamera Ansicht Nord (orthografisch, Elevation)",
    "pos": [
     1656.0,
     4106,
@@ -9070,7 +9070,7 @@
    "nr": 575,
    "id": "K1T575",
    "kat": "licht",
-   "name": "Strassenhaus Sonne (Azimut 215, Hoehe 42)",
+   "name": "Vorderhaus Sonne (Azimut 215, Hoehe 42)",
    "azimut": 215,
    "hoehe": 42,
    "staerke": 4.0
@@ -9079,7 +9079,7 @@
    "nr": 576,
    "id": "K1T576",
    "kat": "treppe",
-   "name": "Strassenhaus Kellertreppe Stufe 1",
+   "name": "Vorderhaus Kellertreppe Stufe 1",
    "box": [
     196,
     568.0,
@@ -9094,7 +9094,7 @@
    "nr": 577,
    "id": "K1T577",
    "kat": "treppe",
-   "name": "Strassenhaus Kellertreppe Stufe 2",
+   "name": "Vorderhaus Kellertreppe Stufe 2",
    "box": [
     196,
     595.3,
@@ -9109,7 +9109,7 @@
    "nr": 578,
    "id": "K1T578",
    "kat": "treppe",
-   "name": "Strassenhaus Kellertreppe Stufe 3",
+   "name": "Vorderhaus Kellertreppe Stufe 3",
    "box": [
     196,
     622.6,
@@ -9124,7 +9124,7 @@
    "nr": 579,
    "id": "K1T579",
    "kat": "treppe",
-   "name": "Strassenhaus Kellertreppe Stufe 4",
+   "name": "Vorderhaus Kellertreppe Stufe 4",
    "box": [
     196,
     649.9,
@@ -9139,7 +9139,7 @@
    "nr": 580,
    "id": "K1T580",
    "kat": "treppe",
-   "name": "Strassenhaus Kellertreppe Stufe 5",
+   "name": "Vorderhaus Kellertreppe Stufe 5",
    "box": [
     196,
     677.1,
@@ -9154,7 +9154,7 @@
    "nr": 581,
    "id": "K1T581",
    "kat": "treppe",
-   "name": "Strassenhaus Kellertreppe Stufe 6",
+   "name": "Vorderhaus Kellertreppe Stufe 6",
    "box": [
     196,
     704.4,
@@ -9169,7 +9169,7 @@
    "nr": 582,
    "id": "K1T582",
    "kat": "treppe",
-   "name": "Strassenhaus Kellertreppe Stufe 7",
+   "name": "Vorderhaus Kellertreppe Stufe 7",
    "box": [
     196,
     731.7,
@@ -9184,7 +9184,7 @@
    "nr": 583,
    "id": "K1T583",
    "kat": "treppe",
-   "name": "Strassenhaus Kellertreppe Stufe 8",
+   "name": "Vorderhaus Kellertreppe Stufe 8",
    "box": [
     196,
     759.0,
@@ -9199,7 +9199,7 @@
    "nr": 584,
    "id": "K1T584",
    "kat": "treppe",
-   "name": "Strassenhaus Kellertreppe Stufe 9",
+   "name": "Vorderhaus Kellertreppe Stufe 9",
    "box": [
     196,
     786.3,
@@ -9214,7 +9214,7 @@
    "nr": 585,
    "id": "K1T585",
    "kat": "treppe",
-   "name": "Strassenhaus Kellertreppe Stufe 10",
+   "name": "Vorderhaus Kellertreppe Stufe 10",
    "box": [
     196,
     813.6,
@@ -9229,7 +9229,7 @@
    "nr": 586,
    "id": "K1T586",
    "kat": "treppe",
-   "name": "Strassenhaus Kellertreppe Stufe 11",
+   "name": "Vorderhaus Kellertreppe Stufe 11",
    "box": [
     196,
     840.9,
@@ -9244,7 +9244,7 @@
    "nr": 587,
    "id": "K1T587",
    "kat": "treppe",
-   "name": "Strassenhaus Kellertreppe Stufe 12",
+   "name": "Vorderhaus Kellertreppe Stufe 12",
    "box": [
     196,
     868.1,
@@ -9259,7 +9259,7 @@
    "nr": 588,
    "id": "K1T588",
    "kat": "treppe",
-   "name": "Strassenhaus Kellertreppe Stufe 13",
+   "name": "Vorderhaus Kellertreppe Stufe 13",
    "box": [
     196,
     895.4,
@@ -9274,7 +9274,7 @@
    "nr": 589,
    "id": "K1T589",
    "kat": "treppe",
-   "name": "Strassenhaus Kellertreppe Stufe 14",
+   "name": "Vorderhaus Kellertreppe Stufe 14",
    "box": [
     196,
     922.7,
@@ -9289,7 +9289,7 @@
    "nr": 590,
    "id": "K1T590",
    "kat": "treppe",
-   "name": "Strassenhaus Kellertreppe Handlauf",
+   "name": "Vorderhaus Kellertreppe Handlauf",
    "box": [
     194,
     568.0,
@@ -9304,7 +9304,7 @@
    "nr": 591,
    "id": "K1T591",
    "kat": "fundament",
-   "name": "Strassenhaus Bodenplatte Stueck 2 (um Kellertreppe)",
+   "name": "Vorderhaus Bodenplatte Stueck 2 (um Kellertreppe)",
    "box": [
     306,
     6,
@@ -9319,7 +9319,7 @@
    "nr": 592,
    "id": "K1T592",
    "kat": "fundament",
-   "name": "Strassenhaus Bodenplatte Stueck 3 (um Kellertreppe)",
+   "name": "Vorderhaus Bodenplatte Stueck 3 (um Kellertreppe)",
    "box": [
     186,
     6,
@@ -9334,7 +9334,7 @@
    "nr": 593,
    "id": "K1T593",
    "kat": "fundament",
-   "name": "Strassenhaus Bodenplatte Stueck 4 (um Kellertreppe)",
+   "name": "Vorderhaus Bodenplatte Stueck 4 (um Kellertreppe)",
    "box": [
     186,
     950,
@@ -9349,7 +9349,7 @@
    "nr": 594,
    "id": "K1T594",
    "kat": "gelaender",
-   "name": "Strassenhaus Absturzsicherung Kellertreppe O",
+   "name": "Vorderhaus Absturzsicherung Kellertreppe O",
    "box": [
     302,
     590.3,
@@ -9364,7 +9364,7 @@
    "nr": 595,
    "id": "K1T595",
    "kat": "gelaender",
-   "name": "Strassenhaus Absturzsicherung Kellertreppe W",
+   "name": "Vorderhaus Absturzsicherung Kellertreppe W",
    "box": [
     186,
     590.3,
@@ -9379,7 +9379,7 @@
    "nr": 596,
    "id": "K1T596",
    "kat": "gelaender",
-   "name": "Strassenhaus Absturzsicherung Kellertreppe S",
+   "name": "Vorderhaus Absturzsicherung Kellertreppe S",
    "box": [
     186,
     590.3,

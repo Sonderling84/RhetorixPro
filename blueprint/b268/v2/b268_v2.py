@@ -49,13 +49,13 @@ for f in range(3):
 Dd = []
 for f in range(3): o(Dd, 'E', f, 'fenster', 290, 110, 140, 90, QI)
 
-for nm, H in (('strasse', haus('Strassenhaus', 'b268_strasse', 3300, 1100, A)), ('haupt', haus('Hauptblock', 'b268_haupt', 2525, 2475, Bk)),
+for nm, H in (('strasse', haus('Vorderhaus', 'b268_vorderhaus', 3300, 1100, A)), ('haupt', haus('Hauptblock', 'b268_haupt', 2525, 2475, Bk)),
               ('nord', haus('Nordfluegel', 'b268_nord', 2600, 675, C)), ('versatz', haus('Versatz Ost', 'b268_versatz', 325, 575, Dd, treppe=False))):
     json.dump(H, open(f'haus_{nm}.json', 'w', encoding='utf-8'), indent=1, ensure_ascii=False)
 
 CFG = {'name': 'B268 Nr. 9, Riegelsberg - Wohnanlage', 'kennung': 'b268', 'geschosse': 3,
        'lageplan_quelle': 'Satellitenbild Tobi 12.10.2026, 1 px = 5 cm',
-       'baukoerper': [{'haus': 'haus_strasse.json', 'name': 'Strassenhaus', 'drehung': 0, 'x': 1700, 'y': 0},
+       'baukoerper': [{'haus': 'haus_strasse.json', 'name': 'Vorderhaus', 'drehung': 0, 'x': 1700, 'y': 0},
                       {'haus': 'haus_haupt.json', 'name': 'Hauptblock', 'drehung': 90, 'x': 3000, 'y': 1100},
                       {'haus': 'haus_nord.json', 'name': 'Nordfluegel', 'drehung': 0, 'x': 3200, 'y': 3625},
                       {'haus': 'haus_versatz.json', 'name': 'Versatz Ost', 'drehung': 0, 'x': 5475, 'y': 3050}],

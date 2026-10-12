@@ -116,7 +116,7 @@ def cam(name, loc, ziel=ctr, ortho=None, lens=30):
     cd.clip_end = 1000; ob = bpy.data.objects.new(name, cd); sc.collection.objects.link(ob); ob.location = loc
     ob.rotation_euler = (mathutils.Vector(ziel) - mathutils.Vector(loc)).to_track_quat('-Z', 'Y').to_euler(); return ob
 K = {
-    'ecke': cam('Ecke', mathutils.Vector((-R * 0.55, -R * 0.75, 1.7)), ziel=(W * 0.35, D * 0.25, F * 0.55), lens=22),
+    'ecke': cam('Ecke', mathutils.Vector((-R * 0.55, -R * 0.75, 1.7)), ziel=(W * 0.35, D * 0.25, F * 0.55), lens=22 if R < 20 else 32),   # grosse Anlagen: engerer Bildwinkel, sonst winzig
     'iso_sw': cam('Iso SW', ctr + mathutils.Vector((-16, -16, 11)), ortho=R * 1.55),
     'vogel': cam('Vogel', ctr + mathutils.Vector((-R * 1.0, -R * 1.35, R * 1.3)), lens=32),
     'iso_no': cam('Iso NO', ctr + mathutils.Vector((16, 16, 11)), ortho=R * 1.55),

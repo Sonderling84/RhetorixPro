@@ -6,7 +6,7 @@
  "baukoerper": [
   {
    "haus": "haus_strasse.json",
-   "name": "Strassenhaus",
+   "name": "Vorderhaus",
    "drehung": 0,
    "x": 1700,
    "y": 0

@@ -2,7 +2,7 @@
 REM ============================================================================================
 REM  PAKETE-ABLEGEN: holt alle fertigen Pakete aus GitHub (RhetorixPro, Branch claude/blueprint-eckhaus-1940)
 REM  und legt sie in den Haeuser-Katalog und die Asset-Bibliothek. Zu Hause einmal doppelklicken (braucht git).
-REM  Enthalten: eckhaus1940, beethoven9
+REM  Enthalten: eckhaus1940, beethoven9, b268
 REM ============================================================================================
 setlocal
 if "%KATALOG%"=="" set KATALOG=G:\Meine Ablage\Brain\02_Bauplan_Brain\Haeuser-Katalog
@@ -39,6 +39,18 @@ set AZ=%ASSETS%\beethoven9
 if not exist "%AZ%" mkdir "%AZ%"
 copy /y "%Q%\beethoven9\paket\ansichten\*.png" "%AZ%\" >nul
 copy /y "%Q%\beethoven9\paket\*.png" "%AZ%\" >nul
+
+REM ---- B268 Nr. 9 (Wohnanlage) ----
+set ZIEL=%KATALOG%\Haus_b268
+if not exist "%ZIEL%" mkdir "%ZIEL%"
+copy /y "%Q%\b268\paket\*.*" "%ZIEL%\" >nul
+copy /y "%Q%\b268\v2\*.json" "%ZIEL%\" >nul
+if not exist "%ZIEL%\fotos" mkdir "%ZIEL%\fotos"
+copy /y "%Q%\b268\fotos\*.*" "%ZIEL%\fotos\" >nul
+set AZ=%ASSETS%\b268
+if not exist "%AZ%" mkdir "%AZ%"
+copy /y "%Q%\b268\paket\ansichten\*.png" "%AZ%\" >nul
+copy /y "%Q%\b268\paket\*.png" "%AZ%\" >nul
 
 echo FERTIG: %KATALOG%  und  %ASSETS%
 rmdir /s /q "%TMPD%"

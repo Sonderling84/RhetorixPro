@@ -1,7 +1,7 @@
 {
  "meta": {
-  "name": "Strassenhaus",
-  "kennung": "b268_strasse",
+  "name": "Vorderhaus",
+  "kennung": "b268_vorderhaus",
   "vorlage": "fotohaus",
   "adresse": "B268 Nr. 9, Riegelsberg",
   "fiktiv": false,
