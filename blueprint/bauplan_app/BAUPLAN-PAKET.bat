@@ -27,18 +27,17 @@ set TOOLS=%~dp0
 set OUT=%TOOLS%..\Ergebnisse\paket_%TAG%
 if not exist "%OUT%\render" mkdir "%OUT%\render"
 
+REM ---- Schritt 0 nur bei Foto/Ordner (ohne goto, damit die Datei auch mit LF-Zeilenenden laeuft) ----
 set EXT=%~x2
-if exist "%~2\*" goto foto
-if /i "%EXT%"==".jpg" goto foto
-if /i "%EXT%"==".jpeg" goto foto
-if /i "%EXT%"==".png" goto foto
-goto stk
-:foto
-echo [0/6] OpenRouter vermisst das Foto (%OPENROUTER_MODEL%)
-"%PY%" "%TOOLS%foto_zu_haus.py" "%HAUS%" %TAG% "%OUT%\haus_%TAG%.json" "%~4" || exit /b 1
-if not exist "%~2\*" copy /y "%HAUS%" "%OUT%\foto_%TAG%%EXT%" >nul
-set HAUS=%OUT%\haus_%TAG%.json
-:stk
+set FOTO=0
+if exist "%~2\*" set FOTO=1
+if /i "%EXT%"==".jpg" set FOTO=1
+if /i "%EXT%"==".jpeg" set FOTO=1
+if /i "%EXT%"==".png" set FOTO=1
+if "%FOTO%"=="1" echo [0/6] OpenRouter vermisst das Foto (%OPENROUTER_MODEL%)
+if "%FOTO%"=="1" "%PY%" "%TOOLS%foto_zu_haus.py" "%HAUS%" %TAG% "%OUT%\haus_%TAG%.json" "%~4" || exit /b 1
+if "%FOTO%"=="1" if not exist "%~2\*" copy /y "%HAUS%" "%OUT%\foto_%TAG%%EXT%" >nul
+if "%FOTO%"=="1" set HAUS=%OUT%\haus_%TAG%.json
 echo [1/6] Stueckliste
 "%PY%" "%TOOLS%bauplan_stueckliste.py" "%HAUS%" "%OUT%\stueckliste_%TAG%.json" || exit /b 1
 
