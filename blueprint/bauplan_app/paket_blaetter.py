@@ -70,7 +70,7 @@ def schriftfeld(d, x, y, w, blatt):
 
 
 # ---------- 1 Stueckliste ----------
-cols = 3; per = (len(T) + cols - 1) // cols; lh = 19; cw = 760
+cols = max(3, -(-len(T) // 110)); per = (len(T) + cols - 1) // cols; lh = 19; cw = 760   # grosse Anlagen: mehr Spalten statt Riesen-Hoehe
 im, d = rahmen(120 + cols * cw, 240 + per * lh + 80, f'STÜCKLISTE · {TITEL} · {len(T)} TEILE',
                'Koordinaten in cm · Ursprung SW-Ecke Außenwand · x = Ost, y = Nord, z = oben · 0,00 = OK Bodenplatte')
 d.text((62, 156), '   '.join(f'{k} {v}' for k, v in Counter(p['kat'] for p in T).most_common()), font=fnt(FM, 18), fill=WH)
@@ -80,7 +80,8 @@ for i, p in enumerate(T):
     b = p.get('box') or p.get('bbox')
     dim = f'{b[3] - b[0]:.0f}×{b[4] - b[1]:.0f}×{b[5] - b[2]:.0f}' if b else ('Netz' if 'mesh' in p else '')
     d.text((x, y), f"{p['id']:<5}{p['kat'][:10]:<11}{p['name'][:38]:<39}{dim}", font=fnt(FM, 15), fill=WH if p['kat'] != 'ausschnitt' else SO)
-papier(im).save(os.path.join(OUTD, f'1_STUECKLISTE_{TAG}.png'))
+_st = papier(im); _st.save(os.path.join(OUTD, f'1_STUECKLISTE_{TAG}.png'))
+if len(T) > 300: _st.save(os.path.join(OUTD, f'1_STUECKLISTE_{TAG}.jpg'), quality=88)   # handliche Kopie zum Verschicken
 
 # ---------- 2 Ansichten ----------
 A = [('elev_sued', 'ANSICHT SÜD · FRONT'), ('elev_west', 'ANSICHT WEST'), ('elev_ost', 'ANSICHT OST'),
