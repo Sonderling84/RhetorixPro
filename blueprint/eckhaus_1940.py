@@ -7,7 +7,7 @@ import math
 
 S = 38            # px pro Meter (1:100 Darstellung)
 W, H = 1800, 1380
-BG = "#14498f"
+BG = "#0044b8"          # Master Cyanotype Kobalt (Bauplan-Brain, Abschnitt 31)
 LN = "#ffffff"
 
 out = []
@@ -488,8 +488,17 @@ cell(TX + 325, TY + 108, "BAUSTIL", "Ziegel-Gründerzeit / Main Street")
 cell(TX, TY + 156, "QUELLE", "Referenzfoto „1940“")
 cell(TX + 325, TY + 156, "DATUM", "12.10.2026")
 cell(TX, TY + 204, "GEZEICHNET", "Bauplan-App · KI-Skizze")
-cell(TX + 325, TY + 204, "BLATT", "1 / 1")
+cell(TX + 325, TY + 204, "BLATT", "1 / 2")
 
+# Sonnendruck-Papier: Flecken + Korn
+add('<filter id="flecken" x="0" y="0" width="100%" height="100%">'
+    '<feTurbulence type="fractalNoise" baseFrequency="0.004" numOctaves="3" seed="7"/>'
+    '<feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0.05  0 0 0 0 0.2  0 0 0 0.9 -0.3"/></filter>'
+    '<filter id="korn" x="0" y="0" width="100%" height="100%">'
+    '<feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="3"/>'
+    '<feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.12 0"/></filter>')
+add(f'<rect width="{W}" height="{H}" filter="url(#flecken)"/>')
+add(f'<rect width="{W}" height="{H}" filter="url(#korn)"/>')
 add(f'<rect width="{W}" height="{H}" fill="url(#vig)"/>')
 add("</svg>")
 
