@@ -1,5 +1,13 @@
 # Bauplan-App: Standard-Paket je Haus (verbindlich ab 12.10.2026, Tobi)
 
+**Was Tobi bekommt (Definition 12.10.2026):**
+- **Eingabe:** ein oder mehrere Fotos des Objekts, optional mit Hinweisen.
+- **Erkennung:** OpenRouter-Bildmodell (`foto_zu_haus.py`) → `haus.json` → Stückliste der App.
+- **Ausgabe:**
+  1. Stückliste
+  2. technische Darstellungen: Ansichten und 3D-Skizze vorne/hinten in Master Cyanotype
+  3. komplette 3D-Skizze des Objekts im **Nacht-Look** (Neon dunkel)
+
 **Regel:** Für jedes Haus wird ab sofort immer dasselbe Paket erzeugt. Alle Teile kommen aus derselben Geometrie, also aus der `haus.json`, der Stückliste und dem Blender-Modell. Es wird nichts frei gezeichnet und nichts per KI gemalt.
 
 | Blatt | Inhalt | Stil |
