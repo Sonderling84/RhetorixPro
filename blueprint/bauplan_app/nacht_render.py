@@ -28,16 +28,20 @@ _br.inputs['Color2'].default_value = (0.034, 0.04, 0.058, 1); _br.inputs['Mortar
 _nt.links.new(_tc.outputs['Object'], _sp.inputs[0]); _nt.links.new(_sp.outputs['X'], _ad.inputs[0]); _nt.links.new(_sp.outputs['Y'], _ad.inputs[1])
 _nt.links.new(_ad.outputs[0], _cb.inputs['X']); _nt.links.new(_sp.outputs['Z'], _cb.inputs['Y'])
 _nt.links.new(_cb.outputs[0], _br.inputs['Vector']); _nt.links.new(_br.outputs['Color'], _b.inputs['Base Color'])
-M_GLAS = mat('Nacht Glas', (0.05, 0.15, 0.5), 0.15, emis=(0.06, 0.28, 1.0), strength=1.1)
+M_GLAS = mat('Nacht Glas', (0.05, 0.15, 0.5), 0.15, emis=(0.08, 0.32, 1.0), strength=0.9)
+_g = M_GLAS.node_tree; _bs = _g.nodes['Principled BSDF']; _out = _g.nodes['Material Output']
+_tr = _g.nodes.new('ShaderNodeBsdfTransparent'); _mx = _g.nodes.new('ShaderNodeMixShader'); _mx.inputs[0].default_value = 0.45
+_g.links.new(_bs.outputs[0], _mx.inputs[1]); _g.links.new(_tr.outputs[0], _mx.inputs[2]); _g.links.new(_mx.outputs[0], _out.inputs['Surface'])
 M_RAHM = mat('Nacht Rahmen', (0.03, 0.05, 0.09), 0.4, metal=0.6)
-M_BODEN = mat('Nacht Pflaster', (0.06, 0.07, 0.09), 0.85)
+M_BODEN = mat('Nacht Pflaster', (0.13, 0.15, 0.19), 0.8)
 M_INNEN = mat('Nacht Innen', (0.02, 0.05, 0.16), 0.9, emis=(0.03, 0.12, 0.55), strength=0.35)
+M_DECKE = mat('Nacht Decke', (0.03, 0.06, 0.14), 0.6, emis=(0.1, 0.35, 1.0), strength=0.8)
 for o in sc.objects:
     if o.type != 'MESH': continue
     n = o.name.lower()
     m = (M_GLAS if 'glas' in n else M_RAHM if any(k in n for k in ('rahmen', 'tuer', 'gelaender', 'handlauf', 'pfosten', 'stab')) else
          M_BODEN if any(k in n for k in ('gelaende', 'rasen', 'grundstueck', 'strasse', 'gehweg', 'weg', 'terrasse', 'einfahrt', 'garten', 'beet', 'hecke', 'zufahrt', 'bord', 'platz', 'pflaster', 'stellplatz')) else
-         M_INNEN if 'innen' in n else M_WAND)
+         M_INNEN if 'innen' in n else M_DECKE if ('decke' in n and 'kellersohle' not in n) else M_WAND)
     o.data.materials.clear(); o.data.materials.append(m)
     if any(k in n for k in ('baum', 'hecke', 'beet')): o.hide_render = True
     if m is M_BODEN:   # Boden ohne Freestyle-Linien (nur das Haus bekommt Cyan-Kanten)
@@ -45,6 +49,15 @@ for o in sc.objects:
             bpy.data.collections.new('ohne_linien'); sc.collection.children.link(bpy.data.collections['ohne_linien'])
         bpy.data.collections['ohne_linien'].objects.link(o)
 
+for o in sc.objects:   # Keller liegt unter dem Gelaende -> nicht zeigen
+    if 'keller' in o.name.lower(): o.hide_render = True
+# heller Platz um das Haus (wie in der Vorlage), ohne Linien
+bpy.ops.mesh.primitive_plane_add(size=1, location=(W / 2, D / 2, -0.02))
+_pl = bpy.context.active_object; _pl.name = 'Platz Boden'; _pl.scale = (W + 14, D + 14, 1)
+_pl.data.materials.append(M_BODEN)
+if 'ohne_linien' not in bpy.data.collections:
+    bpy.data.collections.new('ohne_linien'); sc.collection.children.link(bpy.data.collections['ohne_linien'])
+bpy.data.collections['ohne_linien'].objects.link(_pl)
 w = bpy.data.worlds.new('Nacht'); w.use_nodes = True
 w.node_tree.nodes['Background'].inputs[0].default_value = (0.004, 0.007, 0.018, 1); w.node_tree.nodes['Background'].inputs[1].default_value = 1.0
 sc.world = w
@@ -57,7 +70,7 @@ def licht(name, loc, energy, col, size=6):
 licht('Mond', (-W, -D * 1.5, F * 2.2), 2500, (0.55, 0.7, 1.0), 10)
 licht('Kante', (W * 1.8, D * 1.8, F * 1.2), 1200, (0.3, 0.55, 1.0), 8)
 
-sc.render.engine = 'CYCLES'; sc.cycles.samples = SAMPLES; sc.cycles.device = 'CPU'
+sc.render.engine = 'CYCLES'; sc.cycles.samples = SAMPLES; sc.cycles.device = 'CPU'; sc.cycles.transparent_max_bounces = 16
 try: sc.cycles.use_denoising = True
 except Exception: pass
 sc.render.use_freestyle = True; sc.render.line_thickness_mode = 'ABSOLUTE'; sc.render.line_thickness = 1.0
@@ -68,6 +81,11 @@ for a in ('select_silhouette', 'select_border', 'select_crease', 'select_by_visi
 if 'ohne_linien' in bpy.data.collections:
     ls.select_by_collection = True; ls.collection = bpy.data.collections['ohne_linien']; ls.collection_negation = 'EXCLUSIVE'
 ls.visibility = 'VISIBLE'; ls.linestyle.color = (0.12, 0.62, 1.0); ls.linestyle.thickness = 0.9
+lh = fs.linesets.new('Roentgen')
+for a in ('select_silhouette', 'select_border', 'select_crease', 'select_by_visibility'): setattr(lh, a, True)
+if 'ohne_linien' in bpy.data.collections:
+    lh.select_by_collection = True; lh.collection = bpy.data.collections['ohne_linien']; lh.collection_negation = 'EXCLUSIVE'
+lh.visibility = 'HIDDEN'; lh.linestyle.color = (0.04, 0.26, 0.7); lh.linestyle.thickness = 0.6
 sc.render.resolution_x = 1200; sc.render.resolution_y = 900; sc.render.image_settings.file_format = 'PNG'
 sc.view_settings.view_transform = 'Standard'
 
