@@ -4,11 +4,18 @@ Erzeugt eckhaus_1940.svg (Vektor). PNG-Export per Chromium headless.
 Alle Maße sind aus dem Foto geschätzt (Maßstab 1:100, 1 m = S px).
 """
 import math
+import sys
+
+# Stil: "blau" = Master Cyanotype (Standard), "neon" = Neon-Blueprint dunkel
+STIL = sys.argv[1] if len(sys.argv) > 1 else "blau"
 
 S = 38            # px pro Meter (1:100 Darstellung)
 W, H = 1800, 1380
-BG = "#0044b8"          # Master Cyanotype Kobalt (Bauplan-Brain, Abschnitt 31)
-LN = "#ffffff"
+if STIL == "neon":       # dunkle Fassaden, fast schwarzer Grund, leuchtende Fenster, Cyan-Konturen
+    PAGE, BG, LN, GLAS = "#03060c", "#0a1322", "#7fdcff", "url(#glas)"
+else:                    # Master Cyanotype Kobalt (Bauplan-Brain, Abschnitt 31)
+    PAGE = BG = GLAS = "#0044b8"
+    LN = "#ffffff"
 
 out = []
 
@@ -112,7 +119,7 @@ def elevation(x0, yg, width, bays, win_w, door_bay, title, lamp_at=None,
         # Sturz / Rahmen
         rect(X(bx), Y(4.2), m(bw), m(3.7), 1.4)
         # Oberlicht (Transom) mit Sprossen
-        rect(X(bx + 0.1), Y(4.1), m(bw - 0.2), m(0.6), 0.9)
+        rect(X(bx + 0.1), Y(4.1), m(bw - 0.2), m(0.6), 0.9, GLAS)
         n = max(3, int(bw / 0.5))
         for k in range(1, n):
             xx = X(bx + 0.1 + k * (bw - 0.2) / n)
@@ -122,18 +129,18 @@ def elevation(x0, yg, width, bays, win_w, door_bay, title, lamp_at=None,
             dw = 1.1
             dx = bx + (bw - dw) / 2
             for sx, sw in ((bx + 0.1, dx - bx - 0.25), (dx + dw + 0.15, bx + bw - dx - dw - 0.25)):
-                rect(X(sx), Y(3.4), m(sw), m(2.3), 0.9)          # Glas
+                rect(X(sx), Y(3.4), m(sw), m(2.3), 0.9, GLAS)    # Glas
                 rect(X(sx), Y(1.1), m(sw), m(0.6), 0.9)          # Brüstungspaneel
                 rect(X(sx + 0.1), Y(1.0), m(sw - 0.2), m(0.4), 0.5)
                 for k in range(3):                              # Spiegelung
                     gx = X(sx) + m(sw) * (0.25 + k * 0.12)
                     line(gx, Y(3.1), gx + 14, Y(3.3), 0.6, 0.35)
             rect(X(dx), Y(3.4), m(dw), m(2.9), 1.3)               # Tür
-            rect(X(dx + 0.15), Y(3.25), m(dw - 0.3), m(1.6), 0.8)
+            rect(X(dx + 0.15), Y(3.25), m(dw - 0.3), m(1.6), 0.8, GLAS)
             rect(X(dx + 0.15), Y(1.4), m(dw - 0.3), m(0.7), 0.6)
             add(f'<circle cx="{X(dx + dw - 0.2):.1f}" cy="{Y(1.6):.1f}" r="2.2" fill="none" stroke="{LN}"/>')
         else:
-            rect(X(bx + 0.1), Y(3.4), m(bw - 0.2), m(2.3), 0.9)
+            rect(X(bx + 0.1), Y(3.4), m(bw - 0.2), m(2.3), 0.9, GLAS)
             mid = bx + bw / 2
             line(X(mid), Y(3.4), X(mid), Y(1.1), 0.8)
             rect(X(bx + 0.1), Y(1.1), m(bw - 0.2), m(0.6), 0.9)
@@ -181,11 +188,11 @@ def elevation(x0, yg, width, bays, win_w, door_bay, title, lamp_at=None,
              f"h{-m(0.22):.1f} z", 1.2)
         # Fensteröffnung
         path(f"M{X(x1):.1f},{Y(5.75):.1f} V{Y(top):.1f} "
-             f"A{m(r):.1f},{m(r):.1f} 0 0 1 {X(x2):.1f},{Y(top):.1f} V{Y(5.75):.1f} z", 1.5)
+             f"A{m(r):.1f},{m(r):.1f} 0 0 1 {X(x2):.1f},{Y(top):.1f} V{Y(5.75):.1f} z", 1.5, GLAS)
         # Rahmen innen
         rr = r - 0.1
         path(f"M{X(x1 + 0.1):.1f},{Y(5.85):.1f} V{Y(top):.1f} "
-             f"A{m(rr):.1f},{m(rr):.1f} 0 0 1 {X(x2 - 0.1):.1f},{Y(top):.1f} V{Y(5.85):.1f} z", 0.7)
+             f"A{m(rr):.1f},{m(rr):.1f} 0 0 1 {X(x2 - 0.1):.1f},{Y(top):.1f} V{Y(5.85):.1f} z", 0.7, GLAS)
         # Sprossen: Kämpfer + Mittelpfosten + Halbsprossen (2-über-2)
         mid_h = (5.85 + top) / 2 + 0.15
         line(X(x1 + 0.1), Y(mid_h), X(x2 - 0.1), Y(mid_h), 1.0)
@@ -293,7 +300,16 @@ def elevation(x0, yg, width, bays, win_w, door_bay, title, lamp_at=None,
 
 # ---------------------------------------------------------------- Kopf + Raster
 add(f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}">')
-add(f'<rect width="{W}" height="{H}" fill="{BG}"/>')
+add(f'<rect width="{W}" height="{H}" fill="{PAGE}"/>')
+if STIL == "neon":
+    add('<defs><linearGradient id="glas" x1="0" y1="0" x2="0" y2="1">'
+        '<stop offset="0" stop-color="#3d8cff"/><stop offset="1" stop-color="#0d3a9a"/></linearGradient>'
+        '<filter id="glow" x="-5%" y="-5%" width="110%" height="110%">'
+        '<feGaussianBlur in="SourceGraphic" stdDeviation="2.2" result="b1"/>'
+        '<feGaussianBlur in="SourceGraphic" stdDeviation="7" result="b2"/>'
+        '<feMerge><feMergeNode in="b2"/><feMergeNode in="b1"/><feMergeNode in="SourceGraphic"/></feMerge>'
+        '</filter></defs>')
+    add('<g filter="url(#glow)">')
 add('<defs><radialGradient id="vig" cx="50%" cy="45%" r="75%">'
     '<stop offset="60%" stop-color="#000" stop-opacity="0"/>'
     '<stop offset="100%" stop-color="#000" stop-opacity="0.28"/></radialGradient></defs>')
@@ -337,7 +353,7 @@ line(GX(PW / 2) - 130, PY - 15, GX(PW / 2) + 130, PY - 15, 1.2)
 
 # Wandkörper (schraffiert)
 add('<defs><pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" '
-    'patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#fff" '
+    f'patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="{LN}" '
     'stroke-width="1" stroke-opacity="0.75"/></pattern></defs>')
 outer = f"M{GX(0)},{GY(0)} H{GX(PW)} V{GY(PD)} H{GX(0)} Z"
 inner = f"M{GX(T)},{GY(T)} V{GY(PD - T)} H{GX(PW - T)} V{GY(T)} Z"
@@ -490,18 +506,22 @@ cell(TX + 325, TY + 156, "DATUM", "12.10.2026")
 cell(TX, TY + 204, "GEZEICHNET", "Bauplan-App · KI-Skizze")
 cell(TX + 325, TY + 204, "BLATT", "1 / 2")
 
-# Sonnendruck-Papier: Flecken + Korn
-add('<filter id="flecken" x="0" y="0" width="100%" height="100%">'
+if STIL == "neon":
+    add('</g>')
+# Sonnendruck-Papier: Flecken + Korn (nur Cyanotype)
+if STIL != "neon":
+  add('<filter id="flecken" x="0" y="0" width="100%" height="100%">'
     '<feTurbulence type="fractalNoise" baseFrequency="0.004" numOctaves="3" seed="7"/>'
     '<feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0.05  0 0 0 0 0.2  0 0 0 0.9 -0.3"/></filter>'
     '<filter id="korn" x="0" y="0" width="100%" height="100%">'
     '<feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="3"/>'
     '<feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.12 0"/></filter>')
-add(f'<rect width="{W}" height="{H}" filter="url(#flecken)"/>')
-add(f'<rect width="{W}" height="{H}" filter="url(#korn)"/>')
+  add(f'<rect width="{W}" height="{H}" filter="url(#flecken)"/>')
+  add(f'<rect width="{W}" height="{H}" filter="url(#korn)"/>')
 add(f'<rect width="{W}" height="{H}" fill="url(#vig)"/>')
 add("</svg>")
 
-with open(__file__.replace(".py", ".svg"), "w", encoding="utf-8") as f:
+ziel = __file__.replace(".py", "_neon.svg" if STIL == "neon" else ".svg")
+with open(ziel, "w", encoding="utf-8") as f:
     f.write("\n".join(out))
 print("ok")
