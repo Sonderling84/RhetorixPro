@@ -1,0 +1,4153 @@
+{
+ "meta": {
+  "name": "Beethovenstrasse 9 / Kantstrasse 31, Riegelsberg",
+  "kennung": "beethoven9",
+  "vorlage": "fotohaus",
+  "adresse": "Beethovenstr. 9, Riegelsberg",
+  "fiktiv": false,
+  "baujahr": 1955,
+  "quelle_erkennung": "App-Lauf kant24v2r20261012 (lokale KI) + Abgleich 6 Fotos",
+  "materialien": {
+   "fassade": "Putz weiss",
+   "dach": "Tonziegel braun",
+   "fenster": "Kunststoff weiss",
+   "tuer": "Holz"
+  },
+  "gelaende": {
+   "ecken_cm": {
+    "SW": 0,
+    "NW": 0,
+    "SE": 0,
+    "NE": 0
+   },
+   "quelle": "eben (Eckgrundstueck)"
+  },
+  "breite_cm": 1050,
+  "tiefe_cm": 850,
+  "geschosse": 1,
+  "traufe_cm": 295,
+  "first_cm": 915,
+  "dach": "walm_plateau",
+  "anzahl_teile": 193,
+  "bloecke": 1
+ },
+ "teile": [
+  {
+   "nr": 1,
+   "id": "T01",
+   "kat": "fundament",
+   "name": "Bodenplatte Stueck 1 (um Kellertreppe)",
+   "box": [
+    0,
+    0,
+    -20,
+    180,
+    850,
+    0
+   ],
+   "material": "beton"
+  },
+  {
+   "nr": 2,
+   "id": "T02",
+   "kat": "wand",
+   "name": "Suedwand EG",
+   "geschoss": 0,
+   "seite": "S",
+   "along": [
+    0,
+    1050
+   ],
+   "box": [
+    0,
+    0,
+    0,
+    1050,
+    36,
+    275
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 3,
+   "id": "T03",
+   "kat": "wand",
+   "name": "Nordwand EG",
+   "geschoss": 0,
+   "seite": "N",
+   "along": [
+    0,
+    1050
+   ],
+   "box": [
+    0,
+    814,
+    0,
+    1050,
+    850,
+    275
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 4,
+   "id": "T04",
+   "kat": "wand",
+   "name": "Westwand EG",
+   "geschoss": 0,
+   "seite": "W",
+   "along": [
+    36,
+    814
+   ],
+   "box": [
+    0,
+    36,
+    0,
+    36,
+    814,
+    275
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 5,
+   "id": "T05",
+   "kat": "wand",
+   "name": "Ostwand EG",
+   "geschoss": 0,
+   "seite": "E",
+   "along": [
+    36,
+    814
+   ],
+   "box": [
+    1014,
+    36,
+    0,
+    1050,
+    814,
+    275
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 6,
+   "id": "T06",
+   "kat": "decke",
+   "name": "Decke ueber EG",
+   "box": [
+    0,
+    0,
+    275,
+    1050,
+    850,
+    295
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 7,
+   "id": "T07",
+   "kat": "sockel",
+   "name": "Sockelband Sued",
+   "box": [
+    -2,
+    -2,
+    0,
+    1052,
+    0,
+    50
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 8,
+   "id": "T08",
+   "kat": "sockel",
+   "name": "Sockelband Nord -2-1052",
+   "box": [
+    -2,
+    850,
+    0,
+    1052,
+    852,
+    50
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 9,
+   "id": "T09",
+   "kat": "sockel",
+   "name": "Sockelband West",
+   "box": [
+    -2,
+    0,
+    0,
+    0,
+    850,
+    50
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 10,
+   "id": "T10",
+   "kat": "sockel",
+   "name": "Sockelband Ost",
+   "box": [
+    1050,
+    0,
+    0,
+    1052,
+    850,
+    50
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 11,
+   "id": "T11",
+   "kat": "sockel",
+   "name": "Kelleraussenwand Sued",
+   "box": [
+    0,
+    0,
+    -250,
+    1050,
+    36,
+    0
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 12,
+   "id": "T12",
+   "kat": "sockel",
+   "name": "Kelleraussenwand Nord",
+   "box": [
+    0,
+    814,
+    -250,
+    1050,
+    850,
+    0
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 13,
+   "id": "T13",
+   "kat": "sockel",
+   "name": "Kelleraussenwand West",
+   "box": [
+    0,
+    36,
+    -250,
+    36,
+    814,
+    0
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 14,
+   "id": "T14",
+   "kat": "sockel",
+   "name": "Kelleraussenwand Ost",
+   "box": [
+    1014,
+    36,
+    -250,
+    1050,
+    814,
+    0
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 15,
+   "id": "T15",
+   "kat": "decke",
+   "name": "Kellersohle",
+   "box": [
+    0,
+    0,
+    -280,
+    1050,
+    850,
+    -250
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 16,
+   "id": "T16",
+   "kat": "wand",
+   "name": "Kniestock Sued 1",
+   "box": [
+    0,
+    0,
+    295,
+    1050,
+    36,
+    355
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 17,
+   "id": "T17",
+   "kat": "wand",
+   "name": "Kniestock Nord 1",
+   "box": [
+    0,
+    814,
+    295,
+    480,
+    850,
+    355
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 18,
+   "id": "T18",
+   "kat": "wand",
+   "name": "Kniestock Nord 2",
+   "box": [
+    880,
+    814,
+    295,
+    1050,
+    850,
+    355
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 19,
+   "id": "T19",
+   "kat": "wand",
+   "name": "Kniestock West",
+   "box": [
+    0,
+    36,
+    295,
+    36,
+    814,
+    355
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 20,
+   "id": "T20",
+   "kat": "wand",
+   "name": "Kniestock Ost",
+   "box": [
+    1014,
+    36,
+    295,
+    1050,
+    814,
+    355
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 21,
+   "id": "T21",
+   "kat": "dach",
+   "name": "Walmdach 50 Grad (Walm 90) mit First 915 cm, Traufe 355 cm",
+   "mesh": {
+    "verts": [
+     [
+      -40,
+      -40,
+      355
+     ],
+     [
+      1090,
+      -40,
+      355
+     ],
+     [
+      1090,
+      890,
+      355
+     ],
+     [
+      -40,
+      890,
+      355
+     ],
+     [
+      -37.48270110646816,
+      424.5,
+      915
+     ],
+     [
+      1087.482701106468,
+      424.5,
+      915
+     ],
+     [
+      1087.482701106468,
+      425.5,
+      915
+     ],
+     [
+      -37.48270110646816,
+      425.5,
+      915
+     ],
+     [
+      -40,
+      422.01160714285714,
+      912
+     ],
+     [
+      1090,
+      422.01160714285714,
+      912
+     ],
+     [
+      1090,
+      427.98839285714286,
+      912
+     ],
+     [
+      -40,
+      427.98839285714286,
+      912
+     ],
+     [
+      880,
+      890,
+      355
+     ],
+     [
+      880,
+      716.9598214285714,
+      563.6167922497309
+     ],
+     [
+      480,
+      716.9598214285714,
+      563.6167922497309
+     ],
+     [
+      480,
+      890,
+      355
+     ]
+    ],
+    "faces": [
+     [
+      0,
+      1,
+      9,
+      5,
+      4,
+      8
+     ],
+     [
+      9,
+      10,
+      6,
+      5
+     ],
+     [
+      2,
+      12,
+      13,
+      14,
+      15,
+      3,
+      11,
+      7,
+      6,
+      10
+     ],
+     [
+      11,
+      8,
+      4,
+      7
+     ]
+    ]
+   },
+   "material": "dach",
+   "first_cm": 915
+  },
+  {
+   "nr": 22,
+   "id": "T22",
+   "kat": "wand",
+   "name": "Giebel Krueppelwalm West",
+   "mesh": {
+    "verts": [
+     [
+      0,
+      0,
+      355
+     ],
+     [
+      0,
+      0,
+      403.2
+     ],
+     [
+      0,
+      422.0,
+      912
+     ],
+     [
+      0,
+      428.0,
+      912
+     ],
+     [
+      0,
+      850,
+      403.2
+     ],
+     [
+      0,
+      850,
+      355
+     ],
+     [
+      36,
+      0,
+      355
+     ],
+     [
+      36,
+      0,
+      403.2
+     ],
+     [
+      36,
+      422.0,
+      912
+     ],
+     [
+      36,
+      428.0,
+      912
+     ],
+     [
+      36,
+      850,
+      403.2
+     ],
+     [
+      36,
+      850,
+      355
+     ]
+    ],
+    "faces": [
+     [
+      5,
+      4,
+      3,
+      2,
+      1,
+      0
+     ],
+     [
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+     ],
+     [
+      0,
+      1,
+      7,
+      6
+     ],
+     [
+      1,
+      2,
+      8,
+      7
+     ],
+     [
+      2,
+      3,
+      9,
+      8
+     ],
+     [
+      3,
+      4,
+      10,
+      9
+     ],
+     [
+      4,
+      5,
+      11,
+      10
+     ],
+     [
+      5,
+      0,
+      6,
+      11
+     ]
+    ]
+   },
+   "material": "putz"
+  },
+  {
+   "nr": 23,
+   "id": "T23",
+   "kat": "wand",
+   "name": "Giebel Krueppelwalm Ost",
+   "mesh": {
+    "verts": [
+     [
+      1014,
+      0,
+      355
+     ],
+     [
+      1014,
+      0,
+      403.2
+     ],
+     [
+      1014,
+      422.0,
+      912
+     ],
+     [
+      1014,
+      428.0,
+      912
+     ],
+     [
+      1014,
+      850,
+      403.2
+     ],
+     [
+      1014,
+      850,
+      355
+     ],
+     [
+      1050,
+      0,
+      355
+     ],
+     [
+      1050,
+      0,
+      403.2
+     ],
+     [
+      1050,
+      422.0,
+      912
+     ],
+     [
+      1050,
+      428.0,
+      912
+     ],
+     [
+      1050,
+      850,
+      403.2
+     ],
+     [
+      1050,
+      850,
+      355
+     ]
+    ],
+    "faces": [
+     [
+      5,
+      4,
+      3,
+      2,
+      1,
+      0
+     ],
+     [
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+     ],
+     [
+      0,
+      1,
+      7,
+      6
+     ],
+     [
+      1,
+      2,
+      8,
+      7
+     ],
+     [
+      2,
+      3,
+      9,
+      8
+     ],
+     [
+      3,
+      4,
+      10,
+      9
+     ],
+     [
+      4,
+      5,
+      11,
+      10
+     ],
+     [
+      5,
+      0,
+      6,
+      11
+     ]
+    ]
+   },
+   "material": "putz"
+  },
+  {
+   "nr": 24,
+   "id": "T24",
+   "kat": "ausschnitt",
+   "name": "Giebelfenster 1 in Kniestock West",
+   "ziel": "T19",
+   "box": [
+    -10,
+    390.0,
+    395,
+    46,
+    470.0,
+    505
+   ],
+   "oeffnung": null
+  },
+  {
+   "nr": 25,
+   "id": "T25",
+   "kat": "ausschnitt",
+   "name": "Giebelfenster 1 in Giebel Krueppelwalm West",
+   "ziel": "T22",
+   "box": [
+    -10,
+    390.0,
+    395,
+    46,
+    470.0,
+    505
+   ],
+   "oeffnung": null
+  },
+  {
+   "nr": 26,
+   "id": "T26",
+   "kat": "glas",
+   "name": "Giebelfenster 1 West Glas",
+   "box": [
+    6,
+    396.0,
+    401,
+    8,
+    464.0,
+    499
+   ],
+   "material": "glas"
+  },
+  {
+   "nr": 27,
+   "id": "T27",
+   "kat": "rahmen",
+   "name": "Giebelfenster 1 West Rahmen links",
+   "box": [
+    2,
+    390.0,
+    395,
+    10,
+    397.0,
+    505
+   ],
+   "material": "rahmen"
+  },
+  {
+   "nr": 28,
+   "id": "T28",
+   "kat": "rahmen",
+   "name": "Giebelfenster 1 West Rahmen rechts",
+   "box": [
+    2,
+    463.0,
+    395,
+    10,
+    470.0,
+    505
+   ],
+   "material": "rahmen"
+  },
+  {
+   "nr": 29,
+   "id": "T29",
+   "kat": "rahmen",
+   "name": "Giebelfenster 1 West Rahmen unten",
+   "box": [
+    2,
+    390.0,
+    395,
+    10,
+    470.0,
+    402
+   ],
+   "material": "rahmen"
+  },
+  {
+   "nr": 30,
+   "id": "T30",
+   "kat": "rahmen",
+   "name": "Giebelfenster 1 West Rahmen oben",
+   "box": [
+    2,
+    390.0,
+    498,
+    10,
+    470.0,
+    505
+   ],
+   "material": "rahmen"
+  },
+  {
+   "nr": 31,
+   "id": "T31",
+   "kat": "rahmen",
+   "name": "Giebelfenster 1 West Rahmen Mitte",
+   "box": [
+    2,
+    427,
+    395,
+    10,
+    433,
+    505
+   ],
+   "material": "rahmen"
+  },
+  {
+   "nr": 32,
+   "id": "T32",
+   "kat": "ausschnitt",
+   "name": "Giebelfenster 2 in Kniestock West",
+   "ziel": "T19",
+   "box": [
+    -10,
+    617.5,
+    420,
+    46,
+    662.5,
+    490
+   ],
+   "oeffnung": null
+  },
+  {
+   "nr": 33,
+   "id": "T33",
+   "kat": "ausschnitt",
+   "name": "Giebelfenster 2 in Giebel Krueppelwalm West",
+   "ziel": "T22",
+   "box": [
+    -10,
+    617.5,
+    420,
+    46,
+    662.5,
+    490
+   ],
+   "oeffnung": null
+  },
+  {
+   "nr": 34,
+   "id": "T34",
+   "kat": "glas",
+   "name": "Giebelfenster 2 West Glas",
+   "box": [
+    6,
+    623.5,
+    426,
+    8,
+    656.5,
+    484
+   ],
+   "material": "glas"
+  },
+  {
+   "nr": 35,
+   "id": "T35",
+   "kat": "rahmen",
+   "name": "Giebelfenster 2 West Rahmen links",
+   "box": [
+    2,
+    617.5,
+    420,
+    10,
+    624.5,
+    490
+   ],
+   "material": "rahmen"
+  },
+  {
+   "nr": 36,
+   "id": "T36",
+   "kat": "rahmen",
+   "name": "Giebelfenster 2 West Rahmen rechts",
+   "box": [
+    2,
+    655.5,
+    420,
+    10,
+    662.5,
+    490
+   ],
+   "material": "rahmen"
+  },
+  {
+   "nr": 37,
+   "id": "T37",
+   "kat": "rahmen",
+   "name": "Giebelfenster 2 West Rahmen unten",
+   "box": [
+    2,
+    617.5,
+    420,
+    10,
+    662.5,
+    427
+   ],
+   "material": "rahmen"
+  },
+  {
+   "nr": 38,
+   "id": "T38",
+   "kat": "rahmen",
+   "name": "Giebelfenster 2 West Rahmen oben",
+   "box": [
+    2,
+    617.5,
+    483,
+    10,
+    662.5,
+    490
+   ],
+   "material": "rahmen"
+  },
+  {
+   "nr": 39,
+   "id": "T39",
+   "kat": "rahmen",
+   "name": "Giebelfenster 2 West Rahmen Mitte",
+   "box": [
+    2,
+    637,
+    420,
+    10,
+    643,
+    490
+   ],
+   "material": "rahmen"
+  },
+  {
+   "nr": 40,
+   "id": "T40",
+   "kat": "ausschnitt",
+   "name": "Giebelfenster 3 in Kniestock Ost",
+   "ziel": "T20",
+   "box": [
+    1004,
+    290.0,
+    395,
+    1060,
+    370.0,
+    505
+   ],
+   "oeffnung": null
+  },
+  {
+   "nr": 41,
+   "id": "T41",
+   "kat": "ausschnitt",
+   "name": "Giebelfenster 3 in Giebel Krueppelwalm Ost",
+   "ziel": "T23",
+   "box": [
+    1004,
+    290.0,
+    395,
+    1060,
+    370.0,
+    505
+   ],
+   "oeffnung": null
+  },
+  {
+   "nr": 42,
+   "id": "T42",
+   "kat": "glas",
+   "name": "Giebelfenster 3 Ost Glas",
+   "box": [
+    1042,
+    296.0,
+    401,
+    1044,
+    364.0,
+    499
+   ],
+   "material": "glas"
+  },
+  {
+   "nr": 43,
+   "id": "T43",
+   "kat": "rahmen",
+   "name": "Giebelfenster 3 Ost Rahmen links",
+   "box": [
+    1040,
+    290.0,
+    395,
+    1048,
+    297.0,
+    505
+   ],
+   "material": "rahmen"
+  },
+  {
+   "nr": 44,
+   "id": "T44",
+   "kat": "rahmen",
+   "name": "Giebelfenster 3 Ost Rahmen rechts",
+   "box": [
+    1040,
+    363.0,
+    395,
+    1048,
+    370.0,
+    505
+   ],
+   "material": "rahmen"
+  },
+  {
+   "nr": 45,
+   "id": "T45",
+   "kat": "rahmen",
+   "name": "Giebelfenster 3 Ost Rahmen unten",
+   "box": [
+    1040,
+    290.0,
+    395,
+    1048,
+    370.0,
+    402
+   ],
+   "material": "rahmen"
+  },
+  {
+   "nr": 46,
+   "id": "T46",
+   "kat": "rahmen",
+   "name": "Giebelfenster 3 Ost Rahmen oben",
+   "box": [
+    1040,
+    290.0,
+    498,
+    1048,
+    370.0,
+    505
+   ],
+   "material": "rahmen"
+  },
+  {
+   "nr": 47,
+   "id": "T47",
+   "kat": "rahmen",
+   "name": "Giebelfenster 3 Ost Rahmen Mitte",
+   "box": [
+    1040,
+    327,
+    395,
+    1048,
+    333,
+    505
+   ],
+   "material": "rahmen"
+  },
+  {
+   "nr": 48,
+   "id": "T48",
+   "kat": "ausschnitt",
+   "name": "Giebelfenster 4 in Kniestock Ost",
+   "ziel": "T20",
+   "box": [
+    1004,
+    520.0,
+    395,
+    1060,
+    600.0,
+    505
+   ],
+   "oeffnung": null
+  },
+  {
+   "nr": 49,
+   "id": "T49",
+   "kat": "ausschnitt",
+   "name": "Giebelfenster 4 in Giebel Krueppelwalm Ost",
+   "ziel": "T23",
+   "box": [
+    1004,
+    520.0,
+    395,
+    1060,
+    600.0,
+    505
+   ],
+   "oeffnung": null
+  },
+  {
+   "nr": 50,
+   "id": "T50",
+   "kat": "glas",
+   "name": "Giebelfenster 4 Ost Glas",
+   "box": [
+    1042,
+    526.0,
+    401,
+    1044,
+    594.0,
+    499
+   ],
+   "material": "glas"
+  },
+  {
+   "nr": 51,
+   "id": "T51",
+   "kat": "rahmen",
+   "name": "Giebelfenster 4 Ost Rahmen links",
+   "box": [
+    1040,
+    520.0,
+    395,
+    1048,
+    527.0,
+    505
+   ],
+   "material": "rahmen"
+  },
+  {
+   "nr": 52,
+   "id": "T52",
+   "kat": "rahmen",
+   "name": "Giebelfenster 4 Ost Rahmen rechts",
+   "box": [
+    1040,
+    593.0,
+    395,
+    1048,
+    600.0,
+    505
+   ],
+   "material": "rahmen"
+  },
+  {
+   "nr": 53,
+   "id": "T53",
+   "kat": "rahmen",
+   "name": "Giebelfenster 4 Ost Rahmen unten",
+   "box": [
+    1040,
+    520.0,
+    395,
+    1048,
+    600.0,
+    402
+   ],
+   "material": "rahmen"
+  },
+  {
+   "nr": 54,
+   "id": "T54",
+   "kat": "rahmen",
+   "name": "Giebelfenster 4 Ost Rahmen oben",
+   "box": [
+    1040,
+    520.0,
+    498,
+    1048,
+    600.0,
+    505
+   ],
+   "material": "rahmen"
+  },
+  {
+   "nr": 55,
+   "id": "T55",
+   "kat": "rahmen",
+   "name": "Giebelfenster 4 Ost Rahmen Mitte",
+   "box": [
+    1040,
+    557,
+    395,
+    1048,
+    563,
+    505
+   ],
+   "material": "rahmen"
+  },
+  {
+   "nr": 56,
+   "id": "T56",
+   "kat": "ausschnitt",
+   "name": "Giebelfenster 5 in Kniestock Ost",
+   "ziel": "T20",
+   "box": [
+    1004,
+    412.5,
+    700,
+    1060,
+    437.5,
+    750
+   ],
+   "oeffnung": null
+  },
+  {
+   "nr": 57,
+   "id": "T57",
+   "kat": "ausschnitt",
+   "name": "Giebelfenster 5 in Giebel Krueppelwalm Ost",
+   "ziel": "T23",
+   "box": [
+    1004,
+    412.5,
+    700,
+    1060,
+    437.5,
+    750
+   ],
+   "oeffnung": null
+  },
+  {
+   "nr": 58,
+   "id": "T58",
+   "kat": "glas",
+   "name": "Giebelfenster 5 Ost Glas",
+   "box": [
+    1042,
+    418.5,
+    706,
+    1044,
+    431.5,
+    744
+   ],
+   "material": "glas"
+  },
+  {
+   "nr": 59,
+   "id": "T59",
+   "kat": "rahmen",
+   "name": "Giebelfenster 5 Ost Rahmen links",
+   "box": [
+    1040,
+    412.5,
+    700,
+    1048,
+    419.5,
+    750
+   ],
+   "material": "rahmen"
+  },
+  {
+   "nr": 60,
+   "id": "T60",
+   "kat": "rahmen",
+   "name": "Giebelfenster 5 Ost Rahmen rechts",
+   "box": [
+    1040,
+    430.5,
+    700,
+    1048,
+    437.5,
+    750
+   ],
+   "material": "rahmen"
+  },
+  {
+   "nr": 61,
+   "id": "T61",
+   "kat": "rahmen",
+   "name": "Giebelfenster 5 Ost Rahmen unten",
+   "box": [
+    1040,
+    412.5,
+    700,
+    1048,
+    437.5,
+    707
+   ],
+   "material": "rahmen"
+  },
+  {
+   "nr": 62,
+   "id": "T62",
+   "kat": "rahmen",
+   "name": "Giebelfenster 5 Ost Rahmen oben",
+   "box": [
+    1040,
+    412.5,
+    743,
+    1048,
+    437.5,
+    750
+   ],
+   "material": "rahmen"
+  },
+  {
+   "nr": 63,
+   "id": "T63",
+   "kat": "rahmen",
+   "name": "Giebelfenster 5 Ost Rahmen Mitte",
+   "box": [
+    1040,
+    422,
+    700,
+    1048,
+    428,
+    750
+   ],
+   "material": "rahmen"
+  },
+  {
+   "nr": 64,
+   "id": "T64",
+   "kat": "dach",
+   "name": "Ortgang West Sued",
+   "mesh": {
+    "verts": [
+     [
+      -43,
+      -40,
+      337
+     ],
+     [
+      -37,
+      -40,
+      337
+     ],
+     [
+      -37,
+      422.01160714285714,
+      894
+     ],
+     [
+      -43,
+      422.01160714285714,
+      894
+     ],
+     [
+      -43,
+      -40,
+      356
+     ],
+     [
+      -37,
+      -40,
+      356
+     ],
+     [
+      -37,
+      422.01160714285714,
+      913
+     ],
+     [
+      -43,
+      422.01160714285714,
+      913
+     ]
+    ],
+    "faces": [
+     [
+      3,
+      2,
+      1,
+      0
+     ],
+     [
+      4,
+      5,
+      6,
+      7
+     ],
+     [
+      0,
+      1,
+      5,
+      4
+     ],
+     [
+      1,
+      2,
+      6,
+      5
+     ],
+     [
+      2,
+      3,
+      7,
+      6
+     ],
+     [
+      3,
+      0,
+      4,
+      7
+     ]
+    ]
+   },
+   "material": "blende"
+  },
+  {
+   "nr": 65,
+   "id": "T65",
+   "kat": "dach",
+   "name": "Ortgang West Nord",
+   "mesh": {
+    "verts": [
+     [
+      -43,
+      427.98839285714286,
+      894
+     ],
+     [
+      -37,
+      427.98839285714286,
+      894
+     ],
+     [
+      -37,
+      890,
+      337
+     ],
+     [
+      -43,
+      890,
+      337
+     ],
+     [
+      -43,
+      427.98839285714286,
+      913
+     ],
+     [
+      -37,
+      427.98839285714286,
+      913
+     ],
+     [
+      -37,
+      890,
+      356
+     ],
+     [
+      -43,
+      890,
+      356
+     ]
+    ],
+    "faces": [
+     [
+      3,
+      2,
+      1,
+      0
+     ],
+     [
+      4,
+      5,
+      6,
+      7
+     ],
+     [
+      0,
+      1,
+      5,
+      4
+     ],
+     [
+      1,
+      2,
+      6,
+      5
+     ],
+     [
+      2,
+      3,
+      7,
+      6
+     ],
+     [
+      3,
+      0,
+      4,
+      7
+     ]
+    ]
+   },
+   "material": "blende"
+  },
+  {
+   "nr": 66,
+   "id": "T66",
+   "kat": "dach",
+   "name": "Ortgang Ost Sued",
+   "mesh": {
+    "verts": [
+     [
+      1087,
+      -40,
+      337
+     ],
+     [
+      1093,
+      -40,
+      337
+     ],
+     [
+      1093,
+      422.01160714285714,
+      894
+     ],
+     [
+      1087,
+      422.01160714285714,
+      894
+     ],
+     [
+      1087,
+      -40,
+      356
+     ],
+     [
+      1093,
+      -40,
+      356
+     ],
+     [
+      1093,
+      422.01160714285714,
+      913
+     ],
+     [
+      1087,
+      422.01160714285714,
+      913
+     ]
+    ],
+    "faces": [
+     [
+      3,
+      2,
+      1,
+      0
+     ],
+     [
+      4,
+      5,
+      6,
+      7
+     ],
+     [
+      0,
+      1,
+      5,
+      4
+     ],
+     [
+      1,
+      2,
+      6,
+      5
+     ],
+     [
+      2,
+      3,
+      7,
+      6
+     ],
+     [
+      3,
+      0,
+      4,
+      7
+     ]
+    ]
+   },
+   "material": "blende"
+  },
+  {
+   "nr": 67,
+   "id": "T67",
+   "kat": "dach",
+   "name": "Ortgang Ost Nord",
+   "mesh": {
+    "verts": [
+     [
+      1087,
+      427.98839285714286,
+      894
+     ],
+     [
+      1093,
+      427.98839285714286,
+      894
+     ],
+     [
+      1093,
+      890,
+      337
+     ],
+     [
+      1087,
+      890,
+      337
+     ],
+     [
+      1087,
+      427.98839285714286,
+      913
+     ],
+     [
+      1093,
+      427.98839285714286,
+      913
+     ],
+     [
+      1093,
+      890,
+      356
+     ],
+     [
+      1087,
+      890,
+      356
+     ]
+    ],
+    "faces": [
+     [
+      3,
+      2,
+      1,
+      0
+     ],
+     [
+      4,
+      5,
+      6,
+      7
+     ],
+     [
+      0,
+      1,
+      5,
+      4
+     ],
+     [
+      1,
+      2,
+      6,
+      5
+     ],
+     [
+      2,
+      3,
+      7,
+      6
+     ],
+     [
+      3,
+      0,
+      4,
+      7
+     ]
+    ]
+   },
+   "material": "blende"
+  },
+  {
+   "nr": 68,
+   "id": "T68",
+   "kat": "dach",
+   "name": "Traufblende Sued 1",
+   "box": [
+    -40,
+    -44,
+    333,
+    1090,
+    -40,
+    355
+   ],
+   "material": "blende"
+  },
+  {
+   "nr": 69,
+   "id": "T69",
+   "kat": "dach",
+   "name": "Traufblende Nord 1",
+   "box": [
+    -40,
+    890,
+    333,
+    480,
+    894,
+    355
+   ],
+   "material": "blende"
+  },
+  {
+   "nr": 70,
+   "id": "T70",
+   "kat": "dach",
+   "name": "Traufblende Nord 2",
+   "box": [
+    880,
+    890,
+    333,
+    1090,
+    894,
+    355
+   ],
+   "material": "blende"
+  },
+  {
+   "nr": 71,
+   "id": "T71",
+   "kat": "wand",
+   "name": "Zwerchhaus 1 Front links",
+   "box": [
+    480,
+    814,
+    295,
+    580.0,
+    850,
+    560
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 72,
+   "id": "T72",
+   "kat": "wand",
+   "name": "Zwerchhaus 1 Front rechts",
+   "box": [
+    780.0,
+    814,
+    295,
+    880,
+    850,
+    560
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 73,
+   "id": "T73",
+   "kat": "wand",
+   "name": "Zwerchhaus 1 Front Sturz",
+   "box": [
+    580.0,
+    814,
+    445,
+    780.0,
+    850,
+    560
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 74,
+   "id": "T74",
+   "kat": "wand",
+   "name": "Zwerchhaus 1 Wange West",
+   "box": [
+    480,
+    590,
+    295,
+    516,
+    814,
+    560
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 75,
+   "id": "T75",
+   "kat": "wand",
+   "name": "Zwerchhaus 1 Wange Ost",
+   "box": [
+    844,
+    590,
+    295,
+    880,
+    814,
+    560
+   ],
+   "material": "putz"
+  },
+  {
+   "nr": 76,
+   "id": "T76",
+   "kat": "dach",
+   "name": "Zwerchhaus 1 Flachdach",
+   "box": [
+    465,
+    580,
+    560,
+    895,
+    865,
+    578
+   ],
+   "material": "blende"
+  },
+  {
+   "nr": 77,
+   "id": "T77",
+   "kat": "rahmen",
+   "name": "Zwerchhaus 1 Tuer Rahmen links",
+   "box": [
+    580.0,
+    838,
+    295,
+    587.0,
+    846,
+    445
+   ],
+   "material": "rahmen"
+  },
+  {
+   "nr": 78,
+   "id": "T78",
+   "kat": "rahmen",
+   "name": "Zwerchhaus 1 Tuer Rahmen rechts",
+   "box": [
+    773.0,
+    838,
+    295,
+    780.0,
+    846,
+    445
+   ],
+   "material": "rahmen"
+  },
+  {
+   "nr": 79,
+   "id": "T79",
+   "kat": "rahmen",
+   "name": "Zwerchhaus 1 Tuer Rahmen oben",
+   "box": [
+    580.0,
+    838,
+    438,
+    780.0,
+    846,
+    445
+   ],
+   "material": "rahmen"
+  },
+  {
+   "nr": 80,
+   "id": "T80",
+   "kat": "rahmen",
+   "name": "Zwerchhaus 1 Tuer Rahmen Mitte",
+   "box": [
+    677.0,
+    838,
+    295,
+    683.0,
+    846,
+    445
+   ],
+   "material": "rahmen"
+  },
+  {
+   "nr": 81,
+   "id": "T81",
+   "kat": "glas",
+   "name": "Zwerchhaus 1 Tuer Glas",
+   "box": [
+    587.0,
+    841,
+    295,
+    773.0,
+    843,
+    438
+   ],
+   "material": "glas"
+  },
+  {
+   "nr": 82,
+   "id": "T82",
+   "kat": "glas",
+   "name": "Dachflaechenfenster 1",
+   "mesh": {
+    "verts": [
+     [
+      221.0,
+      752.2485608557488,
+      520.7
+     ],
+     [
+      299.0,
+      752.2485608557488,
+      520.7
+     ],
+     [
+      299.0,
+      676.3996229127372,
+      611.0932442880395
+     ],
+     [
+      221.0,
+      676.3996229127372,
+      611.0932442880395
+     ],
+     [
+      221.0,
+      756.4485608557487,
+      524.9
+     ],
+     [
+      299.0,
+      756.4485608557487,
+      524.9
+     ],
+     [
+      299.0,
+      680.5996229127371,
+      615.2932442880394
+     ],
+     [
+      221.0,
+      680.5996229127371,
+      615.2932442880394
+     ]
+    ],
+    "faces": [
+     [
+      0,
+      1,
+      2,
+      3
+     ],
+     [
+      7,
+      6,
+      5,
+      4
+     ],
+     [
+      0,
+      4,
+      5,
+      1
+     ],
+     [
+      1,
+      5,
+      6,
+      2
+     ],
+     [
+      2,
+      6,
+      7,
+      3
+     ],
+     [
+      3,
+      7,
+      4,
+      0
+     ]
+    ]
+   },
+   "material": "glas"
+  },
+  {
+   "nr": 83,
+   "id": "T83",
+   "kat": "glas",
+   "name": "Dachflaechenfenster 2",
+   "mesh": {
+    "verts": [
+     [
+      932.5,
+      685.1205903615664,
+      600.7
+     ],
+     [
+      987.5,
+      685.1205903615664,
+      600.7
+     ],
+     [
+      987.5,
+      634.9831568060164,
+      660.4514665632803
+     ],
+     [
+      932.5,
+      634.9831568060164,
+      660.4514665632803
+     ],
+     [
+      932.5,
+      689.3205903615664,
+      604.9
+     ],
+     [
+      987.5,
+      689.3205903615664,
+      604.9
+     ],
+     [
+      987.5,
+      639.1831568060163,
+      664.6514665632802
+     ],
+     [
+      932.5,
+      639.1831568060163,
+      664.6514665632802
+     ]
+    ],
+    "faces": [
+     [
+      0,
+      1,
+      2,
+      3
+     ],
+     [
+      7,
+      6,
+      5,
+      4
+     ],
+     [
+      0,
+      4,
+      5,
+      1
+     ],
+     [
+      1,
+      5,
+      6,
+      2
+     ],
+     [
+      2,
+      6,
+      7,
+      3
+     ],
+     [
+      3,
+      7,
+      4,
+      0
+     ]
+    ]
+   },
+   "material": "glas"
+  },
+  {
+   "nr": 84,
+   "id": "T84",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer Fenster N0-1 (100x130, BRH 90)",
+   "ziel": "T03",
+   "box": [
+    170.0,
+    808,
+    90,
+    270.0,
+    856,
+    220
+   ],
+   "quelle": "Fotos 12.10. (6 Stk.) + App-Erkennung kant24v2",
+   "oeffnung": 1
+  },
+  {
+   "nr": 85,
+   "id": "T85",
+   "kat": "rahmen",
+   "name": "Rahmen unten Fenster N0-1 (100x130, BRH 90)",
+   "box": [
+    170.0,
+    828.0,
+    90,
+    270.0,
+    836.0,
+    97
+   ],
+   "material": "rahmen",
+   "oeffnung": 1
+  },
+  {
+   "nr": 86,
+   "id": "T86",
+   "kat": "rahmen",
+   "name": "Rahmen oben Fenster N0-1 (100x130, BRH 90)",
+   "box": [
+    170.0,
+    828.0,
+    213,
+    270.0,
+    836.0,
+    220
+   ],
+   "material": "rahmen",
+   "oeffnung": 1
+  },
+  {
+   "nr": 87,
+   "id": "T87",
+   "kat": "rahmen",
+   "name": "Rahmen links Fenster N0-1 (100x130, BRH 90)",
+   "box": [
+    170.0,
+    828.0,
+    90,
+    177.0,
+    836.0,
+    220
+   ],
+   "material": "rahmen",
+   "oeffnung": 1
+  },
+  {
+   "nr": 88,
+   "id": "T88",
+   "kat": "rahmen",
+   "name": "Rahmen rechts Fenster N0-1 (100x130, BRH 90)",
+   "box": [
+    263.0,
+    828.0,
+    90,
+    270.0,
+    836.0,
+    220
+   ],
+   "material": "rahmen",
+   "oeffnung": 1
+  },
+  {
+   "nr": 89,
+   "id": "T89",
+   "kat": "glas",
+   "name": "Glas Fenster N0-1 (100x130, BRH 90)",
+   "box": [
+    177.0,
+    831.4,
+    97,
+    263.0,
+    832.6,
+    213
+   ],
+   "material": "glas",
+   "oeffnung": 1
+  },
+  {
+   "nr": 90,
+   "id": "T90",
+   "kat": "detail",
+   "name": "Rollladen 20 % Fenster N0-1 (100x130, BRH 90)",
+   "box": [
+    172.0,
+    838.0,
+    189.8,
+    268.0,
+    840.0,
+    218
+   ],
+   "material": "rollladen",
+   "oeffnung": 1
+  },
+  {
+   "nr": 91,
+   "id": "T91",
+   "kat": "detail",
+   "name": "Fensterbank Fenster N0-1 (100x130, BRH 90)",
+   "box": [
+    167.0,
+    836.0,
+    87,
+    273.0,
+    854,
+    90
+   ],
+   "material": "fensterbank",
+   "oeffnung": 1
+  },
+  {
+   "nr": 92,
+   "id": "T92",
+   "kat": "innen",
+   "name": "Innenraum Fenster N0-1 (100x130, BRH 90)",
+   "box": [
+    172.0,
+    734,
+    92,
+    268.0,
+    813,
+    218
+   ],
+   "material": "innen",
+   "oeffnung": 1
+  },
+  {
+   "nr": 93,
+   "id": "T93",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer Fenster N0-2 (100x130, BRH 90)",
+   "ziel": "T03",
+   "box": [
+    370.0,
+    808,
+    90,
+    470.0,
+    856,
+    220
+   ],
+   "quelle": "Fotos 12.10. (6 Stk.) + App-Erkennung kant24v2",
+   "oeffnung": 2
+  },
+  {
+   "nr": 94,
+   "id": "T94",
+   "kat": "rahmen",
+   "name": "Rahmen unten Fenster N0-2 (100x130, BRH 90)",
+   "box": [
+    370.0,
+    828.0,
+    90,
+    470.0,
+    836.0,
+    97
+   ],
+   "material": "rahmen",
+   "oeffnung": 2
+  },
+  {
+   "nr": 95,
+   "id": "T95",
+   "kat": "rahmen",
+   "name": "Rahmen oben Fenster N0-2 (100x130, BRH 90)",
+   "box": [
+    370.0,
+    828.0,
+    213,
+    470.0,
+    836.0,
+    220
+   ],
+   "material": "rahmen",
+   "oeffnung": 2
+  },
+  {
+   "nr": 96,
+   "id": "T96",
+   "kat": "rahmen",
+   "name": "Rahmen links Fenster N0-2 (100x130, BRH 90)",
+   "box": [
+    370.0,
+    828.0,
+    90,
+    377.0,
+    836.0,
+    220
+   ],
+   "material": "rahmen",
+   "oeffnung": 2
+  },
+  {
+   "nr": 97,
+   "id": "T97",
+   "kat": "rahmen",
+   "name": "Rahmen rechts Fenster N0-2 (100x130, BRH 90)",
+   "box": [
+    463.0,
+    828.0,
+    90,
+    470.0,
+    836.0,
+    220
+   ],
+   "material": "rahmen",
+   "oeffnung": 2
+  },
+  {
+   "nr": 98,
+   "id": "T98",
+   "kat": "glas",
+   "name": "Glas Fenster N0-2 (100x130, BRH 90)",
+   "box": [
+    377.0,
+    831.4,
+    97,
+    463.0,
+    832.6,
+    213
+   ],
+   "material": "glas",
+   "oeffnung": 2
+  },
+  {
+   "nr": 99,
+   "id": "T99",
+   "kat": "detail",
+   "name": "Rollladen 20 % Fenster N0-2 (100x130, BRH 90)",
+   "box": [
+    372.0,
+    838.0,
+    189.8,
+    468.0,
+    840.0,
+    218
+   ],
+   "material": "rollladen",
+   "oeffnung": 2
+  },
+  {
+   "nr": 100,
+   "id": "T100",
+   "kat": "detail",
+   "name": "Fensterbank Fenster N0-2 (100x130, BRH 90)",
+   "box": [
+    367.0,
+    836.0,
+    87,
+    473.0,
+    854,
+    90
+   ],
+   "material": "fensterbank",
+   "oeffnung": 2
+  },
+  {
+   "nr": 101,
+   "id": "T101",
+   "kat": "innen",
+   "name": "Innenraum Fenster N0-2 (100x130, BRH 90)",
+   "box": [
+    372.0,
+    734,
+    92,
+    468.0,
+    813,
+    218
+   ],
+   "material": "innen",
+   "oeffnung": 2
+  },
+  {
+   "nr": 102,
+   "id": "T102",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer Fenster N0-3 (100x130, BRH 90)",
+   "ziel": "T03",
+   "box": [
+    630.0,
+    808,
+    90,
+    730.0,
+    856,
+    220
+   ],
+   "quelle": "INFERIERT",
+   "oeffnung": 3
+  },
+  {
+   "nr": 103,
+   "id": "T103",
+   "kat": "rahmen",
+   "name": "Rahmen unten Fenster N0-3 (100x130, BRH 90)",
+   "box": [
+    630.0,
+    828.0,
+    90,
+    730.0,
+    836.0,
+    97
+   ],
+   "material": "rahmen",
+   "oeffnung": 3
+  },
+  {
+   "nr": 104,
+   "id": "T104",
+   "kat": "rahmen",
+   "name": "Rahmen oben Fenster N0-3 (100x130, BRH 90)",
+   "box": [
+    630.0,
+    828.0,
+    213,
+    730.0,
+    836.0,
+    220
+   ],
+   "material": "rahmen",
+   "oeffnung": 3
+  },
+  {
+   "nr": 105,
+   "id": "T105",
+   "kat": "rahmen",
+   "name": "Rahmen links Fenster N0-3 (100x130, BRH 90)",
+   "box": [
+    630.0,
+    828.0,
+    90,
+    637.0,
+    836.0,
+    220
+   ],
+   "material": "rahmen",
+   "oeffnung": 3
+  },
+  {
+   "nr": 106,
+   "id": "T106",
+   "kat": "rahmen",
+   "name": "Rahmen rechts Fenster N0-3 (100x130, BRH 90)",
+   "box": [
+    723.0,
+    828.0,
+    90,
+    730.0,
+    836.0,
+    220
+   ],
+   "material": "rahmen",
+   "oeffnung": 3
+  },
+  {
+   "nr": 107,
+   "id": "T107",
+   "kat": "glas",
+   "name": "Glas Fenster N0-3 (100x130, BRH 90)",
+   "box": [
+    637.0,
+    831.4,
+    97,
+    723.0,
+    832.6,
+    213
+   ],
+   "material": "glas",
+   "oeffnung": 3
+  },
+  {
+   "nr": 108,
+   "id": "T108",
+   "kat": "detail",
+   "name": "Rollladen 20 % Fenster N0-3 (100x130, BRH 90)",
+   "box": [
+    632.0,
+    838.0,
+    189.8,
+    728.0,
+    840.0,
+    218
+   ],
+   "material": "rollladen",
+   "oeffnung": 3
+  },
+  {
+   "nr": 109,
+   "id": "T109",
+   "kat": "detail",
+   "name": "Fensterbank Fenster N0-3 (100x130, BRH 90)",
+   "box": [
+    627.0,
+    836.0,
+    87,
+    733.0,
+    854,
+    90
+   ],
+   "material": "fensterbank",
+   "oeffnung": 3
+  },
+  {
+   "nr": 110,
+   "id": "T110",
+   "kat": "innen",
+   "name": "Innenraum Fenster N0-3 (100x130, BRH 90)",
+   "box": [
+    632.0,
+    734,
+    92,
+    728.0,
+    813,
+    218
+   ],
+   "material": "innen",
+   "oeffnung": 3
+  },
+  {
+   "nr": 111,
+   "id": "T111",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer Haustuer S0-4 (100x215, BRH 0)",
+   "ziel": "T02",
+   "box": [
+    770.0,
+    -6,
+    0,
+    870.0,
+    42,
+    215
+   ],
+   "quelle": "Fotos 12.10. (6 Stk.) + App-Erkennung kant24v2",
+   "oeffnung": 4
+  },
+  {
+   "nr": 112,
+   "id": "T112",
+   "kat": "tuer",
+   "name": "Tuerblatt Haustuer S0-4 (100x215, BRH 0)",
+   "box": [
+    770.0,
+    15.5,
+    0,
+    870.0,
+    20.5,
+    215
+   ],
+   "material": "tuer",
+   "oeffnung": 4
+  },
+  {
+   "nr": 113,
+   "id": "T113",
+   "kat": "rahmen",
+   "name": "Zarge links Haustuer S0-4 (100x215, BRH 0)",
+   "box": [
+    770.0,
+    14.0,
+    0,
+    775.0,
+    22.0,
+    215
+   ],
+   "material": "rahmen",
+   "oeffnung": 4
+  },
+  {
+   "nr": 114,
+   "id": "T114",
+   "kat": "rahmen",
+   "name": "Zarge rechts Haustuer S0-4 (100x215, BRH 0)",
+   "box": [
+    865.0,
+    14.0,
+    0,
+    870.0,
+    22.0,
+    215
+   ],
+   "material": "rahmen",
+   "oeffnung": 4
+  },
+  {
+   "nr": 115,
+   "id": "T115",
+   "kat": "rahmen",
+   "name": "Zarge oben Haustuer S0-4 (100x215, BRH 0)",
+   "box": [
+    770.0,
+    14.0,
+    210,
+    870.0,
+    22.0,
+    215
+   ],
+   "material": "rahmen",
+   "oeffnung": 4
+  },
+  {
+   "nr": 116,
+   "id": "T116",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer Fenster S0-5 (100x130, BRH 90)",
+   "ziel": "T02",
+   "box": [
+    250.0,
+    -6,
+    90,
+    350.0,
+    42,
+    220
+   ],
+   "quelle": "INFERIERT",
+   "oeffnung": 5
+  },
+  {
+   "nr": 117,
+   "id": "T117",
+   "kat": "rahmen",
+   "name": "Rahmen unten Fenster S0-5 (100x130, BRH 90)",
+   "box": [
+    250.0,
+    14.0,
+    90,
+    350.0,
+    22.0,
+    97
+   ],
+   "material": "rahmen",
+   "oeffnung": 5
+  },
+  {
+   "nr": 118,
+   "id": "T118",
+   "kat": "rahmen",
+   "name": "Rahmen oben Fenster S0-5 (100x130, BRH 90)",
+   "box": [
+    250.0,
+    14.0,
+    213,
+    350.0,
+    22.0,
+    220
+   ],
+   "material": "rahmen",
+   "oeffnung": 5
+  },
+  {
+   "nr": 119,
+   "id": "T119",
+   "kat": "rahmen",
+   "name": "Rahmen links Fenster S0-5 (100x130, BRH 90)",
+   "box": [
+    250.0,
+    14.0,
+    90,
+    257.0,
+    22.0,
+    220
+   ],
+   "material": "rahmen",
+   "oeffnung": 5
+  },
+  {
+   "nr": 120,
+   "id": "T120",
+   "kat": "rahmen",
+   "name": "Rahmen rechts Fenster S0-5 (100x130, BRH 90)",
+   "box": [
+    343.0,
+    14.0,
+    90,
+    350.0,
+    22.0,
+    220
+   ],
+   "material": "rahmen",
+   "oeffnung": 5
+  },
+  {
+   "nr": 121,
+   "id": "T121",
+   "kat": "glas",
+   "name": "Glas Fenster S0-5 (100x130, BRH 90)",
+   "box": [
+    257.0,
+    17.4,
+    97,
+    343.0,
+    18.6,
+    213
+   ],
+   "material": "glas",
+   "oeffnung": 5
+  },
+  {
+   "nr": 122,
+   "id": "T122",
+   "kat": "detail",
+   "name": "Rollladen 20 % Fenster S0-5 (100x130, BRH 90)",
+   "box": [
+    252.0,
+    10.0,
+    189.8,
+    348.0,
+    12.0,
+    218
+   ],
+   "material": "rollladen",
+   "oeffnung": 5
+  },
+  {
+   "nr": 123,
+   "id": "T123",
+   "kat": "detail",
+   "name": "Fensterbank Fenster S0-5 (100x130, BRH 90)",
+   "box": [
+    247.0,
+    -4,
+    87,
+    353.0,
+    14.0,
+    90
+   ],
+   "material": "fensterbank",
+   "oeffnung": 5
+  },
+  {
+   "nr": 124,
+   "id": "T124",
+   "kat": "innen",
+   "name": "Innenraum Fenster S0-5 (100x130, BRH 90)",
+   "box": [
+    252.0,
+    37,
+    92,
+    348.0,
+    116,
+    218
+   ],
+   "material": "innen",
+   "oeffnung": 5
+  },
+  {
+   "nr": 125,
+   "id": "T125",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer Fenster S0-6 (100x130, BRH 90)",
+   "ziel": "T02",
+   "box": [
+    510.0,
+    -6,
+    90,
+    610.0,
+    42,
+    220
+   ],
+   "quelle": "INFERIERT",
+   "oeffnung": 6
+  },
+  {
+   "nr": 126,
+   "id": "T126",
+   "kat": "rahmen",
+   "name": "Rahmen unten Fenster S0-6 (100x130, BRH 90)",
+   "box": [
+    510.0,
+    14.0,
+    90,
+    610.0,
+    22.0,
+    97
+   ],
+   "material": "rahmen",
+   "oeffnung": 6
+  },
+  {
+   "nr": 127,
+   "id": "T127",
+   "kat": "rahmen",
+   "name": "Rahmen oben Fenster S0-6 (100x130, BRH 90)",
+   "box": [
+    510.0,
+    14.0,
+    213,
+    610.0,
+    22.0,
+    220
+   ],
+   "material": "rahmen",
+   "oeffnung": 6
+  },
+  {
+   "nr": 128,
+   "id": "T128",
+   "kat": "rahmen",
+   "name": "Rahmen links Fenster S0-6 (100x130, BRH 90)",
+   "box": [
+    510.0,
+    14.0,
+    90,
+    517.0,
+    22.0,
+    220
+   ],
+   "material": "rahmen",
+   "oeffnung": 6
+  },
+  {
+   "nr": 129,
+   "id": "T129",
+   "kat": "rahmen",
+   "name": "Rahmen rechts Fenster S0-6 (100x130, BRH 90)",
+   "box": [
+    603.0,
+    14.0,
+    90,
+    610.0,
+    22.0,
+    220
+   ],
+   "material": "rahmen",
+   "oeffnung": 6
+  },
+  {
+   "nr": 130,
+   "id": "T130",
+   "kat": "glas",
+   "name": "Glas Fenster S0-6 (100x130, BRH 90)",
+   "box": [
+    517.0,
+    17.4,
+    97,
+    603.0,
+    18.6,
+    213
+   ],
+   "material": "glas",
+   "oeffnung": 6
+  },
+  {
+   "nr": 131,
+   "id": "T131",
+   "kat": "detail",
+   "name": "Rollladen 20 % Fenster S0-6 (100x130, BRH 90)",
+   "box": [
+    512.0,
+    10.0,
+    189.8,
+    608.0,
+    12.0,
+    218
+   ],
+   "material": "rollladen",
+   "oeffnung": 6
+  },
+  {
+   "nr": 132,
+   "id": "T132",
+   "kat": "detail",
+   "name": "Fensterbank Fenster S0-6 (100x130, BRH 90)",
+   "box": [
+    507.0,
+    -4,
+    87,
+    613.0,
+    14.0,
+    90
+   ],
+   "material": "fensterbank",
+   "oeffnung": 6
+  },
+  {
+   "nr": 133,
+   "id": "T133",
+   "kat": "innen",
+   "name": "Innenraum Fenster S0-6 (100x130, BRH 90)",
+   "box": [
+    512.0,
+    37,
+    92,
+    608.0,
+    116,
+    218
+   ],
+   "material": "innen",
+   "oeffnung": 6
+  },
+  {
+   "nr": 134,
+   "id": "T134",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer Fenster W0-7 (100x130, BRH 90)",
+   "ziel": "T04",
+   "box": [
+    -6,
+    510.0,
+    90,
+    42,
+    610.0,
+    220
+   ],
+   "quelle": "Fotos 12.10. (6 Stk.) + App-Erkennung kant24v2",
+   "oeffnung": 7
+  },
+  {
+   "nr": 135,
+   "id": "T135",
+   "kat": "rahmen",
+   "name": "Rahmen unten Fenster W0-7 (100x130, BRH 90)",
+   "box": [
+    14.0,
+    510.0,
+    90,
+    22.0,
+    610.0,
+    97
+   ],
+   "material": "rahmen",
+   "oeffnung": 7
+  },
+  {
+   "nr": 136,
+   "id": "T136",
+   "kat": "rahmen",
+   "name": "Rahmen oben Fenster W0-7 (100x130, BRH 90)",
+   "box": [
+    14.0,
+    510.0,
+    213,
+    22.0,
+    610.0,
+    220
+   ],
+   "material": "rahmen",
+   "oeffnung": 7
+  },
+  {
+   "nr": 137,
+   "id": "T137",
+   "kat": "rahmen",
+   "name": "Rahmen links Fenster W0-7 (100x130, BRH 90)",
+   "box": [
+    14.0,
+    510.0,
+    90,
+    22.0,
+    517.0,
+    220
+   ],
+   "material": "rahmen",
+   "oeffnung": 7
+  },
+  {
+   "nr": 138,
+   "id": "T138",
+   "kat": "rahmen",
+   "name": "Rahmen rechts Fenster W0-7 (100x130, BRH 90)",
+   "box": [
+    14.0,
+    603.0,
+    90,
+    22.0,
+    610.0,
+    220
+   ],
+   "material": "rahmen",
+   "oeffnung": 7
+  },
+  {
+   "nr": 139,
+   "id": "T139",
+   "kat": "glas",
+   "name": "Glas Fenster W0-7 (100x130, BRH 90)",
+   "box": [
+    17.4,
+    517.0,
+    97,
+    18.6,
+    603.0,
+    213
+   ],
+   "material": "glas",
+   "oeffnung": 7
+  },
+  {
+   "nr": 140,
+   "id": "T140",
+   "kat": "detail",
+   "name": "Rollladen 20 % Fenster W0-7 (100x130, BRH 90)",
+   "box": [
+    10.0,
+    512.0,
+    189.8,
+    12.0,
+    608.0,
+    218
+   ],
+   "material": "rollladen",
+   "oeffnung": 7
+  },
+  {
+   "nr": 141,
+   "id": "T141",
+   "kat": "detail",
+   "name": "Fensterbank Fenster W0-7 (100x130, BRH 90)",
+   "box": [
+    -4,
+    507.0,
+    87,
+    14.0,
+    613.0,
+    90
+   ],
+   "material": "fensterbank",
+   "oeffnung": 7
+  },
+  {
+   "nr": 142,
+   "id": "T142",
+   "kat": "innen",
+   "name": "Innenraum Fenster W0-7 (100x130, BRH 90)",
+   "box": [
+    37,
+    512.0,
+    92,
+    116,
+    608.0,
+    218
+   ],
+   "material": "innen",
+   "oeffnung": 7
+  },
+  {
+   "nr": 143,
+   "id": "T143",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer Fenster W0-8 (100x130, BRH 90)",
+   "ziel": "T04",
+   "box": [
+    -6,
+    210.0,
+    90,
+    42,
+    310.0,
+    220
+   ],
+   "quelle": "INFERIERT",
+   "oeffnung": 8
+  },
+  {
+   "nr": 144,
+   "id": "T144",
+   "kat": "rahmen",
+   "name": "Rahmen unten Fenster W0-8 (100x130, BRH 90)",
+   "box": [
+    14.0,
+    210.0,
+    90,
+    22.0,
+    310.0,
+    97
+   ],
+   "material": "rahmen",
+   "oeffnung": 8
+  },
+  {
+   "nr": 145,
+   "id": "T145",
+   "kat": "rahmen",
+   "name": "Rahmen oben Fenster W0-8 (100x130, BRH 90)",
+   "box": [
+    14.0,
+    210.0,
+    213,
+    22.0,
+    310.0,
+    220
+   ],
+   "material": "rahmen",
+   "oeffnung": 8
+  },
+  {
+   "nr": 146,
+   "id": "T146",
+   "kat": "rahmen",
+   "name": "Rahmen links Fenster W0-8 (100x130, BRH 90)",
+   "box": [
+    14.0,
+    210.0,
+    90,
+    22.0,
+    217.0,
+    220
+   ],
+   "material": "rahmen",
+   "oeffnung": 8
+  },
+  {
+   "nr": 147,
+   "id": "T147",
+   "kat": "rahmen",
+   "name": "Rahmen rechts Fenster W0-8 (100x130, BRH 90)",
+   "box": [
+    14.0,
+    303.0,
+    90,
+    22.0,
+    310.0,
+    220
+   ],
+   "material": "rahmen",
+   "oeffnung": 8
+  },
+  {
+   "nr": 148,
+   "id": "T148",
+   "kat": "glas",
+   "name": "Glas Fenster W0-8 (100x130, BRH 90)",
+   "box": [
+    17.4,
+    217.0,
+    97,
+    18.6,
+    303.0,
+    213
+   ],
+   "material": "glas",
+   "oeffnung": 8
+  },
+  {
+   "nr": 149,
+   "id": "T149",
+   "kat": "detail",
+   "name": "Rollladen 20 % Fenster W0-8 (100x130, BRH 90)",
+   "box": [
+    10.0,
+    212.0,
+    189.8,
+    12.0,
+    308.0,
+    218
+   ],
+   "material": "rollladen",
+   "oeffnung": 8
+  },
+  {
+   "nr": 150,
+   "id": "T150",
+   "kat": "detail",
+   "name": "Fensterbank Fenster W0-8 (100x130, BRH 90)",
+   "box": [
+    -4,
+    207.0,
+    87,
+    14.0,
+    313.0,
+    90
+   ],
+   "material": "fensterbank",
+   "oeffnung": 8
+  },
+  {
+   "nr": 151,
+   "id": "T151",
+   "kat": "innen",
+   "name": "Innenraum Fenster W0-8 (100x130, BRH 90)",
+   "box": [
+    37,
+    212.0,
+    92,
+    116,
+    308.0,
+    218
+   ],
+   "material": "innen",
+   "oeffnung": 8
+  },
+  {
+   "nr": 152,
+   "id": "T152",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer Fenster E0-9 (100x130, BRH 90)",
+   "ziel": "T05",
+   "box": [
+    1008,
+    250.0,
+    90,
+    1056,
+    350.0,
+    220
+   ],
+   "quelle": "INFERIERT",
+   "oeffnung": 9
+  },
+  {
+   "nr": 153,
+   "id": "T153",
+   "kat": "rahmen",
+   "name": "Rahmen unten Fenster E0-9 (100x130, BRH 90)",
+   "box": [
+    1028.0,
+    250.0,
+    90,
+    1036.0,
+    350.0,
+    97
+   ],
+   "material": "rahmen",
+   "oeffnung": 9
+  },
+  {
+   "nr": 154,
+   "id": "T154",
+   "kat": "rahmen",
+   "name": "Rahmen oben Fenster E0-9 (100x130, BRH 90)",
+   "box": [
+    1028.0,
+    250.0,
+    213,
+    1036.0,
+    350.0,
+    220
+   ],
+   "material": "rahmen",
+   "oeffnung": 9
+  },
+  {
+   "nr": 155,
+   "id": "T155",
+   "kat": "rahmen",
+   "name": "Rahmen links Fenster E0-9 (100x130, BRH 90)",
+   "box": [
+    1028.0,
+    250.0,
+    90,
+    1036.0,
+    257.0,
+    220
+   ],
+   "material": "rahmen",
+   "oeffnung": 9
+  },
+  {
+   "nr": 156,
+   "id": "T156",
+   "kat": "rahmen",
+   "name": "Rahmen rechts Fenster E0-9 (100x130, BRH 90)",
+   "box": [
+    1028.0,
+    343.0,
+    90,
+    1036.0,
+    350.0,
+    220
+   ],
+   "material": "rahmen",
+   "oeffnung": 9
+  },
+  {
+   "nr": 157,
+   "id": "T157",
+   "kat": "glas",
+   "name": "Glas Fenster E0-9 (100x130, BRH 90)",
+   "box": [
+    1031.4,
+    257.0,
+    97,
+    1032.6,
+    343.0,
+    213
+   ],
+   "material": "glas",
+   "oeffnung": 9
+  },
+  {
+   "nr": 158,
+   "id": "T158",
+   "kat": "detail",
+   "name": "Rollladen 20 % Fenster E0-9 (100x130, BRH 90)",
+   "box": [
+    1038.0,
+    252.0,
+    189.8,
+    1040.0,
+    348.0,
+    218
+   ],
+   "material": "rollladen",
+   "oeffnung": 9
+  },
+  {
+   "nr": 159,
+   "id": "T159",
+   "kat": "detail",
+   "name": "Fensterbank Fenster E0-9 (100x130, BRH 90)",
+   "box": [
+    1036.0,
+    247.0,
+    87,
+    1054,
+    353.0,
+    90
+   ],
+   "material": "fensterbank",
+   "oeffnung": 9
+  },
+  {
+   "nr": 160,
+   "id": "T160",
+   "kat": "innen",
+   "name": "Innenraum Fenster E0-9 (100x130, BRH 90)",
+   "box": [
+    934,
+    252.0,
+    92,
+    1013,
+    348.0,
+    218
+   ],
+   "material": "innen",
+   "oeffnung": 9
+  },
+  {
+   "nr": 161,
+   "id": "T161",
+   "kat": "ausschnitt",
+   "name": "Ausschnitt fuer Fenster E0-10 (100x130, BRH 90)",
+   "ziel": "T05",
+   "box": [
+    1008,
+    550.0,
+    90,
+    1056,
+    650.0,
+    220
+   ],
+   "quelle": "INFERIERT",
+   "oeffnung": 10
+  },
+  {
+   "nr": 162,
+   "id": "T162",
+   "kat": "rahmen",
+   "name": "Rahmen unten Fenster E0-10 (100x130, BRH 90)",
+   "box": [
+    1028.0,
+    550.0,
+    90,
+    1036.0,
+    650.0,
+    97
+   ],
+   "material": "rahmen",
+   "oeffnung": 10
+  },
+  {
+   "nr": 163,
+   "id": "T163",
+   "kat": "rahmen",
+   "name": "Rahmen oben Fenster E0-10 (100x130, BRH 90)",
+   "box": [
+    1028.0,
+    550.0,
+    213,
+    1036.0,
+    650.0,
+    220
+   ],
+   "material": "rahmen",
+   "oeffnung": 10
+  },
+  {
+   "nr": 164,
+   "id": "T164",
+   "kat": "rahmen",
+   "name": "Rahmen links Fenster E0-10 (100x130, BRH 90)",
+   "box": [
+    1028.0,
+    550.0,
+    90,
+    1036.0,
+    557.0,
+    220
+   ],
+   "material": "rahmen",
+   "oeffnung": 10
+  },
+  {
+   "nr": 165,
+   "id": "T165",
+   "kat": "rahmen",
+   "name": "Rahmen rechts Fenster E0-10 (100x130, BRH 90)",
+   "box": [
+    1028.0,
+    643.0,
+    90,
+    1036.0,
+    650.0,
+    220
+   ],
+   "material": "rahmen",
+   "oeffnung": 10
+  },
+  {
+   "nr": 166,
+   "id": "T166",
+   "kat": "glas",
+   "name": "Glas Fenster E0-10 (100x130, BRH 90)",
+   "box": [
+    1031.4,
+    557.0,
+    97,
+    1032.6,
+    643.0,
+    213
+   ],
+   "material": "glas",
+   "oeffnung": 10
+  },
+  {
+   "nr": 167,
+   "id": "T167",
+   "kat": "detail",
+   "name": "Rollladen 20 % Fenster E0-10 (100x130, BRH 90)",
+   "box": [
+    1038.0,
+    552.0,
+    189.8,
+    1040.0,
+    648.0,
+    218
+   ],
+   "material": "rollladen",
+   "oeffnung": 10
+  },
+  {
+   "nr": 168,
+   "id": "T168",
+   "kat": "detail",
+   "name": "Fensterbank Fenster E0-10 (100x130, BRH 90)",
+   "box": [
+    1036.0,
+    547.0,
+    87,
+    1054,
+    653.0,
+    90
+   ],
+   "material": "fensterbank",
+   "oeffnung": 10
+  },
+  {
+   "nr": 169,
+   "id": "T169",
+   "kat": "innen",
+   "name": "Innenraum Fenster E0-10 (100x130, BRH 90)",
+   "box": [
+    934,
+    552.0,
+    92,
+    1013,
+    648.0,
+    218
+   ],
+   "material": "innen",
+   "oeffnung": 10
+  },
+  {
+   "nr": 170,
+   "id": "T170",
+   "kat": "detail",
+   "name": "Kamin (Putz anthrazit, Edelstahlaufsatz)",
+   "box": [
+    615,
+    445,
+    295,
+    665,
+    495,
+    855
+   ],
+   "material": "kamin"
+  },
+  {
+   "nr": 171,
+   "id": "T171",
+   "kat": "detail",
+   "name": "Vordach Haustuer",
+   "box": [
+    725.0,
+    -120.0,
+    237,
+    915.0,
+    0.0,
+    249
+   ],
+   "material": "blende"
+  },
+  {
+   "nr": 172,
+   "id": "T172",
+   "kat": "detail",
+   "name": "Wandleuchte Eingang",
+   "box": [
+    925.0,
+    -10.0,
+    185,
+    937.0,
+    0.0,
+    215
+   ],
+   "material": "blende"
+  },
+  {
+   "nr": 173,
+   "id": "T173",
+   "kat": "gelaende",
+   "name": "Rasen",
+   "box": [
+    -3000,
+    -3000,
+    -3,
+    4050,
+    3850,
+    0
+   ],
+   "material": "rasen"
+  },
+  {
+   "nr": 174,
+   "id": "T174",
+   "kat": "gelaende",
+   "name": "Weg zur Haustuer",
+   "box": [
+    740,
+    -1400,
+    -2,
+    900,
+    0.0,
+    0.5
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 175,
+   "id": "T175",
+   "kat": "gelaende",
+   "name": "Eingangspodest",
+   "box": [
+    690,
+    0,
+    -2,
+    950,
+    0,
+    0.5
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 176,
+   "id": "T176",
+   "kat": "gelaende",
+   "name": "Gehweg",
+   "box": [
+    -3000,
+    -1600,
+    -2,
+    4050,
+    -1400,
+    0.5
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 177,
+   "id": "T177",
+   "kat": "gelaende",
+   "name": "Strasse",
+   "box": [
+    -3000,
+    -2400,
+    -2,
+    4050,
+    -1600,
+    0.5
+   ],
+   "material": "asphalt"
+  },
+  {
+   "nr": 178,
+   "id": "T178",
+   "kat": "grundstueck",
+   "name": "Grundstuecksgrenze Sued",
+   "box": [
+    -500,
+    -1400,
+    -0.5,
+    1550,
+    -1399,
+    0.5
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 179,
+   "id": "T179",
+   "kat": "grundstueck",
+   "name": "Grundstuecksgrenze Nord",
+   "box": [
+    -500,
+    1849,
+    -0.5,
+    1550,
+    1850,
+    0.5
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 180,
+   "id": "T180",
+   "kat": "grundstueck",
+   "name": "Grundstuecksgrenze West",
+   "box": [
+    -500,
+    -1400,
+    -0.5,
+    -499,
+    1850,
+    0.5
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 181,
+   "id": "T181",
+   "kat": "grundstueck",
+   "name": "Grundstuecksgrenze Ost",
+   "box": [
+    1549,
+    -1400,
+    -0.5,
+    1550,
+    1850,
+    0.5
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 182,
+   "id": "T182",
+   "kat": "grundstueck",
+   "name": "Terrasse Nord",
+   "box": [
+    236.2,
+    850,
+    -2,
+    813.8,
+    1200,
+    6
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 183,
+   "id": "T183",
+   "kat": "garten",
+   "name": "Hecke West",
+   "box": [
+    -500,
+    -1200,
+    0,
+    -440,
+    1850,
+    100
+   ],
+   "material": "hecke"
+  },
+  {
+   "nr": 184,
+   "id": "T184",
+   "kat": "garten",
+   "name": "Hecke Ost",
+   "box": [
+    1490,
+    -1200,
+    0,
+    1550,
+    1850,
+    100
+   ],
+   "material": "hecke"
+  },
+  {
+   "nr": 185,
+   "id": "T185",
+   "kat": "garten",
+   "name": "Hecke Nord",
+   "box": [
+    -500,
+    1790,
+    0,
+    1550,
+    1850,
+    100
+   ],
+   "material": "hecke"
+  },
+  {
+   "nr": 186,
+   "id": "T186",
+   "kat": "garten",
+   "name": "Hecke Sued 1",
+   "box": [
+    -500,
+    -1390,
+    0,
+    720,
+    -1330,
+    80
+   ],
+   "material": "hecke"
+  },
+  {
+   "nr": 187,
+   "id": "T187",
+   "kat": "garten",
+   "name": "Hecke Sued 2",
+   "box": [
+    920,
+    -1390,
+    0,
+    1550,
+    -1330,
+    80
+   ],
+   "material": "hecke"
+  },
+  {
+   "nr": 188,
+   "id": "T188",
+   "kat": "garten",
+   "name": "Gartenweg",
+   "box": [
+    475.0,
+    1200,
+    -1,
+    575.0,
+    1770,
+    1
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 189,
+   "id": "T189",
+   "kat": "kamera",
+   "name": "Kamera Front (3/4 von Suedwest, im Grundstueck, Augenhoehe)",
+   "pos": [
+    -410,
+    -1270,
+    165
+   ],
+   "ziel": [
+    525.0,
+    212.5,
+    107.5
+   ],
+   "brennweite_mm": 26
+  },
+  {
+   "nr": 190,
+   "id": "T190",
+   "kat": "kamera",
+   "name": "Kamera Rueck (3/4 von Nordost, im Grundstueck)",
+   "pos": [
+    1460,
+    1740,
+    165
+   ],
+   "ziel": [
+    525.0,
+    595.0,
+    207.5
+   ],
+   "brennweite_mm": 21
+  },
+  {
+   "nr": 191,
+   "id": "T191",
+   "kat": "kamera",
+   "name": "Kamera Ansicht Sued (orthografisch, Elevation)",
+   "pos": [
+    525.0,
+    -3000,
+    147.5
+   ],
+   "ziel": [
+    525.0,
+    0,
+    147.5
+   ],
+   "ortho_cm": 1400
+  },
+  {
+   "nr": 192,
+   "id": "T192",
+   "kat": "kamera",
+   "name": "Kamera Ansicht Nord (orthografisch, Elevation)",
+   "pos": [
+    525.0,
+    3850,
+    147.5
+   ],
+   "ziel": [
+    525.0,
+    850,
+    147.5
+   ],
+   "ortho_cm": 1400
+  },
+  {
+   "nr": 193,
+   "id": "T193",
+   "kat": "licht",
+   "name": "Sonne (Azimut 215, Hoehe 42)",
+   "azimut": 215,
+   "hoehe": 42,
+   "staerke": 4.0
+  },
+  {
+   "nr": 194,
+   "id": "T194",
+   "kat": "treppe",
+   "name": "Kellertreppe Stufe 1",
+   "box": [
+    190,
+    312.0,
+    -250.0,
+    290,
+    339.3,
+    -232.1
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 195,
+   "id": "T195",
+   "kat": "treppe",
+   "name": "Kellertreppe Stufe 2",
+   "box": [
+    190,
+    339.3,
+    -232.1,
+    290,
+    366.6,
+    -214.3
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 196,
+   "id": "T196",
+   "kat": "treppe",
+   "name": "Kellertreppe Stufe 3",
+   "box": [
+    190,
+    366.6,
+    -214.3,
+    290,
+    393.9,
+    -196.4
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 197,
+   "id": "T197",
+   "kat": "treppe",
+   "name": "Kellertreppe Stufe 4",
+   "box": [
+    190,
+    393.9,
+    -196.4,
+    290,
+    421.1,
+    -178.6
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 198,
+   "id": "T198",
+   "kat": "treppe",
+   "name": "Kellertreppe Stufe 5",
+   "box": [
+    190,
+    421.1,
+    -178.6,
+    290,
+    448.4,
+    -160.7
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 199,
+   "id": "T199",
+   "kat": "treppe",
+   "name": "Kellertreppe Stufe 6",
+   "box": [
+    190,
+    448.4,
+    -160.7,
+    290,
+    475.7,
+    -142.9
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 200,
+   "id": "T200",
+   "kat": "treppe",
+   "name": "Kellertreppe Stufe 7",
+   "box": [
+    190,
+    475.7,
+    -142.9,
+    290,
+    503.0,
+    -125.0
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 201,
+   "id": "T201",
+   "kat": "treppe",
+   "name": "Kellertreppe Stufe 8",
+   "box": [
+    190,
+    503.0,
+    -125.0,
+    290,
+    530.3,
+    -107.1
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 202,
+   "id": "T202",
+   "kat": "treppe",
+   "name": "Kellertreppe Stufe 9",
+   "box": [
+    190,
+    530.3,
+    -107.1,
+    290,
+    557.6,
+    -89.3
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 203,
+   "id": "T203",
+   "kat": "treppe",
+   "name": "Kellertreppe Stufe 10",
+   "box": [
+    190,
+    557.6,
+    -89.3,
+    290,
+    584.9,
+    -71.4
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 204,
+   "id": "T204",
+   "kat": "treppe",
+   "name": "Kellertreppe Stufe 11",
+   "box": [
+    190,
+    584.9,
+    -71.4,
+    290,
+    612.1,
+    -53.6
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 205,
+   "id": "T205",
+   "kat": "treppe",
+   "name": "Kellertreppe Stufe 12",
+   "box": [
+    190,
+    612.1,
+    -53.6,
+    290,
+    639.4,
+    -35.7
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 206,
+   "id": "T206",
+   "kat": "treppe",
+   "name": "Kellertreppe Stufe 13",
+   "box": [
+    190,
+    639.4,
+    -35.7,
+    290,
+    666.7,
+    -17.9
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 207,
+   "id": "T207",
+   "kat": "treppe",
+   "name": "Kellertreppe Stufe 14",
+   "box": [
+    190,
+    666.7,
+    -17.9,
+    290,
+    694.0,
+    0.0
+   ],
+   "material": "beton_hell"
+  },
+  {
+   "nr": 208,
+   "id": "T208",
+   "kat": "treppe",
+   "name": "Kellertreppe Handlauf",
+   "box": [
+    188,
+    312.0,
+    -160,
+    192,
+    694,
+    90
+   ],
+   "material": "stahl"
+  },
+  {
+   "nr": 209,
+   "id": "T209",
+   "kat": "fundament",
+   "name": "Bodenplatte Stueck 2 (um Kellertreppe)",
+   "box": [
+    300,
+    0,
+    -20,
+    1050,
+    850,
+    0
+   ],
+   "material": "beton"
+  },
+  {
+   "nr": 210,
+   "id": "T210",
+   "kat": "fundament",
+   "name": "Bodenplatte Stueck 3 (um Kellertreppe)",
+   "box": [
+    180,
+    0,
+    -20,
+    300,
+    334.3,
+    0
+   ],
+   "material": "beton"
+  },
+  {
+   "nr": 211,
+   "id": "T211",
+   "kat": "fundament",
+   "name": "Bodenplatte Stueck 4 (um Kellertreppe)",
+   "box": [
+    180,
+    694,
+    -20,
+    300,
+    850,
+    0
+   ],
+   "material": "beton"
+  },
+  {
+   "nr": 212,
+   "id": "T212",
+   "kat": "gelaender",
+   "name": "Absturzsicherung Kellertreppe O",
+   "box": [
+    296,
+    334.3,
+    2,
+    300,
+    694,
+    100
+   ],
+   "material": "stahl"
+  },
+  {
+   "nr": 213,
+   "id": "T213",
+   "kat": "gelaender",
+   "name": "Absturzsicherung Kellertreppe W",
+   "box": [
+    180,
+    334.3,
+    2,
+    184,
+    694,
+    100
+   ],
+   "material": "stahl"
+  },
+  {
+   "nr": 214,
+   "id": "T214",
+   "kat": "gelaender",
+   "name": "Absturzsicherung Kellertreppe S",
+   "box": [
+    180,
+    334.3,
+    2,
+    300,
+    338.3,
+    100
+   ],
+   "material": "stahl"
+  }
+ ]
+}

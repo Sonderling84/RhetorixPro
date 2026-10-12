@@ -1,0 +1,253 @@
+{
+ "meta": {
+  "name": "Beethovenstrasse 9 / Kantstrasse 31, Riegelsberg",
+  "kennung": "beethoven9",
+  "vorlage": "fotohaus",
+  "adresse": "Beethovenstr. 9, Riegelsberg",
+  "fiktiv": false,
+  "baujahr": 1955,
+  "quelle_erkennung": "App-Lauf kant24v2r20261012 (lokale KI) + Abgleich 6 Fotos",
+  "materialien": {
+   "fassade": "Putz weiss",
+   "dach": "Tonziegel braun",
+   "fenster": "Kunststoff weiss",
+   "tuer": "Holz"
+  }
+ },
+ "breite_cm": 1050,
+ "tiefe_cm": 850,
+ "geschosse": 1,
+ "geschosshoehe_cm": 275,
+ "deckenstaerke_cm": 20,
+ "aussenwand_cm": 36,
+ "sockel_cm": 50,
+ "dach": {
+  "typ": "walm_plateau",
+  "neigung_grad": 50,
+  "kniestock_cm": 60,
+  "first_cm": 915,
+  "plateau_cm": 1,
+  "walm_ab_cm": 912,
+  "ueberstand_cm": 40,
+  "ortgang_cm": 30,
+  "dachfenster": [
+   {
+    "x_cm": 260,
+    "b_cm": 78,
+    "h_cm": 118,
+    "unten_cm": 520,
+    "traufe_cm": 355,
+    "neigung_grad": 50
+   },
+   {
+    "x_cm": 960,
+    "b_cm": 55,
+    "h_cm": 78,
+    "unten_cm": 600,
+    "traufe_cm": 355,
+    "neigung_grad": 50
+   }
+  ]
+ },
+ "zwerchhaeuser": [
+  {
+   "seite": "N",
+   "von_cm": 480,
+   "bis_cm": 880,
+   "tiefe_cm": 260,
+   "oben_cm": 560,
+   "tuer_b_cm": 200,
+   "tuer_h_cm": 150
+  }
+ ],
+ "giebelfenster": [
+  {
+   "seite": "W",
+   "pos_cm": 430,
+   "b_cm": 80,
+   "h_cm": 110,
+   "unten_cm": 395
+  },
+  {
+   "seite": "W",
+   "pos_cm": 640,
+   "b_cm": 45,
+   "h_cm": 70,
+   "unten_cm": 420
+  },
+  {
+   "seite": "E",
+   "pos_cm": 330,
+   "b_cm": 80,
+   "h_cm": 110,
+   "unten_cm": 395
+  },
+  {
+   "seite": "E",
+   "pos_cm": 560,
+   "b_cm": 80,
+   "h_cm": 110,
+   "unten_cm": 395
+  },
+  {
+   "seite": "E",
+   "pos_cm": 425,
+   "b_cm": 25,
+   "h_cm": 50,
+   "unten_cm": 700
+  }
+ ],
+ "kamin": {
+  "x_cm": 640,
+  "y_cm": 470,
+  "hoehe_cm": 560
+ },
+ "oeffnungen": [
+  {
+   "seite": "N",
+   "geschoss": 0,
+   "typ": "fenster",
+   "pos_cm": 220,
+   "b_cm": 100,
+   "h_cm": 130,
+   "bruestung_cm": 90,
+   "quelle": "Fotos 12.10. (6 Stk.) + App-Erkennung kant24v2",
+   "rollladen": 0.2
+  },
+  {
+   "seite": "N",
+   "geschoss": 0,
+   "typ": "fenster",
+   "pos_cm": 420,
+   "b_cm": 100,
+   "h_cm": 130,
+   "bruestung_cm": 90,
+   "quelle": "Fotos 12.10. (6 Stk.) + App-Erkennung kant24v2",
+   "rollladen": 0.2
+  },
+  {
+   "seite": "N",
+   "geschoss": 0,
+   "typ": "fenster",
+   "pos_cm": 680,
+   "b_cm": 100,
+   "h_cm": 130,
+   "bruestung_cm": 90,
+   "quelle": "INFERIERT",
+   "rollladen": 0.2
+  },
+  {
+   "seite": "S",
+   "geschoss": 0,
+   "typ": "haustuer",
+   "pos_cm": 820,
+   "b_cm": 100,
+   "h_cm": 215,
+   "bruestung_cm": 0,
+   "quelle": "Fotos 12.10. (6 Stk.) + App-Erkennung kant24v2",
+   "rollladen": 0.2
+  },
+  {
+   "seite": "S",
+   "geschoss": 0,
+   "typ": "fenster",
+   "pos_cm": 300,
+   "b_cm": 100,
+   "h_cm": 130,
+   "bruestung_cm": 90,
+   "quelle": "INFERIERT",
+   "rollladen": 0.2
+  },
+  {
+   "seite": "S",
+   "geschoss": 0,
+   "typ": "fenster",
+   "pos_cm": 560,
+   "b_cm": 100,
+   "h_cm": 130,
+   "bruestung_cm": 90,
+   "quelle": "INFERIERT",
+   "rollladen": 0.2
+  },
+  {
+   "seite": "W",
+   "geschoss": 0,
+   "typ": "fenster",
+   "pos_cm": 560,
+   "b_cm": 100,
+   "h_cm": 130,
+   "bruestung_cm": 90,
+   "quelle": "Fotos 12.10. (6 Stk.) + App-Erkennung kant24v2",
+   "rollladen": 0.2
+  },
+  {
+   "seite": "W",
+   "geschoss": 0,
+   "typ": "fenster",
+   "pos_cm": 260,
+   "b_cm": 100,
+   "h_cm": 130,
+   "bruestung_cm": 90,
+   "quelle": "INFERIERT",
+   "rollladen": 0.2
+  },
+  {
+   "seite": "E",
+   "geschoss": 0,
+   "typ": "fenster",
+   "pos_cm": 300,
+   "b_cm": 100,
+   "h_cm": 130,
+   "bruestung_cm": 90,
+   "quelle": "INFERIERT",
+   "rollladen": 0.2
+  },
+  {
+   "seite": "E",
+   "geschoss": 0,
+   "typ": "fenster",
+   "pos_cm": 600,
+   "b_cm": 100,
+   "h_cm": 130,
+   "bruestung_cm": 90,
+   "quelle": "INFERIERT",
+   "rollladen": 0.2
+  }
+ ],
+ "materialien": {
+  "fassade": "Putz weiss",
+  "dach": "Tonziegel braun",
+  "fenster": "Kunststoff weiss",
+  "tuer": "Holz"
+ },
+ "sockel_material": "putz",
+ "fenster_teilung": {
+  "fluegel_ab_cm": 125
+ },
+ "gelaende": {
+  "ecken_cm": {
+   "SW": 0,
+   "NW": 0,
+   "SE": 0,
+   "NE": 0
+  },
+  "quelle": "eben (Eckgrundstueck)"
+ },
+ "grundstueck": "M",
+ "treppe": true,
+ "treppe_x_cm": 700,
+ "details": true,
+ "keller": {
+  "tiefe_cm": 250,
+  "tueren": [],
+  "fenster": [],
+  "tore": []
+ },
+ "loggien": [],
+ "balkone": [],
+ "anbau_garagen": [],
+ "baeume": [],
+ "front_seite": "N",
+ "giebeltueren": [],
+ "dg_ausbau": true
+}
